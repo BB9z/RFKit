@@ -32,6 +32,8 @@ static RFKit *sharedInstance = nil;
 }
 
 - (void)dealloc {
+	[super dealloc];
+	
 	[self.timeTable release];
 }
 
@@ -347,7 +349,7 @@ static RFKit *sharedInstance = nil;
 + (NSString *)mainBundlePathForCaches {
 	static NSString * path =nil;
 	if (!path) {
-		path = [NSString stringWithFormat:[NSHomeDirectory() stringByAppendingPathComponent:@"/Library/Caches/"]];
+		path = [NSString stringWithString:[NSHomeDirectory() stringByAppendingPathComponent:@"/Library/Caches/"]];
 	}
 	return [path copy];
 }
@@ -355,7 +357,7 @@ static RFKit *sharedInstance = nil;
 + (NSString *)mainBundlePathForPreferences {
 	static NSString * path =nil;
 	if (!path) {
-		path = [NSString stringWithFormat:[NSHomeDirectory() stringByAppendingPathComponent:@"/Library/Preferences/"]];
+		path = [NSString stringWithString:[NSHomeDirectory() stringByAppendingPathComponent:@"/Library/Preferences/"]];
 	}
 	return [path copy];
 }
@@ -363,7 +365,7 @@ static RFKit *sharedInstance = nil;
 + (NSString *)mainBundlePathForDocuments {
 	static NSString * path =nil;
 	if (!path) {
-		path = [NSString stringWithFormat:[NSHomeDirectory() stringByAppendingPathComponent:@"/Documents/"]];
+		path = [NSString stringWithString:[NSHomeDirectory() stringByAppendingPathComponent:@"/Documents/"]];
 	}
 	return [path copy];
 }
@@ -371,7 +373,7 @@ static RFKit *sharedInstance = nil;
 + (NSString *)mainBundlePathForTemp {
 	static NSString * path =nil;
 	if (!path) {
-		path = [NSString stringWithFormat:[NSHomeDirectory() stringByAppendingPathComponent:@"/tmp/"]];
+		path = [NSString stringWithString:[NSHomeDirectory() stringByAppendingPathComponent:@"/tmp/"]];
 	}
 	return [path copy];
 }
