@@ -1,10 +1,12 @@
-/*!	RFKit
+/*!
  
+ RFKit - To be a usefull library for daily iOS develop.
  
- Readme
-	SystemConfiguration.framework NEEDED
+
+
+ SystemConfiguration.framework NEEDED
  
- */
+*/
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
@@ -16,10 +18,18 @@
 }
 @property(retain) NSMutableDictionary * timeTable;
 
+/** Returns the shared RFKit object.
+ 
+  @return The shared RFKit object.
+ */
 + (RFKit *)sharedKit;
 
-// 返回机器网卡物理地址
-// @REF http://iphonedevelopertips.com/device/determine-mac-address.html
+/** Get device's mac address
+ 
+ via: http://iphonedevelopertips.com/device/determine-mac-address.html
+ 
+ @return mac address
+ */
 + (NSString *)getMacAddress;
 
 // 打印内存信息
@@ -27,27 +37,49 @@
 + (void)logMemoryInfo;
 
 
-/** This is the second super-awesome method.
+/** Object release helper
  
- Note that there are additional cool things here, like [direct hyperlinks](http://www.cocoanetics.com)
+ 这是一个内存管理辅助函数
  
- @param number A parameter that is passed in, almost as cool as someMethodWithString:
- @return Whatever it returns.
- @see someMethodWithString:
- @warning *Warning:* A blue background.
- @bug *Bug:* A yellow background.
+ 释放多个对象的传统的写法：
+ 
+	［object1 release];
+	［object2 release];
+	［object3 release];
+ 
+ 现在，只需写成：
+ 
+	［RFKit rls:object1, object2, object3];
+ 
+ @param first at least one object
+ @param ... other objects to realse
  */
 + (void)rls:(id)first,...;
 	
 
+#pragma mark Timer
+/** ------------------
+ * @name 计时器
+ * ---------------------
+ */
 
-#pragma mark 计时器
-
-// 增加给定名称的时间点
+/** 增加给定名称的时间点
+ 
+ @param name Name of the time point
+ @return 当前时间
+ 
+ @test pass
+ */
 - (time_t)addTimePoint:(NSString *)name;
 
-// 返回两个时间点间的时间差
-// 参数不分先后
+/** 返回两个时间点间的时间差
+ 
+ 参数不分先后
+ 
+ @param name1 一个点的名字
+ @param name2 另一点的名字
+ @return 两点间时间差，单位秒
+ */
 - (float)timeBetween:(NSString *)name1 and:(NSString *)name2;
 @end
 
@@ -55,17 +87,41 @@
 #pragma mark NSString 扩展
 @interface NSString (extension)
 
-// NSString 反转
-// @TEST OK
+/** Reverse a NSString
+ 
+ @return String reversed
+ */
 - (NSString *)reverseString;
 
-- (NSString *)trimStringToWidthLength:(CGFloat)length WithFont:(UIFont *)font;
+/** 给定字体，屏幕长度，将字符串截断到指定长度
+ 
+ 这个方法不改变原始字符串
+ @param length 屏幕长度
+ @param font 计算所用字体
+ @return 符合长度的字符串
+ */
+- (NSString *)stringTrimToWidthLength:(CGFloat)length WithFont:(UIFont *)font;
 @end
 
 #pragma mark NSDateFormatter 扩展
 @interface NSDateFormatter (extension)
-
+/** 符合GMT格式的NSDateFormatter
+ 
+ 日期格式为 yyyy-MM-ddT HH:mm:ssZ
+ @return GMTFormatter
+ */
 + (NSDateFormatter *)GMTFormatter;
+
+/** This is the first super-awesome method.
+ 
+ You can also add lists, but have to keep an empty line between these blocks.
+ 
+ - One
+ - Two
+ - Three
+ 
+ @return Whatever it returns.
+ */
 + (NSDateFormatter *)currentLocaleFormatter;
 + (NSDateFormatter *)currentLocaleFormatterOnlyDate;
 
@@ -78,6 +134,7 @@
 - (UIImage *)renderToImage;
 
 // 互换宽高
+
 - (void)exhangeWidthHight;
 
 - (void)moveX:(CGFloat)x Y:(CGFloat)y;

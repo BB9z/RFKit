@@ -11,6 +11,11 @@
 // 消除 renderInContext 找不到的警告
 #import <QuartzCore/CALayer.h>
 
+@implementation RFKit (private)
+
+@end
+
+
 @implementation RFKit
 @synthesize timeTable;
 
@@ -25,7 +30,9 @@ static RFKit *sharedInstance = nil;
 - (RFKit *)init {
 	self = [super init];
 	if (self) {
-		self.timeTable = [[NSMutableDictionary alloc] initWithCapacity:20];
+		NSMutableDictionary *tmp = [[NSMutableDictionary alloc] initWithCapacity:20];
+		self.timeTable = tmp;
+		[tmp release];
 		timeBase = clock();
 	}
 	return self;
@@ -34,7 +41,7 @@ static RFKit *sharedInstance = nil;
 - (void)dealloc {
 	[super dealloc];
 	
-	[self.timeTable release];
+	self.timeTable = nil;
 }
 
 + (void)rls:(id)first,... {
@@ -173,11 +180,11 @@ static RFKit *sharedInstance = nil;
 	return reversedStr;
 }
 
-- (NSString *)trimStringToWidthLength:(CGFloat)length WithFont:(UIFont *)font {
+- (NSString *)stringTrimToWidthLength:(CGFloat)length WithFont:(UIFont *)font {
 	NSString * tmp = self;
 	CGFloat ctLength;
 	NSUInteger charNumToRemove;
-	CGFloat aLetterWidthSafe = [@"汉" sizeWithFont:font].width*1.2;
+	CGFloat aLetterWidthSafe = [@"汉" sizeWithFont:font].width*1.5;
 	bool trimed = false;
 	
 	while ((ctLength = [tmp sizeWithFont:font].width) > length) {
@@ -188,7 +195,7 @@ static RFKit *sharedInstance = nil;
 		tmp = [tmp substringToIndex:([tmp length] - charNumToRemove)];
 		trimed = true;
 	}
-	return trimed ? [NSString stringWithFormat:@"%@...", tmp] : self;
+	return trimed ? [[NSString stringWithFormat:@"%@...", tmp] autorelease] : [[self copy] autorelease];
 }
 
 
@@ -351,7 +358,7 @@ static RFKit *sharedInstance = nil;
 	if (!path) {
 		path = [NSString stringWithString:[NSHomeDirectory() stringByAppendingPathComponent:@"/Library/Caches/"]];
 	}
-	return [path copy];
+	return [[path copy] autorelease];
 }
 
 + (NSString *)mainBundlePathForPreferences {
@@ -359,7 +366,7 @@ static RFKit *sharedInstance = nil;
 	if (!path) {
 		path = [NSString stringWithString:[NSHomeDirectory() stringByAppendingPathComponent:@"/Library/Preferences/"]];
 	}
-	return [path copy];
+	return [[path copy] autorelease];
 }
 
 + (NSString *)mainBundlePathForDocuments {
@@ -367,7 +374,7 @@ static RFKit *sharedInstance = nil;
 	if (!path) {
 		path = [NSString stringWithString:[NSHomeDirectory() stringByAppendingPathComponent:@"/Documents/"]];
 	}
-	return [path copy];
+	return [[path copy] autorelease];
 }
 
 + (NSString *)mainBundlePathForTemp {
@@ -375,7 +382,7 @@ static RFKit *sharedInstance = nil;
 	if (!path) {
 		path = [NSString stringWithString:[NSHomeDirectory() stringByAppendingPathComponent:@"/tmp/"]];
 	}
-	return [path copy];
+	return [[path copy] autorelease];
 }
 
 @end
