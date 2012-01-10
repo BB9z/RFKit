@@ -63,7 +63,7 @@ static RFKit *sharedInstance = nil;
 	return t;
 }
 
-- (float)timeBetween:(NSString *)name1 and:(NSString *)name2{
+- (float)timeBetween:(NSString *)name1 another:(NSString *)name2{
 	float time1 = [(NSNumber *)[self.timeTable objectForKey:name1] floatValue];
 	float time2 = [(NSNumber *)[self.timeTable objectForKey:name2] floatValue];
 	float time = time1 - time2;

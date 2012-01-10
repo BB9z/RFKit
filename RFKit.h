@@ -80,7 +80,7 @@
  @param name2 另一点的名字
  @return 两点间时间差，单位秒
  */
-- (float)timeBetween:(NSString *)name1 and:(NSString *)name2;
+- (float)timeBetween:(NSString *)name1 another:(NSString *)name2;
 @end
 
 #pragma mark -
