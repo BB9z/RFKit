@@ -12,6 +12,7 @@
 	#define _douts(...)
 	#define _douto(...)
 	#define _dout_bool(...)
+	#define _dout_float(...)
 	#define _dout_rect(...)
 	#define _doutf(...)
 	#define _doutwork(...)
@@ -30,6 +31,9 @@
 	#define dout_bool(boolVar)	\
 		if(DEBUGOUT){NSLog(@"%s = %@",#boolVar,boolVar?@"YES":@"NO");}
 
+	#define dout_float(floatVar)	\
+		if(DEBUGOUT){NSLog(@"%s = %f",#floatVar,(float)floatVar);}
+
 	#define dout_rect(CGRect)	\
 		if(DEBUGOUT){NSLog(@"%s = {%f, %f,%f, %f}",#CGRect, CGRect.origin.x, CGRect.origin.y, CGRect.size.width, CGRect.size.height);}
 
@@ -46,6 +50,7 @@
 	#define douts(...)
 	#define douto(...)
 	#define dout_bool(...)
+	#define dout_float(...)
 	#define dout_rect(...)
 	#define doutf(...)
 	#define doutwork(...)
