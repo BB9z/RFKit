@@ -356,33 +356,33 @@ static RFKit *sharedInstance = nil;
 + (NSString *)mainBundlePathForCaches {
 	static NSString * path =nil;
 	if (!path) {
-		path = [NSString stringWithString:[NSHomeDirectory() stringByAppendingPathComponent:@"/Library/Caches/"]];
+		path = [[NSString alloc] initWithString:[NSHomeDirectory() stringByAppendingPathComponent:@"/Library/Caches/"]];
 	}
-	return [path copy];
+	return path;
 }
 
 + (NSString *)mainBundlePathForPreferences {
 	static NSString * path =nil;
 	if (!path) {
-		path = [NSString stringWithString:[NSHomeDirectory() stringByAppendingPathComponent:@"/Library/Preferences/"]];
+		path = [[NSString alloc] initWithString:[NSHomeDirectory() stringByAppendingPathComponent:@"/Library/Preferences/"]];
 	}
-	return [path copy];
+	return path;
 }
 
 + (NSString *)mainBundlePathForDocuments {
-	static NSString * path =nil;
+	static NSString * path;
 	if (!path) {
-		path = [NSString stringWithString:[NSHomeDirectory() stringByAppendingPathComponent:@"/Documents/"]];
+		path = [[NSString alloc] initWithString:[NSHomeDirectory() stringByAppendingPathComponent:@"/Documents/"]];
 	}
-	return [path copy];
+	return path;
 }
 
 + (NSString *)mainBundlePathForTemp {
 	static NSString * path =nil;
 	if (!path) {
-		path = [NSString stringWithString:[NSHomeDirectory() stringByAppendingPathComponent:@"/tmp/"]];
+		path = [[NSString alloc] initWithString:[NSHomeDirectory() stringByAppendingPathComponent:@"/tmp/"]];
 	}
-	return [path copy];
+	return path;
 }
 
 @end
