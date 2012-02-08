@@ -24,6 +24,7 @@
  */
 + (RFKit *)sharedKit;
 
+
 /** Get device's mac address
  
  via: http://iphonedevelopertips.com/device/determine-mac-address.html
@@ -32,22 +33,23 @@
  */
 + (NSString *)getMacAddress;
 
-// 打印内存信息
-// @REF http://www.keakon.net/2011/08/12/获取iOS设备的内存状况
+
+/** Print menory usage details
+ 
+ via http://www.keakon.net/2011/08/12/获取iOS设备的内存状况
+ */
 + (void)logMemoryInfo;
 
 
-/** Object release helper
+/** Tradition object release helper
  
- 这是一个内存管理辅助函数
- 
- 释放多个对象的传统的写法：
+Before we write:
  
 	［object1 release];
 	［object2 release];
 	［object3 release];
  
- 现在，只需写成：
+Now:
  
 	［RFKit rls:object1, object2, object3];
  
@@ -55,22 +57,18 @@
  @param ... other objects to realse
  */
 + (void)rls:(id)first,...;
-	
 
+
+/** @name 计时器 */
 #pragma mark Timer
-/** ------------------
- * @name 计时器
- * ---------------------
- */
 
 /** 增加给定名称的时间点
  
  @param name Name of the time point
  @return 当前时间
- 
- @test pass
  */
 - (time_t)addTimePoint:(NSString *)name;
+
 
 /** 返回两个时间点间的时间差
  
@@ -93,6 +91,7 @@
  */
 - (NSString *)reverseString;
 
+
 /** 给定字体，屏幕长度，将字符串截断到指定长度
  
  这个方法不改变原始字符串
@@ -112,16 +111,6 @@
  */
 + (NSDateFormatter *)GMTFormatter;
 
-/** This is the first super-awesome method.
- 
- You can also add lists, but have to keep an empty line between these blocks.
- 
- - One
- - Two
- - Three
- 
- @return Whatever it returns.
- */
 + (NSDateFormatter *)currentLocaleFormatter;
 + (NSDateFormatter *)currentLocaleFormatterOnlyDate;
 
@@ -133,12 +122,39 @@
 @interface UIView (extension)
 - (UIImage *)renderToImage;
 
-// 互换宽高
-
+/** Exchange a UIView`s width and Hight
+ */
 - (void)exhangeWidthHight;
 
+
+/** Move a UIView relative to it`s position.
+ 
+ @param x	X-axis distance to move
+ @param y	Y-axis distance to move
+ @see [UIView (extension) moveToX:Y:]
+ */
 - (void)moveX:(CGFloat)x Y:(CGFloat)y;
+
+
+/** Move a UIView relative to it`s 
+ 
+This method use frame setting new position. Set parameter equal to CGFLOAT_MAX if you don`t want move in that direction. 
+ 
+ @param x	New position on x-axis
+ @param y	New position on y-axis
+ @see  [UIView (extension) moveX:Y:]
+ */
 - (void)moveToX:(CGFloat)x Y:(CGFloat)y;
+
+
+/** Resize a UIView
+ 
+ Set parameter equal to CGFLOAT_MAX if you don`t want resize that direction.
+ 
+ @param width	New width
+ @param height	New height
+ */
+- (void)resizeWidth:(CGFloat)width height:(CGFloat)height;
 
 
 - (void)bringToFront;

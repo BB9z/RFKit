@@ -195,7 +195,7 @@ static RFKit *sharedInstance = nil;
 		tmp = [tmp substringToIndex:([tmp length] - charNumToRemove)];
 		trimed = true;
 	}
-	return trimed ? [[NSString stringWithFormat:@"%@...", tmp] autorelease] : [[self copy] autorelease];
+	return trimed ? [NSString stringWithFormat:@"%@...", tmp] : [[self copy] autorelease];
 }
 
 
@@ -259,10 +259,10 @@ static RFKit *sharedInstance = nil;
 }
 
 - (void)moveX:(CGFloat)x Y:(CGFloat)y {
-	CGRect tmp = self.frame;
-	tmp.origin.x += x;
-	tmp.origin.y += y;
-	self.frame = tmp;
+	CGPoint tmp = self.center;
+	tmp.x += x;
+	tmp.y += y;
+	self.center = tmp;
 }
 
 - (void)moveToX:(CGFloat)x Y:(CGFloat)y {
@@ -272,8 +272,15 @@ static RFKit *sharedInstance = nil;
 	self.frame = tmp;
 }
 
+- (void)resizeWidth:(CGFloat)width height:(CGFloat)height {
+	CGRect tmp = self.frame;
+	if (width  != CGFLOAT_MAX) tmp.size.width  = width;
+	if (height != CGFLOAT_MAX) tmp.size.height = height;
+	self.frame = tmp;
+}
+
 #pragma mark 视图层次管理
-// 获取当前在父视图中的层次index
+
 -(int)getSubviewIndex{
 	return [self.superview.subviews indexOfObject:self];
 }
