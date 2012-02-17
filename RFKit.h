@@ -82,6 +82,14 @@ Now:
 @end
 
 #pragma mark -
+#pragma mark NSObject 扩展
+@interface NSObject (extension)
+
+- (void)defaultFill:(id)test with:(id)value;
+
+@end
+
+#pragma mark -
 #pragma mark NSString 扩展
 @interface NSString (extension)
 
@@ -102,6 +110,13 @@ Now:
 - (NSString *)stringTrimToWidthLength:(CGFloat)length WithFont:(UIFont *)font;
 @end
 
+
+#pragma mark NSDictionary 扩展
+@interface NSDictionary (extension)
+- (id)objectForKey:(id)aKey defaultMarker:(id)anObject;
+@end
+
+
 #pragma mark NSDateFormatter 扩展
 @interface NSDateFormatter (extension)
 /** 符合GMT格式的NSDateFormatter
@@ -115,7 +130,6 @@ Now:
 + (NSDateFormatter *)currentLocaleFormatterOnlyDate;
 
 @end
-
 
 
 #pragma mark UIView 扩展

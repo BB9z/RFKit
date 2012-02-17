@@ -1,7 +1,5 @@
 #import "RFKit.h"
 
-#import "Reachability.h"
-
 #import <sys/socket.h>
 #import <sys/sysctl.h>
 #import <net/if.h>
@@ -11,7 +9,7 @@
 // 消除 renderInContext 找不到的警告
 #import <QuartzCore/CALayer.h>
 
-@implementation RFKit (private)
+@implementation RFKit (private_)
 
 @end
 
@@ -163,6 +161,29 @@ static RFKit *sharedInstance = nil;
 
 
 #pragma mark -
+#pragma mark NSObject 扩展
+@implementation NSObject (extension)
+
+- (void)defaultFill:(id)test with:(id)value {
+	if (test == nil || test == [NSNull null]) {
+		douts(@"test NULL in defaultFill")
+		test = value;
+	}
+}
+
+- (id)get:(id)test defaults:(id)value {
+	if (test == nil || test == [NSNull null]) {
+		return value;
+	}
+	else {
+		return test;
+	}
+}
+
+@end
+
+
+#pragma mark -
 #pragma mark NSString 扩展
 @implementation NSString (extension)
 
@@ -201,6 +222,18 @@ static RFKit *sharedInstance = nil;
 
 
 @end
+
+
+#pragma mark -
+#pragma mark NSDictionary 扩展
+@implementation NSDictionary (extension)
+
+- (id)objectForKey:(id)aKey defaultMarker:(id)anObject {
+	return [super get:[self objectForKey:aKey] defaults:anObject];
+}
+
+@end
+
 
 #pragma mark -
 #pragma mark NSDateFormatter 扩展

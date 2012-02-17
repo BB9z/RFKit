@@ -1,4 +1,0 @@
-Documentation set was installed to Xcode!
-
-Path: /Users/BB9z/Library/Developer/Shared/Documentation/DocSets/com.chinamobo.RFKit.docset
-Time: 2012-02-08 03:46:10 +0000
