@@ -11,6 +11,7 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import "dout.h"
+#import "RFMath.h"
 
 @interface RFKit : NSObject{
 	time_t timeBase;
@@ -171,6 +172,8 @@ This method use frame setting new position. Set parameter equal to CGFLOAT_MAX i
 - (void)resizeWidth:(CGFloat)width height:(CGFloat)height;
 
 
+- (void)removeAllSubviews;
+
 - (void)bringToFront;
 - (void)sentToBack;
 
@@ -205,6 +208,8 @@ This method use frame setting new position. Set parameter equal to CGFLOAT_MAX i
 #pragma mark UIImage 扩展
 @interface UIImage (extension)
 + (UIImage *)resourceName:(NSString *)PNGFileName;
++ (UIImage *)resourceName:(NSString *)fileName ofType:(NSString *)type;
+
 // @REF: http://stackoverflow.com/a/605385/945906
 - (UIImage*)imageByScalingAndCroppingForSize:(CGSize)targetSize;
 - (UIImage*)imageAspectFillSize:(CGSize)targetSize;

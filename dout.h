@@ -13,6 +13,8 @@
 	#define _douto(...)
 	#define _dout_bool(...)
 	#define _dout_float(...)
+	#define _dout_ponit(...)
+	#define _dout_size(...)
 	#define _dout_rect(...)
 	#define _doutf(...)
 	#define _doutwork(...)
@@ -32,7 +34,13 @@
 		if(DEBUGOUT){NSLog(@"%s = %@",#boolVar,boolVar?@"YES":@"NO");}
 
 	#define dout_float(floatVar)	\
-		if(DEBUGOUT){NSLog(@"%s = %f",#floatVar,(float)floatVar);}
+		if(DEBUGOUT){NSLog(@"%s = %f", #floatVar, (float)floatVar);}
+
+	#define dout_point(point_struct_with_x_y)	\
+		if(DEBUGOUT){NSLog(@"%s = {%f, %f}", #point_struct_with_x_y, (float)point_struct_with_x_y.x, point_struct_with_x_y.y);}
+
+	#define dout_size(size_struct_with_width_height)	\
+		if(DEBUGOUT){NSLog(@"%s = {%f, %f}", #size_struct_with_width_height, (float)size_struct_with_width_height.width, size_struct_with_width_height.height);}
 
 	#define dout_rect(CGRect)	\
 		if(DEBUGOUT){NSLog(@"%s = {%f, %f,%f, %f}",#CGRect, CGRect.origin.x, CGRect.origin.y, CGRect.size.width, CGRect.size.height);}
@@ -51,6 +59,8 @@
 	#define douto(...)
 	#define dout_bool(...)
 	#define dout_float(...)
+	#define dout_ponit(...)
+	#define dout_size(...)
 	#define dout_rect(...)
 	#define doutf(...)
 	#define doutwork(...)

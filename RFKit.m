@@ -314,6 +314,12 @@ static RFKit *sharedInstance = nil;
 
 #pragma mark 视图层次管理
 
+- (void)removeAllSubviews {
+	for (UIView * subview in self.subviews) {
+		[subview removeFromSuperview];
+	}
+}
+
 -(int)getSubviewIndex{
 	return [self.superview.subviews indexOfObject:self];
 }
@@ -432,6 +438,10 @@ static RFKit *sharedInstance = nil;
 @implementation UIImage (extension)
 + (UIImage *)resourceName:(NSString *)PNGFileName{
 	return [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:PNGFileName ofType:@"png"]];
+}
+
++ (UIImage *)resourceName:(NSString *)fileName ofType:(NSString *)type {
+	return [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:fileName ofType:type]];
 }
 
 - (UIImage*)imageByScalingAndCroppingForSize:(CGSize)targetSize

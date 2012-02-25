@@ -1,4 +1,4 @@
 # RFKit
-To be a usefull library for daily iOS develop.
+To be a useful library for daily iOS develop.
 
 Document not ready.
