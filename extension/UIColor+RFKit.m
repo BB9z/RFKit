@@ -18,10 +18,8 @@
 						   alpha:alpha];
 }
 
-+ (UIColor*)colorWithHex:(NSInteger)hexValue {
++ (UIColor*)colorWithRGBHex:(NSInteger)hexValue {
     return [UIColor colorWithRGBHex:hexValue alpha:1.0f];
 }
-
-
 
 @end
