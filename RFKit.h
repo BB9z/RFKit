@@ -9,6 +9,8 @@
 #import "dout.h"
 #import "RFMath.h"
 
+#import "UIColor+RFKit.h"
+
 @interface RFKit : NSObject{
 	time_t timeBase;
 	NSMutableDictionary * timeTable;
