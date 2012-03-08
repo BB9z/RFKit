@@ -11,6 +11,17 @@
 
 #import "UIColor+RFKit.h"
 
+typedef enum {
+	RFViewResizeOptionNone		= 0,
+	RFViewResizeOptionFill		= 1,
+	RFViewResizeOptionAspectFill= 2,
+	RFViewResizeOptionAspectFit	= 3,
+	RFViewResizeOptionOnlyWidth	= 6,
+	RFViewResizeOptionOnlyHeight= 7,
+	RFViewResizeOptionCenter	= 11,
+} RFViewResizeOption;
+
+
 @interface RFKit : NSObject{
 	time_t timeBase;
 	NSMutableDictionary * timeTable;
@@ -130,7 +141,6 @@ Now:
 
 @end
 
-
 #pragma mark UIView 扩展
 @interface UIView (extension)
 - (UIImage *)renderToImage;
@@ -169,7 +179,8 @@ This method use frame setting new position. Set parameter equal to CGFLOAT_MAX i
  */
 - (void)resizeWidth:(CGFloat)width height:(CGFloat)height;
 
-
+- (void)addSubview:(UIView *)view frame:(CGRect)rect;
+- (void)addSubview:(UIView *)view resizeOption:(RFViewResizeOption)option;
 - (void)removeAllSubviews;
 
 - (void)bringAboveView:(UIView *)aView;

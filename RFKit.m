@@ -313,6 +313,70 @@ static RFKit *sharedInstance = nil;
 }
 
 #pragma mark 视图层次管理
+- (void)addSubview:(UIView *)view frame:(CGRect)rect {
+	[self addSubview:view];
+	view.frame = rect;
+}
+
+- (void)addSubview:(UIView *)view resizeOption:(RFViewResizeOption)option {
+	[self addSubview:view];
+	float aspect;
+	float aspectSelf;
+	CGFloat wSelf = self.bounds.size.width;
+	CGFloat hSelf = self.bounds.size.height;
+	CGFloat wView = view.bounds.size.width;
+	CGFloat hView = view.bounds.size.height;
+	
+	switch (option) {
+		case RFViewResizeOptionFill:
+			view.frame = self.bounds;
+			break;
+			
+		case RFViewResizeOptionAspectFill:
+			aspect = view.bounds.size.width / view.bounds.size.height;
+			aspectSelf = wSelf / hSelf;
+			if (aspectSelf > aspect) {
+				// fit width
+				hView = hView*wSelf/wView;
+				view.frame = CGRectMake(0, (hSelf - hView)/2, wSelf, hView);
+			}
+			else {
+				wView = wView*hSelf/hView;
+				view.frame = CGRectMake((wSelf - wView)/2, 0, wView, hSelf);
+			}
+			break;
+			
+		case RFViewResizeOptionAspectFit:
+			aspect = view.bounds.size.width / view.bounds.size.height;
+			aspectSelf = wSelf / hSelf;
+			if (aspectSelf > aspect) {
+				// fit height
+				wView = wView*hSelf/hView;
+				view.frame = CGRectMake((wSelf - wView)/2, 0, wView, hSelf);
+			}
+			else {
+				hView = hView*wSelf/wView;
+				view.frame = CGRectMake(0, (hSelf - hView)/2, wSelf, hView);
+			}
+			break;
+			
+		case RFViewResizeOptionOnlyWidth:
+			view.frame = CGRectMake(0, (hSelf - hView)/2, hSelf, wView);
+			break;
+			
+		case RFViewResizeOptionOnlyHeight:
+			view.frame = CGRectMake((wSelf- wView)/2, 0, wView, hSelf);
+			break;
+			
+		case RFViewResizeOptionCenter:
+			view.center = self.center;
+			return;
+			break;
+			
+		default:
+			break;
+	}
+}
 
 - (void)removeAllSubviews {
 	for (UIView * subview in self.subviews) {
