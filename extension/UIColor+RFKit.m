@@ -11,15 +11,35 @@
 					   alpha:alpha];
 }
 
-+ (UIColor*)colorWithRGBHex:(NSInteger)hexValue alpha:(CGFloat)alpha {
++ (UIColor *)colorWithRGBHex:(NSInteger)hexValue alpha:(CGFloat)alpha {
     return [UIColor colorWithRed:((hexValue & 0xFF0000) >> 16)/255.0f 
 						   green:((hexValue & 0xFF00) >> 8)/255.0f
 							blue:(hexValue & 0xFF)/255.0f 
 						   alpha:alpha];
 }
 
-+ (UIColor*)colorWithRGBHex:(NSInteger)hexValue {
++ (UIColor *)colorWithRGBHex:(NSInteger)hexValue {
     return [UIColor colorWithRGBHex:hexValue alpha:1.0f];
 }
 
+
++ (UIColor *)colorWithRGBString:(NSString *)nsstring {
+	NSUInteger length = nsstring.length-1;
+//	if (length != 3 && length != 6 ) return [UIColor clearColor];
+	if (length != 6 ) return [UIColor clearColor];
+	if ([nsstring characterAtIndex:0] != '#') return [UIColor clearColor];
+	int color;
+	sscanf([nsstring UTF8String], "#%x", &color);
+	return [UIColor colorWithRGBHex:color];
+}
+
++ (UIColor *)colorWithRGBString:(NSString *)nsstring alpha:(CGFloat)alpha {
+	NSUInteger length = nsstring.length-1;
+	//	if (length != 3 && length != 6 ) return [UIColor clearColor];
+	if (length != 6 ) return [UIColor clearColor];
+	if ([nsstring characterAtIndex:0] != '#') return [UIColor clearColor];
+	int color;
+	sscanf([nsstring UTF8String], "#%x", &color);
+	return [UIColor colorWithRGBHex:color alpha:alpha];
+}
 @end

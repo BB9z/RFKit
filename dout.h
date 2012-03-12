@@ -5,22 +5,23 @@
 #pragma mark -
 #pragma mark Debug output kit
 
+#define _dout(...)
+#define _douts(...)
+#define _douto(...)
+#define _dout_bool(...)
+#define _dout_float(...)
+#define _dout_ponit(...)
+#define _dout_size(...)
+#define _dout_rect(...)
+#define _doutf(...)
+#define _doutwork(...)
+
+#define DOUT_START if(DEBUGOUT){
+#define DOUT_END }
+
+
 #ifndef DEBUGOUT
 	#define DEBUGOUT 1
-
-	#define _dout(...)
-	#define _douts(...)
-	#define _douto(...)
-	#define _dout_bool(...)
-	#define _dout_float(...)
-	#define _dout_ponit(...)
-	#define _dout_size(...)
-	#define _dout_rect(...)
-	#define _doutf(...)
-	#define _doutwork(...)
-
-	#define DOUT_START if(DEBUGOUT){
-	#define DOUT_END }
 #endif
 
 #if DEBUGOUT
@@ -53,6 +54,9 @@
 
 //#define doutf(s,...)	\
 //	if(DEBUGOUT){NSLog(@"%@",[[NSString stringWithFormat:@"%s %s %d: ",__FUNCTION__,__FILE__,__LINE__] stringByAppendingFormat:s,...])}
+	#define DAUTORELEASEPOOL_START	@autoreleasepool{
+	#define DAUTORELEASEPOOL_END	}
+
 #else
 	#define dout(...)
 	#define douts(...)
@@ -64,6 +68,8 @@
 	#define dout_rect(...)
 	#define doutf(...)
 	#define doutwork(...)
+	#define DAUTORELEASEPOOL_START
+	#define DAUTORELEASEPOOL_END
 #endif
 
 #endif

@@ -67,7 +67,7 @@
 
 - (UIImage *)imageAspectFillSize:(CGSize)targetSize{
 	if (CGSizeEqualToSize(self.size, targetSize)) {
-		return [[self copy] autorelease];
+		return [self copy];
 	}
 	
 	CGFloat xSource = self.size.width;
