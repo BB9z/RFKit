@@ -2,9 +2,8 @@
 
 @implementation NSObject (RFKit)
 
-- (void)defaultFill:(id)test with:(id)value {
++ (void)defaultFill:(id)test with:(id)value {
 	if (test == nil || test == [NSNull null]) {
-		douts(@"test NULL in defaultFill")
 		test = value;
 	}
 }
