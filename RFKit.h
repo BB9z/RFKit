@@ -64,12 +64,15 @@ Before we write:
  
 Now:
  
-	［RFKit rls:object1, object2, object3];
+	［RFKit rls:object1, object2, object3, nil];
  
  @param first at least one object
  @param ... other objects to realse
  */
+/// Deprecated
 + (void)rls:(id)first,...;
+
++ (void)performBlock:(void (^)(id))block afterDelay:(NSTimeInterval)delay on:(id)object,...;
 
 
 /** @name 计时器 */
@@ -198,3 +201,8 @@ Now:
 - (void)setResourceImage:(NSString *)imageName background:(NSString *)backGroundImageName;
 
 @end
+
+// compiler sets __ENVIRONMENT_IPHONE_OS_VERSION_MIN_REQUIRED__ when -miphoneos-version-min is used
+//#define __ENVIRONMENT_IPHONE_OS_VERSION_MIN_REQUIRED__ __IPHONE_4_3
+//
+
