@@ -135,6 +135,7 @@ Now:
 @end
 
 @interface UIView (RFKit)
+- (BOOL)isVisible;
 
 - (UIImage *)renderToImage;
 

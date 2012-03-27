@@ -5,8 +5,20 @@
 
 @implementation UIView (RFKit)
 
-- (UIImage *)renderToImage
-{
+- (BOOL)isVisible {
+	douto(self)
+	dout_bool(self.hidden)
+	dout_float(self.alpha)
+	if (self.hidden == YES || self.alpha == 0.f) {
+		return NO;
+	}
+	else {
+		CGRect boundsInWindow = [self convertRect:self.bounds toView:nil];
+		return CGRectIsOutOfRect(boundsInWindow, [UIScreen mainScreen].bounds);
+	}
+}
+
+- (UIImage *)renderToImage {
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, [[UIScreen mainScreen] scale]);
     [self.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage * img = UIGraphicsGetImageFromCurrentImageContext();
@@ -16,7 +28,7 @@
 
 #pragma mark 视图位置／尺寸
 
--(void)exhangeWidthHight{
+-(void)exhangeWidthHight {
 	CGRect tmp = self.bounds;
 	self.frame = CGRectMake(tmp.origin.x, tmp.origin.y, tmp.size.height, tmp.size.width);
 }
