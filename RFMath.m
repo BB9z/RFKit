@@ -3,7 +3,6 @@
 #import <stdio.h>
 
 
-
 CGPoint CGPointMid(CGPoint a, CGPoint b) {
 	return CGPointMake((a.x+b.x)/2, (a.y+b.y)/2);
 }
@@ -36,9 +35,23 @@ CGRect CGRectScaled(CGRect original, float scale) {
 	return CGRectMake(mx, my, w, h);
 }
 
+bool CGRectIsOutOfRect(CGRect a, CGRect b) {
+//	dout_rect(a)
+//	dout_rect(b)
+	if (a.origin.x + a.size.width < b.origin.x ||
+		a.origin.x > b.origin.x + b.size.width ||
+		a.origin.y + a.size.height < b.origin.y ||
+		a.origin.y > b.origin.y + b.size.height) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
 CGAngle CGAngleFromPoints(CGPoint start, CGPoint end) {
-	float t = atan2f(end.y-start.y, end.x-start.x);
-	dout_float(CGAngleDegrees(t))
+//	float t = atan2f(end.y-start.y, end.x-start.x);
+//	dout_float(CGAngleDegrees(t))
 	return atan2f(end.y-start.y, end.x-start.x);
 }
 
