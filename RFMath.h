@@ -21,6 +21,7 @@ CGSize	CGSizeScaled	(CGSize original, float scale);
 
 // center not changed
 CGRect	CGRectScaled(CGRect original, float scale);
+bool CGRectIsOutOfRect(CGRect a, CGRect b);
 
 CGAngle	CGAngleFromPoints(CGPoint start, CGPoint end);
 float	CGAngleDegrees	(CGAngle a);
