@@ -1,4 +1,4 @@
-#import "UIView+RFKit.h"
+#import "RFKit.h"
 
 // Eliminate CALayer forward declaration warning
 #import <QuartzCore/CALayer.h>
