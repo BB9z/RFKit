@@ -2,10 +2,15 @@
 	RFKit
 	To be a usefull library for daily iOS develop.
  
+	https://github.com/BB9z/RFKit
+ 
+	The MIT License
+	http://www.opensource.org/licenses/mit-license.php
 */
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+
 #import "dout.h"
 #import "RFMath.h"
 

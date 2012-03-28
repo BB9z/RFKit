@@ -5,8 +5,8 @@
 
 
 
-#ifndef RFUI_Example_RFMath_h
-#define RFUI_Example_RFMath_h
+#ifndef RFKit_RFMath_h
+#define RFKit_RFMath_h
 
 // radian measure
 typedef float CGAngle;
