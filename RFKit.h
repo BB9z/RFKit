@@ -121,7 +121,7 @@ Before we write:
  
 Now:
  
-	［RFKit rls:object1, object2, object3];
+	［RFKit rls:object1, object2, object3, nil];
  
  @param first at least one object
  @param ... other objects to realse

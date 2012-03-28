@@ -6,7 +6,7 @@
 #import <net/if_dl.h>
 #import <mach/mach.h>
 
-@implementation RFKit (private_)
+@interface RFKit (/* private */)
 
 @end
 
@@ -17,7 +17,11 @@
 static RFKit *sharedInstance = nil;
 + (RFKit *)sharedKit {
 	if (sharedInstance == nil) {
-		sharedInstance = [[self alloc] init];
+		@synchronized(sharedInstance) {
+			if (sharedInstance == nil) {
+				sharedInstance = [[self alloc] init];
+			}
+		}
 	}
 	return sharedInstance;
 }
@@ -134,7 +138,7 @@ static RFKit *sharedInstance = nil;
 	NSString *macAddressString = [NSString stringWithFormat:@"%02X:%02X:%02X:%02X:%02X:%02X", 
 								  macAddress[0], macAddress[1], macAddress[2], 
 								  macAddress[3], macAddress[4], macAddress[5]];
-	dout(@"Mac Address: %@", macAddressString);
+	_dout(@"Mac Address: %@", macAddressString);
 	
 	// Release the buffer memory
 	free(msgBuffer);
@@ -235,7 +239,7 @@ static RFKit *sharedInstance = nil;
 @implementation NSFileManager (extension)
 - (NSArray *)subDirectoryOfDirectoryAtPath:(NSString *)path error:(NSError **)error{
 	NSMutableArray * sub = [NSMutableArray arrayWithArray:[self contentsOfDirectoryAtPath:path error:error]];
-	douto(sub)
+	_douto(sub)
 	
 	BOOL isDir = false;
 	NSString * tmpPath = nil;
@@ -250,7 +254,7 @@ static RFKit *sharedInstance = nil;
 		}
 		
 	}
-	douto(sub)
+	_douto(sub)
 	return [NSArray arrayWithArray:sub];
 }
 @end
