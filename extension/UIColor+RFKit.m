@@ -22,4 +22,24 @@
     return [UIColor colorWithRGBHex:hexValue alpha:1.0f];
 }
 
+
++ (UIColor *)colorWithRGBString:(NSString *)nsstring {
+	NSUInteger length = nsstring.length-1;
+//	if (length != 3 && length != 6 ) return [UIColor clearColor];
+	if (length != 6 ) return [UIColor clearColor];
+	if ([nsstring characterAtIndex:0] != '#') return [UIColor clearColor];
+	int color;
+	sscanf([nsstring UTF8String], "#%x", &color);
+	return [UIColor colorWithRGBHex:color];
+}
+
++ (UIColor *)colorWithRGBString:(NSString *)nsstring alpha:(CGFloat)alpha {
+	NSUInteger length = nsstring.length-1;
+	//	if (length != 3 && length != 6 ) return [UIColor clearColor];
+	if (length != 6 ) return [UIColor clearColor];
+	if ([nsstring characterAtIndex:0] != '#') return [UIColor clearColor];
+	int color;
+	sscanf([nsstring UTF8String], "#%x", &color);
+	return [UIColor colorWithRGBHex:color alpha:alpha];
+}
 @end
