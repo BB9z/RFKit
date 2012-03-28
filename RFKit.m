@@ -27,23 +27,34 @@ static RFKit *sharedInstance = nil;
 	if (self) {
 		NSMutableDictionary *tmp = [[NSMutableDictionary alloc] initWithCapacity:20];
 		self.timeTable = tmp;
-		[tmp release];
+		RF_RELEASE_OBJ(tmp)
 		timeBase = clock();
 	}
 	return self;
 }
 
 - (void)dealloc {
-	[super dealloc];
-	
 	self.timeTable = nil;
+	
+	RF_DEALLOC_OBJ(super)
 }
 
 + (void)rls:(id)first,... {
 	va_list ap;
 	va_start(ap, first);
-	for (id obj=first; obj!=nil; obj = va_arg(ap, id))
-		[obj release];
+	for (id obj = first; obj != nil; obj = va_arg(ap, id))
+		RF_RELEASE_OBJ(obj)
+	va_end(ap);
+}
+
++ (void)performBlock:(void (^)(id))block afterDelay:(NSTimeInterval)delay on:(id)firstObject,... {
+	va_list ap;
+	va_start(ap, firstObject);
+	for (id obj = firstObject; obj != nil; obj = va_arg(ap, id)) {
+		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * delay), dispatch_get_main_queue(), ^{
+			block(obj);
+		});
+	}
 	va_end(ap);
 }
 
@@ -54,7 +65,7 @@ static RFKit *sharedInstance = nil;
 		dout(@"Warning: A time point with the same name already existed.");
 	}
 	[self.timeTable setObject:tmpTime forKey:name];
-	[tmpTime release];
+	RF_RELEASE_OBJ(tmpTime);
 	return t;
 }
 
@@ -179,7 +190,7 @@ static RFKit *sharedInstance = nil;
 		[share setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"];
 		[share setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
 	}
-	return [[share copy] autorelease];
+	return RF_AUTORELEASE([share copy]);
 }
 
 + (NSDateFormatter *)currentLocaleFormatter {
@@ -189,7 +200,7 @@ static RFKit *sharedInstance = nil;
 		[share setLocale:[NSLocale currentLocale]];
 		[share setDateFormat:@"yyyy'-'MM'-'dd' 'HH':'mm':'ss'"];
 	}
-	return [[share copy] autorelease];
+	return RF_AUTORELEASE([share copy]);
 }
 
 + (NSDateFormatter *)currentLocaleFormatterOnlyDate {
@@ -199,7 +210,7 @@ static RFKit *sharedInstance = nil;
 		[share setLocale:[NSLocale currentLocale]];
 		[share setDateFormat:@"yyyy'-'MM'-'dd'"];
 	}
-	return [[share copy] autorelease];
+	return RF_AUTORELEASE([share copy]);
 }
 
 @end
@@ -213,7 +224,7 @@ static RFKit *sharedInstance = nil;
 	self.title = title;
 	UIBarButtonItem * tmpBack = [[UIBarButtonItem alloc] initWithTitle:backTitle style:UIBarButtonItemStylePlain target:self action:nil];
 	self.navigationItem.backBarButtonItem = tmpBack;
-	[tmpBack release];
+	RF_RELEASE_OBJ(tmpBack);
 }
 
 @end
