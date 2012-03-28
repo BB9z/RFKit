@@ -126,7 +126,10 @@ Now:
  @param first at least one object
  @param ... other objects to realse
  */
+/// Deprecated
 + (void)rls:(id)first,...;
+
++ (void)performBlock:(void (^)(id))block afterDelay:(NSTimeInterval)delay on:(id)object,...;
 
 
 /** @name 计时器 */
