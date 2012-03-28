@@ -8,6 +8,9 @@
 	http://www.opensource.org/licenses/mit-license.php
 */
 
+#ifndef RFKit_h
+#define RFKit_h 0.1.0
+
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
@@ -262,3 +265,5 @@ Now:
 // compiler sets __ENVIRONMENT_IPHONE_OS_VERSION_MIN_REQUIRED__ when -miphoneos-version-min is used
 //#define __ENVIRONMENT_IPHONE_OS_VERSION_MIN_REQUIRED__ __IPHONE_4_3
 //
+
+#endif
