@@ -2,10 +2,15 @@
 	RFKit
 	To be a usefull library for daily iOS develop.
  
+	https://github.com/BB9z/RFKit
+ 
+	The MIT License
+	http://www.opensource.org/licenses/mit-license.php
 */
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+
 #import "dout.h"
 #import "RFMath.h"
 
@@ -13,6 +18,59 @@
 #import "NSString+RFKit.h"
 #import "UIColor+RFKit.h"
 #import "UIImage+RFKit.h"
+
+#pragma mark -
+#pragma mark ARC Compatible Macro
+
+#if __has_feature(objc_arc)
+	#define RF_AUTORELEASE(exp)	exp
+	#define RF_RELEASE(exp)		exp
+	#define RF_RETAIN(exp)		exp
+	#define RF_DEALLOC(exp)		exp
+
+	#define RF_AUTORELEASE_OBJ(obj)
+	#define RF_RELEASE_OBJ(obj)
+	#define RF_RETAIN_OBJ(obj)
+	#define RF_DEALLOC_OBJ(obj)
+#else
+	#define RF_AUTORELEASE(exp)	[exp autorelease]
+	#define RF_RELEASE(exp)		[exp release]
+	#define RF_RETAIN(exp)		[exp retain]
+	#define RF_DEALLOC(exp)		[exp dealloc]
+
+	#define RF_AUTORELEASE_OBJ(obj)	[obj autorelease];
+	#define RF_RELEASE_OBJ(obj)		[obj release];
+	#define RF_RETAIN_OBJ(obj)		[obj retain];
+	#define RF_DEALLOC_OBJ(obj)		[obj dealloc];
+#endif
+
+#ifndef RF_STRONG
+	#if __has_feature(objc_arc)
+		#define RF_STRONG strong
+	#else
+		#define RF_STRONG retain
+	#endif
+#endif
+
+#ifndef RF_WEAK
+	#if __has_feature(objc_arc_weak)
+		#define RF_WEAK weak
+	#elif __has_feature(objc_arc)
+		#define RF_WEAK unsafe_unretained
+	#else
+		#define RF_WEAK assign
+	#endif
+#endif
+
+#if !__has_feature(objc_arc)
+	#define RF_IF_NO_ARC 
+	#define RF_IF_NO_ARC_END
+#else 
+	#define RF_IF_NO_ARC	 if(0){
+	#define RF_IF_NO_ARC_END }
+#endif
+
+#pragma mark -
 
 typedef enum {
 	RFViewResizeOptionNone		= 0,
@@ -27,9 +85,8 @@ typedef enum {
 
 @interface RFKit : NSObject{
 	time_t timeBase;
-	NSMutableDictionary * timeTable;
 }
-@property(retain) NSMutableDictionary * timeTable;
+@property(RF_STRONG) NSMutableDictionary * timeTable;
 
 /** Returns the shared RFKit object.
 
@@ -205,4 +262,3 @@ Now:
 // compiler sets __ENVIRONMENT_IPHONE_OS_VERSION_MIN_REQUIRED__ when -miphoneos-version-min is used
 //#define __ENVIRONMENT_IPHONE_OS_VERSION_MIN_REQUIRED__ __IPHONE_4_3
 //
-

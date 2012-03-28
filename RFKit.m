@@ -17,7 +17,11 @@
 static RFKit *sharedInstance = nil;
 + (RFKit *)sharedKit {
 	if (sharedInstance == nil) {
-		sharedInstance = [[self alloc] init];
+		@synchronized(sharedInstance) {
+			if (sharedInstance == nil) {
+				sharedInstance = [[self alloc] init];
+			}
+		}
 	}
 	return sharedInstance;
 }
@@ -27,23 +31,23 @@ static RFKit *sharedInstance = nil;
 	if (self) {
 		NSMutableDictionary *tmp = [[NSMutableDictionary alloc] initWithCapacity:20];
 		self.timeTable = tmp;
-		[tmp release];
+		RF_RELEASE_OBJ(tmp)
 		timeBase = clock();
 	}
 	return self;
 }
 
 - (void)dealloc {
-	[super dealloc];
-	
 	self.timeTable = nil;
+	
+	RF_DEALLOC_OBJ(super)
 }
 
 + (void)rls:(id)first,... {
 	va_list ap;
 	va_start(ap, first);
 	for (id obj = first; obj != nil; obj = va_arg(ap, id))
-		[obj release];
+		RF_RELEASE_OBJ(obj)
 	va_end(ap);
 }
 
@@ -65,7 +69,7 @@ static RFKit *sharedInstance = nil;
 		dout(@"Warning: A time point with the same name already existed.");
 	}
 	[self.timeTable setObject:tmpTime forKey:name];
-	[tmpTime release];
+	RF_RELEASE_OBJ(tmpTime);
 	return t;
 }
 
@@ -134,7 +138,7 @@ static RFKit *sharedInstance = nil;
 	NSString *macAddressString = [NSString stringWithFormat:@"%02X:%02X:%02X:%02X:%02X:%02X", 
 								  macAddress[0], macAddress[1], macAddress[2], 
 								  macAddress[3], macAddress[4], macAddress[5]];
-	dout(@"Mac Address: %@", macAddressString);
+	_dout(@"Mac Address: %@", macAddressString);
 	
 	// Release the buffer memory
 	free(msgBuffer);
@@ -190,7 +194,7 @@ static RFKit *sharedInstance = nil;
 		[share setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"];
 		[share setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
 	}
-	return [[share copy] autorelease];
+	return RF_AUTORELEASE([share copy]);
 }
 
 + (NSDateFormatter *)currentLocaleFormatter {
@@ -200,7 +204,7 @@ static RFKit *sharedInstance = nil;
 		[share setLocale:[NSLocale currentLocale]];
 		[share setDateFormat:@"yyyy'-'MM'-'dd' 'HH':'mm':'ss'"];
 	}
-	return [[share copy] autorelease];
+	return RF_AUTORELEASE([share copy]);
 }
 
 + (NSDateFormatter *)currentLocaleFormatterOnlyDate {
@@ -210,7 +214,7 @@ static RFKit *sharedInstance = nil;
 		[share setLocale:[NSLocale currentLocale]];
 		[share setDateFormat:@"yyyy'-'MM'-'dd'"];
 	}
-	return [[share copy] autorelease];
+	return RF_AUTORELEASE([share copy]);
 }
 
 @end
@@ -224,7 +228,7 @@ static RFKit *sharedInstance = nil;
 	self.title = title;
 	UIBarButtonItem * tmpBack = [[UIBarButtonItem alloc] initWithTitle:backTitle style:UIBarButtonItemStylePlain target:self action:nil];
 	self.navigationItem.backBarButtonItem = tmpBack;
-	[tmpBack release];
+	RF_RELEASE_OBJ(tmpBack);
 }
 
 @end
@@ -235,7 +239,7 @@ static RFKit *sharedInstance = nil;
 @implementation NSFileManager (extension)
 - (NSArray *)subDirectoryOfDirectoryAtPath:(NSString *)path error:(NSError **)error{
 	NSMutableArray * sub = [NSMutableArray arrayWithArray:[self contentsOfDirectoryAtPath:path error:error]];
-	douto(sub)
+	_douto(sub)
 	
 	BOOL isDir = false;
 	NSString * tmpPath = nil;
@@ -250,7 +254,7 @@ static RFKit *sharedInstance = nil;
 		}
 		
 	}
-	douto(sub)
+	_douto(sub)
 	return [NSArray arrayWithArray:sub];
 }
 @end
