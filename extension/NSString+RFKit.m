@@ -31,7 +31,8 @@
 		tmp = [tmp substringToIndex:([tmp length] - charNumToRemove)];
 		trimed = true;
 	}
-	return trimed ? [NSString stringWithFormat:@"%@...", tmp] : [[self copy] autorelease];
+
+	return trimed ? [NSString stringWithFormat:@"%@...", tmp] : RF_AUTORELEASE([self copy]);
 }
 
 @end
