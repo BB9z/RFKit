@@ -35,6 +35,28 @@ CGRect CGRectScaled(CGRect original, float scale) {
 	return CGRectMake(mx, my, w, h);
 }
 
+CGRect CGRectChange(CGRect original, RFCGRectChangeFlag flag, CGFloat newValue) {
+	CGRect rect = original;
+	switch (flag) {
+		case RFCGRectChangeX:
+			rect.origin.x = newValue;
+			break;
+			
+		case RFCGRectChangeY:
+			rect.origin.y = newValue;
+			break;
+		
+		case RFCGRectChangeWidth:
+			rect.size.width = newValue;
+			break;
+			
+		case RFCGRectChangeHeight:
+			rect.size.height = newValue;
+			break;
+	}
+	return rect;
+}
+
 bool CGRectIsOutOfRect(CGRect a, CGRect b) {
 //	dout_rect(a)
 //	dout_rect(b)
