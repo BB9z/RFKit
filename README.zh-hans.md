@@ -8,6 +8,34 @@ RFKit是为日常iOS开发打造的一个辅助工具库。
 
 以`_dout`开头的宏不起作用，这是为了便于用替换的方式批量控制调试信息的输出。
 
+### 宏开关
+* DEBUGOUT
+	
+	用于控制dout是否输出，默认为1
+	 
+	
+* DOUT_FALG_TRACE
+
+	开启该flag后，每条dout输出都会增加帮助定位dout语句的信息。默认为0
+	
+* DOUT_TRACE_FORMATTER
+
+	DOUT_FALG_TRACE开启后，辅助定位信息的格式，格式为NSString
+
+### dout 函数
+`dout(format,…)`
+
+`douto()` - NSObject, `dout_bool()`, `dout_float()`, `dout_point()`, `dout_size()`, `dout_rect()`, `douts()` - NSString
+
+`doutwork()`
+
+`douttrace()` - print callStackSymbols
+
+### dout 块
+* DOUT_START, DOUT_END
+* DAUTORELEASEPOOL_START, DAUTORELEASEPOOL_END
+
+
 ## 类扩展
 ### NSObject
 * Block支持，基于[BlockKit](https://github.com/zwaldowski/BlocksKit)
