@@ -267,3 +267,10 @@ Now:
 //
 
 #endif
+
+#define RFKit_RUN_ONCE_START \
+	static bool RFKit_run_once_flag = false; \
+	if (!RFKit_run_once_flag) { \
+		RFKit_run_once_flag = true;
+
+#define RFKit_RUN_ONCE_END }

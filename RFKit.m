@@ -296,6 +296,3 @@ static RFKit *sharedInstance = nil;
 }
 
 @end
-
-
-
