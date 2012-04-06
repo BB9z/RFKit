@@ -2,7 +2,7 @@
 	Debug output kit(dout)
 	RFKit
 
-	ver 1.0.0
+	ver 1.0.1
  */
 
 #ifndef _DOUT_H_
@@ -45,13 +45,14 @@
 #define _douto(...)
 #define _dout_bool(...)
 #define _dout_float(...)
-#define _dout_ponit(...)
+#define _dout_point(...)
 #define _dout_size(...)
 #define _dout_rect(...)
 #define _doutf(...)
 #define _doutwork(...)
+#define _douttrace(...)
 
-
+/// main
 #if DEBUGOUT
 	#define dout(format,...)		\
 		if(DEBUGOUT){NSLog(format,##__VA_ARGS__);}
