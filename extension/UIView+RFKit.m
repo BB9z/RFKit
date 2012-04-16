@@ -120,6 +120,15 @@
 	}
 }
 
+- (void)removeSubview:(UIView *)view {
+    if ([self.subviews indexOfObject:view]) {
+        [view removeFromSuperview];
+    }
+    else {
+        douts(@"Warning: RFKit [UIView removeSubview] 父视图没有指定的子视图")
+    }
+}
+
 - (void)removeAllSubviews {
 	for (UIView * subview in self.subviews) {
 		[subview removeFromSuperview];
