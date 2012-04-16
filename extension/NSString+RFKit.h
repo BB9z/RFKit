@@ -3,9 +3,12 @@
  NSString extension
  */
 
+#import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
 @interface NSString (RFKit)
+
++ (NSString *)MD5String:(NSString *)string;
 
 /** Reverse a NSString
  
