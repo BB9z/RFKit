@@ -184,6 +184,17 @@ static RFKit *sharedInstance = nil;
 
 
 #pragma mark -
+#pragma mark NSArray extension
+@implementation NSArray (RFKit)
+
+- (id)firstObject {
+	return self!=nil ? [self objectAtIndex:0] : nil;
+}
+
+@end
+
+
+#pragma mark -
 #pragma mark NSDateFormatter 扩展
 @implementation NSDateFormatter (extension)
 

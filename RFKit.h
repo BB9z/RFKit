@@ -155,6 +155,12 @@ Now:
 @end
 
 
+#pragma mark NSArray extension
+@interface NSArray (RFKit)
+- (id)firstObject;
+@end
+
+
 #pragma mark NSDateFormatter 扩展
 @interface NSDateFormatter (extension)
 /** 符合GMT格式的NSDateFormatter
