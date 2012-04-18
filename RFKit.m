@@ -272,38 +272,25 @@ static RFKit *sharedInstance = nil;
 
 
 #pragma mark -
-#pragma mark NSFileManager 扩展
-@implementation NSBundle (extension)
+#pragma mark NSBundle extension展
+@implementation NSBundle (RFKit)
 + (NSString *)mainBundlePathForCaches {
-	static NSString * path =nil;
-	if (!path) {
-		path = [[NSString alloc] initWithString:[NSHomeDirectory() stringByAppendingPathComponent:@"/Library/Caches/"]];
-	}
-	return path;
+	return [NSHomeDirectory() stringByAppendingPathComponent:@"/Library/Caches/"];
 }
 
 + (NSString *)mainBundlePathForPreferences {
-	static NSString * path =nil;
-	if (!path) {
-		path = [[NSString alloc] initWithString:[NSHomeDirectory() stringByAppendingPathComponent:@"/Library/Preferences/"]];
-	}
-	return path;
+	return [NSHomeDirectory() stringByAppendingPathComponent:@"/Library/Preferences/"];
 }
 
 + (NSString *)mainBundlePathForDocuments {
-	static NSString * path;
-	if (!path) {
-		path = [[NSString alloc] initWithString:[NSHomeDirectory() stringByAppendingPathComponent:@"/Documents/"]];
-	}
-	return path;
+	return [NSHomeDirectory() stringByAppendingPathComponent:@"/Documents/"];
 }
 
 + (NSString *)mainBundlePathForTemp {
-	static NSString * path =nil;
-	if (!path) {
-		path = [[NSString alloc] initWithString:[NSHomeDirectory() stringByAppendingPathComponent:@"/tmp/"]];
-	}
-	return path;
+	return [NSHomeDirectory() stringByAppendingPathComponent:@"/tmp/"];
 }
 
++ (NSString *)pathForMainBoundlePath:(NSString *)path {
+    return [NSHomeDirectory() stringByAppendingPathComponent:path];
+}
 @end
