@@ -6,15 +6,12 @@
 @implementation UIView (RFKit)
 
 - (BOOL)isVisible {
-	douto(self)
-	dout_bool(self.hidden)
-	dout_float(self.alpha)
 	if (self.hidden == YES || self.alpha == 0.f) {
 		return NO;
 	}
 	else {
 		CGRect boundsInWindow = [self convertRect:self.bounds toView:nil];
-		return CGRectIsOutOfRect(boundsInWindow, [UIScreen mainScreen].bounds);
+		return !CGRectIsOutOfRect(boundsInWindow, [UIScreen mainScreen].bounds);
 	}
 }
 
