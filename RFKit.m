@@ -173,28 +173,6 @@ static RFKit *sharedInstance = nil;
 
 
 #pragma mark -
-#pragma mark NSDictionary 扩展
-@implementation NSDictionary (extension)
-
-- (id)objectForKey:(id)aKey defaultMarker:(id)anObject {
-	return [super get:[self objectForKey:aKey] defaults:anObject];
-}
-
-@end
-
-
-#pragma mark -
-#pragma mark NSArray extension
-@implementation NSArray (RFKit)
-
-- (id)firstObject {
-	return self!=nil ? [self objectAtIndex:0] : nil;
-}
-
-@end
-
-
-#pragma mark -
 #pragma mark NSDateFormatter 扩展
 @implementation NSDateFormatter (extension)
 

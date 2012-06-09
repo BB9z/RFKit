@@ -19,6 +19,8 @@
 
 #import "NSObject+RFKit.h"
 #import "NSString+RFKit.h"
+#import "NSDictionary+RFKit.h"
+#import "NSArray+RFKit.h"
 #import "UIColor+RFKit.h"
 #import "UIImage+RFKit.h"
 #import "UIView+RFKit.h"
@@ -146,18 +148,6 @@ Now:
  @return 两点间时间差，单位秒
  */
 - (float)timeBetween:(NSString *)name1 another:(NSString *)name2;
-@end
-
-
-#pragma mark NSDictionary 扩展
-@interface NSDictionary (extension)
-- (id)objectForKey:(id)aKey defaultMarker:(id)anObject;
-@end
-
-
-#pragma mark NSArray extension
-@interface NSArray (RFKit)
-- (id)firstObject;
 @end
 
 
