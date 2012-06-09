@@ -2,17 +2,33 @@
 	Debug output kit(dout)
 	RFKit
 
-	ver 1.0.1
+	ver 1.0.2
  */
 
 #ifndef _DOUT_H_
 #define _DOUT_H_
 
+/** RFDebugLevel
+    Not used.
+ 
+    5   
+    4   Throw warning as exception.
+    3   Show warning.
+    2   Debug, show error. DEBUGOUT on.
+    1   Default, DEBUGOUT off. For production environment.
+    0   Silent.
+ */
+#ifndef RFDebugLevel
+#   define RFDebugLevel 1
+#endif
+
 /**
-	Howto: Set DEBUGOUT use compiler flags
+    Tip: Howto set DEBUGOUT in Build Settings.
 	
-	Build Settings -> Other C Flags, use -Dmacro[=defn] to set macro define.
-	For example, to disable dout, set -DDEBUGOUT=0
+        Use Preprocessor macros, or Other C Flags.
+ 
+        If you use C flags, set -Dmacro[=defn] to define macro.
+        For example, to disable dout, set -DDEBUGOUT=0
  */
 #ifndef DEBUGOUT
 #	define DEBUGOUT 1
@@ -90,6 +106,13 @@
 	#define DAUTORELEASEPOOL_START	@autoreleasepool{
 	#define DAUTORELEASEPOOL_END	}
 
+	#define DTRYCATCH_START @try {
+	#define DTRYCATCH_END \
+		} @catch (NSException *exception) { \
+		douto(exception) \
+		douttrace() \
+		} @finally {}
+
 #else
 	#define dout(...)
 	#define douts(...)
@@ -108,6 +131,9 @@
 
 	#define DAUTORELEASEPOOL_START
 	#define DAUTORELEASEPOOL_END
+
+	#define DTRYCATCH_START
+	#define DTRYCATCH_END
 #endif
 
 #endif
