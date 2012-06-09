@@ -1,4 +1,5 @@
 #import "UIColor+RFKit.h"
+#import "UIImage+RFKit.h"
 
 @implementation UIColor (RFKit)
 
@@ -42,4 +43,9 @@
 	sscanf([nsstring UTF8String], "#%x", &color);
 	return [UIColor colorWithRGBHex:color alpha:alpha];
 }
+
++ (UIColor *)colorWithPatternImageName:(NSString *)resourceName {
+	return [UIColor colorWithPatternImage:[UIImage resourceName:resourceName]];
+}
+
 @end

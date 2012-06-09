@@ -11,4 +11,6 @@
 
 + (UIColor *)colorWithRGBString:(NSString *)nsstring;
 + (UIColor *)colorWithRGBString:(NSString *)nsstring alpha:(CGFloat)alpha;
+
++ (UIColor *)colorWithPatternImageName:(NSString *)resourceName;
 @end
