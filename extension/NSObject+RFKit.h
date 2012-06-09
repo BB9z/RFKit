@@ -13,6 +13,8 @@
 - (NSArray *)objectsForIndexArray:(NSArray *)indexsArray;
 - (NSArray *)objectsForDictKeyArray:(NSArray *)keyArray;
 
+- (id)performRespondedSelector:(SEL)aSelector;
+
 @end
 
 #pragma mark BlocksKit

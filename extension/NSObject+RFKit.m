@@ -107,6 +107,19 @@
     }
 }
 
+- (id)performRespondedSelector:(SEL)aSelector {
+    if ([self respondsToSelector:aSelector]) {
+        // via http://stackoverflow.com/a/7933931/945906
+        #pragma clang diagnostic push
+        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        return [self performSelector:aSelector];
+        #pragma clang diagnostic pop
+    }
+    else {
+        return nil;
+    }
+}
+
 @end
 
 
