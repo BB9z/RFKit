@@ -39,16 +39,26 @@
 
 - (void)moveToX:(CGFloat)x Y:(CGFloat)y {
 	CGRect tmp = self.frame;
-	if (x != CGFLOAT_MAX) tmp.origin.x = x;
-	if (y != CGFLOAT_MAX) tmp.origin.y = y;
+	if (x != RFMathNotChange) tmp.origin.x = x;
+	if (y != RFMathNotChange) tmp.origin.y = y;
 	self.frame = tmp;
 }
 
 - (void)resizeWidth:(CGFloat)width height:(CGFloat)height {
-	CGRect tmp = self.frame;
-	if (width  != CGFLOAT_MAX) tmp.size.width  = width;
-	if (height != CGFLOAT_MAX) tmp.size.height = height;
-	self.frame = tmp;
+    [self resizeWidth:width height:height resizeAnchor:RFResizeAnchorCenter];
+}
+- (void)resizeWidth:(CGFloat)width height:(CGFloat)height resizeAnchor:(RFResizeAnchor)resizeAnchor {
+    CGSize newSize = self.frame.size;
+    if (width  != RFMathNotChange) newSize.width  = width;
+	if (height != RFMathNotChange) newSize.height = height;
+    CGRect targetFrame = CGRectResize(self.frame, newSize, resizeAnchor);
+    self.frame = targetFrame;
+}
+
+- (CGFloat)distanceBetweenFrameBottomAndSuperviewBottom {
+	CGRect frame = self.frame;
+	CGFloat hSuper = self.superview.bounds.size.height;
+	return hSuper - frame.origin.y - frame.size.height;
 }
 
 #pragma mark 视图层次管理

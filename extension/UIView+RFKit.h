@@ -47,12 +47,15 @@ typedef enum {
 
 /** Resize a UIView
  
- Set parameter equal to CGFLOAT_MAX if you don`t want resize that direction.
+ Set parameter equal to RFMathNotChange if you don`t want resize that direction.
  
  @param width	New width
  @param height	New height
  */
 - (void)resizeWidth:(CGFloat)width height:(CGFloat)height;
+- (void)resizeWidth:(CGFloat)width height:(CGFloat)height resizeAnchor:(RFResizeAnchor)resizeAnchor;
+
+- (CGFloat)distanceBetweenFrameBottomAndSuperviewBottom;
 
 - (void)addSubview:(UIView *)view frame:(CGRect)rect;
 - (void)addSubview:(UIView *)view resizeOption:(RFViewResizeOption)option;
