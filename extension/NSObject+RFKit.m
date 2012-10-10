@@ -1,3 +1,5 @@
+
+#import "RFKit.h"
 #import "NSObject+RFKit.h"
 
 @implementation NSObject (RFKit)

@@ -1,6 +1,6 @@
 /*!
     RFKit
-    NSDate extension
+    NSFileManager extension
 
     Copyright (c) 2012 BB9z
     http://github.com/bb9z/RFKit
@@ -11,7 +11,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSDate (RFKit)
+@interface NSFileManager (RFKit)
+- (NSArray *)subDirectoryOfDirectoryAtPath:(NSString *)path error:(NSError **)erro;
 
-- (BOOL)isSameDayWithDate:(NSDate *)date;
 @end

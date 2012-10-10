@@ -1,9 +1,16 @@
 /*!
- RFKit
- UIView extension
+    RFKit
+    UIView extension
+
+    Copyright (c) 2012 BB9z
+    http://github.com/bb9z/RFKit
+
+    The MIT License (MIT)
+    http://www.opensource.org/licenses/mit-license.php
  */
 
-//#import "RFKit.h"
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 typedef enum {
 	RFViewResizeOptionNone		= 0,

@@ -6,7 +6,7 @@
 #import <net/if_dl.h>
 #import <mach/mach.h>
 
-@interface RFKit (/* private */)
+@interface RFKit ()
 
 @end
 
@@ -41,14 +41,6 @@ static RFKit *sharedInstance = nil;
 	self.timeTable = nil;
 	
 	RF_DEALLOC_OBJ(super)
-}
-
-+ (void)rls:(id)first,... {
-	va_list ap;
-	va_start(ap, first);
-	for (id obj = first; obj != nil; obj = va_arg(ap, id))
-		RF_RELEASE_OBJ(obj)
-	va_end(ap);
 }
 
 + (void)performBlock:(void (^)(id))block afterDelay:(NSTimeInterval)delay on:(id)firstObject,... {
@@ -168,107 +160,5 @@ static RFKit *sharedInstance = nil;
 			  vmStats.hits
 			  );
     }
-}
-@end
-
-
-#pragma mark -
-#pragma mark NSDateFormatter 扩展
-@implementation NSDateFormatter (extension)
-
-+ (NSDateFormatter *)GMTFormatter {
-	static NSDateFormatter * share;
-	if (!share) {
-		share = [[NSDateFormatter alloc] init];
-		[share setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"];
-		[share setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
-	}
-	return RF_AUTORELEASE([share copy]);
-}
-
-+ (NSDateFormatter *)currentLocaleFormatter {
-	static NSDateFormatter * share;
-	if (!share) {
-		share = [[NSDateFormatter alloc] init];
-		[share setLocale:[NSLocale currentLocale]];
-		[share setDateFormat:@"yyyy'-'MM'-'dd' 'HH':'mm':'ss'"];
-	}
-	return RF_AUTORELEASE([share copy]);
-}
-
-+ (NSDateFormatter *)currentLocaleFormatterOnlyDate {
-	static NSDateFormatter * share;
-	if (!share) {
-		share = [[NSDateFormatter alloc] init];
-		[share setLocale:[NSLocale currentLocale]];
-		[share setDateFormat:@"yyyy'-'MM'-'dd'"];
-	}
-	return RF_AUTORELEASE([share copy]);
-}
-
-@end
-
-
-#pragma mark -
-#pragma mark UIViewController 扩展
-@implementation UIViewController (extension)
-
-- (void)setNavTitle:(NSString *)title back:(NSString *)backTitle{
-	self.title = title;
-	UIBarButtonItem * tmpBack = [[UIBarButtonItem alloc] initWithTitle:backTitle style:UIBarButtonItemStylePlain target:self action:nil];
-	self.navigationItem.backBarButtonItem = tmpBack;
-	RF_RELEASE_OBJ(tmpBack);
-}
-
-@end
-
-
-#pragma mark -
-#pragma mark NSFileManager 扩展
-@implementation NSFileManager (extension)
-- (NSArray *)subDirectoryOfDirectoryAtPath:(NSString *)path error:(NSError **)error{
-	NSMutableArray * sub = [NSMutableArray arrayWithArray:[self contentsOfDirectoryAtPath:path error:error]];
-	_douto(sub)
-	
-	BOOL isDir = false;
-	NSString * tmpPath = nil;
-	for (int i = [sub count]-1;i>=0;i--) {
-		tmpPath = [path stringByAppendingPathComponent:[sub objectAtIndex:i]];
-		
-		if([self fileExistsAtPath:tmpPath isDirectory:&isDir] && isDir){
-			[sub replaceObjectAtIndex:i withObject:tmpPath];
-		}
-		else{
-			[sub removeObjectAtIndex:i];
-		}
-		
-	}
-	_douto(sub)
-	return [NSArray arrayWithArray:sub];
-}
-@end
-
-
-#pragma mark -
-#pragma mark NSBundle extension展
-@implementation NSBundle (RFKit)
-+ (NSString *)mainBundlePathForCaches {
-	return [NSHomeDirectory() stringByAppendingPathComponent:@"/Library/Caches/"];
-}
-
-+ (NSString *)mainBundlePathForPreferences {
-	return [NSHomeDirectory() stringByAppendingPathComponent:@"/Library/Preferences/"];
-}
-
-+ (NSString *)mainBundlePathForDocuments {
-	return [NSHomeDirectory() stringByAppendingPathComponent:@"/Documents/"];
-}
-
-+ (NSString *)mainBundlePathForTemp {
-	return [NSHomeDirectory() stringByAppendingPathComponent:@"/tmp/"];
-}
-
-+ (NSString *)pathForMainBoundlePath:(NSString *)path {
-    return [NSHomeDirectory() stringByAppendingPathComponent:path];
 }
 @end

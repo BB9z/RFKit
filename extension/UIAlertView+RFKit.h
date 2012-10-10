@@ -1,6 +1,6 @@
 /*!
     RFKit
-    NSDate extension
+    UIAlertView extension
 
     Copyright (c) 2012 BB9z
     http://github.com/bb9z/RFKit
@@ -10,8 +10,9 @@
  */
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface NSDate (RFKit)
+@interface UIAlertView (RFKit)
++ (void)showWithTitle:(NSString *)title message:(NSString *)message  buttonTitle:(NSString *)buttonTitle;
 
-- (BOOL)isSameDayWithDate:(NSDate *)date;
 @end

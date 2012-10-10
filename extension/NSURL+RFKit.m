@@ -1,4 +1,5 @@
 
+#import "RFKit.h"
 #import "NSURL+RFKit.h"
 
 @implementation NSURL (RFKit)

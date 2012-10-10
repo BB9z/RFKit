@@ -1,6 +1,6 @@
 /*!
     RFKit
-    NSDate extension
+    UIViewController extension
 
     Copyright (c) 2012 BB9z
     http://github.com/bb9z/RFKit
@@ -10,8 +10,9 @@
  */
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface NSDate (RFKit)
+@interface UIViewController (RFKit)
+- (void)setNavTitle:(NSString *)title back:(NSString *)backTitle;
 
-- (BOOL)isSameDayWithDate:(NSDate *)date;
 @end

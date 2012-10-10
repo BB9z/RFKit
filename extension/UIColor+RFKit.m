@@ -1,5 +1,6 @@
+
+#import "RFKit.h"
 #import "UIColor+RFKit.h"
-#import "UIImage+RFKit.h"
 
 @implementation UIColor (RFKit)
 

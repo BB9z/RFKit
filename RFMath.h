@@ -1,8 +1,13 @@
 /*!
-	RFMath
-	Math and Graphics helper for RFKit
+    RFMath
+    Math and Graphics helper for RFKit
+ 
+    Copyright (c) 2012 BB9z
+    http://github.com/bb9z/RFKit
+ 
+    The MIT License (MIT)
+    http://www.opensource.org/licenses/mit-license.php
  */
-
 
 #ifndef RFKit_RFMath_h
 #define RFKit_RFMath_h

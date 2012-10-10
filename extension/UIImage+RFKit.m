@@ -1,3 +1,5 @@
+
+#import "RFKit.h"
 #import "UIImage+RFKit.h"
 
 @implementation UIImage (RFKit)
