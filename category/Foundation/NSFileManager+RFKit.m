@@ -25,4 +25,21 @@
 	return [NSArray arrayWithArray:sub];
 }
 
+- (unsigned long long)fileSizeForPath:(NSString *)path {
+    signed long long fileSize = 0;
+    if ([self fileExistsAtPath:path]) {
+        NSError *error = nil;
+        NSDictionary *fileDict = [self attributesOfItemAtPath:path error:&error];
+        if (error) {
+            dout_error(@"%s Can`t get attributes for %@", __PRETTY_FUNCTION__, path)
+            return 0;
+        }
+        
+        if (fileDict) {
+            fileSize = [fileDict fileSize];
+        }
+    }
+    return fileSize;
+}
+
 @end

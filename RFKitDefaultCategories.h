@@ -9,9 +9,6 @@
     http://www.opensource.org/licenses/mit-license.php
  */
 
-#ifndef RFKitDefaultExtensions_h
-#define RFKitDefaultExtensions_h
-
 #import "NSArray+RFKit.h"
 #import "NSBundle+RFKit.h"
 //#import "NSDate+RFKit.h"
@@ -26,8 +23,7 @@
 //#import "UIAlertView+RFKit.h"
 //#import "UIButton+RFKit.h"
 #import "UIColor+RFKit.h"
+#import "UIDevice+RFKit.h"
 #import "UIImage+RFKit.h"
 #import "UIView+RFKit.h"
 #import "UIViewController+RFKit.h"
-
-#endif

@@ -1,11 +1,5 @@
-//
-//  UIAlertView+RFKit.m
-//  meiluohua
-//
-//  Created by BB9z on 12-6-13.
-//  Copyright (c) 2012年 Chinamobo. All rights reserved.
-//
 
+#import "RFKit.h"
 #import "UIAlertView+RFKit.h"
 
 @implementation UIAlertView (RFKit)

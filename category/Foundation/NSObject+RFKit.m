@@ -185,4 +185,15 @@
 	wrapper(YES);
 }
 
++ (void)performBlock:(void (^)(id))block afterDelay:(NSTimeInterval)delay on:(id)firstObject,... {
+	va_list ap;
+	va_start(ap, firstObject);
+	for (id obj = firstObject; obj != nil; obj = va_arg(ap, id)) {
+		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * delay), dispatch_get_main_queue(), ^{
+			block(obj);
+		});
+	}
+	va_end(ap);
+}
+
 @end

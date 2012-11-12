@@ -9,10 +9,8 @@
     http://www.opensource.org/licenses/mit-license.php
  */
 
-#ifndef RFKit_RFARC_h_
-#define RFKit_RFARC_h_
-
-#include "/usr/include/os/object.h"
+#ifndef _RFKit_RFARC_h_
+#define _RFKit_RFARC_h_
 
 #pragma mark -
 #pragma mark ARC Compatible Macro

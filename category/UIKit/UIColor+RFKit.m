@@ -38,7 +38,7 @@
 + (UIColor *)colorWithRGBString:(NSString *)nsstring alpha:(CGFloat)alpha {
 	NSUInteger length = nsstring.length-1;
 	//	if (length != 3 && length != 6 ) return [UIColor clearColor];
-	if (length != 6 ) return [UIColor clearColor];
+	if (length != 6 ) return [UIColor clearColor]; 
 	if ([nsstring characterAtIndex:0] != '#') return [UIColor clearColor];
 	int color;
 	sscanf([nsstring UTF8String], "#%x", &color);
@@ -47,6 +47,14 @@
 
 + (UIColor *)colorWithPatternImageName:(NSString *)resourceName {
 	return [UIColor colorWithPatternImage:[UIImage resourceName:resourceName]];
+}
+
++ (UIColor *)randColorWithAlpha:(CGFloat)alpha {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+//        srand(time(NULL));
+    });
+    return [UIColor colorWithRed:rand()%255/255.f green:rand()%255/255.f blue:rand()%255/255.f alpha:alpha];
 }
 
 @end

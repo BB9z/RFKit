@@ -33,8 +33,8 @@
 
 - (void)moveX:(CGFloat)x Y:(CGFloat)y {
 	CGPoint tmp = self.center;
-	tmp.x += x;
-	tmp.y += y;
+	if (x != RFMathNotChange) tmp.x += x;
+	if (y != RFMathNotChange) tmp.y += y;
 	self.center = tmp;
 }
 

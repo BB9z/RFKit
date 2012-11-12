@@ -1,6 +1,6 @@
 /*!
     RFKit
-    UIViewController extension
+    NSFileManager extension
 
     Copyright (c) 2012 BB9z
     http://github.com/bb9z/RFKit
@@ -10,9 +10,11 @@
  */
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 
-@interface UIViewController (RFKit)
-- (void)setNavTitle:(NSString *)title back:(NSString *)backTitle;
+@interface NSFileManager (RFKit)
+- (NSArray *)subDirectoryOfDirectoryAtPath:(NSString *)path error:(NSError **)erro;
+
+- (unsigned long long)fileSizeForPath:(NSString *)path;
+
 
 @end

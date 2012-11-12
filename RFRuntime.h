@@ -1,6 +1,6 @@
 /*!
+    RFRuntime
     RFKit
-    NSFileManager extension
 
     Copyright (c) 2012 BB9z
     http://github.com/bb9z/RFKit
@@ -10,8 +10,10 @@
  */
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface NSFileManager (RFKit)
-- (NSArray *)subDirectoryOfDirectoryAtPath:(NSString *)path error:(NSError **)erro;
+#import "RFARC.h"
 
-@end
+#ifndef RFMathNotChange
+#   define RFMathNotChange CGFLOAT_MAX
+#endif

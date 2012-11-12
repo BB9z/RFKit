@@ -87,4 +87,6 @@
  */
 + (void)cancelBlock:(id)block;
 
++ (void)performBlock:(void (^)(id))block afterDelay:(NSTimeInterval)delay on:(id)object, ... NS_REQUIRES_NIL_TERMINATION;
+
 @end

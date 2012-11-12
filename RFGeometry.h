@@ -1,6 +1,7 @@
 /*!
-    RFMath
-    Math and Graphics helper for RFKit
+    RFGeometry
+    RFKit
+    Math and Graphics helper
  
     Copyright (c) 2012 BB9z
     http://github.com/bb9z/RFKit
@@ -9,24 +10,10 @@
     http://www.opensource.org/licenses/mit-license.php
  */
 
-#ifndef RFKit_RFMath_h
-#define RFKit_RFMath_h
+#import "RFRuntime.h"
 
-#if !defined(RF_INLINE)
-#	if defined(CG_INLINE)
-#		define RF_INLINE CG_INLINE
-#	elif defined(__cplusplus)
-#		define RF_INLINE static inline
-#	elif defined(__GNUC__)
-#		define RF_INLINE static __inline__
-#	else
-#		define RF_INLINE static
-#	endif
-#endif
-
-#ifndef RFMathNotChange
-#   define RFMathNotChange CGFLOAT_MAX
-#endif
+#ifndef _RFKit_RFGeometry_h_
+#define _RFKit_RFGeometry_h_
 
 typedef enum {
 	RFResizeAnchorCenter = 0,
@@ -63,6 +50,7 @@ CGPoint CGPointOfRectCenter(CGRect a);
 CGSize	CGSizeFromPoints(CGPoint a, CGPoint b);
 CGSize	CGSizeScaled	(CGSize original, float scale);
 
+
 #pragma mark CGRect
 typedef enum {
 	RFCGRectChangeX = 0,
@@ -76,7 +64,7 @@ CGRect CGRectMakeWithPoints(CGPoint a, CGPoint b);
 CGRect CGRectResize(CGRect original, CGSize newSize, RFResizeAnchor resizeAnchor);
 
 // center not changed
-RF_INLINE CGRect CGRectScaled(CGRect original, float scale) {
+CG_INLINE CGRect CGRectScaled(CGRect original, float scale) {
     return CGRectResize(original, CGSizeMake(original.size.width*scale, original.size.height*scale), RFResizeAnchorCenter);
 }
 CGRect CGRectChange(CGRect original, RFCGRectChangeFlag flag, CGFloat newValue);
@@ -90,6 +78,4 @@ CGAngle	CGAngleFromPoints(CGPoint start, CGPoint end);
 float	CGAngleDegrees	(CGAngle a);
 
 
-
 #endif
-

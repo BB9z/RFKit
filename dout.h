@@ -2,7 +2,7 @@
 	Debug output kit(dout)
 	RFKit
 
-	ver 1.1.0
+	ver 1.2.0
  
     Copyright (c) 2012 BB9z
     http://github.com/bb9z/RFKit
@@ -14,8 +14,7 @@
 #ifndef _DOUT_H_
 #define _DOUT_H_
 
-#import <Foundation/NSObjCRuntime.h>
-#import <Foundation/NSException.h>
+#import <Foundation/Foundation.h>
 
 #pragma mark - Config
 
@@ -25,7 +24,7 @@
     5   Info
     4   
     3   Show warning.
-    2   Debug, show error. DOUT_LOG_ENABLE on.
+    2   Debug mode, show error. DOUT_LOG_ENABLE on. Assert enable.
     1   Default, DOUT_LOG_ENABLE off. For production environment.
     0   Silent.
  */
@@ -92,7 +91,7 @@
  */
 #ifndef DOUT_TRACE_FORMATTER
 #	if DOUT_FALG_TRACE
-#		define DOUT_TRACE_FORMATTER [NSString stringWithFormat:@"%@:%d >> ",[[NSString stringWithUTF8String:__FILE__] lastPathComponent],__LINE__]
+#		define DOUT_TRACE_FORMATTER [NSString stringWithFormat:@"%@:%d >> ", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__]
 #	else
 #		define DOUT_TRACE_FORMATTER @""
 #	endif
@@ -102,55 +101,59 @@
 /// main
 #if DOUT_LOG_ENABLE
 	#define dout(format,...)\
-		if(DOUT_LOG_ENABLE){NSLog([DOUT_TRACE_FORMATTER stringByAppendingFormat:format, ##__VA_ARGS__]);}
+		{if(DOUT_LOG_ENABLE) NSLog([DOUT_TRACE_FORMATTER stringByAppendingFormat:format, ##__VA_ARGS__]);}
+
+    #define douts(NSString)\
+        {if(DOUT_LOG_ENABLE) NSLog([DOUT_TRACE_FORMATTER stringByAppendingString:NSString]);}
 
 	#define douto(NSObject)\
-        dout(@"%s = <%@> %@", #NSObject, [(NSObject) class], NSObject)
-
+        {if(DOUT_LOG_ENABLE) NSLog(@"%@%s = <%@> %@", DOUT_TRACE_FORMATTER, #NSObject, [NSObject class], NSObject);}
+    
     #define doutp(pointer)\
-        dout(@"%s -> %p", #pointer, pointer)
+        {if(DOUT_LOG_ENABLE) NSLog(@"%@%s -> %p", DOUT_TRACE_FORMATTER, #pointer, pointer);}
 
 	#define dout_bool(boolVar)\
-        dout(@"%s = %@", #boolVar, boolVar?@"YES":@"NO")
+        {if(DOUT_LOG_ENABLE) NSLog(@"%@%s = %@", DOUT_TRACE_FORMATTER, #boolVar, boolVar?@"YES":@"NO");}
 
     #define dout_int(intVar)\
-        dout(@"%s = %i", #intVar, (int)intVar)
+        {if(DOUT_LOG_ENABLE) NSLog(@"%@%s = %i", DOUT_TRACE_FORMATTER, #intVar, (int)(intVar));}
 
 	#define dout_float(floatVar)\
-        dout(@"%s = %f", #floatVar, (float)floatVar)
+        {if(DOUT_LOG_ENABLE) NSLog(@"%@%s = %f", DOUT_TRACE_FORMATTER, #floatVar, (float)(floatVar));}
 
 	#define dout_point(point_struct_with_x_y)\
-        dout(@"%s = {%f, %f}", #point_struct_with_x_y, (float)point_struct_with_x_y.x, (float)point_struct_with_x_y.y)
+        {if(DOUT_LOG_ENABLE) NSLog(@"%@%s = {%f, %f}", DOUT_TRACE_FORMATTER, #point_struct_with_x_y, (float)point_struct_with_x_y.x, (float)point_struct_with_x_y.y);}
 
 	#define dout_size(size_struct_with_width_height)\
-        dout(@"%s = {%f, %f}", #size_struct_with_width_height, (float)size_struct_with_width_height.width, size_struct_with_width_height.height)
+        {if(DOUT_LOG_ENABLE) NSLog(@"%@%s = {%f, %f}", DOUT_TRACE_FORMATTER, #size_struct_with_width_height, (float)size_struct_with_width_height.width, (float)size_struct_with_width_height.height);}
 
 	#define dout_rect(CGRect)\
-        dout(@"%s = {%f, %f,%f, %f}", #CGRect, CGRect.origin.x, CGRect.origin.y, CGRect.size.width, CGRect.size.height)
-
-	#define douts(NSString)\
-        dout(@"%@", NSString)
+        {if(DOUT_LOG_ENABLE) NSLog(@"%@%s = {%f, %f, %f, %f}", DOUT_TRACE_FORMATTER, #CGRect, CGRect.origin.x, CGRect.origin.y, CGRect.size.width, CGRect.size.height);}
 
 	#define doutwork()\
-        dout(@"%s: It Works!", __FUNCTION__)
+        {if(DOUT_LOG_ENABLE) NSLog(@"%@%s: It Works!", DOUT_TRACE_FORMATTER, __FUNCTION__);}
 
 	#define douttrace()\
-        dout(@"%s @%@", __PRETTY_FUNCTION__, [NSThread callStackSymbols])
+        {if(DOUT_LOG_ENABLE) NSLog(@"%@%s @%@", DOUT_TRACE_FORMATTER, __PRETTY_FUNCTION__, [NSThread callStackSymbols]);}
+
+    #define doutline()\
+        {if(DOUT_LOG_ENABLE) NSLog(@"%@%s line:%d", DOUT_TRACE_FORMATTER, __PRETTY_FUNCTION__, __LINE__);}
 
 #else
-	#define dout(...)
-	#define douts(...)
-	#define douto(...)
-    #define doutp(...)
-	#define dout_bool(...)
-    #define dout_int(...)
-	#define dout_float(...)
-	#define dout_point(...)
-	#define dout_size(...)
-	#define dout_rect(...)
-	#define doutf(...)
-	#define doutwork(...)
-	#define douttrace(...)
+	#define dout(...)   ;
+	#define douts(...)  ;
+	#define douto(...)  ;
+    #define doutp(...)  ;
+	#define dout_bool(...)  ;
+    #define dout_int(...)   ;
+	#define dout_float(...) ;
+	#define dout_point(...) ;
+	#define dout_size(...)  ;
+	#define dout_rect(...)  ;
+	#define doutf(...)  ;
+	#define doutwork(...)   ;
+	#define douttrace(...)  ;
+    #define doutline(...)   ;
 
 #endif
 
@@ -165,11 +168,11 @@
 
 #ifndef dout_warning
     #if RFDebugLevel >= 3
-        #if DOUT_ASSERT_AT_ERROR
+        #if DOUT_ASSERT_AT_WANRNING
             #define dout_warning(format, ...)\
                 NSAssert(false, format, ##__VA_ARGS__);
 
-        #elif DOUT_TREAT_ERROR_AS_EXCEPTION
+        #elif DOUT_TREAT_WANRNING_AS_EXCEPTION
             #define dout_warning(format, ...)\
                 @throw [NSException exceptionWithName:@"DOUT Warning" reason:[NSString stringWithFormat:format, ##__VA_ARGS__] userInfo:nil];
 
@@ -203,6 +206,28 @@
     #endif
 #endif
 
+#pragma mark Assert
+/*!
+    Refrence: http://www.cimgf.com/2010/05/02/my-current-prefix-pch-file
+    Thanks to Marcus Zarra.
+ */
+
+#ifndef ALog
+#   if DEBUG
+#       define ALog(...)\
+            [[NSAssertionHandler currentHandler] handleFailureInFunction:[NSString stringWithCString:__PRETTY_FUNCTION__ encoding:NSUTF8StringEncoding] file:[NSString stringWithCString:__FILE__ encoding:NSUTF8StringEncoding] lineNumber:__LINE__ description:__VA_ARGS__];
+#   else
+#       define ALog(...)\
+            NSLog(@"%s %@", __PRETTY_FUNCTION__, [NSString stringWithFormat:__VA_ARGS__]);
+#   endif
+#endif
+
+#ifndef RFAssert
+#   define RFAssert(condition, ...)\
+        if (!(condition)) {\
+            ALog(__VA_ARGS__)\
+        }
+#endif
 
 #pragma mark Segment
 
@@ -247,6 +272,7 @@
 #define _doutf(...)
 #define _doutwork(...)
 #define _douttrace(...)
+#define _doutline(...)
 
 #define _dout_info(...)
 #define _dout_warning(...)

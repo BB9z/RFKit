@@ -15,6 +15,10 @@
 
 + (NSString *)MD5String:(NSString *)string;
 
+//! http://lldong.github.com/blog/2012/11/06/hanzi-to-pinyin/
+// 
++ (NSString *)pinyinFromString:(NSString *)orgString;
+
 /** Reverse a NSString
  
  @return String reversed
@@ -30,5 +34,7 @@
  @return 符合长度的字符串
  */
 - (NSString *)stringTrimToWidthLength:(CGFloat)length WithFont:(UIFont *)font;
+
+
 
 @end

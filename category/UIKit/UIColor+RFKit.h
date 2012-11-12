@@ -9,8 +9,7 @@
     http://www.opensource.org/licenses/mit-license.php
  */
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
+#import "RFRuntime.h"
 
 @interface UIColor (RFKit)
 
@@ -22,4 +21,6 @@
 + (UIColor *)colorWithRGBString:(NSString *)nsstring alpha:(CGFloat)alpha;
 
 + (UIColor *)colorWithPatternImageName:(NSString *)resourceName;
+
++ (UIColor *)randColorWithAlpha:(CGFloat)alpha;
 @end
