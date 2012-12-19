@@ -13,7 +13,7 @@ CGPoint CGPointAtLineRatio(CGPoint start, CGPoint end, CGFloat ratio) {
 	return CGPointMake(start.x + (end.x-start.x)*ratio, start.y + (end.y-start.y)*ratio);
 }
 CGPoint CGPointOfRectCenter(CGRect a) {
-	return CGPointMake(a.origin.x+a.size.width, a.origin.y+a.size.height);
+	return CGPointMake((a.origin.x+a.size.width)/2, (a.origin.y+a.size.height)/2);
 }
 
 

@@ -212,12 +212,12 @@
     Thanks to Marcus Zarra.
  */
 
-#ifndef ALog
+#ifndef RFALog
 #   if DEBUG
-#       define ALog(...)\
+#       define RFALog(...)\
             [[NSAssertionHandler currentHandler] handleFailureInFunction:[NSString stringWithCString:__PRETTY_FUNCTION__ encoding:NSUTF8StringEncoding] file:[NSString stringWithCString:__FILE__ encoding:NSUTF8StringEncoding] lineNumber:__LINE__ description:__VA_ARGS__];
 #   else
-#       define ALog(...)\
+#       define RFALog(...)\
             NSLog(@"%s %@", __PRETTY_FUNCTION__, [NSString stringWithFormat:__VA_ARGS__]);
 #   endif
 #endif
@@ -225,7 +225,7 @@
 #ifndef RFAssert
 #   define RFAssert(condition, ...)\
         if (!(condition)) {\
-            ALog(__VA_ARGS__)\
+            RFALog(__VA_ARGS__)\
         }
 #endif
 

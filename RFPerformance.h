@@ -12,6 +12,26 @@
 
 #import "RFRuntime.h"
 
+
+
+#ifndef RFAlloctionLog
+#   define RFAlloctionLog \
+    + (id)alloc {\
+        id var = [super alloc];\
+        NSLog(@"%@ alloc >> %p", [self class], var);\
+        return var;\
+    }\
+    - (void)dealloc {\
+        NSLog(@"%@ dealloc << %p", [self class], self);\
+        RF_DEALLOC_OBJ(super)\
+    }
+#endif
+
+#ifndef _RFAlloctionLog
+#   define _RFAlloctionLog
+#endif
+
+
 @interface RFPerformance : NSObject {
     time_t timeBase;
 }
