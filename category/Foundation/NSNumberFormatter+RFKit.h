@@ -1,8 +1,8 @@
 /*!
-    RFKit
     NSNumberFormatter extension
+    RFKit
 
-    Copyright (c) 2012 BB9z
+    Copyright (c) 2012-2013 BB9z
     http://github.com/bb9z/RFKit
 
     The MIT License (MIT)
@@ -14,6 +14,10 @@
 @interface NSNumberFormatter (RFKit)
 
 + (NSNumberFormatter *)significantFormatterWithMinimumDigits:(NSUInteger)min maximumDigits:(NSUInteger)max;
+
+/// isBinaryUnites signaling whether to calculate file size in binary units (1024) or base ten units (1000).
++ (NSString *)formatedFileSizeStringWithBytes:(long long)bytes useBinaryUnites:(BOOL)isBinaryUnites;
+
 - (NSString *)stringFromFloat:(float)floatVaule;
 
 @end

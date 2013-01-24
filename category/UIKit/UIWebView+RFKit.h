@@ -1,5 +1,5 @@
 /*!
-    NSDate extension
+    UIWebView extension
     RFKit
 
     Copyright (c) 2012-2013 BB9z
@@ -9,9 +9,10 @@
     http://www.opensource.org/licenses/mit-license.php
  */
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface NSDate (RFKit)
+@interface UIWebView (RFKit)
 
-- (BOOL)isSameDayWithDate:(NSDate *)date;
+- (void)clearBackgroundImages;
+
 @end

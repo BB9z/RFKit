@@ -5,10 +5,4 @@
 @implementation RFAlloctionProxyView
 RFAlloctionLog
 
-- (void)didMoveToSuperview {
-    [super didMoveToSuperview];
-    
-    douto(self.superview)
-}
-
 @end

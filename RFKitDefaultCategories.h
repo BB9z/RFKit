@@ -2,7 +2,7 @@
     RFKit
     This file define which extension category will included by default.
  
-    Copyright (c) 2012 BB9z
+    Copyright (c) 2012-2013 BB9z
     http://github.com/bb9z/RFKit
  
     The MIT License (MIT)
@@ -15,6 +15,7 @@
 //#import "NSDateFormatter+RFKit.h"
 #import "NSDictionary+RFKit.h"
 //#import "NSFileManager+RFKit.h"
+//#import "NSJSONSerialization+RFKit.h"
 //#import "NSNumberFormatter+RFKit.h"
 #import "NSObject+RFKit.h"
 #import "NSString+RFKit.h"
@@ -27,3 +28,4 @@
 #import "UIImage+RFKit.h"
 #import "UIView+RFKit.h"
 #import "UIViewController+RFKit.h"
+//#import "UIWebView+RFKit.h"

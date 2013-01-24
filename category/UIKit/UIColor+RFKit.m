@@ -50,11 +50,13 @@
 }
 
 + (UIColor *)randColorWithAlpha:(CGFloat)alpha {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-//        srand(time(NULL));
-    });
-    return [UIColor colorWithRed:rand()%255/255.f green:rand()%255/255.f blue:rand()%255/255.f alpha:alpha];
+    BOOL fakeRandom = NO;
+    if (fakeRandom) {
+        return [UIColor colorWithRed:rand()%255/255.f green:rand()%255/255.f blue:rand()%255/255.f alpha:alpha];
+    }
+    else {
+        return [UIColor colorWithRed:arc4random()%255/255.f green:arc4random()%255/255.f blue:arc4random()%255/255.f alpha:alpha];
+    }
 }
 
 @end

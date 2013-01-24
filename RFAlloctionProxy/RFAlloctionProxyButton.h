@@ -1,5 +1,5 @@
 /*!
-    RFAlloctionProxyView
+    RFAlloctionProxyButton
     RFUI
 
     Copyright (c) 2012-2013 BB9z
@@ -11,6 +11,6 @@
 
 #import "RFRuntime.h"
 
-@interface RFAlloctionProxyView : UIView
+@interface RFAlloctionProxyButton : UIButton
 
 @end

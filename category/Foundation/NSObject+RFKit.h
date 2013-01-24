@@ -1,8 +1,8 @@
 /*!
-    RFKit
     NSObject extension
+    RFKit
 
-    Copyright (c) 2012 BB9z
+    Copyright (c) 2012-2013 BB9z
     http://github.com/bb9z/RFKit
 
     The MIT License (MIT)
@@ -24,6 +24,8 @@
 @end
 
 #pragma mark BlocksKit
+// DEPRECATED, use GCD
+
 /** Block execution on *any* object.
  
  This category overhauls the `performSelector:` utilities on
@@ -55,7 +57,7 @@
  @param delay A measure in seconds.
  @return Returns a pointer to the block that may or may not execute the given block.
  */
-- (id)performBlock:(void (^)(id sender))block afterDelay:(NSTimeInterval)delay;
+- (id)performBlock:(void (^)(id sender))block afterDelay:(NSTimeInterval)delay DEPRECATED_ATTRIBUTE;
 
 /** Executes a block after a given delay.
  
@@ -74,7 +76,7 @@
  @param delay A measure in seconds.
  @return Returns a pointer to the block that may or may not execute the given block.
  */
-+ (id)performBlock:(void (^)(void))block afterDelay:(NSTimeInterval)delay;
++ (id)performBlock:(void (^)(void))block afterDelay:(NSTimeInterval)delay DEPRECATED_ATTRIBUTE;
 
 /** Cancels the potential execution of a block.
  
@@ -85,8 +87,8 @@
  @param block A pointer to a containing block, as returned from one of the
  `performBlock` selectors.
  */
-+ (void)cancelBlock:(id)block;
++ (void)cancelBlock:(id)block DEPRECATED_ATTRIBUTE;
 
-+ (void)performBlock:(void (^)(id))block afterDelay:(NSTimeInterval)delay on:(id)object, ... NS_REQUIRES_NIL_TERMINATION;
++ (void)performBlock:(void (^)(id))block afterDelay:(NSTimeInterval)delay on:(id)object, ... NS_REQUIRES_NIL_TERMINATION DEPRECATED_ATTRIBUTE;
 
 @end

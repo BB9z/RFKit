@@ -2,9 +2,9 @@
 	Debug output kit(dout)
 	RFKit
 
-	ver 1.2.0
+	ver 1.3.0
  
-    Copyright (c) 2012 BB9z
+    Copyright (c) 2012-2013 BB9z
     http://github.com/bb9z/RFKit
 
     The MIT License (MIT)
@@ -14,34 +14,20 @@
 #ifndef _DOUT_H_
 #define _DOUT_H_
 
-#import <Foundation/Foundation.h>
+#import "RFRuntime.h"
 
 #pragma mark - Config
 
 /** RFDebugLevel
-    Use this macro to change dout behave.
+    It change dout behave.
  
     5   Info
     4   
     3   Show warning.
-    2   Debug mode, show error. DOUT_LOG_ENABLE on. Assert enable.
-    1   Default, DOUT_LOG_ENABLE off. For production environment.
+    2   Debug mode, show error. Enable log output. Assert enable.
+    1   Default, won't log anything. For production environment.
     0   Silent.
  */
-#ifndef RFDebugLevel
-#   if DEBUG
-#       define RFDebugLevel 2
-#   else
-#       define RFDebugLevel 1
-#   endif
-#endif
-
-// Auto define DEBUG if RFDebugLevel > 1
-#ifndef DEBUG
-#   if RFDebugLevel > 1
-#       define DEBUG 1
-#   endif
-#endif
 
 // If DOUT_ASSERT_AT_ERROR is enabled, DOUT_TREAT_ERROR_AS_EXCEPTION will not available.
 #ifndef DOUT_ASSERT_AT_ERROR
@@ -56,25 +42,6 @@
 #endif
 #ifndef DOUT_TREAT_WANRNING_AS_EXCEPTION
 #   define DOUT_TREAT_WANRNING_AS_EXCEPTION 0
-#endif
-
-
-/** DOUT_LOG_ENABLE
-    It controll all debug log output.
- 
-    Tip: Howto set DOUT_LOG_ENABLE in Build Settings.
-	
-        Use Preprocessor macros, or Other C Flags.
- 
-        If you use C flags, set -Dmacro[=defn] to define macro.
-        For example, to disable dout, set -DDOUT_LOG_ENABLE=0
- */
-#ifndef DOUT_LOG_ENABLE
-#   if RFDebugLevel > 1
-#       define DOUT_LOG_ENABLE 1
-#   else
-#       define DOUT_LOG_ENABLE 0
-#   endif
 #endif
 
 //#define DOUT_FALG_TRACE 1
@@ -99,112 +66,62 @@
 
 #pragma mark - Variables log helper
 /// main
-#if DOUT_LOG_ENABLE
-	#define dout(format,...)\
-		{if(DOUT_LOG_ENABLE) NSLog([DOUT_TRACE_FORMATTER stringByAppendingFormat:format, ##__VA_ARGS__]);}
+#define __dout(LV, ...)\
+    {if(RFDebugLevel >= LV) NSLog([DOUT_TRACE_FORMATTER stringByAppendingFormat:__VA_ARGS__]);}
 
-    #define douts(NSString)\
-        {if(DOUT_LOG_ENABLE) NSLog([DOUT_TRACE_FORMATTER stringByAppendingString:NSString]);}
+#define dout(...)       __dout(2, __VA_ARGS__)
 
-	#define douto(NSObject)\
-        {if(DOUT_LOG_ENABLE) NSLog(@"%@%s = <%@> %@", DOUT_TRACE_FORMATTER, #NSObject, [NSObject class], NSObject);}
-    
-    #define doutp(pointer)\
-        {if(DOUT_LOG_ENABLE) NSLog(@"%@%s -> %p", DOUT_TRACE_FORMATTER, #pointer, pointer);}
+#define douts(...)      dout(__VA_ARGS__)
+#define douto(...)      dout(@"%s = <%@> %@", #__VA_ARGS__, [(__VA_ARGS__) class], (__VA_ARGS__))
+#define doutp(...)      dout(@"%s -> %p", #__VA_ARGS__, (__VA_ARGS__))
+#define dout_bool(...)  dout(@"%s = %@", #__VA_ARGS__, ((BOOL)(__VA_ARGS__))? @"YES" : @"NO")
+#define dout_int(...)   dout(@"%s = %d", #__VA_ARGS__, ((int)(__VA_ARGS__)))
+#define dout_float(...) dout(@"%s = %f", #__VA_ARGS__, ((float)(__VA_ARGS__)))
 
-	#define dout_bool(boolVar)\
-        {if(DOUT_LOG_ENABLE) NSLog(@"%@%s = %@", DOUT_TRACE_FORMATTER, #boolVar, boolVar?@"YES":@"NO");}
+#define dout_point(...) dout(@"%s = %@", #__VA_ARGS__, NSStringFromCGPoint((CGPoint)(__VA_ARGS__)))
+#define dout_size(...)  dout(@"%s = %@", #__VA_ARGS__, NSStringFromCGSize((CGSize)(__VA_ARGS__)))
+#define dout_rect(...)  dout(@"%s = %@", #__VA_ARGS__, NSStringFromCGRect((CGRect)(__VA_ARGS__)))
 
-    #define dout_int(intVar)\
-        {if(DOUT_LOG_ENABLE) NSLog(@"%@%s = %i", DOUT_TRACE_FORMATTER, #intVar, (int)(intVar));}
+#define doutwork()      dout(@"%s: It Works!", __FUNCTION__)
+#define douttrace()     dout(@"%s @%@", __PRETTY_FUNCTION__, [NSThread callStackSymbols])
+#define doutline()      dout("%s line:%d", __PRETTY_FUNCTION__, __LINE__)
 
-	#define dout_float(floatVar)\
-        {if(DOUT_LOG_ENABLE) NSLog(@"%@%s = %f", DOUT_TRACE_FORMATTER, #floatVar, (float)(floatVar));}
-
-	#define dout_point(point_struct_with_x_y)\
-        {if(DOUT_LOG_ENABLE) NSLog(@"%@%s = {%f, %f}", DOUT_TRACE_FORMATTER, #point_struct_with_x_y, (float)point_struct_with_x_y.x, (float)point_struct_with_x_y.y);}
-
-	#define dout_size(size_struct_with_width_height)\
-        {if(DOUT_LOG_ENABLE) NSLog(@"%@%s = {%f, %f}", DOUT_TRACE_FORMATTER, #size_struct_with_width_height, (float)size_struct_with_width_height.width, (float)size_struct_with_width_height.height);}
-
-	#define dout_rect(CGRect)\
-        {if(DOUT_LOG_ENABLE) NSLog(@"%@%s = {%f, %f, %f, %f}", DOUT_TRACE_FORMATTER, #CGRect, CGRect.origin.x, CGRect.origin.y, CGRect.size.width, CGRect.size.height);}
-
-	#define doutwork()\
-        {if(DOUT_LOG_ENABLE) NSLog(@"%@%s: It Works!", DOUT_TRACE_FORMATTER, __FUNCTION__);}
-
-	#define douttrace()\
-        {if(DOUT_LOG_ENABLE) NSLog(@"%@%s @%@", DOUT_TRACE_FORMATTER, __PRETTY_FUNCTION__, [NSThread callStackSymbols]);}
-
-    #define doutline()\
-        {if(DOUT_LOG_ENABLE) NSLog(@"%@%s line:%d", DOUT_TRACE_FORMATTER, __PRETTY_FUNCTION__, __LINE__);}
-
-#else
-	#define dout(...)   ;
-	#define douts(...)  ;
-	#define douto(...)  ;
-    #define doutp(...)  ;
-	#define dout_bool(...)  ;
-    #define dout_int(...)   ;
-	#define dout_float(...) ;
-	#define dout_point(...) ;
-	#define dout_size(...)  ;
-	#define dout_rect(...)  ;
-	#define doutf(...)  ;
-	#define doutwork(...)   ;
-	#define douttrace(...)  ;
-    #define doutline(...)   ;
-
-#endif
 
 #pragma mark Log helper
 #ifndef dout_info
-    #if RFDebugLevel >= 5
-        #define dout_info(format,...) dout(@"<Info> %@", [NSString stringWithFormat:format, ##__VA_ARGS__])
-    #else
-        #define dout_info(...)
-    #endif
+    #define dout_info(...) __dout(5, @"<Info> %@", [NSString stringWithFormat:__VA_ARGS__])
 #endif
 
 #ifndef dout_warning
-    #if RFDebugLevel >= 3
-        #if DOUT_ASSERT_AT_WANRNING
-            #define dout_warning(format, ...)\
-                NSAssert(false, format, ##__VA_ARGS__);
+    #if DOUT_ASSERT_AT_WANRNING
+        #define dout_warning(...)\
+            {if (RFDebugLevel >= 3) NSAssert(false, [NSString stringWithFormat:__VA_ARGS__]);}
 
-        #elif DOUT_TREAT_WANRNING_AS_EXCEPTION
-            #define dout_warning(format, ...)\
-                @throw [NSException exceptionWithName:@"DOUT Warning" reason:[NSString stringWithFormat:format, ##__VA_ARGS__] userInfo:nil];
-
-        #else
-            #define dout_warning(format, ...)\
-                dout(@"<Warning> %@", [NSString stringWithFormat:format, ##__VA_ARGS__])
-
-        #endif
+    #elif DOUT_TREAT_WANRNING_AS_EXCEPTION
+        #define dout_warning(...)\
+            {if (RFDebugLevel >= 3) @throw [NSException exceptionWithName:@"DOUT Warning" reason:[NSString stringWithFormat:__VA_ARGS__] userInfo:nil];}
 
     #else
-        #define dout_warning(...)
+        #define dout_warning(...)\
+            __dout(3, @"<Warning> %@", [NSString stringWithFormat:__VA_ARGS__])
     #endif
 #endif
 
 #ifndef dout_error
-    #if RFDebugLevel >= 2
-        #if DOUT_ASSERT_AT_ERROR
-            #define dout_error(format, ...)\
-                NSAssert(false, format, ##__VA_ARGS__);
+    #if DOUT_ASSERT_AT_ERROR
+        #define dout_error(...)\
+            {if (RFDebugLevel >= 2) NSAssert(false, [NSString stringWithFormat:__VA_ARGS__]);}
 
-        #elif DOUT_TREAT_ERROR_AS_EXCEPTION
-            #define dout_error(format, ...)\
-                @throw [NSException exceptionWithName:@"DOUT Error" reason:[NSString stringWithFormat:format, ##__VA_ARGS__] userInfo:nil];
+    #elif DOUT_TREAT_ERROR_AS_EXCEPTION
+        #define dout_error(...)\
+            {if (RFDebugLevel >= 2) @throw [NSException exceptionWithName:@"DOUT Error" reason:[NSString stringWithFormat:__VA_ARGS__] userInfo:nil];}
 
-        #else
-            #define dout_error(format, ...)\
-                dout(@"<Error> %@", [NSString stringWithFormat:format, ##__VA_ARGS__]);
-        #endif
     #else
-        #define dout_error(...)
+        #define dout_error(...)\
+            __dout(2, @"<Error> %@", [NSString stringWithFormat:__VA_ARGS__]);
     #endif
 #endif
+
 
 #pragma mark Assert
 /*!
@@ -213,12 +130,12 @@
  */
 
 #ifndef RFALog
-#   if DEBUG
+#   if RFDEBUG
 #       define RFALog(...)\
             [[NSAssertionHandler currentHandler] handleFailureInFunction:[NSString stringWithCString:__PRETTY_FUNCTION__ encoding:NSUTF8StringEncoding] file:[NSString stringWithCString:__FILE__ encoding:NSUTF8StringEncoding] lineNumber:__LINE__ description:__VA_ARGS__];
 #   else
 #       define RFALog(...)\
-            NSLog(@"%s %@", __PRETTY_FUNCTION__, [NSString stringWithFormat:__VA_ARGS__]);
+            dout_error(@"%s %@", __PRETTY_FUNCTION__, __VA_ARGS__]);
 #   endif
 #endif
 
@@ -230,14 +147,7 @@
 #endif
 
 #pragma mark Segment
-
-#if DOUT_LOG_ENABLE
-    #define DOUT_START if(DOUT_LOG_ENABLE){
-    #define DOUT_END }
-
-    #define DAUTORELEASEPOOL_START	@autoreleasepool{
-    #define DAUTORELEASEPOOL_END	}
-
+#if RFDEBUG
     #define DTRYCATCH_START @try {
     #define DTRYCATCH_END \
         } @catch (NSException *exception) { \
@@ -246,15 +156,8 @@
         } @finally {}
 
 #else
-    #define DOUT_START
-    #define DOUT_END
-
-    #define DAUTORELEASEPOOL_START
-    #define DAUTORELEASEPOOL_END
-
     #define DTRYCATCH_START
     #define DTRYCATCH_END
-
 #endif
 
 #pragma mark - _dout
@@ -278,6 +181,6 @@
 #define _dout_warning(...)
 #define _dout_error(...)
 
-void _dout_log_config();
+void _dout_log_config(void);
 
 #endif

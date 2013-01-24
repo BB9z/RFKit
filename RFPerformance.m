@@ -52,7 +52,7 @@
 	float time1 = [(NSNumber *)[self.timeTable objectForKey:name1] floatValue];
 	float time2 = [(NSNumber *)[self.timeTable objectForKey:name2] floatValue];
 	float time = time1 - time2;
-	return ABS(time);
+	return fabsf(time);
 }
 
 + (void)logMemoryInfo {

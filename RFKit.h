@@ -2,7 +2,7 @@
     RFKit
     Tool kit for daily iOS development.
  
-    Copyright (c) 2012 BB9z
+    Copyright (c) 2012-2013 BB9z
     http://github.com/bb9z/RFKit
  
     The MIT License (MIT)
