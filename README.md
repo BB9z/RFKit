@@ -21,7 +21,7 @@ dout_int(101+a)	// Output: 101+a = 111
 * 专用于警告、错误输出的语句，可配置为抛出异常或断言失败。
 * 因为是宏，当禁用时通常不会有性能损失。
 
-详见：[dout 文档](doc/dout.md)
+详见：[dout 文档](https://github.com/BB9z/RFKit/blob/master/doc/dout.md)
 
 
 RFRuntime
