@@ -1,5 +1,7 @@
 RFKit Document
 =================
+<base href="//github.com/BB9z/RFKit/blob/master/" />
+
 RFKit 包含一套对日常iOS开发很有帮助的工具。
 
 dout
