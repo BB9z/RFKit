@@ -6,7 +6,7 @@ RFKit Change Log
 * Hello 2013~
 * Eliminate warnings.
 * dout 1.3.0.
-* New NSJSONSerialization, UIWebView extensions.
+* New NSJSONSerialization, UIWebView, UIStoryboard extensions.
 * @keypath.
 * Document improve.
 
