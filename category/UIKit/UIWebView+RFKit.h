@@ -9,7 +9,7 @@
     http://www.opensource.org/licenses/mit-license.php
  */
 
-#import <UIKit/UIKit.h>
+#import "RFRuntime.h"
 
 @interface UIWebView (RFKit)
 

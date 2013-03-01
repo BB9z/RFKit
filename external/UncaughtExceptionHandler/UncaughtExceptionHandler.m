@@ -27,6 +27,12 @@ const int32_t UncaughtExceptionMaximum = 10;
 const NSInteger UncaughtExceptionHandlerSkipAddressCount = 4;
 const NSInteger UncaughtExceptionHandlerReportAddressCount = 5;
 
+@interface UncaughtExceptionHandler () {
+    BOOL dismissed;
+}
+
+@end
+
 @implementation UncaughtExceptionHandler
 
 + (NSArray *)backtrace
@@ -172,7 +178,7 @@ void SignalHandler(int signal)
 		waitUntilDone:YES];
 }
 
-void InstallUncaughtExceptionHandler()
+void InstallUncaughtExceptionHandler(void)
 {
 	NSSetUncaughtExceptionHandler(&HandleException);
 	signal(SIGABRT, SignalHandler);

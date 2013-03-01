@@ -1,5 +1,5 @@
 
-#import "NSArray+RFKit.h"
+#import "RFKit.h"
 #import "UIWebView+RFKit.h"
 
 @implementation UIWebView (RFKit)

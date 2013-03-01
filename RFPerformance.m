@@ -5,11 +5,13 @@
 // for Memory log
 #import <mach/mach.h>
 
-@interface RFPerformance ()
-
+@interface RFPerformance () {
+    time_t timeBase;
+}
 @end
 
 @implementation RFPerformance
+@synthesize timeTable = _timeTable;
 
 + (RFPerformance *)sharedInstance {
     static RFPerformance *sharedInstance = nil;

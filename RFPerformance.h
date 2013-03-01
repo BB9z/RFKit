@@ -32,9 +32,7 @@
 #endif
 
 
-@interface RFPerformance : NSObject {
-    time_t timeBase;
-}
+@interface RFPerformance : NSObject
 @property(RF_STRONG) NSMutableDictionary * timeTable;
 
 + (RFPerformance *)sharedInstance;

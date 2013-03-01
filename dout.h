@@ -2,7 +2,7 @@
 	Debug output kit(dout)
 	RFKit
 
-	ver 1.3.0
+	ver 1.3.1
  
     Copyright (c) 2012-2013 BB9z
     http://github.com/bb9z/RFKit
@@ -67,11 +67,13 @@
 #pragma mark - Variables log helper
 /// main
 #define __dout(LV, ...)\
-    {if(RFDebugLevel >= LV) NSLog([DOUT_TRACE_FORMATTER stringByAppendingFormat:__VA_ARGS__]);}
+    {if(RFDebugLevel >= LV) NSLog(@"%@", [DOUT_TRACE_FORMATTER stringByAppendingFormat:__VA_ARGS__]);}
 
 #define dout(...)       __dout(2, __VA_ARGS__)
 
-#define douts(...)      dout(__VA_ARGS__)
+#define douts(string)\
+    {if(RFDebugLevel >= 2) NSLog(@"%@%@", DOUT_TRACE_FORMATTER, (string));}
+
 #define douto(...)      dout(@"%s = <%@> %@", #__VA_ARGS__, [(__VA_ARGS__) class], (__VA_ARGS__))
 #define doutp(...)      dout(@"%s -> %p", #__VA_ARGS__, (__VA_ARGS__))
 #define dout_bool(...)  dout(@"%s = %@", #__VA_ARGS__, ((BOOL)(__VA_ARGS__))? @"YES" : @"NO")
@@ -135,7 +137,7 @@
             [[NSAssertionHandler currentHandler] handleFailureInFunction:[NSString stringWithCString:__PRETTY_FUNCTION__ encoding:NSUTF8StringEncoding] file:[NSString stringWithCString:__FILE__ encoding:NSUTF8StringEncoding] lineNumber:__LINE__ description:__VA_ARGS__];
 #   else
 #       define RFALog(...)\
-            dout_error(@"%s %@", __PRETTY_FUNCTION__, __VA_ARGS__]);
+            dout_error(@"%s %@", __PRETTY_FUNCTION__, [NSString stringWithFormat:__VA_ARGS__])
 #   endif
 #endif
 

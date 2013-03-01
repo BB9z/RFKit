@@ -65,7 +65,7 @@
  eg:
  
  UIViewController *vc = nil;
- NSLog(@"%@", @keypath(vc.view, frame.origin));     // Will log "view.frame.origin.x"
+ NSLog(@"%@", @keypath(vc.view, frame.origin));     // Will log "frame.origin"
  */
 #ifndef keypath
     #define keypath(OBJ, PATH)\

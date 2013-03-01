@@ -1,4 +1,5 @@
 
+#import "RFKit.h"
 #import "NSJSONSerialization+RFKit.h"
 
 @implementation NSJSONSerialization (RFKit)

@@ -44,13 +44,13 @@
 
 #pragma mark 视图位置／尺寸
 
--(void)exhangeWidthHight {
+- (void)exhangeWidthHight {
 	CGRect tmp = self.bounds;
 	self.frame = CGRectMake(tmp.origin.x, tmp.origin.y, tmp.size.height, tmp.size.width);
 }
 
 #pragma clang diagnostic push
-#pragma clang diagnostic ignored -Wfloat-equal
+#pragma clang diagnostic ignored "-Wfloat-equal"
 - (void)moveX:(CGFloat)x Y:(CGFloat)y {
 	CGPoint tmp = self.center;
 	if (x != RFMathNotChange) tmp.x += x;
@@ -202,20 +202,20 @@
 	[self.superview exchangeSubviewAtIndex:CurrentIndex withSubviewAtIndex:CurrentIndex+1];
 }
 
--(void)sendOneLevelDown{
+- (void)sendOneLevelDown{
 	int currentIndex = [self getSubviewIndex];
 	[self.superview exchangeSubviewAtIndex:currentIndex withSubviewAtIndex:currentIndex-1];
 }
 
--(BOOL)isInFront{
+- (BOOL)isInFront{
 	return ([self.superview.subviews lastObject] == self);
 }
 
--(BOOL)isAtBack{
+- (BOOL)isAtBack{
 	return ([self.superview.subviews objectAtIndex:0] == self);
 }
 
--(void)exchangeDepthsWithView:(UIView*)swapView{
+- (void)exchangeDepthsWithView:(UIView*)swapView{
 	[self.superview exchangeSubviewAtIndex:[self getSubviewIndex] withSubviewAtIndex:[swapView getSubviewIndex]];
 }
 
