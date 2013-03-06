@@ -23,7 +23,7 @@ dout_int(101+a)	// Output: 101+a = 111
 * 专用于警告、错误输出的语句，可配置为抛出异常或断言失败。
 * 因为是宏，当禁用时通常不会有性能损失。
 
-详见：[dout 文档](https://github.com/BB9z/RFKit/blob/master/doc/dout.md)
+详见：[dout 文档](doc/dout.md)
 
 
 RFRuntime
@@ -32,6 +32,7 @@ RFRuntime
 
 ### 调试开关
 `RFDEBUG`， RFKit 调试模式开关，为 `1` 时启用。若未定义，当 `DEBUG` 为真且未定义 `NDEBUG` 将自动定义为 `1`。
+
 `RFDebugLevel`，调试行为级别控制。若未定义，当 `RFDEBUG` 为真时自动定义为 `2`，否则为 `1`。
 
 ### 默认头文件
@@ -46,13 +47,13 @@ RFRuntime 默认包括了 UIKit 和 Foundation 头文件。
 	现有 `UIViewController *a`，要使用 KVO 监听其 view 的 `frame` 变化，可以这样写：
 
 	```
-[someObject addObserver:a forKeyPath:@"view.frame" options:NSKeyValueObservingOptionNew context:NULL];
+[a addObserver:someObject forKeyPath:@"view.frame" options:NSKeyValueObservingOptionNew context:NULL];
 	```
 	
 	这里的 key path 是字符串硬编码的，多有不便，用 `@keypath` 可以这样：
 
 	```
-[someObject addObserver:a forKeyPath:@keypath(a, view.frame) options:NSKeyValueObservingOptionNew context:NULL];
+[a addObserver:someObject forKeyPath:@keypath(a, view.frame) options:NSKeyValueObservingOptionNew context:NULL];
 	```
 
 	不但有了编译检查，甚至属性可以自动完成。
