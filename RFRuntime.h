@@ -34,6 +34,7 @@
 #import <UIKit/UIKit.h>
 
 #import "RFARC.h"
+#import "RFFeatureSupport.h"
 
 #pragma mark - ObjC Ext
 /*!

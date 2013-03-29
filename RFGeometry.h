@@ -73,8 +73,6 @@ CG_INLINE CGRect CGRectScaled(CGRect original, float scale) {
     return CGRectResize(original, CGSizeMake(original.size.width*scale, original.size.height*scale), RFResizeAnchorCenter);
 }
 CGRect CGRectChange(CGRect original, RFCGRectChangeFlag flag, CGFloat newValue);
-bool CGRectIsOutOfRect(CGRect a, CGRect b);
-
 
 #pragma mark CGAngle
 // radian measure

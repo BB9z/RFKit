@@ -10,21 +10,34 @@
  */
 
 #import "RFRuntime.h"
+#import "RFGeometry.h"
 
 typedef enum {
-	RFViewResizeOptionNone		= 0,
-	RFViewResizeOptionFill		= 1,
-	RFViewResizeOptionAspectFill= 2,
-	RFViewResizeOptionAspectFit	= 3,
-	RFViewResizeOptionOnlyWidth	= 6,
-	RFViewResizeOptionOnlyHeight= 7,
-	RFViewResizeOptionCenter	= 11,
+	RFViewResizeOptionNone		 = 0,
+	RFViewResizeOptionFill		 = 1,
+	RFViewResizeOptionAspectFill = 2,
+	RFViewResizeOptionAspectFit	 = 3,
+	RFViewResizeOptionOnlyWidth	 = 6,
+	RFViewResizeOptionOnlyHeight = 7,
+	RFViewResizeOptionCenter	 = 11,
 } RFViewResizeOption;
 
 @interface UIView (RFKit)
 
-// Unfinished
+/** A Boolean value that indicates whether the receiver is displayed.
+ 
+ @discussion This method not only consider view’s hidden, alpha property or whether was added into a view or not. It looks up every supview to make sure the view is in screen’s bounds and not cliped indeed. But covered by another view is not considering.
+ 
+ Before a view is added to the view hierarchies, such as within UIViewController’s viewDidLoad method, the view is not visible because it’s not on screen yet.
+ 
+ @return `YES` if the view is visible, `NO` otherwise.
+ */
 - (BOOL)isVisible;
+
+/** 
+ @return The frame rectangle, which describes the view’s location and size in its screen’s coordinate system.
+ */
+- (CGRect)frameOnScreen;
 
 - (UIImage *)renderToImage;
 
@@ -34,18 +47,18 @@ typedef enum {
  @param delay       The amount of time (measured in seconds) to wait before beginning the animations. Specify a value of 0 to begin the animations immediately.
  @param options     A mask of options indicating how you want to perform the animations. For a list of valid constants, see UIViewAnimationOptions.
  @param animated    YES if animations should be executed; otherwise, NO.
- @param before      A block object to be executed before animations. If animated was NO, this block won`t executed. This parameter may be NULL.
+ @param before      A block object to be executed before animations. If animated was NO, this block won’t executed. This parameter may be NULL.
  @param animations  A block object containing the changes to commit to the views. This is where you programmatically change any animatable properties of the views in your view hierarchy. This block takes no parameters and has no return value. This parameter must not be NULL.
  @param completion  A block object to be executed after animations block executed, regardless animated was YES or NO. This block has no return value and takes a single Boolean argument that indicates whether or not the animations actually finished before the completion handler was called. If the duration of the animation is 0, this block is performed at the beginning of the next run loop cycle. This parameter may be NULL.
  */
 + (void)animateWithDuration:(NSTimeInterval)duration delay:(NSTimeInterval)delay options:(UIViewAnimationOptions)options animated:(BOOL)animated beforeAnimations:(void (^)(void))before animations:(void (^)(void))animations completion:(void (^)(BOOL finished))completion;
 
-/** Exchange a UIView`s width and Hight
+/** Exchange a UIView’s width and Hight
  */
 - (void)exhangeWidthHight NS_DEPRECATED_IOS(2_0,6_0);
 
 
-/** Move a UIView relative to it`s position.
+/** Move a UIView relative to it’s position.
  
  @param x	X-axis distance to move
  @param y	Y-axis distance to move
@@ -54,9 +67,9 @@ typedef enum {
 - (void)moveX:(CGFloat)x Y:(CGFloat)y;
 
 
-/** Move a UIView relative to it`s 
+/** Move a UIView relative to it’s 
  
- This method use frame setting new position. Set parameter equal to CGFLOAT_MAX if you don`t want move in that direction. 
+ @discussion This method use frame setting new position. Set parameter equal to CGFLOAT_MAX if you don’t want move in that direction.
  
  @param x	New position on x-axis
  @param y	New position on y-axis
@@ -67,7 +80,7 @@ typedef enum {
 
 /** Resize a UIView
  
- Set parameter equal to RFMathNotChange if you don`t want resize that direction.
+ @discussion Set parameter equal to RFMathNotChange if you don’t want resize that direction.
  
  @param width	New width
  @param height	New height

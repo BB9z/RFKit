@@ -1,6 +1,7 @@
 
 
 #import "RFPerformance.h"
+#import "dout.h"
 
 // for Memory log
 #import <mach/mach.h>

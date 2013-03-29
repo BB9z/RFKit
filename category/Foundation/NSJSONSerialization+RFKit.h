@@ -38,5 +38,16 @@
  
  @discussion This method use [NString dataUsingEncoding:allowLossyConversion:] cover the string to NSData, then use [NSJSONSerialization JSONObjectWithData:options:error:] cover the data object to Foundation object.
  */
-+ (id)JSONObjectWithString:(NSString *)string usingEncoding:(NSStringEncoding)encoding allowLossyConversion:(BOOL)lossy options:(NSJSONReadingOptions)opt error:(NSError **)error ;
++ (id)JSONObjectWithString:(NSString *)string usingEncoding:(NSStringEncoding)encoding allowLossyConversion:(BOOL)lossy options:(NSJSONReadingOptions)opt error:(NSError **)error;
+
+/** Returns a Foundation object from given JSON string.
+ 
+ @param string  A string containing JSON data.
+ 
+ @return A data object containing JSON string.
+ 
+ @see [NSJSONSerialization JSONObjectWithString:usingEncoding:allowLossyConversion:options:error:]
+ */
++ (id)JSONObjectWithString:(NSString *)string;
+
 @end

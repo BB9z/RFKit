@@ -2,18 +2,67 @@
 #import "RFKit.h"
 
 // Eliminate CALayer forward declaration warning
-#import <QuartzCore/CALayer.h>
+#import <QuartzCore/QuartzCore.h>
 
 @implementation UIView (RFKit)
 
 - (BOOL)isVisible {
-	if (self.hidden == YES || self.alpha == 0.f) {
-		return NO;
-	}
-	else {
-		CGRect boundsInWindow = [self convertRect:self.bounds toView:nil];
-		return !CGRectIsOutOfRect(boundsInWindow, [UIScreen mainScreen].bounds);
-	}
+    _douto(self)
+    
+    if (self.hidden || self.alpha == 0.f) {
+        return NO;
+    }
+    
+    // Window is special. There may be an external screen.
+    if ([self isKindOfClass:[UIWindow class]]) {
+        UIWindow *selfRef = (UIWindow *)self;
+        if (!selfRef.screen) return NO;
+        return CGRectIntersectsRect(selfRef.screen.bounds, selfRef.frame);
+    }
+    
+    // Not added to a window.
+    if (!self.window) {
+        _dout_info(@"View not added to view hierarchies yet.");
+        return NO;
+    }
+
+    // Out side screen bounds.
+    if (!CGRectIntersectsRect(self.window.screen.bounds, [self frameOnScreen])) {
+        _dout_info(@"Out side screen.")
+        return NO;
+    }
+    
+    // The rect is in window, now check superviews.　
+    UIView *parent = self.superview;
+    CGRect ctFrame = self.frame;
+    while (parent.superview) {
+        _dout_rect(ctFrame)
+        _douto(parent)
+        
+        if (parent.clipsToBounds && !CGRectIntersectsRect(parent.bounds, ctFrame)) {
+            _dout_info(@"Outside cliped view");
+            return NO;
+        }
+        
+        if (parent.hidden || parent.alpha == 0.f) return NO;
+        
+        ctFrame = [parent convertRect:ctFrame toView:parent.superview];
+        parent = parent.superview;
+    }
+    
+    // parent is window, check screen now
+    UIWindow *aWindow = (UIWindow *)parent;
+    if (aWindow.clipsToBounds && !CGRectIntersectsRect(aWindow.screen.bounds, [aWindow convertRect:ctFrame toWindow:nil])) {
+        return NO;
+    }
+    return YES;
+}
+
+- (CGRect)frameOnScreen {
+    CGRect frameInWindow = [self convertRect:self.bounds toView:nil];
+    _dout_rect(frameInWindow)
+    _dout_rect([self.window convertRect:frameInWindow toWindow:nil])
+    return [self.window convertRect:frameInWindow toWindow:nil];
 }
 
 - (UIImage *)renderToImage {
@@ -163,15 +212,15 @@
 	}
 }
 
-- (int)getSubviewIndex{
+- (NSUInteger)siblingIndex {
 	return [self.superview.subviews indexOfObject:self];
 }
 
-- (void)bringToFront{
+- (void)bringToFront {
 	[self.superview bringSubviewToFront:self];
 }
 
-- (void)sentToBack{
+- (void)sentToBack {
 	[self.superview sendSubviewToBack:self];
 }
 
@@ -197,26 +246,26 @@
 	self.frame = tmp;
 }
 
-- (void)bringOneLevelUp{
-	NSUInteger CurrentIndex = [self getSubviewIndex];
-	[self.superview exchangeSubviewAtIndex:CurrentIndex withSubviewAtIndex:CurrentIndex+1];
+- (void)bringOneLevelUp {
+	NSUInteger ixCurrent = [self siblingIndex];
+	[self.superview exchangeSubviewAtIndex:ixCurrent withSubviewAtIndex:ixCurrent+1];
 }
 
-- (void)sendOneLevelDown{
-	int currentIndex = [self getSubviewIndex];
-	[self.superview exchangeSubviewAtIndex:currentIndex withSubviewAtIndex:currentIndex-1];
+- (void)sendOneLevelDown {
+	NSUInteger ixCurrent = [self siblingIndex];
+	[self.superview exchangeSubviewAtIndex:ixCurrent withSubviewAtIndex:ixCurrent-1];
 }
 
-- (BOOL)isInFront{
-	return ([self.superview.subviews lastObject] == self);
+- (BOOL)isInFront {
+    return ([self.superview.subviews lastObject] == self);
 }
 
-- (BOOL)isAtBack{
-	return ([self.superview.subviews objectAtIndex:0] == self);
+- (BOOL)isAtBack {
+    return ([self.superview.subviews objectAtIndex:0] == self);
 }
 
-- (void)exchangeDepthsWithView:(UIView*)swapView{
-	[self.superview exchangeSubviewAtIndex:[self getSubviewIndex] withSubviewAtIndex:[swapView getSubviewIndex]];
+- (void)exchangeDepthsWithView:(UIView *)swapView {
+	[self.superview exchangeSubviewAtIndex:[self siblingIndex] withSubviewAtIndex:[swapView siblingIndex]];
 }
 
 @end

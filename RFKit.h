@@ -10,7 +10,7 @@
  */
 
 #ifndef _RFKit_h_
-#define _RFKit_h_ 0.2.0
+#define _RFKit_h_ 1.2.0
 
 #import "RFRuntime.h"
 #import "dout.h"

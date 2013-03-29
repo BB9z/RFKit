@@ -14,5 +14,11 @@
     return [NSJSONSerialization JSONObjectWithData:d options:opt error:error];
 }
 
++ (id)JSONObjectWithString:(NSString *)string {
+    NSError *e = nil;
+    id obj = [NSJSONSerialization JSONObjectWithString:string usingEncoding:NSUTF8StringEncoding allowLossyConversion:YES options:0 error:&e];
+    if (e) dout_error(@"%@", e);
+    return obj;
+}
 
 @end

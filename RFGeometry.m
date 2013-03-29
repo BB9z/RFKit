@@ -112,20 +112,6 @@ CGRect CGRectChange(CGRect original, RFCGRectChangeFlag flag, CGFloat newValue) 
 	return rect;
 }
 
-bool CGRectIsOutOfRect(CGRect a, CGRect b) {
-	_dout_rect(a)
-	_dout_rect(b)
-	if (a.origin.x + a.size.width < b.origin.x ||
-		a.origin.x > b.origin.x + b.size.width ||
-		a.origin.y + a.size.height < b.origin.y ||
-		a.origin.y > b.origin.y + b.size.height) {
-		return true;
-	}
-	else {
-		return false;
-	}
-}
-
 #pragma mark CGAngle
 CGAngle CGAngleFromPoints(CGPoint start, CGPoint end) {
 //	float t = atan2f(end.y-start.y, end.x-start.x);

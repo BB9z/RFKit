@@ -8,18 +8,18 @@
 
 @implementation UIDevice (RFKit)
 
-+ (BOOL)isPad {
+- (BOOL)isPad {
     static BOOL isPad = NO;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        if ([self userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
             isPad = YES;
         }
     });
     return isPad;
 }
 
-+ (BOOL)isRetinaDisplay {
+- (BOOL)isRetinaDisplay {
     static BOOL isRetinaDisplay = NO;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -31,7 +31,7 @@
     return isRetinaDisplay;
 }
 
-+ (NSString *)macAddress {
+- (NSString *)macAddress {
 	int                 mgmtInfoBase[6];
 	char                *msgBuffer = NULL;
 	size_t              length;
@@ -97,18 +97,39 @@
 	return macAddressString;
 }
 
-+ (long long)fileSystemFreeSize {
+- (long long)fileSystemFreeSize {
     NSError *e = nil;
     NSDictionary *info = [[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:&e];
     if (e) dout_warning(@"Can`t get file system free size, reason: %@", e);
     return [info[NSFileSystemFreeSize] longLongValue];
 }
 
-+ (long long)fileSystemSize {
+- (long long)fileSystemSize {
     NSError *e = nil;
     NSDictionary *info = [[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:&e];
     if (e) dout_warning(@"Can`t get file system size, reason: %@", e);
     return [info[NSFileSystemSize] longLongValue];
+}
+
+#pragma mark - DEPRECATED class methods
++ (BOOL)isPad {
+    return [[self currentDevice] isPad];
+}
+
++ (BOOL)isRetinaDisplay {
+    return [[self currentDevice] isRetinaDisplay];
+}
+
++ (NSString *)macAddress {
+    return [[self currentDevice] macAddress];
+}
+
++ (long long)fileSystemFreeSize {
+    return [[self currentDevice] fileSystemFreeSize];
+}
+
++ (long long)fileSystemSize {
+    return [[self currentDevice] fileSystemSize];
 }
 
 @end
