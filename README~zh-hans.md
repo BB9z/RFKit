@@ -1,6 +1,7 @@
 RFKit Document
 =================
 <base href="//github.com/BB9z/RFKit/blob/master/" />
+<small>[English](Readme.md) *简体中文*</small>
 
 RFKit 包含一套对日常iOS开发很有帮助的工具。
 
@@ -19,7 +20,7 @@ int a = 10;
 dout_int(101+a)	// Output: 101+a = 111
   ```
 
-* 支持打印语句本身的跟踪，开启 `DOUT_FALG_TRACE` 以激活。 
+* 支持在输出中添加打印语句位置信息以便于定位打印语句的位置，开启 `DOUT_FALG_TRACE` 以激活。 
 * 专用于警告、错误输出的语句，可配置为抛出异常或断言失败。
 * 因为是宏，当禁用时通常不会有性能损失。
 
