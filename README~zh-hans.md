@@ -1,7 +1,7 @@
 RFKit Document
 =================
 <base href="//github.com/BB9z/RFKit/blob/master/" />
-<small>[English](Readme.md) *简体中文*</small>
+<small>[English :us:](README.md) *简体中文 :cn:*</small>
 
 RFKit 包含一套对日常iOS开发很有帮助的工具。
 
