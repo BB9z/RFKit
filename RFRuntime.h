@@ -33,42 +33,37 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+#include "metamacros.h"
 #import "RFARC.h"
 #import "RFFeatureSupport.h"
 
 #pragma mark - ObjC Ext
-/*!
-    Ref from EXTKeyPathCoding.h (extobjc)
-    https://github.com/jspahrsummers/libextobjc
+#import "EXTKeyPathCoding.h"
+#import "EXTScope.h"
+//#import "EXTSwizzle.h"
 
-    Copyright (c) 2012 - 2013 Justin Spahr-Summers
+/**
+ \@keypathClassInstance allows compile-time verification of key paths. Similar to
+ \@keypath, but accept a class as parameter instead of a instance variable.
+ @code
 
-    Permission is hereby granted, free of charge, to any person obtaining a copy of
-    this software and associated documentation files (the "Software"), to deal in
-    the Software without restriction, including without limitation the rights to
-    use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
-    the Software, and to permit persons to whom the Software is furnished to do so,
-    subject to the following conditions:
+NSString *objectIDPath = @keypathClassInstance(NSManagedObject, objectID);
+// => @"objectID"
 
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
+NSString *footerViewFramePath = @keypathClassInstance(UITableView, tableFooterView, frame);
+// => @"frame"
 
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-    FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-    COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-    IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
-
-/** Keypath helper support auto complete and compile-time verification.
-
- eg:
+ @endcode
  
- UIViewController *vc = nil;
- NSLog(@"%@", @keypath(vc.view, frame.origin));     // Will log "frame.origin"
+ @bug In a class method, cannot use `self` as CLASS.
  */
-#ifndef keypath
-    #define keypath(OBJ, PATH)\
-        (( (void)(NO && ((void)OBJ.PATH, NO)), # PATH ))
-#endif
+
+#define keypathClassInstance(...)\
+    metamacro_if_eq(2, metamacro_argcount(__VA_ARGS__))(keypathClassInstance1(__VA_ARGS__))(keypathClassInstance2(__VA_ARGS__))
+
+#define keypathClassInstance1(CLASS, PATH)\
+    (({CLASS *_proxy_; ((void)(NO && ((void)_proxy_.PATH, NO)), # PATH);}))
+
+#define keypathClassInstance2(CLASS, PROPERTY, PATH)\
+    (({CLASS *_proxy_; ((void)(NO && ((void)_proxy_.PROPERTY.PATH, NO)), # PATH);}))
+
