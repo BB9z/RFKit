@@ -11,6 +11,7 @@ dout为调试打印而生，它包含了一套方便打印工具。
 
 特色：
 
+* 比 NSLog() 更好的输出格式，并且更快。
 * 打印变量会在结果前添加打印的表达式。
 
   如：
@@ -20,8 +21,10 @@ int a = 10;
 dout_int(101+a)	// Output: 101+a = 111
   ```
 
+* 为多线程调试优化，可以直观看到语句是在哪个线程输出。
 * 支持在输出中添加打印语句位置信息以便于定位打印语句的位置，开启 `DOUT_FALG_TRACE` 以激活。 
 * 专用于警告、错误输出的语句，可配置为抛出异常或断言失败。
+* 行为可通过开关高度定制。
 * 因为是宏，当禁用时通常不会有性能损失。
 
 详见：[dout 文档](doc/dout.md)
@@ -42,22 +45,20 @@ RFRuntime 默认包括了 UIKit 和 Foundation 头文件。
 ### RFARC
 专用于处理ARC的兼容，借助 `RF_STRONG`、`RF_WEAK` 等宏可以写出同时兼容ARC和非ARC环境的代码。iOS6后，ARC增加了对GCD的支持，随之又增加了 `RF_dispatch_retain` 和 `RF_dispatch_release`。
 
+### RFFeatureSupport
+定义了一些伪协议用来标记一个类支持或不支持某些特性。
+
+### RFDispatch
+一些 GCD 便捷方法。
+
 ### 语言扩展
-* @keypath，key path 辅助完成工具。将输入转换为 key path 字符串，下举例说明。
+包括几个来自 [libextobjc](https://github.com/jspahrsummers/libextobjc) 的组件：
+* metamacros.h，支持元编程的工具宏。
+* EXTKeyPathCoding，key path 自动完成辅助工具。
+* EXTScope，与作用域相关的几个实用工具。
+* EXTSwizzle，method swizzle，默认没有被包含。
 
-	现有 `UIViewController *a`，要使用 KVO 监听其 view 的 `frame` 变化，可以这样写：
-
-	```
-[a addObserver:someObject forKeyPath:@"view.frame" options:NSKeyValueObservingOptionNew context:NULL];
-	```
-	
-	这里的 key path 是字符串硬编码的，多有不便，用 `@keypath` 可以这样：
-
-	```
-[a addObserver:someObject forKeyPath:@keypath(a, view.frame) options:NSKeyValueObservingOptionNew context:NULL];
-	```
-
-	不但有了编译检查，甚至属性可以自动完成。
+@keypathClassInstance 与 @keypath 类似，直接使用类而无需额外的实例变量。
 
 UIKit & Foundation Categories 
 -------------
@@ -70,7 +71,7 @@ UIKit 和 Foundation 的扩展是 RFKit 的重要组成部分，包含了很多�
 
 RFGeometry
 -------------
-为 `CGPoint`、`CGSize`、`CGRect` 等几何结构增加了新的方法，增加了新的 `CGAngle` 角度结构。
+为 `CGPoint`、`CGSize`、`CGRect` 等几何结构增加了新的方法、常量，增加了新的 `CGAngle` 角度结构。
 
 `RFResizeAnchor` 和 `RFAlignmentAnchor` 为尺寸调整、对齐提供参考基准。  
 

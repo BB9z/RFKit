@@ -16,7 +16,7 @@
 #pragma mark - Proxy delegate
 //@protocol RFFeatureSupportProxyDelegate <NSObject>
 //@end
-/// These protocols are not real protocols, just a way to declare a class suport something or not.
+/// These protocols are not real protocols, just a way to declare a class support something or not.
 
 // For RFUI components, storyboard was first class supported.
 // This protocol show a class not support init form nib. You must use init method to creat one.
