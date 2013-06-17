@@ -9,7 +9,7 @@
     http://www.opensource.org/licenses/mit-license.php
  */
 
-#pragma mark - Macro options
+#pragma mark - Macro options for Debug
 // If DEBUG is true and NDEBUG is not defined, define RFDEBUG 1, else 0.
 #ifndef RFDEBUG
 #   if DEBUG && !defined(NDEBUG)
@@ -19,17 +19,37 @@
 #   endif
 #endif
 
-// This macro only change dout.h behave right now.
-// See dout.h for details.
+/** @enum RFDebugLevel
+ Used to change debug behave.
+ */
+enum {
+    // Silent.
+    RFDebugLevelSilent = 0,
+    
+    // Default, won't log anything. For production environment.
+    RFDebugLevelFatal = 1,
+    RFDebugLevelDefault = RFDebugLevelFatal,
+    
+    // Debug mode, show error. Enable log output. Assert enable.
+    RFDebugLevelError = 2,
+    
+    // Show warning.
+    RFDebugLevelWarning = 3,
+    
+    RFDebugLevelInfo = 4,
+    RFDebugLevelVerbose = 5
+};
+
 #ifndef RFDebugLevel
 #   if RFDEBUG
-#       define RFDebugLevel 2
+#       define RFDebugLevel RFDebugLevelError
 #   else
-#       define RFDebugLevel 1
+#       define RFDebugLevel RFDebugLevelFatal
 #   endif
 #endif
 
-#pragma mark -
+
+#pragma mark - Headers
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
