@@ -22,5 +22,6 @@
     Bundle version string, according to Info.plist file.
     CFBundleShortVersionString + CFBundleVersion
  */
-+ (NSString *)versionString;
+- (NSString *)versionString;
++ (NSString *)versionString DEPRECATED_ATTRIBUTE;
 @end

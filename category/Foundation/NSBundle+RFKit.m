@@ -23,8 +23,15 @@
     return [NSHomeDirectory() stringByAppendingPathComponent:path];
 }
 
-+ (NSString *)versionString {
-    NSDictionary *info = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Info" ofType:@"plist"]];
-    return [NSString stringWithFormat:@"%@.%@", [info objectForKey:@"CFBundleShortVersionString"], [info objectForKey:@"CFBundleVersion"]];
+- (NSString *)versionString {
+    NSString *bundleVersion = self.infoDictionary[@"CFBundleVersion"];
+    NSString *shortVersion = self.infoDictionary[@"CFBundleShortVersionString"];
+    return [NSString stringWithFormat:@"%@.%@", shortVersion, bundleVersion];
 }
+
+// Will be removed.
++ (NSString *)versionString {
+    return [[NSBundle mainBundle] versionString];
+}
+
 @end
