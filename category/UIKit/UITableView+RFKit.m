@@ -9,4 +9,8 @@
     }
 }
 
+- (id)dequeueReusableCellWithClass:(Class)cellClass {
+    return [self dequeueReusableCellWithIdentifier:NSStringFromClass(cellClass)];
+}
+
 @end

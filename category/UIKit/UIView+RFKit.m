@@ -6,73 +6,6 @@
 
 @implementation UIView (RFKit)
 
-- (BOOL)isVisible {
-    _douto(self)
-    
-    if (self.hidden || self.alpha == 0.f) {
-        return NO;
-    }
-    
-    // Window is special. There may be an external screen.
-    if ([self isKindOfClass:[UIWindow class]]) {
-        UIWindow *selfRef = (UIWindow *)self;
-        if (!selfRef.screen) return NO;
-        return CGRectIntersectsRect(selfRef.screen.bounds, selfRef.frame);
-    }
-    
-    // Not added to a window.
-    if (!self.window) {
-        _dout_info(@"View not added to view hierarchies yet.");
-        return NO;
-    }
-
-    // Out side screen bounds.
-    if (!CGRectIntersectsRect(self.window.screen.bounds, [self frameOnScreen])) {
-        _dout_info(@"Out side screen.")
-        return NO;
-    }
-    
-    // The rect is in window, now check superviews.　
-    UIView *parent = self.superview;
-    CGRect ctFrame = self.frame;
-    while (parent.superview) {
-        _dout_rect(ctFrame)
-        _douto(parent)
-        
-        if (parent.clipsToBounds && !CGRectIntersectsRect(parent.bounds, ctFrame)) {
-            _dout_info(@"Outside cliped view");
-            return NO;
-        }
-        
-        if (parent.hidden || parent.alpha == 0.f) return NO;
-        
-        ctFrame = [parent convertRect:ctFrame toView:parent.superview];
-        parent = parent.superview;
-    }
-    
-    // parent is window, check screen now
-    UIWindow *aWindow = (UIWindow *)parent;
-    if (aWindow.clipsToBounds && !CGRectIntersectsRect(aWindow.screen.bounds, [aWindow convertRect:ctFrame toWindow:nil])) {
-        return NO;
-    }
-    return YES;
-}
-
-- (CGRect)frameOnScreen {
-    CGRect frameInWindow = [self convertRect:self.bounds toView:nil];
-    _dout_rect(frameInWindow)
-    _dout_rect([self.window convertRect:frameInWindow toWindow:nil])
-    return [self.window convertRect:frameInWindow toWindow:nil];
-}
-
-- (UIImage *)renderToImage {
-    UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, [[UIScreen mainScreen] scale]);
-    [self.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage * img = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return img;
-}
-
 + (void)animateWithDuration:(NSTimeInterval)duration delay:(NSTimeInterval)delay options:(UIViewAnimationOptions)options animated:(BOOL)animated beforeAnimations:(void (^)(void))before animations:(void (^)(void))animations completion:(void (^)(BOOL finished))completion {
     if (animated) {
         if (before) {
@@ -90,14 +23,7 @@
     }
 }
 
-
-#pragma mark 视图位置／尺寸
-
-- (void)exhangeWidthHight {
-	CGRect tmp = self.bounds;
-	self.frame = CGRectMake(tmp.origin.x, tmp.origin.y, tmp.size.height, tmp.size.width);
-}
-
+#pragma mark -
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wfloat-equal"
 - (void)moveX:(CGFloat)x Y:(CGFloat)y {
@@ -126,13 +52,11 @@
 }
 #pragma clang diagnostic pop
 
-- (CGFloat)distanceBetweenFrameBottomAndSuperviewBottom {
-	CGRect frame = self.frame;
-	CGFloat hSuper = self.superview.bounds.size.height;
-	return hSuper - frame.origin.y - frame.size.height;
+- (void)sizeToFitSuperview {
+    self.frame = self.superview.bounds;
 }
 
-#pragma mark 视图层次管理
+#pragma mark - View Hierarchy Management
 - (void)addSubview:(UIView *)view frame:(CGRect)rect {
 	[self addSubview:view];
 	view.frame = rect;
@@ -266,6 +190,111 @@
 
 - (void)exchangeDepthsWithView:(UIView *)swapView {
 	[self.superview exchangeSubviewAtIndex:[self siblingIndex] withSubviewAtIndex:[swapView siblingIndex]];
+}
+
+#pragma mark - Others
+
+- (BOOL)isVisible {
+    _douto(self)
+    
+    if (self.hidden || self.alpha == 0.f) {
+        return NO;
+    }
+    
+    // Window is special. There may be an external screen.
+    if ([self isKindOfClass:[UIWindow class]]) {
+        UIWindow *selfRef = (UIWindow *)self;
+        if (!selfRef.screen) return NO;
+        return CGRectIntersectsRect(selfRef.screen.bounds, selfRef.frame);
+    }
+    
+    // Not added to a window.
+    if (!self.window) {
+        _dout_info(@"View not added to view hierarchies yet.");
+        return NO;
+    }
+    
+    // Out side screen bounds.
+    if (!CGRectIntersectsRect(self.window.screen.bounds, [self frameOnScreen])) {
+        _dout_info(@"Out side screen.")
+        return NO;
+    }
+    
+    // The rect is in window, now check superviews.
+    UIView *parent = self.superview;
+    CGRect ctFrame = self.frame;
+    while (parent.superview) {
+        _dout_rect(ctFrame)
+        _douto(parent)
+        
+        if (parent.clipsToBounds && !CGRectIntersectsRect(parent.bounds, ctFrame)) {
+            _dout_info(@"Outside cliped view");
+            return NO;
+        }
+        
+        if (parent.hidden || parent.alpha == 0.f) return NO;
+        
+        ctFrame = [parent convertRect:ctFrame toView:parent.superview];
+        parent = parent.superview;
+    }
+    
+    // parent is window, check screen now
+    UIWindow *aWindow = (UIWindow *)parent;
+    if (aWindow.clipsToBounds && !CGRectIntersectsRect(aWindow.screen.bounds, [aWindow convertRect:ctFrame toWindow:nil])) {
+        return NO;
+    }
+    return YES;
+}
+
+- (CGRect)frameOnScreen {
+    CGRect frameInWindow = [self convertRect:self.bounds toView:nil];
+    _dout_rect(frameInWindow)
+    _dout_rect([self.window convertRect:frameInWindow toWindow:nil])
+    return [self.window convertRect:frameInWindow toWindow:nil];
+}
+
+- (UIImage *)renderToImage {
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, [[UIScreen mainScreen] scale]);
+    [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage * img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return img;
+}
+
+- (CGFloat)distanceBetweenFrameBottomAndSuperviewBottom {
+	CGRect frame = self.frame;
+	CGFloat hSuper = self.superview.bounds.size.height;
+	return hSuper - frame.origin.y - frame.size.height;
+}
+
+- (UIViewController *)viewController {
+    id nextResponder = [self nextResponder];
+    do {
+        if ([nextResponder isKindOfClass:[UIViewController class]]) {
+            return nextResponder;
+        }
+    } while ((nextResponder = [nextResponder nextResponder]));
+    
+    return nil;
+}
+
++ (instancetype)loadWithNibName:(NSString *)nibName bundle:(NSBundle *)nibBundle {
+    if (!nibName) {
+        nibName = NSStringFromClass([self class]);
+    }
+    if (!nibBundle) {
+        nibBundle = [NSBundle mainBundle];
+    }
+    for (id obj in [nibBundle loadNibNamed:nibName owner:nil options:nil]) {
+        if ([obj isKindOfClass:[self class]]) {
+            return obj;
+        }
+    }
+    return nil;
+}
+
++ (instancetype)loadWithNibName:(NSString *)nibName {
+    return [self loadWithNibName:nibName bundle:nil];
 }
 
 @end

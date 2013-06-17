@@ -22,7 +22,15 @@
  
  @param animated
     YES if you want to animate the deselection and NO if the change should be immediate.
- 
  */
 - (void)deselectRows:(BOOL)animated;
+
+/**
+ @abstract Returns a reusable table-view cell object located by its class. The cell´s reuseIdentifier must equal to its class name.
+ 
+ @param cellClass The class of the cell object to be reused.
+ 
+ @return A UITableViewCell object with the associated identifier or nil if no such object exists in the reusable-cell queue.
+ */
+- (id)dequeueReusableCellWithClass:(Class)cellClass;
 @end

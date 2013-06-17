@@ -28,6 +28,9 @@
 //! via: http://iphonedevelopertips.com/device/determine-mac-address.html
 - (NSString *)macAddress;
 
+/// Returns `YES` if the current process is being debugged (either running under the debugger or has a debugger attached post facto).
+//! via: https://developer.apple.com/library/mac/#qa/qa1361/_index.html
+- (BOOL)isBeingDebugged;
 
 - (long long)fileSystemFreeSize;
 - (long long)fileSystemSize;

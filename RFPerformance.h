@@ -32,7 +32,7 @@
 
 
 @interface RFPerformance : NSObject
-@property(RF_STRONG) NSMutableDictionary * timeTable;
+@property(RF_STRONG, atomic) NSMutableDictionary * timeTable;
 
 + (RFPerformance *)sharedInstance;
 

@@ -2,6 +2,23 @@
 #import "UIView+RFAnimate.h"
 
 @implementation UIView (RFAnimate)
+@dynamic x, y, width, height, size;
+
++ (NSSet *)keyPathsForValuesAffectingX {
+    return [NSSet setWithObject:@keypathClassInstance(UIView, frame)];
+}
++ (NSSet *)keyPathsForValuesAffectingY {
+    return [NSSet setWithObject:@keypathClassInstance(UIView, frame)];
+}
++ (NSSet *)keyPathsForValuesAffectingWidth {
+    return [NSSet setWithObject:@keypathClassInstance(UIView, frame)];
+}
++ (NSSet *)keyPathsForValuesAffectingHeight {
+    return [NSSet setWithObject:@keypathClassInstance(UIView, frame)];
+}
++ (NSSet *)keyPathsForValuesAffectingSize {
+    return [NSSet setWithObject:@keypathClassInstance(UIView, frame)];
+}
 
 - (CGFloat)x {
     return self.frame.origin.x;
@@ -15,35 +32,34 @@
 - (CGFloat)height {
     return self.frame.size.height;
 }
+- (CGSize)size {
+    return self.frame.size;
+}
 
 - (void)setX:(CGFloat)x {
-    [self willChangeValueForKey:@keypath(self.frame.origin, x)];
     CGRect frame = self.frame;
     frame.origin.x = x;
     self.frame = frame;
-    [self didChangeValueForKey:@keypath(self.frame.origin, x)];
 }
 - (void)setY:(CGFloat)y {
-    [self willChangeValueForKey:@keypath(self.frame.origin, y)];
     CGRect frame = self.frame;
     frame.origin.y = y;
     self.frame = frame;
-    [self didChangeValueForKey:@keypath(self.frame.origin, y)];
 }
 - (void)setWidth:(CGFloat)width {
-    [self willChangeValueForKey:@keypath(self.frame.size, width)];
     CGRect frame = self.frame;
     frame.size.width = width;
     self.frame = frame;
-    [self didChangeValueForKey:@keypath(self.frame.size, width)];
 }
 - (void)setHeight:(CGFloat)height {
-    [self willChangeValueForKey:@keypath(self.frame.size, height)];
     CGRect frame = self.frame;
     frame.size.height = height;
     self.frame = frame;
-    [self didChangeValueForKey:@keypath(self.frame.size, height)];
 }
-
+- (void)setSize:(CGSize)size {
+    CGRect frame = self.frame;
+    frame.size = size;
+    self.frame = frame;
+}
 
 @end

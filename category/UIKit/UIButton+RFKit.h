@@ -29,4 +29,11 @@
  */
 - (void)setResourceImage:(NSString *)imageName background:(NSString *)backGroundImageName;
 
+/** Change the background image to be resizable with the specified cap insets for the specified button state.
+
+ @param capInsets The values to use for the cap insets.
+ @param state The state that uses the specified image. The values are described in UIControlState.
+ */
+- (void)setBackgroundImageResizingCapInsets:(UIEdgeInsets)capInsets forState:(UIControlState)state;
+
 @end

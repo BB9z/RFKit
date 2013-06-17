@@ -1,5 +1,4 @@
-
-/// In experimental stages
+// Alpha
 
 #import "UIView+RFKit.h"
 
@@ -8,5 +7,5 @@
 @property (nonatomic) CGFloat y;
 @property (nonatomic) CGFloat width;
 @property (nonatomic) CGFloat height;
-
+@property (nonatomic) CGSize size;
 @end

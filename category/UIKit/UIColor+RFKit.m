@@ -46,7 +46,7 @@
 }
 
 + (UIColor *)colorWithPatternImageName:(NSString *)resourceName {
-	return [UIColor colorWithPatternImage:[UIImage resourceName:resourceName]];
+	return [UIColor colorWithPatternImage:[UIImage imageNamed:resourceName]];
 }
 
 + (UIColor *)randColorWithAlpha:(CGFloat)alpha {
