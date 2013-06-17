@@ -12,7 +12,7 @@
 #import <Foundation/Foundation.h>
 
 @interface NSFileManager (RFKit)
-- (NSArray *)subDirectoryOfDirectoryAtPath:(NSString *)path error:(NSError **)erro;
+- (NSArray *)subDirectoryOfDirectoryAtPath:(NSString *)path error:(NSError *__autoreleasing *)erro;
 
 /** Performs a deep search of the specified directory and returns URLs for the contained items which has given file extension.
  

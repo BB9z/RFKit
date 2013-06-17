@@ -23,7 +23,7 @@
  
  @discussion If the object will not produce valid JSON then an exception will be thrown. Setting the NSJSONWritingPrettyPrinted option will generate JSON with whitespace designed to make the output more readable. If that option is not set, the most compact possible JSON will be generated. If an error occurs, the error parameter will be set and the return value will be nil.
  */
-+ (NSString *)stringWithJSONObject:(id)obj options:(NSJSONWritingOptions)opt error:(NSError **)error;
++ (NSString *)stringWithJSONObject:(id)obj options:(NSJSONWritingOptions)opt error:(NSError *__autoreleasing *)error;
 
 
 /** Returns a Foundation object from given JSON string.
@@ -38,7 +38,7 @@
  
  @discussion This method use [NString dataUsingEncoding:allowLossyConversion:] cover the string to NSData, then use [NSJSONSerialization JSONObjectWithData:options:error:] cover the data object to Foundation object.
  */
-+ (id)JSONObjectWithString:(NSString *)string usingEncoding:(NSStringEncoding)encoding allowLossyConversion:(BOOL)lossy options:(NSJSONReadingOptions)opt error:(NSError **)error;
++ (id)JSONObjectWithString:(NSString *)string usingEncoding:(NSStringEncoding)encoding allowLossyConversion:(BOOL)lossy options:(NSJSONReadingOptions)opt error:(NSError *__autoreleasing *)error;
 
 /** Returns a Foundation object from given JSON string.
  

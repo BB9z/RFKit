@@ -17,6 +17,9 @@
 #include <execinfo.h>
 #import "RFRuntime.h"
 
+void HandleException(NSException *exception);
+void SignalHandler(int signal);
+
 NSString * const UncaughtExceptionHandlerSignalExceptionName = @"UncaughtExceptionHandlerSignalExceptionName";
 NSString * const UncaughtExceptionHandlerSignalKey = @"UncaughtExceptionHandlerSignalKey";
 NSString * const UncaughtExceptionHandlerAddressesKey = @"UncaughtExceptionHandlerAddressesKey";

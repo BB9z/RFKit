@@ -4,9 +4,9 @@
 
 @implementation NSObject (RFKit)
 
-+ (void)defaultFill:(id)test with:(id)value {
++ (void)defaultFill:(__unused id)test with:(id)value {
 	if (test == nil || test == [NSNull null]) {
-		test = value;
+        test = value;
 	}
 }
 
@@ -189,9 +189,9 @@
 	va_list ap;
 	va_start(ap, firstObject);
 	for (id obj = firstObject; obj != nil; obj = va_arg(ap, id)) {
-		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * delay), dispatch_get_main_queue(), ^{
-			block(obj);
-		});
+        dispatch_after_seconds(delay, ^{
+            block(obj);
+        });
 	}
 	va_end(ap);
 }
