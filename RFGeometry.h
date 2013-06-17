@@ -16,10 +16,16 @@
 #ifndef _RFKit_RFGeometry_h_
 #define _RFKit_RFGeometry_h_
 
+#pragma mark - Const
 #ifndef RFMathNotChange
 #   define RFMathNotChange CGFLOAT_MAX
 #endif
 
+extern const CGPoint CGPointNotChange;
+extern const CGRect  CGRectNotChange;
+extern const CGSize  CGSizeNotChange;
+
+#pragma mark - Anchor
 typedef enum {
 	RFResizeAnchorCenter = 0,
     RFResizeAnchorTop,
@@ -44,6 +50,7 @@ typedef enum {
     RFAlignmentAnchorBottomRight,
 } RFAlignmentAnchor;
 
+#pragma mark -
 #pragma mark CGPoint
 CGPoint	CGPointMid		(CGPoint a, CGPoint b);
 float	CGPointDistance	(CGPoint a, CGPoint b);
@@ -65,6 +72,7 @@ typedef enum {
 } RFCGRectChangeFlag;
 
 CGRect CGRectMakeWithPoints(CGPoint a, CGPoint b);
+CGRect CGRectMakeWithCenterAndSize(CGPoint centerPoint, CGSize rectSize);
 
 CGRect CGRectResize(CGRect original, CGSize newSize, RFResizeAnchor resizeAnchor);
 

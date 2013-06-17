@@ -2,6 +2,10 @@
 #import "RFGeometry.h"
 #import <stdio.h>
 
+const CGPoint CGPointNotChange = {RFMathNotChange, RFMathNotChange};
+const CGRect  CGRectNotChange  = {{RFMathNotChange, RFMathNotChange}, {RFMathNotChange, RFMathNotChange}};
+const CGSize  CGSizeNotChange  = {RFMathNotChange, RFMathNotChange};
+
 #pragma mark CGPoint
 CGPoint CGPointMid(CGPoint a, CGPoint b) {
 	return CGPointMake((a.x+b.x)/2, (a.y+b.y)/2);
@@ -33,6 +37,12 @@ CGRect CGRectMakeWithPoints(CGPoint a, CGPoint b) {
     CGFloat width = fabsf(a.x-b.x);
     CGFloat height = fabsf(a.y-b.y);
     return CGRectMake(x, y, width, height);
+}
+
+CGRect CGRectMakeWithCenterAndSize(CGPoint centerPoint, CGSize rectSize) {
+    CGFloat x = centerPoint.x - rectSize.width/2;
+    CGFloat y = centerPoint.y - rectSize.height/2;
+    return (CGRect){{x, y}, rectSize};
 }
 
 CGRect CGRectResize(CGRect original, CGSize newSize, RFResizeAnchor resizeAnchor) {
