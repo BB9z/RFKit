@@ -60,7 +60,6 @@
     doutwork()
     douttrace()
     doutline()
-    doutthread()
     
     dout_int(@"Info")
     dout_warning(@"W %@", str1)
@@ -75,7 +74,6 @@
 - (void)testOutputVerify {
     STAssertEqualObjects(dout_int(999), @"999 = 999", @"Output verify");
     STAssertEqualObjects(dout_rect(CGRectMake(1, 2, 3, 4)), @"CGRectMake(1, 2, 3, 4) = {{1, 2}, {3, 4}}", @"Output verify");
-    
 }
 
 

@@ -2,7 +2,7 @@
 	Debug output kit(dout)
 	RFKit
 
-	ver 2.0.2
+	ver 2.1.0
  
     Copyright (c) 2012-2013 BB9z
     https://github.com/BB9z/RFKit
@@ -12,7 +12,7 @@
  */
 
 #ifndef _DOUT_H_
-#define _DOUT_H_ 2.0
+#define _DOUT_H_ 2.1
 
 #import "RFRuntime.h"
 
@@ -47,7 +47,7 @@
  */
 #ifndef DOUT_TRACE_FORMATTER
 #	if DOUT_FALG_TRACE
-#		define DOUT_TRACE_FORMATTER [NSString stringWithFormat:@"%@:%d >> ", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__]
+#		define DOUT_TRACE_FORMATTER [NSString stringWithFormat:@"[%@:%d] ", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__]
 #	else
 #		define DOUT_TRACE_FORMATTER @""
 #	endif
@@ -55,7 +55,7 @@
 
 #pragma mark - Variables log helper
 #define DoutLog(...)\
-    DoutLogString(([NSString stringWithFormat: __VA_ARGS__]))
+    DoutLogString(([DOUT_TRACE_FORMATTER stringByAppendingFormat: __VA_ARGS__]))
 
 
 /// main
