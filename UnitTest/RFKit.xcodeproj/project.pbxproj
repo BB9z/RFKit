@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D52492E117D043030069D13E /* NSDateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D52492E017D043030069D13E /* NSDateTests.m */; };
+		D56E4F8619237564007EAAA6 /* UINavigationController+RFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D56E4F8319237564007EAAA6 /* UINavigationController+RFKit.m */; };
+		D56E4F8719237564007EAAA6 /* UIResponder+RFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D56E4F8519237564007EAAA6 /* UIResponder+RFKit.m */; };
 		D5A58193176E137500401423 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5A58192176E137500401423 /* UIKit.framework */; };
 		D5A58195176E137500401423 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5A58194176E137500401423 /* Foundation.framework */; };
 		D5A58197176E137500401423 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5A58196176E137500401423 /* CoreGraphics.framework */; };
@@ -52,6 +55,11 @@
 		D5A58254176E139600401423 /* RFGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = D5A58216176E139500401423 /* RFGeometry.m */; };
 		D5A58255176E139600401423 /* RFPerformance.m in Sources */ = {isa = PBXBuildFile; fileRef = D5A5821A176E139500401423 /* RFPerformance.m */; };
 		D5A58262176E156A00401423 /* DoutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5A58261176E156A00401423 /* DoutTests.m */; };
+		D5C057DF1776EB4300BBBD56 /* NSFileManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C057DE1776EB4300BBBD56 /* NSFileManagerTests.m */; };
+		D5C057EC1776ED2700BBBD56 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C057E51776ED2700BBBD56 /* JRSwizzle.m */; };
+		D5C057EE1776ED2700BBBD56 /* NSObject+RACKVOWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C057E81776ED2700BBBD56 /* NSObject+RACKVOWrapper.m */; };
+		D5C057EF1776ED2700BBBD56 /* RACSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C057EA1776ED2700BBBD56 /* RACSwizzling.m */; };
+		D5C057F01776EF0E00BBBD56 /* NSFileManagerTest in Resources */ = {isa = PBXBuildFile; fileRef = D5C057DB1776EB2E00BBBD56 /* NSFileManagerTest */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +73,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D52492DF17D043030069D13E /* NSDateTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDateTests.h; sourceTree = "<group>"; };
+		D52492E017D043030069D13E /* NSDateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateTests.m; sourceTree = "<group>"; };
+		D56E4F8219237564007EAAA6 /* UINavigationController+RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+RFKit.h"; sourceTree = "<group>"; };
+		D56E4F8319237564007EAAA6 /* UINavigationController+RFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+RFKit.m"; sourceTree = "<group>"; };
+		D56E4F8419237564007EAAA6 /* UIResponder+RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+RFKit.h"; sourceTree = "<group>"; };
+		D56E4F8519237564007EAAA6 /* UIResponder+RFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+RFKit.m"; sourceTree = "<group>"; };
 		D5A5818F176E137500401423 /* RFKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RFKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5A58192176E137500401423 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D5A58194176E137500401423 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -154,6 +168,15 @@
 		D5A5821B176E139500401423 /* RFRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFRuntime.h; sourceTree = "<group>"; };
 		D5A58260176E156A00401423 /* DoutTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoutTests.h; sourceTree = "<group>"; };
 		D5A58261176E156A00401423 /* DoutTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoutTests.m; sourceTree = "<group>"; };
+		D5C057DB1776EB2E00BBBD56 /* NSFileManagerTest */ = {isa = PBXFileReference; lastKnownFileType = folder; path = NSFileManagerTest; sourceTree = "<group>"; };
+		D5C057DD1776EB4300BBBD56 /* NSFileManagerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSFileManagerTests.h; sourceTree = "<group>"; };
+		D5C057DE1776EB4300BBBD56 /* NSFileManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSFileManagerTests.m; sourceTree = "<group>"; };
+		D5C057E41776ED2700BBBD56 /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
+		D5C057E51776ED2700BBBD56 /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
+		D5C057E71776ED2700BBBD56 /* NSObject+RACKVOWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+RACKVOWrapper.h"; sourceTree = "<group>"; };
+		D5C057E81776ED2700BBBD56 /* NSObject+RACKVOWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RACKVOWrapper.m"; sourceTree = "<group>"; };
+		D5C057E91776ED2700BBBD56 /* RACSwizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACSwizzling.h; sourceTree = "<group>"; };
+		D5C057EA1776ED2700BBBD56 /* RACSwizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RACSwizzling.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,11 +203,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D52492DE17D042E90069D13E /* NSDate */ = {
+			isa = PBXGroup;
+			children = (
+				D52492DF17D043030069D13E /* NSDateTests.h */,
+				D52492E017D043030069D13E /* NSDateTests.m */,
+			);
+			path = NSDate;
+			sourceTree = "<group>";
+		};
 		D5A58186176E137500401423 = {
 			isa = PBXGroup;
 			children = (
-				D5A58198176E137500401423 /* RFKit */,
+				D5A58198176E137500401423 /* App */,
 				D5A581B6176E137600401423 /* RFKitTests */,
+				D5A581C7176E139500401423 /* RFKit */,
 				D5A58191176E137500401423 /* Frameworks */,
 				D5A58190176E137500401423 /* Products */,
 			);
@@ -202,7 +235,6 @@
 		D5A58191176E137500401423 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D5A581C7176E139500401423 /* RFKit */,
 				D5A58192176E137500401423 /* UIKit.framework */,
 				D5A58194176E137500401423 /* Foundation.framework */,
 				D5A58196176E137500401423 /* CoreGraphics.framework */,
@@ -211,13 +243,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D5A58198176E137500401423 /* RFKit */ = {
+		D5A58198176E137500401423 /* App */ = {
 			isa = PBXGroup;
 			children = (
 				D5A581A1176E137500401423 /* AppDelegate.h */,
 				D5A581A2176E137500401423 /* AppDelegate.m */,
 				D5A58199176E137500401423 /* Supporting Files */,
 			);
+			name = App;
 			path = RFKit;
 			sourceTree = "<group>";
 		};
@@ -238,6 +271,7 @@
 		D5A581B6176E137600401423 /* RFKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				D5C057CB1776EA8B00BBBD56 /* category */,
 				D5A58260176E156A00401423 /* DoutTests.h */,
 				D5A58261176E156A00401423 /* DoutTests.m */,
 				D5A581B7176E137600401423 /* Supporting Files */,
@@ -262,6 +296,7 @@
 				D5A581FE176E139500401423 /* dout.m */,
 				D5A581FF176E139500401423 /* external */,
 				D5A58203176E139500401423 /* extobjc */,
+				D5C057E21776ED2700BBBD56 /* ReactiveCocoaMini */,
 				D5A5820C176E139500401423 /* RFAlloctionProxy */,
 				D5A58211176E139500401423 /* RFARC.h */,
 				D5A58212176E139500401423 /* RFDispatch.h */,
@@ -330,6 +365,10 @@
 				D5A581E8176E139500401423 /* UIDevice+RFKit.m */,
 				D5A581E9176E139500401423 /* UIImage+RFKit.h */,
 				D5A581EA176E139500401423 /* UIImage+RFKit.m */,
+				D56E4F8219237564007EAAA6 /* UINavigationController+RFKit.h */,
+				D56E4F8319237564007EAAA6 /* UINavigationController+RFKit.m */,
+				D56E4F8419237564007EAAA6 /* UIResponder+RFKit.h */,
+				D56E4F8519237564007EAAA6 /* UIResponder+RFKit.m */,
 				D5A581EB176E139500401423 /* UISearchBar+RFKit.h */,
 				D5A581EC176E139500401423 /* UISearchBar+RFKit.m */,
 				D5A581ED176E139500401423 /* UIStoryboard+RFKit.h */,
@@ -386,6 +425,46 @@
 				D5A58210176E139500401423 /* RFAlloctionProxyView.m */,
 			);
 			path = RFAlloctionProxy;
+			sourceTree = "<group>";
+		};
+		D5C057CB1776EA8B00BBBD56 /* category */ = {
+			isa = PBXGroup;
+			children = (
+				D5C057CC1776EA8B00BBBD56 /* Foundation */,
+			);
+			path = category;
+			sourceTree = "<group>";
+		};
+		D5C057CC1776EA8B00BBBD56 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				D52492DE17D042E90069D13E /* NSDate */,
+				D5C057D91776EB2200BBBD56 /* NSFileManager */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		D5C057D91776EB2200BBBD56 /* NSFileManager */ = {
+			isa = PBXGroup;
+			children = (
+				D5C057DD1776EB4300BBBD56 /* NSFileManagerTests.h */,
+				D5C057DE1776EB4300BBBD56 /* NSFileManagerTests.m */,
+				D5C057DB1776EB2E00BBBD56 /* NSFileManagerTest */,
+			);
+			path = NSFileManager;
+			sourceTree = "<group>";
+		};
+		D5C057E21776ED2700BBBD56 /* ReactiveCocoaMini */ = {
+			isa = PBXGroup;
+			children = (
+				D5C057E41776ED2700BBBD56 /* JRSwizzle.h */,
+				D5C057E51776ED2700BBBD56 /* JRSwizzle.m */,
+				D5C057E71776ED2700BBBD56 /* NSObject+RACKVOWrapper.h */,
+				D5C057E81776ED2700BBBD56 /* NSObject+RACKVOWrapper.m */,
+				D5C057E91776ED2700BBBD56 /* RACSwizzling.h */,
+				D5C057EA1776ED2700BBBD56 /* RACSwizzling.m */,
+			);
+			path = ReactiveCocoaMini;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -459,6 +538,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5C057F01776EF0E00BBBD56 /* NSFileManagerTest in Resources */,
 				D5A5819D176E137500401423 /* InfoPlist.strings in Resources */,
 				D5A581A5176E137500401423 /* Default.png in Resources */,
 				D5A581A7176E137500401423 /* Default@2x.png in Resources */,
@@ -503,6 +583,7 @@
 				D5A58232176E139500401423 /* NSBundle+RFKit.m in Sources */,
 				D5A58233176E139500401423 /* NSDate+RFKit.m in Sources */,
 				D5A58234176E139500401423 /* NSDateFormatter+RFKit.m in Sources */,
+				D56E4F8619237564007EAAA6 /* UINavigationController+RFKit.m in Sources */,
 				D5A58235176E139500401423 /* NSDictionary+RFKit.m in Sources */,
 				D5A58236176E139500401423 /* NSFileManager+RFKit.m in Sources */,
 				D5A58237176E139500401423 /* NSJSONSerialization+RFKit.m in Sources */,
@@ -522,6 +603,7 @@
 				D5A58245176E139500401423 /* UIView+RFKit.m in Sources */,
 				D5A58246176E139500401423 /* UIViewController+RFKit.m in Sources */,
 				D5A58247176E139500401423 /* UIWebView+RFKit.m in Sources */,
+				D56E4F8719237564007EAAA6 /* UIResponder+RFKit.m in Sources */,
 				D5A5824B176E139500401423 /* dout.m in Sources */,
 				D5A5824C176E139500401423 /* UncaughtExceptionHandler.m in Sources */,
 				D5A5824D176E139500401423 /* EXTScope.m in Sources */,
@@ -538,6 +620,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5A58262176E156A00401423 /* DoutTests.m in Sources */,
+				D5C057DF1776EB4300BBBD56 /* NSFileManagerTests.m in Sources */,
+				D5C057EC1776ED2700BBBD56 /* JRSwizzle.m in Sources */,
+				D5C057EE1776ED2700BBBD56 /* NSObject+RACKVOWrapper.m in Sources */,
+				D5C057EF1776ED2700BBBD56 /* RACSwizzling.m in Sources */,
+				D52492E117D043030069D13E /* NSDateTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,7 +720,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RFKit/RFKit-Prefix.pch";
 				INFOPLIST_FILE = "RFKit/RFKit-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WARNING_CFLAGS = "-Weverything";
 				WRAPPER_EXTENSION = app;
 			};
@@ -645,7 +734,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RFKit/RFKit-Prefix.pch";
 				INFOPLIST_FILE = "RFKit/RFKit-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WARNING_CFLAGS = "-Weverything";
 				WRAPPER_EXTENSION = app;
 			};
