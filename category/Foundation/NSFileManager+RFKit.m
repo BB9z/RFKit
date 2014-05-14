@@ -4,6 +4,27 @@
 
 @implementation NSFileManager (RFKit)
 
+- (NSURL *)subDirectoryURLWithPathComponent:(NSString *)pathComponent inDirectory:(NSSearchPathDirectory)directory createIfNotExist:(BOOL)createIfNotExist error:(NSError *__autoreleasing *)error {
+
+    NSURL *parentDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:directory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:error];
+    NSURL *directoryURL = [parentDirectoryURL URLByAppendingPathComponent:pathComponent? pathComponent : @""];
+    
+    BOOL isDirectory = YES;
+    if ([self fileExistsAtPath:[directoryURL path] isDirectory:&isDirectory] && !isDirectory) {
+        if (error) {
+            *error = [NSError errorWithDomain:@"com.github.RFKit.NSFileManager" code:-1 userInfo:@{ NSLocalizedDescriptionKey : @"A file already exists at the loaction." }];
+        }
+        return nil;
+    }
+
+    if (createIfNotExist) {
+        if (![self createDirectoryAtURL:directoryURL withIntermediateDirectories:YES attributes:nil error:error]) {
+            return nil;
+        }
+    }
+
+    return directoryURL;
+}
 
 - (NSArray *)subDirectoryOfDirectoryAtPath:(NSString *)path error:(NSError *__autoreleasing *)error {
 	NSMutableArray * sub = [[self contentsOfDirectoryAtPath:path error:error] mutableCopy];
@@ -56,19 +77,73 @@
 }
 
 - (long long)fileSizeForPath:(NSString *)path {
-    signed long long fileSize = 0;
-    if ([self fileExistsAtPath:path]) {
-        NSError *error = nil;
-        NSDictionary *fileDict = [self attributesOfItemAtPath:path error:&error];
+    return [self fileSizeForPath:path error:nil];
+}
+
+- (long long)fileSizeForPath:(NSString *)path error:(NSError *__autoreleasing *)inputError {
+    BOOL isDir = NO;
+    if (![self fileExistsAtPath:path isDirectory:&isDir]) {
+        return 0;
+    }
+    
+    if (isDir) {
+        return [self sizeForDirectory:path fileCount:NULL directoryCount:NULL error:inputError];
+    }
+    
+    NSError *error = nil;
+    NSDictionary *fileDict = [self attributesOfItemAtPath:path error:&error];
+    if (error && inputError) {
+        *inputError = error;
+        return -1;
+    }
+    
+    return fileDict.fileSize;
+}
+
+- (long long)sizeForDirectory:(NSString *)directoryPath fileCount:(int *)fileCount directoryCount:(int *)directoryCount error:(NSError *__autoreleasing *)inputError {
+    long long fileSize = 0;
+    BOOL isDir = NO;
+    BOOL isExist = [self fileExistsAtPath:directoryPath isDirectory:&isDir];
+    int cFile = 0;
+    int cDir = 0;
+    
+    if ((!isExist || !isDir) && inputError) {
+        *inputError = [NSError errorWithDomain:@"com.github.RFKit.NSFileManager" code:-1 userInfo:@{ NSLocalizedDescriptionKey : @"Given path is not a directory." }];
+        return 0;
+    }
+    
+    NSEnumerator *fileEnumerator = [self enumeratorAtPath:directoryPath];
+    NSString *fileName;
+    NSError *error = nil;
+    while ((fileName = [fileEnumerator nextObject])) {
+        NSString *file = [directoryPath stringByAppendingPathComponent:fileName];
+        if (![self fileExistsAtPath:file isDirectory:&isDir]) continue;
+        
+        if (isDir) {
+            cDir++;
+            continue;
+        }
+
+        NSDictionary *fileDict = [self attributesOfItemAtPath:file error:&error];
         if (error) {
-            dout_error(@"%s Can`t get attributes for %@", __PRETTY_FUNCTION__, path)
-            return -1;
+            _dout_error(@"%@", error);
+            continue;
         }
         
-        if (fileDict) {
-            fileSize = [fileDict fileSize];
-        }
+        fileSize += [fileDict fileSize];
+        cFile++;
     }
+    
+    if (error && inputError) {
+        *inputError = error;
+    }
+    if (fileCount) {
+        *fileCount = cFile;
+    }
+    if (directoryCount) {
+        *directoryCount = cDir;
+    }
+    
     return fileSize;
 }
 

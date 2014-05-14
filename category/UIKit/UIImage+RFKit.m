@@ -111,4 +111,31 @@
     return [self imageWithScaledSize:newSize];
 }
 
+#pragma mark - Tint color
+- (UIImage *)imageWithTintColor:(UIColor *)tintColor {
+    CGRect contextBounds = CGRectMake(0, 0, self.size.width, self.size.height);
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, 0);
+    
+    [self drawInRect:contextBounds];
+    [tintColor setFill];
+    UIRectFillUsingBlendMode(contextBounds, kCGBlendModeSourceAtop);
+    
+    UIImage *tintImageKeepBright = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return tintImageKeepBright;
+}
+
+- (UIImage *)imageOnlyKeepsAlphaWithTintColor:(UIColor *)tintColor {
+    CGRect contextBounds = CGRectMake(0, 0, self.size.width, self.size.height);
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, 0);
+    
+    [self drawInRect:contextBounds];
+    [tintColor setFill];
+    UIRectFillUsingBlendMode(contextBounds, kCGBlendModeSourceIn);
+    
+    UIImage *tintImageKeepAlpha = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return tintImageKeepAlpha;
+}
+
 @end

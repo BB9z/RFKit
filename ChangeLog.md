@@ -14,14 +14,17 @@ RFKit Change Log
 * These methods will be removed:
   - NSString+RFKit, `stringTrimToWidthLength:WithFont:`
   - UIImage+RFKit, `imageByScalingAndCroppingForSize`
+  - UIDevice+RFKit, `macAddress`
 
 * API Changes:
-  - NSArray+RFKit, rename `addObjectsFromDictionary:keys:` to `addObjectsFromDictionary:addObjectsFromDictionary:`
-  - NSDictionary+RFKit, rename `copyObjectsFromDictionary:withKeys:` to `addEntriesFromDictionary:withSpecifiedKeys:`
-
+  - NSArray+RFKit, rename `addObjectsFromDictionary:keys:` to `addObjectsFromDictionary:addObjectsFromDictionary:`. Add `rf_objectAtIndex:`.
+  - NSDate+RFKit, add `rf_objectAtIndex` and `endTimeOfDate`.
+  - NSDictionary+RFKit, rename `copyObjectsFromDictionary:withKeys:` to `addEntriesFromDictionary:withSpecifiedKeys:`.
+  - NSFileManager+RFKit, add `fileSizeForPath:error:` and `sizeForDirectory:fileCount:directoryCount:error:`.
+  - NSString+RFKit, add `containsString:`, `containsString:options:` and `extractedHTMLContent`.
+  - UIImage+RFKit, add `imageWithTintColor:` and `imageOnlyKeepsAlphaWithTintColor:`.
+  - UIView+RFKit, add `superviewOfClass:` and `boundsInView:`.
   
-
-
 * New UIResponder, UINavigationController category.  
 * Documents improvements.
 

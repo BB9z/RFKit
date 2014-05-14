@@ -31,6 +31,8 @@
  
  @return The number of calendar days between two dates.
  */
-+ (NSInteger)daysBetweenDate:(NSDate*)fromDateTime andDate:(NSDate*)toDateTime;
++ (NSInteger)daysBetweenDate:(NSDate *)fromDateTime andDate:(NSDate *)toDateTime;
 
+- (NSDate *)startTimeOfDate;
+- (NSDate *)endTimeOfDate;
 @end

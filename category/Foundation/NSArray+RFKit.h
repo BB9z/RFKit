@@ -12,6 +12,17 @@
 #import <Foundation/Foundation.h>
 
 @interface NSArray (RFKit)
+
+/**
+ Returns the object located at the specified index.
+ 
+ If index is beyond the end of the array, nil will be returned.
+
+ @param index An index within the bounds of the array.
+ 
+ @return The object located at index.
+ */
+- (id)rf_objectAtIndex:(NSUInteger)index;
 @end
 
 @interface NSMutableArray (RFKit)

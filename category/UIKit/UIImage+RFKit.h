@@ -31,4 +31,33 @@
 - (UIImage*)imageWithScale:(CGFloat)scale;
 
 - (UIImage *)imageByScalingAndCroppingForSize:(CGSize)targetSize DEPRECATED_ATTRIBUTE;
+
+#pragma mark - Tint color
+/// @name Tint color
+
+/** Creates and returns an tined image object that uses the specified color object.
+
+ This method preserve the highlights, shadows and alpha of the source image.
+ 
+ @see imageOnlyKeepsAlphaWithTintColor:
+ 
+ @param tintColor A color used to tint the receiver.
+ 
+ @return A tinted image.
+*/
+- (UIImage *)imageWithTintColor:(UIColor *)tintColor;
+
+/** Creates and returns an tined image object that uses the specified color object.
+
+ This method only preserve the alpha of the source image.
+ 
+ @see imageWithTintColor:
+ 
+ @param tintColor A color used to tint the receiver.
+ 
+ @return A tinted image.
+*/
+- (UIImage *)imageOnlyKeepsAlphaWithTintColor:(UIColor *)tintColor;
+
+
 @end

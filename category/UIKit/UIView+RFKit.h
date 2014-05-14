@@ -90,6 +90,8 @@ typedef enum {
 
 - (void)exchangeDepthsWithView:(UIView *)swapView;
 
+- (UIView *)superviewOfClass:(Class)viewClass;
+
 #pragma mark - Others
 /** A Boolean value that indicates whether the receiver is displayed.
  
@@ -105,6 +107,12 @@ typedef enum {
  @return The frame rectangle, which describes the view’s location and size in its screen’s coordinate system.
  */
 - (CGRect)frameOnScreen;
+
+/** Converts the receiver’s bounds from the receiver’s coordinate system to that of the specified view.
+
+ @return The converted rectangle.
+ */
+- (CGRect)boundsInView:(UIView *)view;
 
 - (UIImage *)renderToImage;
 

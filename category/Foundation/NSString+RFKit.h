@@ -18,9 +18,22 @@
 // 
 + (NSString *)pinyinFromString:(NSString *)orgString;
 
+/** Returns a Boolean value indicating whether the receiver contains the specified string.
  
- */
+ @param string The string to check. This value must not be `nil`.
 
+ @return `YES` if the receiver contains the string; otherwise, `NO`.
+ */
+- (BOOL)containsString:(NSString *)string;
+
+/** Returns a Boolean value indicating whether the receiver contains the specified string.
+
+ @param string The string to check. This value must not be `nil`.
+ @param mask A mask specifying search options. The following options may be specified by combining them with the C bitwise OR operator: NSCaseInsensitiveSearch, NSLiteralSearch, NSBackwardsSearch, NSAnchoredSearch. See String Programming Guide for details on these options.
+
+ @return `YES` if the receiver contains the string; otherwise, `NO`.
+ */
+- (BOOL)containsString:(NSString *)string options:(NSStringCompareOptions)mask;
 
 /** Reverse a NSString
  
@@ -30,5 +43,8 @@
 
 - (NSString *)stringTrimToWidthLength:(CGFloat)length WithFont:(UIFont *)font DEPRECATED_ATTRIBUTE;
 
+/** Remove HTML tags in receiver’s.
+ */
+- (NSString *)extractedHTMLContent;
 
 @end

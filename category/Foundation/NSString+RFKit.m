@@ -13,6 +13,14 @@
     return RF_AUTORELEASE(string);
 }
 
+- (BOOL)containsString:(NSString *)string {
+    return ([self rangeOfString:string].location != NSNotFound);
+}
+
+- (BOOL)containsString:(NSString *)string options:(NSStringCompareOptions)mask {
+    return ([self rangeOfString:string options:mask].location != NSNotFound);
+}
+
 - (NSString *)reverseString {
 	NSMutableString *reversedStr;
 	NSUInteger len = self.length;
@@ -53,6 +61,13 @@
     CC_MD5(cStr, (CC_LONG)strlen(cStr), result);
     return [NSString stringWithFormat:@"%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X",result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7],result[8], result[9], result[10], result[11],result[12], result[13], result[14], result[15]]; 	
     
+}
+
+- (NSString *)extractedHTMLContent {
+    NSError __autoreleasing *e = nil;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"<(?:\"[^\"]*\"['\"]*|'[^']*'['\"]*|[^'\">])+>" options:NSRegularExpressionDotMatchesLineSeparators error:&e];
+    if (e) dout_error(@"%@", e);
+    return [regex stringByReplacingMatchesInString:self options:0 range:NSMakeRange(0, self.length) withTemplate:@""];
 }
 
 @end

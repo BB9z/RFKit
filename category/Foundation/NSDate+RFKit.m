@@ -38,4 +38,20 @@
     return difference.day;
 }
 
+- (NSDate *)startTimeOfDate {
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:self];
+    components.hour = 0;
+    components.minute = 0;
+    components.second = 0;
+    return [[NSCalendar currentCalendar] dateFromComponents:components];
+}
+
+- (NSDate *)endTimeOfDate {
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:self];
+    components.hour = 24;
+    components.minute = 0;
+    components.second = 0;
+    return [[NSCalendar currentCalendar] dateFromComponents:components];
+}
+
 @end

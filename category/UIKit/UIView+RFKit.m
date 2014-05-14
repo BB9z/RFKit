@@ -192,6 +192,14 @@
 	[self.superview exchangeSubviewAtIndex:[self siblingIndex] withSubviewAtIndex:[swapView siblingIndex]];
 }
 
+- (UIView *)superviewOfClass:(Class)viewClass {
+    UIView *ctView = self.superview;
+    while (![ctView isKindOfClass:viewClass]) {
+        ctView = ctView.superview;
+    }
+    return ctView;
+}
+
 #pragma mark - Others
 
 - (BOOL)isVisible {
@@ -251,6 +259,10 @@
     _dout_rect(frameInWindow)
     _dout_rect([self.window convertRect:frameInWindow toWindow:nil])
     return [self.window convertRect:frameInWindow toWindow:nil];
+}
+
+- (CGRect)boundsInView:(UIView *)view {
+    return [self convertRect:self.bounds toView:view];
 }
 
 - (UIImage *)renderToImage {

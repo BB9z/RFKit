@@ -56,7 +56,15 @@
  
  @return file size. If the file not exist, the return value will be 0. If error occurs, the return value will be -1.
  */
+- (long long)fileSizeForPath:(NSString *)path error:(NSError *__autoreleasing *)error;
+
 /// @see fileSizeForPath:error:.
 - (long long)fileSizeForPath:(NSString *)path;
+
+/** Get size of a directory, include file count and subdirectory count in that directory. This method will not traverse any symbolic link.
+ 
+ @return Directory size. If the path is not a directory zero will be returned.
+ */
+- (long long)sizeForDirectory:(NSString *)directoryPath fileCount:(int *)fileCount directoryCount:(int *)directoryCount error:(NSError *__autoreleasing *)error;
 
 @end
