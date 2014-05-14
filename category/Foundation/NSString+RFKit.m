@@ -5,7 +5,7 @@
 
 @implementation NSString (RFKit)
 
-
+//! via: http://lldong.github.io/2012/11/06/hanzi-to-pinyin/
 + (NSString *)pinyinFromString:(NSString *)orgString {
     NSMutableString *string = [orgString mutableCopy];
     CFStringTransform((__bridge CFMutableStringRef)string, NULL, kCFStringTransformMandarinLatin, NO);
@@ -15,7 +15,7 @@
 
 - (NSString *)reverseString {
 	NSMutableString *reversedStr;
-	int len = [self length];
+	NSUInteger len = self.length;
 	
 	// Auto released string
 	reversedStr = [NSMutableString stringWithCapacity:len];     
@@ -46,9 +46,8 @@
 	return trimed ? [NSString stringWithFormat:@"%@...", tmp] : RF_AUTORELEASE([self copy]);
 }
 
-
+//! via: http://stackoverflow.com/questions/1524604/md5-algorithm-in-objective-c
 + (NSString *)MD5String:(NSString *)string {
-    // Borrowed from: http://stackoverflow.com/questions/652300/using-md5-hash-on-a-string-in-cocoa
     const char *cStr = [string UTF8String];
     unsigned char result[CC_MD5_DIGEST_LENGTH];
     CC_MD5(cStr, (CC_LONG)strlen(cStr), result);

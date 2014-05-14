@@ -15,7 +15,6 @@
 
 + (NSString *)MD5String:(NSString *)string;
 
-//! http://lldong.github.com/blog/2012/11/06/hanzi-to-pinyin/
 // 
 + (NSString *)pinyinFromString:(NSString *)orgString;
 

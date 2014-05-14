@@ -4,7 +4,7 @@
 
 @implementation NSObject (RFKit)
 
-+ (void)defaultFill:(__unused id)test with:(id)value {
++ (void)defaultFill:(id)test with:(id)value {
 	if (test == nil || test == [NSNull null]) {
         test = value;
 	}
@@ -20,11 +20,11 @@
 }
 
 - (NSArray *)objectsForIndexArray:(NSArray *)indexsArray {
-    int indexCount = [indexsArray count];
+    NSUInteger indexCount = indexsArray.count;
     id ctObjectSet = self;
     
-    for (int i=0; i<indexCount; i++) {
-        id ctIndex = [indexsArray objectAtIndex:i];
+    for (NSUInteger i = 0; i < indexCount; i++) {
+        id ctIndex = indexsArray[i];
         _douto(ctObjectSet)
         _douto(ctIndex)
         
