@@ -280,14 +280,7 @@
 }
 
 - (UIViewController *)viewController {
-    id nextResponder = [self nextResponder];
-    do {
-        if ([nextResponder isKindOfClass:[UIViewController class]]) {
-            return nextResponder;
-        }
-    } while ((nextResponder = [nextResponder nextResponder]));
-    
-    return nil;
+    return [self.nextResponder viewController];
 }
 
 + (instancetype)loadWithNibName:(NSString *)nibName bundle:(NSBundle *)nibBundle {

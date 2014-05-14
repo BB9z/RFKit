@@ -59,7 +59,7 @@
     _douto([keyArray firstObject])
     // 空数组，第一个元素非NSString
     if (keyArray.count == 0 ||
-        ![[keyArray firstObject] isKindOfClass:[NSString class]]) {
+        ![keyArray.firstObject isKindOfClass:[NSString class]]) {
         _douts(@"空数组，第一个元素非NSString")
         return nil;
     }
@@ -73,7 +73,7 @@
     // 字典，只有一个key
     if (keyArray.count == 1 && [self respondsToSelector:@selector(objectForKey:)]) {
         _douts(@"字典，只有一个key")
-        id tmp = [((NSDictionary *)self) objectForKey:[keyArray firstObject]];
+        id tmp = [((NSDictionary *)self) objectForKey:keyArray.firstObject];
         _douto(tmp)
         if (tmp) {
              return [NSArray arrayWithObject:tmp];
