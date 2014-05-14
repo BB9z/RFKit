@@ -30,6 +30,7 @@ RFKit Change Log
 * dout 2.4. New doutlastmethod(), dout_debug() and other minor changes.
 * RFARC, add RF_GCD_STRONG and RF_GCD_WEAK for dispatch object.
 * Change UIAlertView, UINavigationController and UIResponder category included by default.
+* Add RFDefineConstString() macro to define a const NSString.
 * Documents improvements.
 * Add an old version of NSObject+RACKVOWrapper from GitHub’s ReactiveCocoa.
 * Update EXTScope, EXTKeyPathCoding. Remove EXTSwizzle.
