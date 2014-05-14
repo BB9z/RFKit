@@ -8,7 +8,7 @@
 
 @implementation NSMutableArray (RFKit)
 
-- (void)addObjectsFromDictionary:(NSDictionary *)sourceDictionary keys:(NSString *)firstKey, ... {
+- (void)addObjectsFromDictionary:(NSDictionary *)sourceDictionary withSpecifiedKeys:(NSString *)firstKey, ... {
     va_list ap;
     va_start(ap, firstKey);
     for (NSString *key = firstKey; key != nil; key = va_arg(ap, id)) {

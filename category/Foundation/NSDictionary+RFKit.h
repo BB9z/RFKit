@@ -24,7 +24,7 @@
 
 @interface NSMutableDictionary (RFKit)
 
-- (NSUInteger)copyObjectsFromDictionary:(NSDictionary *)sourceDictionary withKeys:(NSString *)firstKey, ... NS_REQUIRES_NIL_TERMINATION;
+- (NSUInteger)addEntriesFromDictionary:(NSDictionary *)sourceDictionary withSpecifiedKeys:(NSString *)firstKey, ... NS_REQUIRES_NIL_TERMINATION;
 
 - (void)setBool:(BOOL)value forKey:(NSString *)keyName;
 - (void)setFloat:(float)value forKey:(NSString *)keyName;

@@ -10,7 +10,12 @@ RFKit Change Log
   - NSObject+RFKit, BlocksKit
   - UIDevice+RFKit, +isPad, +isRetinaDisplay, +macAddress, +fileSystemFreeSize, +fileSystemSize
   - UIViewController+RFKit, -setNavTitle:back:
-
+  
+* API Changes:
+  - NSArray+RFKit, `addObjectsFromDictionary:keys:` to `addObjectsFromDictionary:addObjectsFromDictionary:`
+  - NSDictionary+RFKit, `copyObjectsFromDictionary:withKeys:` to `addEntriesFromDictionary:withSpecifiedKeys:`
+  
+  
 1.3
 -----
 * Add some components from libextobjc (https://github.com/jspahrsummers/libextobjc). Includes: EXTKeyPathCoding, EXTScope, EXTSwizzle, metamacros.h. But EXTSwizzle is not included by default.

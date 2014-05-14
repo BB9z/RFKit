@@ -4,7 +4,8 @@
 
 @implementation NSFileManager (RFKit)
 
-- (NSArray *)subDirectoryOfDirectoryAtPath:(NSString *)path error:(NSError *__autoreleasing *)error{
+
+- (NSArray *)subDirectoryOfDirectoryAtPath:(NSString *)path error:(NSError *__autoreleasing *)error {
 	NSMutableArray * sub = [[self contentsOfDirectoryAtPath:path error:error] mutableCopy];
 	_douto(sub)
 	

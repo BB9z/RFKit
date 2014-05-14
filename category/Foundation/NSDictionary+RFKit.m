@@ -25,7 +25,7 @@
 
 @implementation NSMutableDictionary (RFKit)
 
-- (NSUInteger)copyObjectsFromDictionary:(NSDictionary *)sourceDictionary withKeys:(NSString *)firstKey, ... {
+- (NSUInteger)addEntriesFromDictionary:(NSDictionary *)sourceDictionary withSpecifiedKeys:(NSString *)firstKey, ... {
     NSUInteger keyCopedCount = 0;
     va_list ap;
     va_start(ap, firstKey);

@@ -15,5 +15,6 @@
 @end
 
 @interface NSMutableArray (RFKit)
-- (void)addObjectsFromDictionary:(NSDictionary *)otherDictionary keys:(NSString *)firstKey, ...NS_REQUIRES_NIL_TERMINATION;
+
+- (void)addObjectsFromDictionary:(NSDictionary *)sourceDictionary withSpecifiedKeys:(NSString *)firstKey, ...NS_REQUIRES_NIL_TERMINATION;
 @end
