@@ -19,7 +19,6 @@
 		D5A581A5176E137500401423 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D5A581A4176E137500401423 /* Default.png */; };
 		D5A581A7176E137500401423 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5A581A6176E137500401423 /* Default@2x.png */; };
 		D5A581A9176E137500401423 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5A581A8176E137500401423 /* Default-568h@2x.png */; };
-		D5A581B1176E137600401423 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5A581B0176E137600401423 /* SenTestingKit.framework */; };
 		D5A581B2176E137600401423 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5A58192176E137500401423 /* UIKit.framework */; };
 		D5A581B3176E137600401423 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5A58194176E137500401423 /* Foundation.framework */; };
 		D5A581BB176E137600401423 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5A581B9176E137600401423 /* InfoPlist.strings */; };
@@ -92,8 +91,7 @@
 		D5A581A4176E137500401423 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		D5A581A6176E137500401423 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		D5A581A8176E137500401423 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		D5A581AF176E137600401423 /* RFKitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RFKitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D5A581B0176E137600401423 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		D5A581AF176E137600401423 /* RFKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RFKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5A581B8176E137600401423 /* RFKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RFKitTests-Info.plist"; sourceTree = "<group>"; };
 		D5A581BA176E137600401423 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D5A581CA176E139500401423 /* NSArray+RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+RFKit.h"; sourceTree = "<group>"; };
@@ -194,7 +192,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5A581B1176E137600401423 /* SenTestingKit.framework in Frameworks */,
 				D5A581B2176E137600401423 /* UIKit.framework in Frameworks */,
 				D5A581B3176E137600401423 /* Foundation.framework in Frameworks */,
 			);
@@ -227,7 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				D5A5818F176E137500401423 /* RFKit.app */,
-				D5A581AF176E137600401423 /* RFKitTests.octest */,
+				D5A581AF176E137600401423 /* RFKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -238,7 +235,6 @@
 				D5A58192176E137500401423 /* UIKit.framework */,
 				D5A58194176E137500401423 /* Foundation.framework */,
 				D5A58196176E137500401423 /* CoreGraphics.framework */,
-				D5A581B0176E137600401423 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -503,8 +499,8 @@
 			);
 			name = RFKitTests;
 			productName = RFKitTests;
-			productReference = D5A581AF176E137600401423 /* RFKitTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productReference = D5A581AF176E137600401423 /* RFKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -512,6 +508,7 @@
 		D5A58187176E137500401423 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastTestingUpgradeCheck = 0510;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = RFUI;
 			};
@@ -749,13 +746,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RFKit/RFKit-Prefix.pch";
 				INFOPLIST_FILE = "RFKitTests/RFKitTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -766,13 +763,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RFKit/RFKit-Prefix.pch";
 				INFOPLIST_FILE = "RFKitTests/RFKitTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};

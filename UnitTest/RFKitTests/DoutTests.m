@@ -108,8 +108,8 @@
 #define DoutLogString(string) string
 
 - (void)testOutputVerify {
-    STAssertEqualObjects(dout_int(999), @"999 = 999", @"Output verify");
-    STAssertEqualObjects(dout_rect(CGRectMake(1, 2, 3, 4)), @"CGRectMake(1, 2, 3, 4) = {{1, 2}, {3, 4}}", @"Output verify");
+    XCTAssertEqualObjects(dout_int(999), @"999 = 999", @"Output verify");
+    XCTAssertEqualObjects(dout_rect(CGRectMake(1, 2, 3, 4)), @"CGRectMake(1, 2, 3, 4) = {{1, 2}, {3, 4}}", @"Output verify");
 }
 
 

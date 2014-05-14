@@ -6,8 +6,8 @@
 //  Copyright (c) 2013年 RFUI. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface DoutTests : SenTestCase
+@interface DoutTests : XCTestCase
 
 @end

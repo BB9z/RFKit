@@ -6,8 +6,8 @@
 //  Copyright (c) 2013年 RFUI. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface NSFileManagerTests : SenTestCase
+@interface NSFileManagerTests : XCTestCase
 @property (copy, nonatomic) NSString *testDirPath;
 @end

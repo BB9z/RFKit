@@ -15,13 +15,13 @@
 - (void)setUp {
     self.testDirPath = [[NSBundle mainBundle].bundlePath stringByAppendingPathComponent:@"NSFileManagerTest"];
     ;
-    STAssertTrue(([self isPath:self.testDirPath matchPathComponent:@"RFKit.app/NSFileManagerTest"]), nil);
+    XCTAssertTrue(([self isPath:self.testDirPath matchPathComponent:@"RFKit.app/NSFileManagerTest"]));
     
     NSFileManager *fm = [NSFileManager defaultManager];
     BOOL isDir = NO;
     BOOL isExist = [fm fileExistsAtPath:self.testDirPath isDirectory:&isDir];
-    STAssertTrue(isExist, @"Test dir not exist");
-    STAssertTrue(isDir, @"Test dir not a directory");
+    XCTAssertTrue(isExist, @"Test dir not exist");
+    XCTAssertTrue(isDir, @"Test dir not a directory");
 }
 
 - (void)testSubDirectoryURLWithPathComponentInDirectory {
@@ -36,42 +36,42 @@
     
     // Test: no creat
     NSURL *t1 = [fm subDirectoryURLWithPathComponent:@"T1" inDirectory:NSDocumentDirectory createIfNotExist:NO error:&e];
-    STAssertTrue(([self isPath:t1.path matchPathComponent:@"Documents/T1"]), nil);
-    STAssertNil(e, @"Should not get a error");
+    XCTAssertTrue(([self isPath:t1.path matchPathComponent:@"Documents/T1"]));
+    XCTAssertNil(e, @"Should not get a error");
     
-    STAssertFalse([fm fileExistsAtPath:t1.path], @"Nothing should created");
+    XCTAssertFalse([fm fileExistsAtPath:t1.path], @"Nothing should created");
     
     // Test: creat
     t1 = nil;
     t1 = [fm subDirectoryURLWithPathComponent:@"T1" inDirectory:NSDocumentDirectory createIfNotExist:YES error:&e];
-    STAssertTrue(([self isPath:t1.path matchPathComponent:@"Documents/T1"]), nil);
-    STAssertNil(e, @"Should not get a error");
+    XCTAssertTrue(([self isPath:t1.path matchPathComponent:@"Documents/T1"]));
+    XCTAssertNil(e, @"Should not get a error");
     isDir = NO;
     isExist = [fm fileExistsAtPath:t1.path isDirectory:&isDir];
-    STAssertTrue(isDir && isExist, @"Creat dir fail");
+    XCTAssertTrue(isDir && isExist, @"Creat dir fail");
     
     NSURL *t2 = [fm subDirectoryURLWithPathComponent:@"T1" inDirectory:NSDocumentDirectory createIfNotExist:YES error:&e];
     isDir = NO;
     isExist = [fm fileExistsAtPath:t2.path isDirectory:&isDir];
-    STAssertTrue(isDir && isExist, nil);
+    XCTAssertTrue(isDir && isExist);
     
     
     [fm removeItemAtURL:t1 error:&e];
-    STAssertNil(e, @"Should not get a error");
+    XCTAssertNil(e, @"Should not get a error");
     
     [fm createFileAtPath:t1.path contents:[[NSData alloc] init] attributes:nil];
     isDir = NO;
     isExist = [fm fileExistsAtPath:t1.path isDirectory:&isDir];
-    STAssertTrue(!isDir && isExist, @"Creat file fail");
+    XCTAssertTrue(!isDir && isExist, @"Creat file fail");
     
     t1 = [fm subDirectoryURLWithPathComponent:@"T1" inDirectory:NSDocumentDirectory createIfNotExist:YES error:&e];
-    STAssertNotNil(e, @"Should raise a error");
-    STAssertNil(t1, @"Creat dir but file already exist, shoul be nil");
+    XCTAssertNotNil(e, @"Should raise a error");
+    XCTAssertNil(t1, @"Creat dir but file already exist, shoul be nil");
     
     // Clean
     e = nil;
     [fm removeItemAtPath:targetPath error:&e];
-    STAssertNil(e, @"Should not get a error");
+    XCTAssertNil(e, @"Should not get a error");
 }
 
 - (BOOL)isPath:(NSString *)path matchPathComponent:(NSString *)pathComponent {

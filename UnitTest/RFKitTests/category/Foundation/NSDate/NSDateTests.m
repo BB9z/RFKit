@@ -14,11 +14,11 @@
 - (void)testNilParameters {
     NSDate *now = [NSDate date];
     
-    STAssertFalse([now isSameDayWithDate:nil], nil);
-    STAssertEquals([NSDate daysBetweenDate:nil andDate:nil], 0, nil);
-    STAssertThrows([NSDate daysBetweenDate:now andDate:nil], nil);
-    STAssertThrows([NSDate daysBetweenDate:nil andDate:now], nil);
-    STAssertEquals([NSDate daysBetweenDate:now andDate:now], 0, nil);
+    XCTAssertFalse([now isSameDayWithDate:nil]);
+    XCTAssertEqual([NSDate daysBetweenDate:nil andDate:nil], 0);
+    XCTAssertThrows([NSDate daysBetweenDate:now andDate:nil]);
+    XCTAssertThrows([NSDate daysBetweenDate:nil andDate:now]);
+    XCTAssertEqual([NSDate daysBetweenDate:now andDate:now], 0);
 }
 
 @end
