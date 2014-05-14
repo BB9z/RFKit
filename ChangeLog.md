@@ -11,11 +11,16 @@ RFKit Change Log
   - UIDevice+RFKit, +isPad, +isRetinaDisplay, +macAddress, +fileSystemFreeSize, +fileSystemSize
   - UIViewController+RFKit, -setNavTitle:back:
   
+* These methods will be removed:
+  - NSString+RFKit, `stringTrimToWidthLength:WithFont:`
+  - UIImage+RFKit, `imageByScalingAndCroppingForSize`
+
 * API Changes:
-  - NSArray+RFKit, `addObjectsFromDictionary:keys:` to `addObjectsFromDictionary:addObjectsFromDictionary:`
-  - NSDictionary+RFKit, `copyObjectsFromDictionary:withKeys:` to `addEntriesFromDictionary:withSpecifiedKeys:`
+  - NSArray+RFKit, rename `addObjectsFromDictionary:keys:` to `addObjectsFromDictionary:addObjectsFromDictionary:`
+  - NSDictionary+RFKit, rename `copyObjectsFromDictionary:withKeys:` to `addEntriesFromDictionary:withSpecifiedKeys:`
+
   
-  
+
 
 * New UIResponder, UINavigationController category.  
 * Documents improvements.
