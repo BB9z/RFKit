@@ -65,6 +65,22 @@
 
 #pragma mark - GCD
 
+#ifndef RF_GCD_STRONG
+    #if OS_OBJECT_USE_OBJC
+        #define RF_GCD_STRONG strong
+    #else
+        #define RF_GCD_STRONG assign
+    #endif
+#endif
+
+#ifndef RF_GCD_WEAK
+    #if OS_OBJECT_USE_OBJC
+        #define RF_GCD_WEAK weak
+    #else
+        #define RF_GCD_WEAK assign
+    #endif
+#endif
+
 #ifndef RF_dispatch_retain
     #if OS_OBJECT_USE_OBJC
         #define RF_dispatch_retain(expr)
