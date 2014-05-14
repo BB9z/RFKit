@@ -26,7 +26,8 @@ RFKit Change Log
   - UIImage+RFKit, add `imageWithTintColor:` and `imageOnlyKeepsAlphaWithTintColor:`.
   - UIView+RFKit, add `superviewOfClass:` and `boundsInView:`.
   
-* New UIResponder, UINavigationController category.  
+* New UIResponder, UINavigationController category.
+* dout 2.4. New doutlastmethod(), dout_debug() and other minor changes.
 * Documents improvements.
 * Add an old version of NSObject+RACKVOWrapper from GitHub’s ReactiveCocoa.
 * Update EXTScope, EXTKeyPathCoding. Remove EXTSwizzle.

@@ -2,9 +2,9 @@
 	Debug output kit(dout)
 	RFKit
 
-	ver 2.1.0
+	ver 2.4
  
-    Copyright (c) 2012-2013 BB9z
+    Copyright (c) 2012-2014 BB9z
     https://github.com/BB9z/RFKit
 
     The MIT License (MIT)
@@ -12,7 +12,7 @@
  */
 
 #ifndef _DOUT_H_
-#define _DOUT_H_ 2.1
+#define _DOUT_H_ 2.4
 
 #import "RFRuntime.h"
 
@@ -64,8 +64,8 @@
 
 #define dout(...)       __dout(RFDebugLevelError, __VA_ARGS__)
 
-#define douts(string)\
-    {if(RFDebugLevel >= RFDebugLevelError) DoutLogString((string));}
+#define douts(...)\
+    {if(RFDebugLevel >= RFDebugLevelError) DoutLogString((__VA_ARGS__));}
 
 #define douto(...)      dout(@"%s = <%@> %@", #__VA_ARGS__, [(NSObject *)(__VA_ARGS__) class], (__VA_ARGS__))
 #define doutp(...)      dout(@"%s -> %p", #__VA_ARGS__, (__VA_ARGS__))
@@ -80,9 +80,15 @@
 
 #define doutwork()      dout(@"%s: It Works!", __FUNCTION__)
 #define douttrace()     dout(@"%s @%@", __PRETTY_FUNCTION__, [NSThread callStackSymbols])
+#define doutlastmethod()  dout(@"%s @%@", __PRETTY_FUNCTION__, ([[NSThread callStackSymbols] rf_objectAtIndex:1]))
 #define doutline()      dout(@"%s line:%d", __PRETTY_FUNCTION__, __LINE__)
 
 #pragma mark Log helper
+
+#ifndef dout_debug
+    #define dout_debug(...) __dout(RFDebugLevelVerbose, @"<Debug> %@", [NSString stringWithFormat:__VA_ARGS__])
+#endif
+
 #ifndef dout_info
     #define dout_info(...) __dout(RFDebugLevelInfo, @"<Info> %@", [NSString stringWithFormat:__VA_ARGS__])
 #endif
@@ -178,13 +184,15 @@
 
 #define _doutwork(...)
 #define _douttrace(...)
+#define _doutlastmethod(...)
 #define _doutline(...)
 
+#define _dout_debug(...)
 #define _dout_info(...)
 #define _dout_warning(...)
 #define _dout_error(...)
 
-FOUNDATION_EXPORT void DoutLogString(NSString *string);
+void DoutLogString(NSString *string);
 NSString * DoutCurrentThreadOrQueueName(void);
 void _dout_log_config(void);
 

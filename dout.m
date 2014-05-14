@@ -47,19 +47,18 @@ void DoutLogString(NSString *string) {
 }
 
 NSString * DoutCurrentThreadOrQueueName(void) {
+    NSString *threadName = [NSThread currentThread].name;
+    if (threadName.length) {
+        return threadName;
+    }
+
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
     NSString *queueName = [NSString stringWithCString:dispatch_queue_get_label(dispatch_get_current_queue()) encoding:NSUTF8StringEncoding];
 #pragma clang diagnostic pop
-    NSString *threadName = [NSThread currentThread].name;
-    
-    if (threadName.length) {
-        return threadName;
-    }
-    else if (queueName.length) {
+    if (queueName.length) {
         return queueName;
     }
-    else {
-        return [NSString stringWithFormat:@"%p", [NSThread currentThread]];
-    }
+
+    return [NSString stringWithFormat:@"%p", [NSThread currentThread]];
 }
