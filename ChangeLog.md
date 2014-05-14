@@ -20,6 +20,7 @@ RFKit Change Log
   - NSArray+RFKit, rename `addObjectsFromDictionary:keys:` to `addObjectsFromDictionary:addObjectsFromDictionary:`. Add `rf_objectAtIndex:`.
   - NSDate+RFKit, add `rf_objectAtIndex` and `endTimeOfDate`.
   - NSDictionary+RFKit, rename `copyObjectsFromDictionary:withKeys:` to `addEntriesFromDictionary:withSpecifiedKeys:`.
+  - UIDevice+RFKit, new macros to detect iOS version.
   - NSFileManager+RFKit, add `fileSizeForPath:error:` and `sizeForDirectory:fileCount:directoryCount:error:`.
   - NSString+RFKit, add `containsString:`, `containsString:options:` and `extractedHTMLContent`.
   - UIImage+RFKit, add `imageWithTintColor:` and `imageOnlyKeepsAlphaWithTintColor:`.

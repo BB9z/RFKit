@@ -10,7 +10,14 @@
  */
 
 #import "RFRuntime.h"
-#import <Availability.h>
+
+#ifndef RF_iOS7Before
+#   define RF_iOS7Before (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1)
+#endif
+
+#ifndef RF_iOS6Before
+#   define RF_iOS6Before (floor(NSFoundationVersionNumber) < NSFoundationVersionNumber_iOS_6_0)
+#endif
 
 @interface UIDevice (RFKit)
 
