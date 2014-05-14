@@ -16,8 +16,10 @@ RFKit Change Log
   - NSDictionary+RFKit, `copyObjectsFromDictionary:withKeys:` to `addEntriesFromDictionary:withSpecifiedKeys:`
   
   
+
+* New UIResponder, UINavigationController category.  
 * Documents improvements.
-  
+
 1.3
 -----
 * Add some components from libextobjc (https://github.com/jspahrsummers/libextobjc). Includes: EXTKeyPathCoding, EXTScope, EXTSwizzle, metamacros.h. But EXTSwizzle is not included by default.
