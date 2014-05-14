@@ -27,6 +27,8 @@ RFKit Change Log
   
 * New UIResponder, UINavigationController category.  
 * Documents improvements.
+* Add an old version of NSObject+RACKVOWrapper from GitHub’s ReactiveCocoa.
+* Update EXTScope, EXTKeyPathCoding. Remove EXTSwizzle.
 
 1.3
 -----

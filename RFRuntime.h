@@ -53,16 +53,16 @@ enum {
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#include "metamacros.h"
 #import "RFARC.h"
 #import "RFFeatureSupport.h"
 #import "RFDispatch.h"
 
 
 #pragma mark - ObjC Ext
+#import "metamacros.h"
 #import "EXTKeyPathCoding.h"
 #import "EXTScope.h"
-//#import "EXTSwizzle.h"
+#import "NSObject+RACKVOWrapper.h"
 
 /**
  \@keypathClassInstance allows compile-time verification of key paths. Similar to
