@@ -1,6 +1,16 @@
 RFKit Change Log
 ================
 
+1.4
+-----
+* Hello 2014~
+* Remove deprecated methods:
+  - NSArray+RFKit, -firstObject
+  - NSBundle+RFKit, +versionString
+  - NSObject+RFKit, BlocksKit
+  - UIDevice+RFKit, +isPad, +isRetinaDisplay, +macAddress, +fileSystemFreeSize, +fileSystemSize
+  - UIViewController+RFKit, -setNavTitle:back:
+
 1.3
 -----
 * Add some components from libextobjc (https://github.com/jspahrsummers/libextobjc). Includes: EXTKeyPathCoding, EXTScope, EXTSwizzle, metamacros.h. But EXTSwizzle is not included by default.

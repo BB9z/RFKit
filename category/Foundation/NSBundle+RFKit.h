@@ -23,5 +23,4 @@
     CFBundleShortVersionString + CFBundleVersion
  */
 - (NSString *)versionString;
-+ (NSString *)versionString DEPRECATED_ATTRIBUTE;
 @end

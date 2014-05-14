@@ -12,7 +12,6 @@
 #import "RFRuntime.h"
 
 @interface UIViewController (RFKit)
-- (void)setNavTitle:(NSString *)title back:(NSString *)backTitle;
 
 /**
  @abstract Return a view which can present another view controller.

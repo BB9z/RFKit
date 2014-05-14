@@ -35,11 +35,4 @@
 - (long long)fileSystemFreeSize;
 - (long long)fileSystemSize;
 
-#pragma mark - DEPRECATED class methods
-+ (BOOL)isPad DEPRECATED_ATTRIBUTE;
-+ (BOOL)isRetinaDisplay DEPRECATED_ATTRIBUTE;
-+ (NSString *)macAddress DEPRECATED_ATTRIBUTE;
-+ (long long)fileSystemFreeSize DEPRECATED_ATTRIBUTE;
-+ (long long)fileSystemSize DEPRECATED_ATTRIBUTE;
-
 @end

@@ -29,9 +29,4 @@
     return [NSString stringWithFormat:@"%@.%@", shortVersion, bundleVersion];
 }
 
-// Will be removed.
-+ (NSString *)versionString {
-    return [[NSBundle mainBundle] versionString];
-}
-
 @end

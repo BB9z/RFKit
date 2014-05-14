@@ -127,25 +127,4 @@
     return ( (info.kp_proc.p_flag & P_TRACED) != 0 );
 }
 
-#pragma mark - DEPRECATED class methods
-+ (BOOL)isPad {
-    return [[self currentDevice] isPad];
-}
-
-+ (BOOL)isRetinaDisplay {
-    return [[self currentDevice] isRetinaDisplay];
-}
-
-+ (NSString *)macAddress {
-    return [[self currentDevice] macAddress];
-}
-
-+ (long long)fileSystemFreeSize {
-    return [[self currentDevice] fileSystemFreeSize];
-}
-
-+ (long long)fileSystemSize {
-    return [[self currentDevice] fileSystemSize];
-}
-
 @end
