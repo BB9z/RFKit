@@ -44,7 +44,7 @@ Handle build or runtime differences. Provides an unified and simple interface fo
 UIKit and Foundation header is included in RFRuntime by default.
 
 ### RFARC
-Dedicated to processing the ARC's compatible. One can write code which is compatible with the ARC and non-ARC environment with `RF_STRONG` and `RF_WEAK`. As ARC support GCD after iOS 6, `RF_dispatch_retain` and `RF_dispatch_release` were added.
+Dedicated to processing the ARC's compatible. One can write code which is compatible with the ARC and non-ARC environment with `RF_STRONG` and `RF_WEAK`. As ARC support GCD after iOS 6, `RF_dispatch_retain`, `RF_dispatch_release`, `RF_GCD_STRONG` and `RF_GCD_WEAK` were added.
 
 ### RFFeatureSupport
 Defined some fake protocols for declaring a class support something or not.
@@ -53,11 +53,11 @@ Defined some fake protocols for declaring a class support something or not.
 Some helper function for GCD.
 
 ### Language extensions
-Include some components from [libextobjc](https://github.com/jspahrsummers/libextobjc) :
-* metamacros.h，macros for metaprogramming.
-* EXTKeyPathCoding，allows compile-time verification of key paths.
-* EXTScope，several tools relative to scope.
-* EXTSwizzle，method swizzle，not included by default.
+Include some components from [libextobjc](https://github.com/jspahrsummers/libextobjc) and [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa/blob/master/LICENSE.md):
+* metamacros.h, macros for metaprogramming.
+* EXTKeyPathCoding, allows compile-time verification of key paths.
+* EXTScope, several tools relative to scope.
+* NSObject+RACKVOWrapper, a easy to use KVO wrapper. It supports block style callback and the observer will be removed automatically.
 
 @keypathClassInstance is similar with @keypath, but accept a class as parameter instead of a instance variable.
 
@@ -75,6 +75,11 @@ RFGeometry
 Add new methods and constants for geometry structures: `CGPoint`, `CGSize`, `CGRect`. Add an new `CGAngle` angle structure.
 
 `RFResizeAnchor` and `RFAlignmentAnchor` provides a reference for resizing and aligning.
+
+
+RFPerformance & RFAlloctionProxy
+-------
+Performance toolkit.
 
 
 Others

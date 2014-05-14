@@ -43,7 +43,7 @@ RFRuntime
 RFRuntime 默认包括了 UIKit 和 Foundation 头文件。
 
 ### RFARC
-专用于处理ARC的兼容，借助 `RF_STRONG`、`RF_WEAK` 等宏可以写出同时兼容ARC和非ARC环境的代码。iOS6后，ARC增加了对GCD的支持，随之又增加了 `RF_dispatch_retain` 和 `RF_dispatch_release`。
+专用于处理ARC的兼容，借助 `RF_STRONG`、`RF_WEAK` 等宏可以写出同时兼容ARC和非ARC环境的代码。iOS 6 后，ARC 增加了对 GCD 的支持，随之又增加了 `RF_dispatch_retain`，`RF_dispatch_release`，`RF_GCD_STRONG` 和 `RF_GCD_WEAK`。
 
 ### RFFeatureSupport
 定义了一些伪协议用来标记一个类支持或不支持某些特性。
@@ -52,15 +52,17 @@ RFRuntime 默认包括了 UIKit 和 Foundation 头文件。
 一些 GCD 便捷方法。
 
 ### 语言扩展
-包括几个来自 [libextobjc](https://github.com/jspahrsummers/libextobjc) 的组件：
-* metamacros.h，支持元编程的工具宏。
-* EXTKeyPathCoding，key path 自动完成辅助工具。
-* EXTScope，与作用域相关的几个实用工具。
-* EXTSwizzle，method swizzle，默认没有被包含。
+包括几个来自 [libextobjc](https://github.com/jspahrsummers/libextobjc) 和 [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa/blob/master/LICENSE.md) 的组件：
+
+* metamacros.h，支持元编程的工具宏；
+* EXTKeyPathCoding，key path 自动完成辅助工具；
+* EXTScope，与作用域相关的几个实用工具；
+* NSObject+RACKVOWrapper，方便好用的 KVO 包装，block 回调、自动移除监听等。
 
 @keypathClassInstance 与 @keypath 类似，直接使用类而无需额外的实例变量。
 
-UIKit & Foundation Categories 
+
+UIKit & Foundation Categories
 -------------
 UIKit 和 Foundation 的扩展是 RFKit 的重要组成部分，包含了很多实用方法。
 
@@ -74,6 +76,11 @@ RFGeometry
 为 `CGPoint`、`CGSize`、`CGRect` 等几何结构增加了新的方法、常量，增加了新的 `CGAngle` 角度结构。
 
 `RFResizeAnchor` 和 `RFAlignmentAnchor` 为尺寸调整、对齐提供参考基准。  
+
+
+RFPerformance & RFAlloctionProxy
+--------
+性能调试组件。
 
 
 其他

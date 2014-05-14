@@ -2,7 +2,7 @@
 
 dout
 =======
-<small>ver 2.0.2</small>
+<small>ver 2.4</small>
 
 Xcode 及 LLDB/GDB 为运行时调试提供了强大的支持，但打印这种相对原始的方式仍然是极为重要且有效的调试手段，效率并不低。
 
@@ -20,9 +20,10 @@ dout 就是专为调试打印而生的工具。
 
 * `doutwork()`，用来确定一个函数是否被执行，或用来观察代码执行的顺序，打印被调用的函数名；
 * `doutline()`，跟 doutwork 相接近，打印精确到行；
-* `douttrace()`，打印调用堆栈，用来判断代码是谁调用的。
+* `douttrace()`，打印调用堆栈，用来判断代码是谁调用的；
+* `doutlastmethod()`，douttrace 的输出一般来说太多了，这个方法只打印上一个调用方法。
 
-错误、警告输出包括 `dout_info()`，`dout_warning()` 和 `dout_error()`。它们的有效性由 `RFDebugLevel` 控制。
+错误、警告输出包括 `dout_debug()`，`dout_info()`，`dout_warning()` 和 `dout_error()`。它们的有效性由 `RFDebugLevel` 控制。
 `dout_warning()` 和 `dout_error()` 分别有自己的开关用于改变行为：
 
 * 当 `DOUT_TREAT_WANRNING_AS_EXCEPTION` 和 `DOUT_TREAT_ERROR_AS_EXCEPTION` 激活时，会在调用处抛出异常；
