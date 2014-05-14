@@ -20,15 +20,15 @@
 void HandleException(NSException *exception);
 void SignalHandler(int signal);
 
-NSString * const UncaughtExceptionHandlerSignalExceptionName = @"UncaughtExceptionHandlerSignalExceptionName";
-NSString * const UncaughtExceptionHandlerSignalKey = @"UncaughtExceptionHandlerSignalKey";
-NSString * const UncaughtExceptionHandlerAddressesKey = @"UncaughtExceptionHandlerAddressesKey";
+static NSString * const UncaughtExceptionHandlerSignalExceptionName = @"UncaughtExceptionHandlerSignalExceptionName";
+static NSString * const UncaughtExceptionHandlerSignalKey = @"UncaughtExceptionHandlerSignalKey";
+static NSString * const UncaughtExceptionHandlerAddressesKey = @"UncaughtExceptionHandlerAddressesKey";
 
-volatile int32_t UncaughtExceptionCount = 0;
-const int32_t UncaughtExceptionMaximum = 10;
+static volatile int32_t UncaughtExceptionCount = 0;
+static const int32_t UncaughtExceptionMaximum = 10;
 
-const NSInteger UncaughtExceptionHandlerSkipAddressCount = 4;
-const NSInteger UncaughtExceptionHandlerReportAddressCount = 5;
+static const NSInteger UncaughtExceptionHandlerSkipAddressCount = 4;
+static const NSInteger UncaughtExceptionHandlerReportAddressCount = 5;
 
 @interface UncaughtExceptionHandler () {
     BOOL dismissed;
