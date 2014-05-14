@@ -2,8 +2,8 @@
     UIView extension
     RFKit
 
-    Copyright (c) 2012-2013 BB9z
-    https://github.com/bb9z/RFKit
+    Copyright (c) 2012-2014 BB9z
+    https://github.com/BB9z/RFKit
 
     The MIT License (MIT)
     http://www.opensource.org/licenses/mit-license.php
@@ -24,8 +24,7 @@ typedef enum {
 
 @interface UIView (RFKit)
 
-/** 
- @abstract Animate helper for animateWithDuration:delay:options:animations:completion:
+/** Animate helper for animateWithDuration:delay:options:animations:completion:
  
  @param duration    The total duration of the animations, measured in seconds. If you specify a negative value or 0, the changes are made without animating them.
  @param delay       The amount of time (measured in seconds) to wait before beginning the animations. Specify a value of 0 to begin the animations immediately.
@@ -38,8 +37,7 @@ typedef enum {
 + (void)animateWithDuration:(NSTimeInterval)duration delay:(NSTimeInterval)delay options:(UIViewAnimationOptions)options animated:(BOOL)animated beforeAnimations:(void (^)(void))before animations:(void (^)(void))animations completion:(void (^)(BOOL finished))completion;
 
 #pragma mark -
-/**
- @abstract Move a UIView relative to it’s current position.
+/** Move a UIView relative to it’s current position.
  
  @param x	X-axis distance to move
  @param y	Y-axis distance to move
@@ -47,8 +45,7 @@ typedef enum {
  */
 - (void)moveX:(CGFloat)x Y:(CGFloat)y;
 
-/**
- @abstract Move a UIView to specified position. 
+/** Move a UIView to specified position.
  
  @discussion This method use frame setting new position. Set parameter equal to CGFLOAT_MAX if you don’t want move in that direction.
  
@@ -58,8 +55,7 @@ typedef enum {
  */
 - (void)moveToX:(CGFloat)x Y:(CGFloat)y;
 
-/** 
- @abstract Resize a UIView
+/** Resize a UIView
  
  @discussion Set parameter equal to RFMathNotChange if you don’t want resize that direction.
  
@@ -69,8 +65,7 @@ typedef enum {
 - (void)resizeWidth:(CGFloat)width height:(CGFloat)height;
 - (void)resizeWidth:(CGFloat)width height:(CGFloat)height resizeAnchor:(RFResizeAnchor)resizeAnchor;
 
-/**
- @abstract Resizes and moves the receiver view so it fits its superview bounds.
+/** Resizes and moves the receiver view so it fits its superview bounds.
  */
 - (void)sizeToFitSuperview;
 
@@ -96,8 +91,7 @@ typedef enum {
 - (void)exchangeDepthsWithView:(UIView *)swapView;
 
 #pragma mark - Others
-/** 
- @abstract A Boolean value that indicates whether the receiver is displayed.
+/** A Boolean value that indicates whether the receiver is displayed.
  
  @discussion This method not only consider view’s hidden, alpha property or whether was added into a view or not. It looks up every supview to make sure the view is in screen’s bounds and not cliped indeed. But covered by another view is not considering.
  
@@ -117,8 +111,7 @@ typedef enum {
 - (CGFloat)distanceBetweenFrameBottomAndSuperviewBottom;
 
 
-/**
- @abstract Traversing the responder chain to get a UIViewController reletive to the receiver.
+/** Traversing the responder chain to get a UIViewController reletive to the receiver.
   
  @warning The receiver may be not the returned view controller´s view property.
  
@@ -126,8 +119,7 @@ typedef enum {
 */
 - (UIViewController *)viewController;
 
-/**
- Return a newly view object unarchived from the nib file which located in the specified bundle.
+/** Return a newly view object unarchived from the nib file which located in the specified bundle.
  
  @param nibName The name of the nib file to associate with the view. If nil, this method looks for the nib file which has  the same name with the class name. The nib file name should not contain any leading path information and the .nib extension.
  
@@ -137,8 +129,7 @@ typedef enum {
  */
 + (instancetype)loadWithNibName:(NSString *)nibName bundle:(NSBundle *)nibBundle;
 
-/**
- Return a newly view object unarchived from the nib file which located in the main bundle.
+/** Return a newly view object unarchived from the nib file which located in the main bundle.
  
  @param nibName The name of the nib file to associate with the view. If nil, this method looks for the nib file which has  the same name with the class name. The nib file name should not contain any leading path information and the .nib extension.
  

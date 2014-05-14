@@ -13,6 +13,24 @@
 
 @interface NSFileManager (RFKit)
 
+/** Get a NSURL object of the specified directory in an search path directory.
+ 
+ @param pathComponent
+     The path component of the sub directory. May be nil.
+ 
+ @param directory
+     The search path directory. The supported values are described in NSSearchPathDirectory.
+ 
+ @param createIfNotExist
+     If `YES`, the directory and it´s any non-existent parent directories will be creat. If `NO`, only return the url.
+ 
+ @param error
+     If an error occurs, upon return contains an NSError object that describes the problem. Pass NULL if you do not want error information.
+ 
+ @return A URL pointing to the directory, or nil if the url is a file or error occurs.
+ */
+- (NSURL *)subDirectoryURLWithPathComponent:(NSString *)pathComponent inDirectory:(NSSearchPathDirectory)directory createIfNotExist:(BOOL)createIfNotExist error:(NSError *__autoreleasing *)error;
+
 - (NSArray *)subDirectoryOfDirectoryAtPath:(NSString *)path error:(NSError *__autoreleasing *)error;
 
 /** Performs a deep search of the specified directory and returns URLs for the contained items which has given file extension.
@@ -34,10 +52,11 @@
  */
 - (NSArray *)filesInDirectory:(NSURL *)directory withExtensions:(NSSet *)fileTypes directoryEnumerationOptions:(NSDirectoryEnumerationOptions)mask errorHandler:(BOOL (^)(NSURL *url, NSError *error))handler;
 
-/** Get file size of the given path.
+/** Get file size of the given path, support directory. This method will not traverse any symbolic link.
  
-    @return file size. If the file not exist, the return value will be 0. If error occurs, the return value will be -1.
+ @return file size. If the file not exist, the return value will be 0. If error occurs, the return value will be -1.
  */
+/// @see fileSizeForPath:error:.
 - (long long)fileSizeForPath:(NSString *)path;
 
 @end

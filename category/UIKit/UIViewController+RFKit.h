@@ -13,8 +13,7 @@
 
 @interface UIViewController (RFKit)
 
-/**
- @abstract Return a view which can present another view controller.
+/** Return a view which can present another view controller.
  
  @discussion First we get an window´s root view controller. Then  traverse its presentedViewController property until the presentedViewController property is nil.
  
@@ -22,8 +21,7 @@
  */
 + (UIViewController *)rootViewControllerWhichCanPresentModalViewController;
 
-/**
- @abstract Adds the given view controller as a child and add its view to specified view as a subview.
+/** Adds the given view controller as a child and add its view to specified view as a subview.
  
  @discussion Using this method, you dont need to call  `didMoveToParentViewController` manually.
  
@@ -32,17 +30,16 @@
  */
 - (void)addChildViewController:(UIViewController *)childController intoView:(UIView *)viewControllerSubview;
 
-/**
- @abstract Removes the receiver and its view from its parent view controller and the view´s superview.
+/** Removes the receiver and its view from its parent view controller and the view´s superview.
  
  @discussion Using this method, you dont need to call  `willMoveToParentViewController` manually.
  */
 - (void)removeFromParentViewControllerAndView;
 
-/**
- @abstract Dismiss keyboard by resign the first responder status.
+/** Dismiss keyboard by resign the first responder status.
  
  @discussion You can use this method to dismiss keyboard even the first responder not belong to the reciver.
  */
 - (void)dismissKeyboard;
+
 @end

@@ -13,11 +13,30 @@
 
 @interface NSNumberFormatter (RFKit)
 
+/** Returns an NSNumberFormatter with specified significant digits config.
+
+ @param min The minimum number of significant digits for the formatter.
+ @param max The maximum number of significant digits for the formatter.
+
+ @return An NSNumberFormatter with specified significant digits config.
+ */
 + (NSNumberFormatter *)significantFormatterWithMinimumDigits:(NSUInteger)min maximumDigits:(NSUInteger)max;
 
-/// isBinaryUnites signaling whether to calculate file size in binary units (1024) or base ten units (1000).
+/** Returns a string containing the formatted value of the provided file size.
+
+ @param bytes The value will be parsed.
+ @param isBinaryUnites signaling whether to calculate file size in binary units (1024) or base ten units (1000).
+
+ @return A formated string.
+ */
 + (NSString *)formatedFileSizeStringWithBytes:(long long)bytes useBinaryUnites:(BOOL)isBinaryUnites;
 
+/** Returns a string containing the formatted value of the provided float value.
+
+ @param floatVaule A float value that is parsed to create the returned string object.
+
+ @return A string containing the formatted value of number using the receiver’s current settings.
+ */
 - (NSString *)stringFromFloat:(float)floatVaule;
 
 @end

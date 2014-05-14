@@ -13,16 +13,15 @@
 
 @interface NSDateFormatter (RFKit)
 
-/** 
- @abstract Returns a date formatter object which has a GMT date format.
+/** Returns a date formatter object which has a GMT date format.
  
  @return A cached `NSDateFormatter` object.
  */
 + (NSDateFormatter *)GMTFormatter;
 
-/** 
- @abstract Returns a date formatter object which was set with current locale.
- @discussion The data format is `yyyy'-'MM'-'dd' 'HH':'mm':'ss`.
+/** Returns a date formatter object which was set with current locale.
+
+ The data format is `yyyy'-'MM'-'dd' 'HH':'mm':'ss`.
  
  @return A cached `NSDateFormatter` object.
  
@@ -30,9 +29,9 @@
  */
 + (NSDateFormatter *)currentLocaleFormatter;
 
-/**
- @abstract Returns a date formatter object which was set with current locale.
- @discussion The data format is `yyyy'-'MM'-'dd`.
+/** Returns a date formatter object which was set with current locale.
+
+ The data format is `yyyy'-'MM'-'dd`.
 
  @return A cached `NSDateFormatter` object.
  
@@ -41,8 +40,7 @@
 + (NSDateFormatter *)currentLocaleFormatterOnlyDate;
 
 
-/**
- @abstract Returns a date formatter object with a given date format and a specified time zone.
+/** Returns a date formatter object with a given date format and a specified time zone.
  
  @param formatString The date format for the receiver. eg. "yyyy'-'MM'-'dd' 'HH':'mm':'ss'".
  @param tzName The ID for the time zone. eg. "GMT", "Pacific/Honolulu", "Asia/Hong_Kong".
@@ -51,8 +49,7 @@
  */
 + (NSDateFormatter *)dateFormatterWithDateFormat:(NSString *)formatString timeZoneWithName:(NSString *)tzName;
 
-/** 
- @abstract Returns a date formatter object with Asia/Hong_Kong time zone.
+/** Returns a date formatter object with Asia/Hong_Kong time zone.
  
  @return A cached `NSDateFormatter` object.
  

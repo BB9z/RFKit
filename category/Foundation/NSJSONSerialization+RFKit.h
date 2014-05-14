@@ -2,8 +2,8 @@
     NSJSONSerialization extension
     RFKit
 
-    Copyright (c) 2012-2013 BB9z
-    http://github.com/bb9z/RFKit
+    Copyright (c) 2012-2014 BB9z
+    http://github.com/BB9z/RFKit
 
     The MIT License (MIT)
     http://www.opensource.org/licenses/mit-license.php
@@ -15,18 +15,20 @@
 
 /** Generate a string containing JSON data from a Foundation object.
  
+ If the object will not produce valid JSON then an exception will be thrown. Setting the NSJSONWritingPrettyPrinted option will generate JSON with whitespace designed to make the output more readable. If that option is not set, the most compact possible JSON will be generated. If an error occurs, the error parameter will be set and the return value will be nil.
+ 
  @param obj     The object from which to generate JSON data.
  @param opt     Options for creating the JSON data.
  @param error   If an error occurs, upon return contains an NSError object that describes the problem.
 
  @return A string encoded in UTF-8 containing JSON data.
- 
- @discussion If the object will not produce valid JSON then an exception will be thrown. Setting the NSJSONWritingPrettyPrinted option will generate JSON with whitespace designed to make the output more readable. If that option is not set, the most compact possible JSON will be generated. If an error occurs, the error parameter will be set and the return value will be nil.
  */
 + (NSString *)stringWithJSONObject:(id)obj options:(NSJSONWritingOptions)opt error:(NSError *__autoreleasing *)error;
 
 
 /** Returns a Foundation object from given JSON string.
+ 
+ This method use [NString dataUsingEncoding:allowLossyConversion:] cover the string to NSData, then use [NSJSONSerialization JSONObjectWithData:options:error:] cover the data object to Foundation object.
   
  @param string  A string containing JSON data.
  @param encoding A string encoding.
@@ -35,8 +37,6 @@
  @param error   If an error occurs, upon return contains an NSError object that describes the problem.
 
  @return A data object containing JSON string.
- 
- @discussion This method use [NString dataUsingEncoding:allowLossyConversion:] cover the string to NSData, then use [NSJSONSerialization JSONObjectWithData:options:error:] cover the data object to Foundation object.
  */
 + (id)JSONObjectWithString:(NSString *)string usingEncoding:(NSStringEncoding)encoding allowLossyConversion:(BOOL)lossy options:(NSJSONReadingOptions)opt error:(NSError *__autoreleasing *)error;
 

@@ -2,8 +2,8 @@
     UIButton extension
     RFKit
 
-    Copyright (c) 2012-2013 BB9z
-    https://github.com/bb9z/RFKit
+    Copyright (c) 2012-2014 BB9z
+    https://github.com/BB9z/RFKit
 
     The MIT License (MIT)
     http://www.opensource.org/licenses/mit-license.php
@@ -34,6 +34,6 @@
  @param capInsets The values to use for the cap insets.
  @param state The state that uses the specified image. The values are described in UIControlState.
  */
-- (void)setBackgroundImageResizingCapInsets:(UIEdgeInsets)capInsets forState:(UIControlState)state;
+- (void)setBackgroundImageResizingCapInsets:(UIEdgeInsets)capInsets forState:(UIControlState)state NS_AVAILABLE_IOS(5_0);
 
 @end
