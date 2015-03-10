@@ -53,8 +53,8 @@
 /**
  Returns a Foundation object from given JSONP string.
 
- @param string  A string containing JSONP data. May be `nil`.
- @param error   If an error occurs, upon return contains an NSError object that describes the problem.
+ @param JSONPString A string containing JSONP data. May be `nil`.
+ @param error       If an error occurs, upon return contains an NSError object that describes the problem.
 
  @return A data object containing JSON string.
  */

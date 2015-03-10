@@ -37,8 +37,8 @@
 /**
  Inserts a given object into the array's contents at a given index safely.
 
- @param anObject The object to add to the array's content. This value can be `nil`.
- @param The index in the array at which to insert anObject. If index is beyond the end of the array, nothing hanppaned.
+ @param anObject    The object to add to the array's content. This value can be `nil`.
+ @param index       The index in the array at which to insert anObject. If index is beyond the end of the array, nothing hanppaned.
  */
 - (void)rf_insertObject:(id)anObject atIndex:(NSUInteger)index;
 

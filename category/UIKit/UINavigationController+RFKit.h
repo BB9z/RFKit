@@ -47,8 +47,8 @@
 /**
  Replace the view controller at the top of the navigation stack.
 
- @param viewController Replace the view controller at the top of the navigation stack.
- @param animated Specify YES to animate the transition or NO if you do not want the transition to be animated. You might specify NO if you are setting up the navigation controller at launch time.
+ @param topViewController   Replace the view controller at the top of the navigation stack.
+ @param animated    Specify YES to animate the transition or NO if you do not want the transition to be animated. You might specify NO if you are setting up the navigation controller at launch time.
  */
 - (void)setTopViewController:(UIViewController *)topViewController animated:(BOOL)animated;
 
