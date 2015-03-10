@@ -56,7 +56,7 @@ enum {
 #import "RFARC.h"
 #import "RFFeatureSupport.h"
 #import "RFDispatch.h"
-
+#import "dout.h"
 
 #pragma mark - ObjC Ext
 #import "metamacros.h"
