@@ -2,8 +2,8 @@
     NSNumberFormatter extension
     RFKit
 
-    Copyright (c) 2012-2013 BB9z
-    https://github.com/bb9z/RFKit
+    Copyright (c) 2012-2014 BB9z
+    https://github.com/BB9z/RFKit
 
     The MIT License (MIT)
     http://www.opensource.org/licenses/mit-license.php
@@ -23,13 +23,15 @@
 + (NSNumberFormatter *)significantFormatterWithMinimumDigits:(NSUInteger)min maximumDigits:(NSUInteger)max;
 
 /** Returns a string containing the formatted value of the provided file size.
+ 
+ Deprecated. See NSByteCountFormatter.
 
  @param bytes The value will be parsed.
  @param isBinaryUnites signaling whether to calculate file size in binary units (1024) or base ten units (1000).
 
  @return A formated string.
  */
-+ (NSString *)formatedFileSizeStringWithBytes:(long long)bytes useBinaryUnites:(BOOL)isBinaryUnites;
++ (NSString *)formatedFileSizeStringWithBytes:(long long)bytes useBinaryUnites:(BOOL)isBinaryUnites  DEPRECATED_ATTRIBUTE;
 
 /** Returns a string containing the formatted value of the provided float value.
 
