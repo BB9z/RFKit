@@ -2,7 +2,7 @@
 	Debug output kit(dout)
 	RFKit
 
-	ver 2.4
+	ver 2.6
  
     Copyright (c) 2012-2014 BB9z
     https://github.com/BB9z/RFKit
@@ -12,7 +12,7 @@
  */
 
 #ifndef _DOUT_H_
-#define _DOUT_H_ 2.4
+#define _DOUT_H_ 2.6
 
 #import "RFRuntime.h"
 
@@ -64,19 +64,20 @@
 
 #define dout(...)       __dout(RFDebugLevelError, __VA_ARGS__)
 
-#define douts(...)\
-    {if(RFDebugLevel >= RFDebugLevelError) DoutLogString((__VA_ARGS__));}
-
+#define douts(...)      dout((__VA_ARGS__))
 #define douto(...)      dout(@"%s = <%@> %@", #__VA_ARGS__, [(NSObject *)(__VA_ARGS__) class], (__VA_ARGS__))
 #define doutp(...)      dout(@"%s -> %p", #__VA_ARGS__, (__VA_ARGS__))
+#define doutv(...)      dout(@"%s = %@", #__VA_ARGS__, [((UIView *)(__VA_ARGS__)) performSelector:@selector(recursiveDescription)])
+
 #define dout_bool(...)  dout(@"%s = %@", #__VA_ARGS__, ((BOOL)(__VA_ARGS__))? @"YES" : @"NO")
-#define dout_int(...)   dout(@"%s = %d", #__VA_ARGS__, ((int)(__VA_ARGS__)))
+#define dout_int(...)   dout(@"%s = %ld", #__VA_ARGS__, ((long)(__VA_ARGS__)))
 #define dout_hex(...)   dout(@"%s = %#.8x", #__VA_ARGS__, ((int)(__VA_ARGS__)))
 #define dout_float(...) dout(@"%s = %f", #__VA_ARGS__, ((float)(__VA_ARGS__)))
 
 #define dout_point(...) dout(@"%s = %@", #__VA_ARGS__, NSStringFromCGPoint((CGPoint)(__VA_ARGS__)))
 #define dout_size(...)  dout(@"%s = %@", #__VA_ARGS__, NSStringFromCGSize((CGSize)(__VA_ARGS__)))
 #define dout_rect(...)  dout(@"%s = %@", #__VA_ARGS__, NSStringFromCGRect((CGRect)(__VA_ARGS__)))
+#define dout_insets(...)  dout(@"%s = %@", #__VA_ARGS__, NSStringFromUIEdgeInsets((UIEdgeInsets)(__VA_ARGS__)))
 
 #define doutwork()      dout(@"%s: It Works!", __FUNCTION__)
 #define douttrace()     dout(@"%s @%@", __PRETTY_FUNCTION__, [NSThread callStackSymbols])
@@ -173,6 +174,8 @@
 #define _douts(...)
 #define _douto(...)
 #define _doutp(...)
+#define _doutv(...)
+
 #define _dout_bool(...)
 #define _dout_int(...)
 #define _dout_hex(...)
@@ -180,7 +183,7 @@
 #define _dout_point(...)
 #define _dout_size(...)
 #define _dout_rect(...)
-#define _doutf(...)
+#define _dout_insets(...)
 
 #define _doutwork(...)
 #define _douttrace(...)

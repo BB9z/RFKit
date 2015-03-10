@@ -2,7 +2,7 @@
 
 dout
 =======
-<small>ver 2.4</small>
+<small>ver 2.6</small>
 
 Xcode 及 LLDB/GDB 为运行时调试提供了强大的支持，但打印这种相对原始的方式仍然是极为重要且有效的调试手段，效率并不低。
 
@@ -14,7 +14,7 @@ dout 就是专为调试打印而生的工具。
 
 这些打印方法的输出格式专门做了优化（线程名，日期简化），要比直接用 NSLog 好很多。其中 `dout()` 用法跟 NSLog 一致，接受可变参数。
 
-打印变量方法覆盖最常用类型，如打印对象的 `douto()`、打印字符串的 `douts()`、打印指针的 `doutp()` 和其他 dout_<i>type</i>() 方法。
+打印变量方法覆盖最常用类型，如打印对象的 `douto()`、打印字符串的 `douts()`、打印指针的 `doutp()`、打印 UIView 层级关系的 `doutv()` 和其他 dout_<i>type</i>() 方法。
 
 帮助判定程序走向的方法：
 
@@ -41,15 +41,15 @@ dout 就是专为调试打印而生的工具。
 ### RFDebugLevel
 可以控制 dout 语句是否输出，打印变量的语句要求至少为 `RFDebugLevelError` 才能输出。
 
-### DOUT_FALG_TRACE
+### DOUT\_FALG\_TRACE
 当其激活时，会在每个 dout 输出前附加一段调用的位置，用于确定每条语句是在何处打印的。当打印语句较多时可以用于区分，或便于找到某些语句以禁用之。
 
-### DOUT_TRACE_FORMATTER
+### DOUT\_TRACE\_FORMATTER
 定义 `DOUT_TRACE_FORMATTER` 激活时附加位置信息的格式。
 
-### 控制 dout_warning、dout_error 行为的开关
-DOUT_ASSERT_AT_ERROR，DOUT_ASSERT_AT_WANRNING，DOUT_TREAT_ERROR_AS_EXCEPTION，
-DOUT_TREAT_WANRNING_AS_EXCEPTION。
+### 控制 dout\_warning、dout\_error 行为的开关
+`DOUT_ASSERT_AT_ERROR`，`DOUT_ASSERT_AT_WANRNING`，`DOUT_TREAT_ERROR_AS_EXCEPTION`，
+`DOUT_TREAT_WANRNING_AS_EXCEPTION`。
 设置为 `1` 以激活。
 
 ### 设置开关的建议
@@ -64,7 +64,7 @@ DOUT_TREAT_WANRNING_AS_EXCEPTION。
 -----
 dout 除受以上开关控制外，还与是否处于调试状态有关。
 
-应用处于非调试状态使用 NSLog，会输出到 stderr，被日志系统记录；而在调试状态打印使用 printf 输出到 stdout，不会记录到日志中。在非调试状态 DOUT_FALG_TRACE 无效，不会泄漏语句位置信息。
+应用处于非调试状态使用 NSLog，会输出到 stderr，被日志系统记录；而在调试状态打印使用 printf 输出到 stdout，不会记录到日志中。在非调试状态 `DOUT_FALG_TRACE` 无效，不会泄漏语句位置信息。
 
 _dout
 ------------
