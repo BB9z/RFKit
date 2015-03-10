@@ -99,7 +99,7 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
 
 - (void)exchangeDepthsWithView:(UIView *)swapView;
 
-- (UIView *)superviewOfClass:(Class)viewClass;
+- (id)superviewOfClass:(Class)viewClass;
 
 #pragma mark - Others
 /** A Boolean value that indicates whether the receiver is displayed.

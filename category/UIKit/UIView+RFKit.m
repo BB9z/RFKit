@@ -141,7 +141,7 @@
 			break;
 			
 		case RFViewResizeOptionCenter:
-			view.center = self.center;
+			view.center = CGPointOfRectCenter(self.bounds);
 			break;
             
         case RFViewResizeOptionNone:
@@ -150,7 +150,7 @@
 }
 
 - (void)removeSubview:(UIView *)view {
-    if ([self.subviews indexOfObject:view]) {
+    if ([self.subviews indexOfObject:view] != NSNotFound) {
         [view removeFromSuperview];
     }
     else {
@@ -220,9 +220,9 @@
 	[self.superview exchangeSubviewAtIndex:[self siblingIndex] withSubviewAtIndex:[swapView siblingIndex]];
 }
 
-- (UIView *)superviewOfClass:(Class)viewClass {
+- (id)superviewOfClass:(Class)viewClass {
     UIView *ctView = self.superview;
-    while (![ctView isKindOfClass:viewClass]) {
+    while (ctView && ![ctView isKindOfClass:viewClass]) {
         ctView = ctView.superview;
     }
     return ctView;
