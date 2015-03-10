@@ -31,9 +31,9 @@
  */
 - (NSUInteger)addEntriesFromDictionary:(NSDictionary *)sourceDictionary withSpecifiedKeys:(NSString *)firstKey, ... NS_REQUIRES_NIL_TERMINATION;
 
-- (void)setBool:(BOOL)value forKey:(NSString *)keyName;
-- (void)setFloat:(float)value forKey:(NSString *)keyName;
-- (void)setInteger:(NSInteger)value forKey:(NSString *)keyName;
-- (void)setDouble:(double)value forKey:(NSString *)keyName;
+- (void)setBool:(BOOL)value forKey:(NSString *)keyName DEPRECATED_ATTRIBUTE;
+- (void)setFloat:(float)value forKey:(NSString *)keyName DEPRECATED_ATTRIBUTE;
+- (void)setInteger:(NSInteger)value forKey:(NSString *)keyName DEPRECATED_ATTRIBUTE;
+- (void)setDouble:(double)value forKey:(NSString *)keyName DEPRECATED_ATTRIBUTE;
 
 @end
