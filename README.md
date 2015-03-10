@@ -58,7 +58,6 @@ Include some components from [libextobjc](https://github.com/jspahrsummers/libex
 * metamacros.h, macros for metaprogramming.
 * EXTKeyPathCoding, allows compile-time verification of key paths.
 * EXTScope, several tools relative to scope.
-* NSObject+RACKVOWrapper, a easy to use KVO wrapper. It supports block style callback and the observer will be removed automatically.
 
 @keypathClassInstance is similar with @keypath, but accept a class as parameter instead of a instance variable.
 
@@ -78,7 +77,7 @@ Add new methods and constants for geometry structures: `CGPoint`, `CGSize`, `CGR
 `RFResizeAnchor` and `RFAlignmentAnchor` provides a reference for resizing and aligning.
 
 
-RFPerformance & RFAlloctionProxy
+RFPerformance & doutkit
 -------
 Performance toolkit.
 
