@@ -62,7 +62,6 @@ enum {
 #import "metamacros.h"
 #import "EXTKeyPathCoding.h"
 #import "EXTScope.h"
-#import "NSObject+RACKVOWrapper.h"
 
 /**
  \@keypathClassInstance allows compile-time verification of key paths. Similar to
