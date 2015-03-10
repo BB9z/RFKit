@@ -11,10 +11,6 @@
 	return [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:fileName ofType:type]];
 }
 
-- (UIImage *)imageByScalingAndCroppingForSize:(CGSize)targetSize {
-    return [self imageAspectFillSize:targetSize];
-}
-
 - (UIImage *)thumbnailImageWithMaxSize:(CGSize)targetSize {
     CGFloat xSource = self.size.width;
     CGFloat ySource = self.size.height;

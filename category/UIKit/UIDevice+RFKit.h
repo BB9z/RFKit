@@ -2,7 +2,7 @@
     UIDevice extension
     RFKit
 
-    Copyright (c) 2012-2014 BB9z
+    Copyright (c) 2012-2015 BB9z
     https://github.com/BB9z/RFKit
 
     The MIT License (MIT)
@@ -42,13 +42,6 @@
  */
 - (BOOL)isRetinaDisplay NS_AVAILABLE_IOS(4_0);
 
-
-//! via: http://iphonedevelopertips.com/device/determine-mac-address.html
-/** Get device's mac address
- 
- @warning You cannt get a correct mac address on iOS 7. Do not use this any more. More: https://developer.apple.com/news/?id=8222013a
- */
-- (NSString *)macAddress DEPRECATED_ATTRIBUTE;
 
 /// Returns `YES` if the current process is being debugged (either running under the debugger or has a debugger attached post facto).
 //! via: https://developer.apple.com/library/mac/#qa/qa1361/_index.html
