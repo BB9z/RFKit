@@ -43,17 +43,17 @@
 - (time_t)addTimePoint:(NSString *)name {
 	time_t t = clock();
 	NSNumber * tmpTime = [[NSNumber alloc] initWithFloat:(t-timeBase)/(double)CLOCKS_PER_SEC];
-	if ([self.timeTable objectForKey:name]) {
+	if ((self.timeTable)[name]) {
 		dout(@"Warning: A time point with the same name already existed.");
 	}
-	[self.timeTable setObject:tmpTime forKey:name];
+	(self.timeTable)[name] = tmpTime;
 	RF_RELEASE_OBJ(tmpTime);
 	return t;
 }
 
 - (float)timeBetween:(NSString *)name1 another:(NSString *)name2 {
-	float time1 = [(NSNumber *)[self.timeTable objectForKey:name1] floatValue];
-	float time2 = [(NSNumber *)[self.timeTable objectForKey:name2] floatValue];
+	float time1 = [(NSNumber *)(self.timeTable)[name1] floatValue];
+	float time2 = [(NSNumber *)(self.timeTable)[name2] floatValue];
 	float time = time1 - time2;
 	return fabsf(time);
 }

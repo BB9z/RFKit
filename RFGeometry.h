@@ -4,7 +4,7 @@
  
     Math and Graphics helper
  
-    Copyright (c) 2012-2013 BB9z
+    Copyright (c) 2012-2014 BB9z
     https://github.com/bb9z/RFKit
  
     The MIT License (MIT)
@@ -26,7 +26,7 @@ extern const CGRect  CGRectNotChange;
 extern const CGSize  CGSizeNotChange;
 
 #pragma mark - Anchor
-typedef enum {
+typedef NS_ENUM(NSInteger, RFResizeAnchor) {
 	RFResizeAnchorCenter = 0,
     RFResizeAnchorTop,
     RFResizeAnchorBottom,
@@ -36,9 +36,9 @@ typedef enum {
     RFResizeAnchorTopRight,
     RFResizeAnchorBottomLeft,
     RFResizeAnchorBottomRight,
-} RFResizeAnchor;
+} ;
 
-typedef enum {
+typedef NS_ENUM(NSInteger, RFAlignmentAnchor) {
 	RFAlignmentAnchorCenter = 0,
     RFAlignmentAnchorTop,
     RFAlignmentAnchorBottom,
@@ -48,7 +48,7 @@ typedef enum {
     RFAlignmentAnchorTopRight,
     RFAlignmentAnchorBottomLeft,
     RFAlignmentAnchorBottomRight,
-} RFAlignmentAnchor;
+} ;
 
 #pragma mark -
 #pragma mark CGPoint
@@ -64,12 +64,12 @@ CGSize	CGSizeScaled	(CGSize original, float scale);
 
 
 #pragma mark CGRect
-typedef enum {
+typedef NS_ENUM(NSInteger, RFCGRectChangeFlag) {
 	RFCGRectChangeX = 0,
 	RFCGRectChangeY,
 	RFCGRectChangeWidth,
 	RFCGRectChangeHeight
-} RFCGRectChangeFlag;
+} ;
 
 CGRect CGRectMakeWithPoints(CGPoint a, CGPoint b);
 CGRect CGRectMakeWithCenterAndSize(CGPoint centerPoint, CGSize rectSize);

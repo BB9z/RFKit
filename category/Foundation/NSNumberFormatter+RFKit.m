@@ -34,7 +34,7 @@
 }
 
 - (NSString *)stringFromFloat:(float)floatVaule {
-    return [self stringFromNumber:[NSNumber numberWithFloat:floatVaule]];
+    return [self stringFromNumber:@(floatVaule)];
 }
 
 @end

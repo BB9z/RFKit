@@ -1,8 +1,6 @@
 
 #import "RFKit.h"
-
-// Eliminate CALayer forward declaration warning
-#import <QuartzCore/QuartzCore.h>
+@import QuartzCore;
 
 @implementation UIView (RFKit)
 
@@ -185,7 +183,7 @@
 }
 
 - (BOOL)isAtBack {
-    return ([self.superview.subviews objectAtIndex:0] == self);
+    return ((self.superview.subviews)[0] == self);
 }
 
 - (void)exchangeDepthsWithView:(UIView *)swapView {

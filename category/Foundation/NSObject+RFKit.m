@@ -4,7 +4,7 @@
 
 @implementation NSObject (RFKit)
 
-+ (void)defaultFill:(id)test with:(id)value {
++ (void)defaultFill:(__unused id)test with:(id)value {
 	if (test == nil || test == [NSNull null]) {
         test = value;
 	}
@@ -31,25 +31,25 @@
         if ([ctIndex isKindOfClass:[NSNumber class]]) {
             if ([ctObjectSet respondsToSelector:@selector(objectAtIndex:)]) {
                 NSNumber *indexObj = ctIndex;
-                ctObjectSet = [ctObjectSet objectAtIndex:[indexObj intValue]];
+                ctObjectSet = ctObjectSet[[indexObj intValue]];
             }
             else {
-                @throw [NSException exceptionWithName:@"RFKit: Bad selector" reason:[NSString stringWithFormat:@"%@ can`t responds objectAtIndex: for index %@.", ctObjectSet, ctIndex] userInfo:[NSDictionary dictionaryWithObjectsAndKeys:self, @"set", indexsArray, @"indexsArray", nil]];
+                @throw [NSException exceptionWithName:@"RFKit: Bad selector" reason:[NSString stringWithFormat:@"%@ can`t responds objectAtIndex: for index %@.", ctObjectSet, ctIndex] userInfo:@{@"set": self, @"indexsArray": indexsArray}];
             }
         }
         else {
             if ([ctObjectSet respondsToSelector:@selector(objectForKey:)]) {
                 NSString *indexObj = ctIndex;
-                ctObjectSet = [((NSDictionary *)ctObjectSet) objectForKey:indexObj];
+                ctObjectSet = ((NSDictionary *)ctObjectSet)[indexObj];
             }
             else {
-                @throw [NSException exceptionWithName:@"RFKit: Bad selector" reason:[NSString stringWithFormat:@"%@ can`t responds objectForKey: for index %@.", ctObjectSet, ctIndex] userInfo:[NSDictionary dictionaryWithObjectsAndKeys:self, @"set", indexsArray, @"indexsArray", nil]];
+                @throw [NSException exceptionWithName:@"RFKit: Bad selector" reason:[NSString stringWithFormat:@"%@ can`t responds objectForKey: for index %@.", ctObjectSet, ctIndex] userInfo:@{@"set": self, @"indexsArray": indexsArray}];
             }
         }
     }
 
     if (![ctObjectSet isKindOfClass:[NSArray class]]) {
-        ctObjectSet = [NSArray arrayWithObject:ctObjectSet];
+        ctObjectSet = @[ctObjectSet];
     }
     return ctObjectSet;
 }
@@ -73,10 +73,10 @@
     // 字典，只有一个key
     if (keyArray.count == 1 && [self respondsToSelector:@selector(objectForKey:)]) {
         _douts(@"字典，只有一个key")
-        id tmp = [((NSDictionary *)self) objectForKey:keyArray.firstObject];
+        id tmp = ((NSDictionary *)self)[keyArray.firstObject];
         _douto(tmp)
         if (tmp) {
-             return [NSArray arrayWithObject:tmp];
+             return @[tmp];
         }
         else {
             return nil;
@@ -104,7 +104,7 @@
     else {
         _douts(@"dict")
         // Dict
-        id ctObjectSet = [((NSDictionary *)self) objectForKey:[keyArray firstObject]];
+        id ctObjectSet = ((NSDictionary *)self)[[keyArray firstObject]];
         return [ctObjectSet objectsForDictKeyArray:arrayFirstRemoved];
     }
 }
@@ -112,10 +112,10 @@
 - (id)performRespondedSelector:(SEL)aSelector {
     if ([self respondsToSelector:aSelector]) {
         // via http://stackoverflow.com/a/7933931/945906
-        #pragma clang diagnostic push
-        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
         return [self performSelector:aSelector];
-        #pragma clang diagnostic pop
+#pragma clang diagnostic pop
     }
     else {
         return nil;

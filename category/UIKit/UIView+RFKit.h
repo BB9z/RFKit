@@ -12,7 +12,7 @@
 #import "RFRuntime.h"
 #import "RFGeometry.h"
 
-typedef enum {
+typedef NS_ENUM(NSInteger, RFViewResizeOption) {
 	RFViewResizeOptionNone		 = 0,
 	RFViewResizeOptionFill		 = 1,
 	RFViewResizeOptionAspectFill = 2,
@@ -20,7 +20,7 @@ typedef enum {
 	RFViewResizeOptionOnlyWidth	 = 6,
 	RFViewResizeOptionOnlyHeight = 7,
 	RFViewResizeOptionCenter	 = 11,
-} RFViewResizeOption;
+} ;
 
 @interface UIView (RFKit)
 

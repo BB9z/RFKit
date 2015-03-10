@@ -67,7 +67,7 @@
     NSError __autoreleasing *e = nil;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"<(?:\"[^\"]*\"['\"]*|'[^']*'['\"]*|[^'\">])+>" options:NSRegularExpressionDotMatchesLineSeparators error:&e];
     if (e) dout_error(@"%@", e);
-    return [regex stringByReplacingMatchesInString:self options:0 range:NSMakeRange(0, self.length) withTemplate:@""];
+    return [regex stringByReplacingMatchesInString:self options:(NSMatchingOptions)0 range:NSMakeRange(0, self.length) withTemplate:@""];
 }
 
 @end

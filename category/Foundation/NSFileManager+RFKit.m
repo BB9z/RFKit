@@ -36,7 +36,7 @@
 		tmpPath = [path stringByAppendingPathComponent:sub[i]];
 		
 		if ([self fileExistsAtPath:tmpPath isDirectory:&isDir] && isDir) {
-			[sub replaceObjectAtIndex:i withObject:tmpPath];
+			sub[i] = tmpPath;
 		}
 		else {
 			[sub removeObjectAtIndex:i];

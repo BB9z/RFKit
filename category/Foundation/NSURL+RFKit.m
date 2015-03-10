@@ -1,12 +1,10 @@
 
-#import "RFKit.h"
 #import "NSURL+RFKit.h"
 
 @implementation NSURL (RFKit)
 
-
 - (NSDictionary *)queryDictionary {
-	NSString * queryString = [self query];
+	NSString * queryString = self.query;
 	if (!queryString) return nil;
 	
 	NSMutableDictionary *queryDictionary = [NSMutableDictionary dictionary];
@@ -16,12 +14,12 @@
 	for (NSString *fieldValuePair in [queryString componentsSeparatedByCharactersInSet:charSetAmpersand]) {
 		NSArray *fieldValueArray = [fieldValuePair componentsSeparatedByCharactersInSet:charSetEqualsSign];
 		if (fieldValueArray.count == 2) {
-			NSString *filed = [fieldValueArray objectAtIndex:0];
-			NSString *value = [fieldValueArray objectAtIndex:1];
-			[queryDictionary setObject:[value stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] forKey:filed];
+			NSString *filed = fieldValueArray[0];
+			NSString *value = fieldValueArray[1];
+			queryDictionary[filed] = [value stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 		}
 	}
-	_douto(queryDictionary)
 	return queryDictionary;
 }
+
 @end

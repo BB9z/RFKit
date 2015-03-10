@@ -2,7 +2,7 @@
     NSURL extension
     RFKit
 
-    Copyright (c) 2012-2013 BB9z
+    Copyright (c) 2012-2014 BB9z
     https://github.com/bb9z/RFKit
 
     The MIT License (MIT)

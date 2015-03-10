@@ -7,8 +7,8 @@
 	static NSDateFormatter * share;
 	if (!share) {
 		share = [[NSDateFormatter alloc] init];
-		[share setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"];
-		[share setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+        share.dateFormat = @"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'";
+        share.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
 	}
 	return [share copy];
 }
