@@ -43,7 +43,7 @@
 - (UIImage *)imageWithScaledSize:(CGSize)newSize;
 
 // Scale image, keep the aspect ratio
-- (UIImage*)imageWithScale:(CGFloat)scale;
+- (UIImage *)imageWithScale:(CGFloat)scale;
 
 - (UIImage *)imageByScalingAndCroppingForSize:(CGSize)targetSize DEPRECATED_ATTRIBUTE;
 

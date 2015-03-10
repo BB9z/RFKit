@@ -126,16 +126,15 @@
 //!ref: http://stackoverflow.com/a/7704399/945906 
 - (UIImage *)imageWithCropRect:(CGRect)rect {
     CGFloat scale = self.scale;
-    rect = CGRectMake(rect.origin.x*scale, rect.origin.y*scale, rect.size.width*scale, rect.size.height*scale);
-    
-    CGImageRef imageRef = CGImageCreateWithImageInRect([self CGImage], rect);
+    rect = CGRectApplyAffineTransform(rect, CGAffineTransformMakeScale(scale, scale));
+    CGImageRef imageRef = CGImageCreateWithImageInRect(self.CGImage, rect);
     UIImage *result = [UIImage imageWithCGImage:imageRef scale:self.scale orientation:self.imageOrientation];
     CGImageRelease(imageRef);
     return result;
 }
 
 - (UIImage*)imageWithScaledSize:(CGSize)newSize {
-    UIGraphicsBeginImageContext(newSize);
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, self.scale);
     [self drawInRect:(CGRect){CGPointZero, newSize}];
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
     if (!newImage) dout_error(@"Resize Image Faile");
