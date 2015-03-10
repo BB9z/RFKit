@@ -1,6 +1,6 @@
 
 #import "RFKit.h"
-@import QuartzCore;
+#import <QuartzCore/QuartzCore.h>
 
 @implementation UIView (RFKit)
 
