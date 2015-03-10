@@ -22,4 +22,21 @@
     return obj;
 }
 
+//! REF: http://stackoverflow.com/a/17130821/945906
++ (id)JSONObjectWithJSONPString:(NSString *)JSONPString error:(NSError *__autoreleasing *)error {
+    NSRange begin = [JSONPString rangeOfString:@"(" options:NSLiteralSearch];
+    NSRange end = [JSONPString rangeOfString:@")" options:NSBackwardsSearch|NSLiteralSearch];
+    BOOL invaild = (begin.location == NSNotFound || end.location == NSNotFound || end.location - begin.location < 2);
+    if (invaild) {
+        if (error) {
+            *error = [NSError errorWithDomain:@"RFKit" code:0 userInfo:@{ NSLocalizedDescriptionKey : @"Not a vaild JSONP string." }];
+        }
+        return nil;
+    }
+
+    NSString *json = [JSONPString substringWithRange:NSMakeRange(begin.location + 1, (end.location - begin.location) - 1)];
+    id obj = [NSJSONSerialization JSONObjectWithString:json usingEncoding:NSUTF8StringEncoding allowLossyConversion:YES options:(NSJSONReadingOptions)0 error:error];
+    return obj;
+}
+
 @end

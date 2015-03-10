@@ -55,6 +55,36 @@
 }
 
 #pragma mark - View Hierarchy Management
++ (UIView *)commonSuperviewWith:(UIView *)view1 anotherView:(UIView *)view2 {
+    NSParameterAssert(view1);
+    NSParameterAssert(view2);
+    if (view1 == view2) return view1.superview;
+
+    // They are in diffrent window, so they wont have a common ancestor.
+    if (view1.window != view2.window) return nil;
+
+    // As we don’t know which view has a heigher level in view hierarchy,
+    // We will add these view and their superview to an array.
+    NSMutableArray *mergedViewHierarchy = [@[ view1, view2 ] mutableCopy];
+    UIView *commonSuperview = nil;
+
+    // Loop until all superviews are included in this array or find a view’s superview in this array.
+    NSInteger checkIndex = 0;
+    UIView *checkingView = nil;
+    while (checkIndex < mergedViewHierarchy.count && !commonSuperview) {
+        checkingView = mergedViewHierarchy[checkIndex++];
+
+        UIView *superview = checkingView.superview;
+        if ([mergedViewHierarchy containsObject:superview]) {
+            commonSuperview = superview;
+        }
+        else if (checkingView.superview) {
+            [mergedViewHierarchy addObject:superview];
+        }
+    }
+    return commonSuperview;
+}
+
 - (void)addSubview:(UIView *)view frame:(CGRect)rect {
 	[self addSubview:view];
 	view.frame = rect;

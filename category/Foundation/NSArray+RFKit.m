@@ -16,6 +16,18 @@
 
 @implementation NSMutableArray (RFKit)
 
+- (void)rf_addObject:(id)anObject {
+    if (anObject) {
+        [self addObject:anObject];
+    }
+}
+
+- (void)rf_insertObject:(id)anObject atIndex:(NSUInteger)index {
+    if (!anObject) return;
+    if (index > self.count) return;
+    [self insertObject:anObject atIndex:index];
+}
+
 - (void)addObjectsFromDictionary:(NSDictionary *)sourceDictionary withSpecifiedKeys:(NSString *)firstKey, ... {
     va_list ap;
     va_start(ap, firstKey);
@@ -26,6 +38,16 @@
         }
     }
     va_end(ap);
+}
+
+- (void)setLastObject:(id)anObject {
+    if (anObject) {
+        NSInteger idx = self.count - 1;
+        if (idx < 0) {
+            idx = 0;
+        }
+        self[idx] = anObject;
+    }
 }
 
 @end

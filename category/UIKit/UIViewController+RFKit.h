@@ -36,6 +36,13 @@
  */
 - (void)removeFromParentViewControllerAndView;
 
+/**
+ Lookup an ancestor view controller with given class.
+
+ @return A view controller which is kind of specified ancestor view controller of the the receiver.
+ */
+- (id)parentViewControllerOfClass:(Class)viewControllerClas;
+
 /** Dismiss keyboard by resign the first responder status.
  
  @discussion You can use this method to dismiss keyboard even the first responder not belong to the reciver.

@@ -23,4 +23,14 @@
 + (UIColor *)colorWithPatternImageName:(NSString *)resourceName;
 
 + (UIColor *)randColorWithAlpha:(CGFloat)alpha;
+
+/**
+ Creates and returns a mixed color object using the specified mix ratio and color.
+
+ @param ratio Mix ratio of the receiver.
+ @param color Another color to mix with the receiver.
+
+ @return The color object.
+ */
+- (UIColor *)mixedColorWithRatio:(CGFloat)ratio color:(UIColor *)color;
 @end

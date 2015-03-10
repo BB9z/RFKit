@@ -50,4 +50,14 @@
  */
 + (id)JSONObjectWithString:(NSString *)string;
 
+/**
+ Returns a Foundation object from given JSONP string.
+
+ @param string  A string containing JSONP data. May be `nil`.
+ @param error   If an error occurs, upon return contains an NSError object that describes the problem.
+
+ @return A data object containing JSON string.
+ */
++ (id)JSONObjectWithJSONPString:(NSString *)JSONPString error:(NSError *__autoreleasing *)error;
+
 @end

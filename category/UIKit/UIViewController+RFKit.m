@@ -38,6 +38,14 @@
     }
 }
 
+- (id)parentViewControllerOfClass:(Class)viewControllerClas {
+    UIViewController *vc = self.parentViewController;
+    while (vc && ![vc isKindOfClass:viewControllerClas]) {
+        vc = vc.parentViewController;
+    }
+    return vc;
+}
+
 //! ref: http://lldong.github.com/blog/2012/11/02/dissmiss-keyboard/
 - (void)dismissKeyboard {
     [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];

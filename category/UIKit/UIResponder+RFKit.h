@@ -19,4 +19,9 @@
  */
 - (id)viewController;
 
+/**
+ Find current firstResponder through the responder chain.
+ */
++ (id)firstResponder;
+
 @end

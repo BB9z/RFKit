@@ -33,4 +33,14 @@
  @return A UITableViewCell object with the associated identifier or nil if no such object exists in the reusable-cell queue.
  */
 - (id)dequeueReusableCellWithClass:(Class)cellClass;
+
+/**
+ Lays out the tableHeaderView with the size that satisfies the constraints it holds immediately.
+ */
+- (void)autoLayoutTableHeaderView;
+
+/**
+ Lays out the tableFooterView with the size that satisfies the constraints it holds immediately.
+ */
+- (void)autoLayoutTableFooterView;
 @end

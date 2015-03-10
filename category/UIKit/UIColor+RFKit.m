@@ -59,4 +59,26 @@
     }
 }
 
+- (UIColor *)mixedColorWithRatio:(CGFloat)ratio1 color:(UIColor *)color {
+    CGFloat red1;
+    CGFloat green1;
+    CGFloat blue1;
+    CGFloat alpha1;
+    [self getRed:&red1 green:&green1 blue:&blue1 alpha:&alpha1];
+
+    CGFloat red2;
+    CGFloat green2;
+    CGFloat blue2;
+    CGFloat alpha2;
+    [color getRed:&red2 green:&green2 blue:&blue2 alpha:&alpha2];
+
+    CGFloat ratio2 = 1.0f - ratio1;
+    CGFloat aratio1 = ratio1 * alpha1;
+    CGFloat aratio2 = ratio2 * alpha2;
+    CGFloat cratio1 = aratio1 / (aratio1 + aratio2);
+    CGFloat cratio2 = aratio2 / (aratio1 + aratio2);
+
+    return [UIColor colorWithRed:red1 * cratio1 + red2 * cratio2 green:green1 * cratio1 + green2 * cratio2 blue:blue1 * cratio1 + blue2 * cratio2 alpha:alpha1 * ratio1 + alpha2 * ratio2];
+}
+
 @end

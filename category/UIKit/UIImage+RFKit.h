@@ -15,10 +15,25 @@
 + (UIImage *)resourceName:(NSString *)PNGFileName;
 + (UIImage *)resourceName:(NSString *)fileName ofType:(NSString *)type;
 
+/**
+ Creat a thumbnail image which it’s width and height not larger than the specified size.
+ */
+- (UIImage *)thumbnailImageWithMaxSize:(CGSize)targetSize;
+
 // Aspect scale, may crop image
+- (UIImage *)imageAspectFillSize:(CGSize)targetSize opaque:(BOOL)opaque scale:(CGFloat)scale;
+
+/**
+ This method is equivalent to calling the imageAspectFillSize:opaque:scale: method with the opaque parameter set to `NO` and a scale factor of `1.0`.
+ */
 - (UIImage *)imageAspectFillSize:(CGSize)targetSize;
 
 // Aspect scale, no crop
+- (UIImage *)imageAspectFitSize:(CGSize)targetSize opaque:(BOOL)opaque scale:(CGFloat)scale;
+
+/**
+ This method is equivalent to calling the imageAspectFitSize:opaque:scale: method with the opaque parameter set to `NO` and a scale factor of `1.0`.
+ */
 - (UIImage *)imageAspectFitSize:(CGSize)targetSize;
 
 // Crop image, no resize

@@ -70,6 +70,15 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
 - (void)sizeToFitSuperview;
 
 #pragma mark - View Hierarchy Management
+
+/**
+ Got the common ancestor of two view.
+ 
+ @param view1 This value must not be `nil`.
+ @param view2 This value must not be `nil`.
+ */
++ (UIView *)commonSuperviewWith:(UIView *)view1 anotherView:(UIView *)view2;
+
 - (void)addSubview:(UIView *)view frame:(CGRect)rect;
 - (void)addSubview:(UIView *)view resizeOption:(RFViewResizeOption)option;
 

@@ -11,6 +11,10 @@
 
 #import "RFRuntime.h"
 
+#ifndef RF_iOS8Before
+#   define RF_iOS8Before (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_7_1)
+#endif
+
 #ifndef RF_iOS7Before
 #   define RF_iOS7Before (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1)
 #endif
