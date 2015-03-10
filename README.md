@@ -53,7 +53,8 @@ Defined some fake protocols for declaring a class support something or not.
 Some helper function for GCD.
 
 ### Language extensions
-Include some components from [libextobjc](https://github.com/jspahrsummers/libextobjc) and [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa/blob/master/LICENSE.md):
+Include some components from [libextobjc](https://github.com/jspahrsummers/libextobjc):
+
 * metamacros.h, macros for metaprogramming.
 * EXTKeyPathCoding, allows compile-time verification of key paths.
 * EXTScope, several tools relative to scope.
@@ -87,3 +88,5 @@ Others
 Some external components were placed under `external` folder.
 
 UncaughtExceptionHandler, generally used for internal testing. Call  `InstallUncaughtExceptionHandler()` to active. It catch errors at runtime to determine problems in non-debug environment.
+
+Change log: https://github.com/BB9z/RFKit/releases
