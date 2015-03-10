@@ -1,5 +1,4 @@
 
-#import "RFKit.h"
 #import "UIDevice+RFKit.h"
 #import <sys/socket.h>
 #import <sys/sysctl.h>
@@ -90,14 +89,20 @@
 - (long long)fileSystemFreeSize {
     NSError *e = nil;
     NSDictionary *info = [[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:&e];
-    if (e) dout_warning(@"Can`t get file system free size, reason: %@", e);
+    if (e || !info[NSFileSystemFreeSize]) {
+        dout_warning(@"Can`t get file system free size, reason: %@", e);
+        return -1;
+    }
     return [info[NSFileSystemFreeSize] longLongValue];
 }
 
 - (long long)fileSystemSize {
     NSError *e = nil;
     NSDictionary *info = [[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:&e];
-    if (e) dout_warning(@"Can`t get file system size, reason: %@", e);
+    if (e || !info[NSFileSystemSize]) {
+        dout_warning(@"Can`t get file system size, reason: %@", e);
+        return -1;
+    }
     return [info[NSFileSystemSize] longLongValue];
 }
 
@@ -121,7 +126,7 @@
     // Call sysctl.
     size = sizeof(info);
     junk = sysctl(mib, sizeof(mib) / sizeof(*mib), &info, &size, NULL, 0);
-    assert(junk == 0);
+    RFAssert(junk == 0, nil);
     
     // We're being debugged if the P_TRACED flag is set.
     return ( (info.kp_proc.p_flag & P_TRACED) != 0 );

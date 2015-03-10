@@ -25,14 +25,22 @@
 
 @interface UIDevice (RFKit)
 
-/// If the device is iPad.
-/// Detect using userInterfaceIdiom.
-- (BOOL)isPad;
+/** If current device is iPad.
+ 
+ Detect using userInterfaceIdiom.
+ 
+ @return `YES` if current device is iPad, otherwise `NO`.
+ */
+- (BOOL)isPad NS_AVAILABLE_IOS(3_2);
 
 
-/// Returns if the device has a retina screen.
-/// Detect using UIScreen's scale property.
-- (BOOL)isRetinaDisplay;
+/** If the device has a retina screen.
+
+ Detect using UIScreen's scale property.
+
+ @return `YES` if the device has a retina screen, otherwise `NO`.
+ */
+- (BOOL)isRetinaDisplay NS_AVAILABLE_IOS(4_0);
 
 
 //! via: http://iphonedevelopertips.com/device/determine-mac-address.html
@@ -44,9 +52,13 @@
 
 /// Returns `YES` if the current process is being debugged (either running under the debugger or has a debugger attached post facto).
 //! via: https://developer.apple.com/library/mac/#qa/qa1361/_index.html
-- (BOOL)isBeingDebugged;
+- (BOOL)isBeingDebugged NS_AVAILABLE_IOS(2_0);
 
-- (long long)fileSystemFreeSize;
-- (long long)fileSystemSize;
+/**
+ 
+ @return The amount of free space on the file system. 
+ */
+- (long long)fileSystemFreeSize NS_AVAILABLE_IOS(2_0);
+- (long long)fileSystemSize NS_AVAILABLE_IOS(2_0);
 
 @end
