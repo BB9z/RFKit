@@ -9,7 +9,7 @@
     http://www.opensource.org/licenses/mit-license.php
  */
 
-#import "RFRuntime.h"
+#import <UIKit/UIKit.h>
 
 @interface UIImage (RFKit)
 + (UIImage *)resourceName:(NSString *)PNGFileName;

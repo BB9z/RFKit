@@ -1,5 +1,4 @@
 
-#import "RFKit.h"
 #import "NSBundle+RFKit.h"
 
 @implementation NSBundle (RFKit)

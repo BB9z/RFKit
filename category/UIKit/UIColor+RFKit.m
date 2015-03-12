@@ -1,5 +1,4 @@
 
-#import "RFKit.h"
 #import "UIColor+RFKit.h"
 
 @implementation UIColor (RFKit)

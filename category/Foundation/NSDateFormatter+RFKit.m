@@ -1,5 +1,4 @@
 
-#import "RFRuntime.h"
 #import "NSDateFormatter+RFKit.h"
 
 @implementation NSDateFormatter (RFKit)

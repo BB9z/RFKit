@@ -5,6 +5,33 @@ RFKit Document
 
 RFKit was a useful toolkit for daily iOS development.
 
+Install
+------
+
+### CocoaPods
+
+To install using CocoaPods, add the following to your project Podfile:
+
+```
+pod 'RFKit'
+```
+
+Specify develop branch to install the lastest version:
+
+```
+pod 'RFKit', :git => 'https://github.com/BB9z/RFKit.git', :branch => 'develop'
+```
+
+RFKit support subspec, to install all RFKit components:
+
+```
+pod 'RFKit/ALL', :git => 'https://github.com/BB9z/RFKit.git'
+```
+
+### Manual
+
+You can always import RFKit by adding source code into your project. Just copy any files you needs.
+
 
 dout
 ------

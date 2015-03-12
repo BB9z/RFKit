@@ -1,6 +1,15 @@
-// Alpha
+/*!
+    Animation extension for UIView
+    RFKit
 
-#import "UIView+RFKit.h"
+    Copyright (c) 2014-2015 BB9z
+    https://github.com/BB9z/RFKit
+
+    The MIT License (MIT)
+    http://www.opensource.org/licenses/mit-license.php
+ */
+
+#import <UIKit/UIKit.h>
 
 @interface UIView (RFAnimate)
 @property (nonatomic) CGFloat x;

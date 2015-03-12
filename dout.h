@@ -2,7 +2,7 @@
 	Debug output kit(dout)
 	RFKit
 
-	ver 2.6
+	ver 2.7
  
     Copyright (c) 2012-2014 BB9z
     https://github.com/BB9z/RFKit
@@ -12,7 +12,7 @@
  */
 
 #ifndef _DOUT_H_
-#define _DOUT_H_ 2.6
+#define _DOUT_H_ 2.7
 
 #import "RFRuntime.h"
 

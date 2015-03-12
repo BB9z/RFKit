@@ -2,7 +2,7 @@
     RFKit
     This file define which extension category will included by default.
  
-    Copyright (c) 2012-2014 BB9z
+    Copyright (c) 2012-2015 BB9z
     https://github.com/bb9z/RFKit
  
     The MIT License (MIT)
@@ -29,12 +29,11 @@
 #import "UIImage+RFKit.h"
 #import "UINavigationController+RFKit.h"
 #import "UIResponder+RFKit.h"
+//#import "UIScrollView+RFScrolling.h"
 //#import "UISearchBar+RFKit.h"
 #import "UIStoryboard+RFKit.h"
 #import "UITableView+RFKit.h"
+#import "UIView+RFAnimate.h"
 #import "UIView+RFKit.h"
 #import "UIViewController+RFKit.h"
 //#import "UIWebView+RFKit.h"
-
-//#import "UIScrollView+RFScrolling.h"
-//#import "UIView+RFAnimate.h"
