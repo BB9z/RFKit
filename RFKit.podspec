@@ -66,18 +66,13 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'Runtime' do |ss|
-    ss.dependency 'RFKit/dout'
     ss.source_files =
+      'dout.{h,m}',
       'RFRuntime.*',
       'RFARC.h',
       'RFDispatch.*',
       'RFFeatureSupport.h',
       'extobjc/*'
-  end
-  
-  s.subspec 'dout' do |ss|
-    ss.ios.dependency 'RFKit/Category/UIDevice'
-    ss.source_files = 'dout.{h,m}'
   end
   
   s.subspec 'RFGeometry' do |ss|

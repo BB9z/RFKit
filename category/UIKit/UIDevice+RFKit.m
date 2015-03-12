@@ -1,7 +1,7 @@
 
 #import "UIDevice+RFKit.h"
 #import <sys/sysctl.h>
-#import "RFRuntime.h"
+#import "dout.h"
 
 @implementation UIDevice (RFKit)
 
