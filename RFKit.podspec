@@ -183,6 +183,10 @@ Pod::Spec.new do |s|
       ssp.source_files = 'category/UIKit/UISearchBar+*'
     end
     
+    ss.subspec 'UIStoryboard' do |ssp|
+      ssp.source_files = 'category/UIKit/UIStoryboard+*'
+    end
+    
     ss.subspec 'UITableView' do |ssp|
       ssp.dependency 'RFKit/Category/UIView+RFAnimate'
       ssp.source_files = 'category/UIKit/UITableView+*'
