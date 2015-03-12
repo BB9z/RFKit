@@ -86,6 +86,7 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'RFGeometry' do |ss|
+    ss.dependency 'RFKit/Runtime'
     ss.source_files = 'RFGeometry.{h,m}'
   end
   
