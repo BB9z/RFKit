@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT', :file => 'LICENSE_RFKit' }
   s.authors      = { 'BB9z' => 'BB9z@me.com' }
   s.social_media_url = 'https://twitter.com/bb9z'
-  s.source       = { :git => 'https://github.com/BB9z/RFKit.git' }
+  s.source       = { :git => 'https://github.com/BB9z/RFKit.git', :branch => 'develop' }
   #s.source       = { :git => 'https://github.com/BB9z/RFKit.git', :tag => s.version.to_s }
   
   s.ios.deployment_target = '5.0'
