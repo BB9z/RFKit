@@ -29,7 +29,7 @@
 #import "UIImage+RFKit.h"
 #import "UINavigationController+RFKit.h"
 #import "UIResponder+RFKit.h"
-#import "UIScrollView+RFScrolling.h"
+//#import "UIScrollView+RFScrolling.h"
 //#import "UISearchBar+RFKit.h"
 #import "UIStoryboard+RFKit.h"
 #import "UITableView+RFKit.h"
