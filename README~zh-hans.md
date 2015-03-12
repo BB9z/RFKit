@@ -5,6 +5,33 @@ RFKit Document
 
 RFKit 包含一套对日常iOS开发很有帮助的工具。
 
+安装
+------
+
+### CocoaPods
+
+添加下列规则到 Podfile 以使用 CocoaPods 安装：
+
+```
+pod 'RFKit'
+```
+
+安装最新版本需要指定 develop 分支，参考：
+
+```
+pod 'RFKit', :git => 'https://github.com/BB9z/RFKit.git', :branch => 'develop'
+```
+
+RFKit 支持 CocoaPad subspec，安装全部组件可以使用下列规则：
+```
+pod 'RFKit/ALL', :git => 'https://github.com/BB9z/RFKit.git'
+```
+
+### 手工引用
+
+你总是可以通过导入源码的方式使用 RFKit，只需拷贝响应文件到工程中即可。
+
+
 dout
 ------
 dout为调试打印而生，它包含了一套方便打印工具。
@@ -78,7 +105,7 @@ RFGeometry
 `RFResizeAnchor` 和 `RFAlignmentAnchor` 为尺寸调整、对齐提供参考基准。  
 
 
-RFPerformance & RFAlloctionProxy
+RFPerformance & doutkit
 --------
 性能调试组件。
 
