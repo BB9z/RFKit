@@ -6,8 +6,10 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT', :file => 'LICENSE_RFKit' }
   s.authors      = { 'BB9z' => 'BB9z@me.com' }
   s.social_media_url = 'https://twitter.com/bb9z'
-  s.source       = { :git => 'https://github.com/BB9z/RFKit.git', :branch => 'develop' }
-  #s.source       = { :git => 'https://github.com/BB9z/RFKit.git', :tag => s.version.to_s }
+  s.source       = {
+    :git => 'https://github.com/BB9z/RFKit.git',
+    :branch => 'develop'
+  }
   
   s.ios.deployment_target = '5.0'
   # s.osx.deployment_target = '10.7'
@@ -31,6 +33,36 @@ Pod::Spec.new do |s|
   
   s.subspec 'Default' do |ss|
     ss.dependency 'RFKit/Runtime'
+    
+    ss.source_files = 'RFKitDefaultCategories.h'
+    ss.dependency 'RFKit/Category/NSArray'
+    ss.dependency 'RFKit/Category/NSBundle'
+    # ss.dependency 'RFKit/Category/NSDate'
+    # ss.dependency 'RFKit/Category/NSDateFormatter'
+    ss.dependency 'RFKit/Category/NSDictionary'
+    # ss.dependency 'RFKit/Category/NSFileManager'
+    # ss.dependency 'RFKit/Category/NSJSONSerialization'
+    # ss.dependency 'RFKit/Category/NSNumberFormatter'
+    ss.dependency 'RFKit/Category/NSObject'
+    ss.dependency 'RFKit/Category/NSString'
+    # ss.dependency 'RFKit/Category/NSURL'
+    
+    # ss.ios.dependency 'RFKit/Category/NSLayoutConstraint'
+    ss.ios.dependency 'RFKit/Category/UIAlertView'
+    ss.ios.dependency 'RFKit/Category/UIButton'
+    ss.ios.dependency 'RFKit/Category/UIColor'
+    ss.ios.dependency 'RFKit/Category/UIDevice'
+    ss.ios.dependency 'RFKit/Category/UIImage'
+    ss.ios.dependency 'RFKit/Category/UINavigationController'
+    ss.ios.dependency 'RFKit/Category/UIResponder'
+    # ss.ios.dependency 'RFKit/Category/UIScrollView+RFScrolling'
+    # ss.ios.dependency 'RFKit/Category/UISearchBar'
+    ss.ios.dependency 'RFKit/Category/UIStoryboard'
+    ss.ios.dependency 'RFKit/Category/UITableView'
+    # ss.ios.dependency 'RFKit/Category/UIView+RFAnimate'
+    ss.ios.dependency 'RFKit/Category/UIView'
+    ss.ios.dependency 'RFKit/Category/UIViewController'
+    # ss.ios.dependency 'RFKit/Category/UIWebView'
   end
   
   s.subspec 'Runtime' do |ss|
@@ -45,7 +77,11 @@ Pod::Spec.new do |s|
   
   s.subspec 'dout' do |ss|
     ss.ios.dependency 'RFKit/Category/UIDevice'
-    ss.source_files = 'dout.{h.m}'
+    ss.source_files = 'dout.{h,m}'
+  end
+  
+  s.subspec 'RFGeometry' do |ss|
+    ss.source_files = 'RFGeometry.{h,m}'
   end
   
   s.subspec 'Category' do |ss|
@@ -64,7 +100,6 @@ Pod::Spec.new do |s|
     end
     
     ss.subspec 'NSDateFormatter' do |ssp|
-      ssp.dependency 'RFKit/Runtime'
       ssp.source_files = 'category/Foundation/NSDateFormatter+*'
     end
     
@@ -105,11 +140,72 @@ Pod::Spec.new do |s|
     
     # UIKit
     ss.subspec 'NSLayoutConstraint' do |ssp|
+      ssp.dependency 'RFKit/Category/UIView'
       ssp.source_files = 'category/UIKit/NSLayoutConstraint+*'
     end
     
+    ss.subspec 'UIAlertView' do |ssp|
+      ssp.source_files = 'category/UIKit/UIAlertView+*'
+    end
+    
+    ss.subspec 'UIButton' do |ssp|
+      ssp.source_files = 'category/UIKit/UIButton+*'
+    end
+    
+    ss.subspec 'UIColor' do |ssp|
+      ssp.source_files = 'category/UIKit/UIColor+*'
+    end
+    
     ss.subspec 'UIDevice' do |ssp|
+      ssp.dependency 'RFKit/Runtime'
       ssp.source_files = 'category/UIKit/UIDevice+*'
+    end
+    
+    ss.subspec 'UIImage' do |ssp|
+      ssp.dependency 'RFKit/Runtime'
+      ssp.source_files = 'category/UIKit/UIImage+*'
+    end
+    
+    ss.subspec 'UINavigationController' do |ssp|
+      ssp.dependency 'RFKit/Category/NSArray'
+      ssp.source_files = 'category/UIKit/UINavigationController+*'
+    end
+    
+    ss.subspec 'UIResponder' do |ssp|
+      ssp.source_files = 'category/UIKit/UIResponder+*'
+    end
+    
+    ss.subspec 'UIScrollView+RFScrolling' do |ssp|
+      ssp.source_files = 'category/UIKit/UIScrollView+RFScrolling*'
+    end
+    
+    ss.subspec 'UISearchBar' do |ssp|
+      ssp.source_files = 'category/UIKit/UISearchBar+*'
+    end
+    
+    ss.subspec 'UITableView' do |ssp|
+      ssp.dependency 'RFKit/Category/UIView+RFAnimate'
+      ssp.source_files = 'category/UIKit/UITableView+*'
+    end
+    
+    ss.subspec 'UIView+RFAnimate' do |ssp|
+      ssp.dependency 'RFKit/Runtime'
+      ssp.source_files = 'category/UIKit/UIView+RFAnimate*'
+    end
+    
+    ss.subspec 'UIView' do |ssp|
+      ssp.dependency 'RFKit/RFGeometry'
+      ssp.dependency 'RFKit/Category/UIResponder'
+      ssp.framework    = 'QuartzCore'
+      ssp.source_files = 'category/UIKit/UIView+RFKit*'
+    end
+    
+    ss.subspec 'UIViewController' do |ssp|
+      ssp.source_files = 'category/UIKit/UIViewController+*'
+    end
+    
+    ss.subspec 'UIWebView' do |ssp|
+      ssp.source_files = 'category/UIKit/UIWebView+*'
     end
   end
   
