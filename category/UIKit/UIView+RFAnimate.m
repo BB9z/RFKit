@@ -1,5 +1,6 @@
 
 #import "UIView+RFAnimate.h"
+#import "RFRuntime.h"
 
 @implementation UIView (RFAnimate)
 @dynamic x, y, width, height, size, rightMargin, bottomMargin;

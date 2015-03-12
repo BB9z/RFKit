@@ -9,7 +9,7 @@
     http://www.opensource.org/licenses/mit-license.php
  */
 
-#import "RFRuntime.h"
+#import <UIKit/UIKit.h>
 
 #ifndef RF_iOS8Before
 #   define RF_iOS8Before (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_7_1)

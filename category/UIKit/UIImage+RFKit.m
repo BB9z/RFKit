@@ -1,6 +1,6 @@
 
-#import "RFKit.h"
 #import "UIImage+RFKit.h"
+#import "RFRuntime.h"
 
 @implementation UIImage (RFKit)
 + (UIImage *)resourceName:(NSString *)PNGFileName{

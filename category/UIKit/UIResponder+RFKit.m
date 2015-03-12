@@ -1,5 +1,4 @@
 
-#import "RFKit.h"
 #import "UIResponder+RFKit.h"
 
 static __weak id _RFKit_UIResponder_currentFirstResponder;

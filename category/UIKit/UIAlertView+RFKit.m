@@ -1,5 +1,4 @@
 
-#import "RFKit.h"
 #import "UIAlertView+RFKit.h"
 
 @implementation UIAlertView (RFKit)

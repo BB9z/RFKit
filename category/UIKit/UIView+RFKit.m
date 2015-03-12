@@ -1,5 +1,6 @@
 
-#import "RFKit.h"
+#import "UIView+RFKit.h"
+#import "UIResponder+RFKit.h"
 #import <QuartzCore/QuartzCore.h>
 
 @implementation UIView (RFKit)

@@ -1,6 +1,6 @@
 
-#import "RFKit.h"
 #import "NSDictionary+RFKit.h"
+#import "NSObject+RFKit.h"
 
 @implementation NSDictionary (RFKit)
 

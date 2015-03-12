@@ -2,14 +2,14 @@
     UIResponder extension
     RFKit
 
-    Copyright (c) 2014 BB9z
+    Copyright (c) 2014-2015 BB9z
     https://github.com/BB9z/RFKit
 
     The MIT License (MIT)
     http://www.opensource.org/licenses/mit-license.php
  */
 
-#import "RFRuntime.h"
+#import <UIKit/UIKit.h>
 
 @interface UIResponder (RFKit)
 
