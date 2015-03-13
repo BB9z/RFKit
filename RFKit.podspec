@@ -35,44 +35,14 @@ Pod::Spec.new do |s|
     ss.dependency 'RFKit/RFGeometry'
     
     ss.source_files = 'RFKit.h', 'RFKitDefaultCategories.h'
-
-    ss.dependency 'RFKit/Category/NSArray'
-    ss.dependency 'RFKit/Category/NSBundle'
-    ss.dependency 'RFKit/Category/NSDictionary'
-    ss.dependency 'RFKit/Category/NSObject'
-    ss.dependency 'RFKit/Category/NSString'
-
-    ss.ios.dependency 'RFKit/Category/UIAlertView'
-    ss.ios.dependency 'RFKit/Category/UIButton'
-    ss.ios.dependency 'RFKit/Category/UIColor'
-    ss.ios.dependency 'RFKit/Category/UIDevice'
-    ss.ios.dependency 'RFKit/Category/UIImage'
-    ss.ios.dependency 'RFKit/Category/UINavigationController'
-    ss.ios.dependency 'RFKit/Category/UIResponder'
-    ss.ios.dependency 'RFKit/Category/UIStoryboard'
-    ss.ios.dependency 'RFKit/Category/UITableView'
-    ss.ios.dependency 'RFKit/Category/UIView'
-    ss.ios.dependency 'RFKit/Category/UIViewController'
+    ss.dependency 'RFKit/Category/Default'
   end
   
   s.subspec 'ALL' do |ss|
     ss.dependency 'RFKit/Default'
+    ss.dependency 'RFKit/Category/All'
     ss.dependency 'RFKit/Performance'
     ss.dependency 'RFKit/UncaughtExceptionHandler'
-    
-    # Category
-    ss.dependency 'RFKit/Category/NSDate'
-    ss.dependency 'RFKit/Category/NSDateFormatter'
-    ss.dependency 'RFKit/Category/NSFileManager'
-    ss.dependency 'RFKit/Category/NSJSONSerialization'
-    ss.dependency 'RFKit/Category/NSNumberFormatter'
-    ss.dependency 'RFKit/Category/NSURL'
-    
-    ss.ios.dependency 'RFKit/Category/NSLayoutConstraint'
-    ss.ios.dependency 'RFKit/Category/UIScrollView+RFScrolling'
-    ss.ios.dependency 'RFKit/Category/UISearchBar'
-    ss.ios.dependency 'RFKit/Category/UIView+RFAnimate'
-    ss.ios.dependency 'RFKit/Category/UIWebView'
   end
   
   s.subspec 'Runtime' do |ss|
@@ -91,6 +61,44 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'Category' do |ss|
+    # Set
+    ss.subspec 'Default' do |ssp|
+      ssp.dependency 'RFKit/Category/NSArray'
+      ssp.dependency 'RFKit/Category/NSBundle'
+      ssp.dependency 'RFKit/Category/NSDictionary'
+      ssp.dependency 'RFKit/Category/NSObject'
+      ssp.dependency 'RFKit/Category/NSString'
+
+      ssp.ios.dependency 'RFKit/Category/UIAlertView'
+      ssp.ios.dependency 'RFKit/Category/UIButton'
+      ssp.ios.dependency 'RFKit/Category/UIColor'
+      ssp.ios.dependency 'RFKit/Category/UIDevice'
+      ssp.ios.dependency 'RFKit/Category/UIImage'
+      ssp.ios.dependency 'RFKit/Category/UINavigationController'
+      ssp.ios.dependency 'RFKit/Category/UIResponder'
+      ssp.ios.dependency 'RFKit/Category/UIStoryboard'
+      ssp.ios.dependency 'RFKit/Category/UITableView'
+      ssp.ios.dependency 'RFKit/Category/UIView'
+      ssp.ios.dependency 'RFKit/Category/UIViewController'
+    end
+    
+    ss.subspec 'All' do |ssp|
+      ssp.dependency 'RFKit/Category/Default'
+      
+      ssp.dependency 'RFKit/Category/NSDate'
+      ssp.dependency 'RFKit/Category/NSDateFormatter'
+      ssp.dependency 'RFKit/Category/NSFileManager'
+      ssp.dependency 'RFKit/Category/NSJSONSerialization'
+      ssp.dependency 'RFKit/Category/NSNumberFormatter'
+      ssp.dependency 'RFKit/Category/NSURL'
+    
+      ssp.ios.dependency 'RFKit/Category/NSLayoutConstraint'
+      ssp.ios.dependency 'RFKit/Category/UIScrollView+RFScrolling'
+      ssp.ios.dependency 'RFKit/Category/UISearchBar'
+      ssp.ios.dependency 'RFKit/Category/UIView+RFAnimate'
+      ssp.ios.dependency 'RFKit/Category/UIWebView'
+    end
+    
     # Foundation
     ss.subspec 'NSArray' do |ssp|
       ssp.source_files = 'category/Foundation/NSArray+*'
