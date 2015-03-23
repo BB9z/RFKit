@@ -35,6 +35,21 @@
 	return reversedStr;
 }
 
+- (NSString *)stringByTrimmingToLength:(NSUInteger)newLength withTruncationToken:(NSString *)truncationToken {
+    if (self.length <= newLength) {
+        return [self copy];
+    }
+
+    if (truncationToken.length > newLength) {
+        @throw [NSException exceptionWithName:NSInvalidArgumentException reason:@"Truncation token string is longer than new length." userInfo:nil];
+        return nil;
+    }
+
+    NSUInteger tokenLength = truncationToken.length;
+    NSString *tmp = [self stringByPaddingToLength:newLength - tokenLength withString:@"" startingAtIndex:0];
+    return [tmp stringByAppendingString:truncationToken?: @""];
+}
+
 //! via: http://stackoverflow.com/questions/1524604/md5-algorithm-in-objective-c
 + (NSString *)MD5String:(NSString *)string {
     const char *cStr = [string UTF8String];
