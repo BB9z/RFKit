@@ -49,4 +49,9 @@
     }
 }
 
+- (void)removeObjectsPassingTest:(BOOL (^)(id obj, NSUInteger idx, BOOL *stop))predicate {
+    NSIndexSet *is = [self indexesOfObjectsPassingTest:predicate];
+    [self removeObjectsAtIndexes:is];
+}
+
 @end

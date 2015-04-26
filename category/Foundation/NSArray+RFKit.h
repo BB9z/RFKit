@@ -57,4 +57,11 @@
  */
 - (void)setLastObject:(id)anObject;
 
+/**
+ Removes the objects that pass the test in a given block.
+
+ @param predicate The block to apply to elements in the array.
+ */
+- (void)removeObjectsPassingTest:(BOOL (^)(id obj, NSUInteger idx, BOOL *stop))predicate;
+
 @end
