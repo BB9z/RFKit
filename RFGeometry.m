@@ -34,8 +34,8 @@ CGSize CGSizeScaled(CGSize original, float scale) {
 CGRect CGRectMakeWithPoints(CGPoint a, CGPoint b) {
     CGFloat x = fminf(a.x, b.x);
     CGFloat y = fminf(a.y, b.y);
-    CGFloat width = fabsf(a.x-b.x);
-    CGFloat height = fabsf(a.y-b.y);
+    CGFloat width = fabs(a.x-b.x);
+    CGFloat height = fabs(a.y-b.y);
     return CGRectMake(x, y, width, height);
 }
 
