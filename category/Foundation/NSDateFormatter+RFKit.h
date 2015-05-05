@@ -21,7 +21,7 @@
 
 /** Returns a date formatter object which was set with current locale.
 
- The data format is `yyyy'-'MM'-'dd' 'HH':'mm':'ss`.
+ The date format is `yyyy'-'MM'-'dd' 'HH':'mm':'ss`.
  
  @return A cached `NSDateFormatter` object.
  
@@ -31,7 +31,7 @@
 
 /** Returns a date formatter object which was set with current locale.
 
- The data format is `yyyy'-'MM'-'dd`.
+ The date format is `yyyy'-'MM'-'dd`.
 
  @return A cached `NSDateFormatter` object.
  
