@@ -295,7 +295,7 @@
 }
 
 - (UIImage *)renderToImage {
-    UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, [[UIScreen mainScreen] scale]);
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0);
     [self.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage * img = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
