@@ -27,9 +27,11 @@
 
 - (void)removeFromParentViewControllerAndView {
     [self willMoveToParentViewController:nil];
-    
-    if (self.view.superview) {
-        [self.view removeFromSuperview];
+
+    if (self.isViewLoaded) {
+        if (self.view.superview) {
+            [self.view removeFromSuperview];
+        }
     }
     
     if (self.parentViewController) {
