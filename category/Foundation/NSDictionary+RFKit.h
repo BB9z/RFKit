@@ -31,6 +31,13 @@
  */
 - (NSUInteger)addEntriesFromDictionary:(NSDictionary *)sourceDictionary withSpecifiedKeys:(NSString *)firstKey, ... NS_REQUIRES_NIL_TERMINATION;
 
+/** Adds a given key-value pair to the dictionary.
+ 
+ @param anObject The value for aKey. Can be nil.
+ @param aKey The key for value.
+ */
+- (void)rf_setObject:(id)anObject forKey:(id<NSCopying>)aKey;
+
 - (void)setBool:(BOOL)value forKey:(NSString *)keyName DEPRECATED_ATTRIBUTE;
 - (void)setFloat:(float)value forKey:(NSString *)keyName DEPRECATED_ATTRIBUTE;
 - (void)setInteger:(NSInteger)value forKey:(NSString *)keyName DEPRECATED_ATTRIBUTE;

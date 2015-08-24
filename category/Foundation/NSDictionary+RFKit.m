@@ -40,6 +40,12 @@
     return keyCopedCount;
 }
 
+- (void)rf_setObject:(id)anObject forKey:(id<NSCopying>)aKey {
+    if (anObject) {
+        [self setObject:anObject forKey:aKey];
+    }
+}
+
 - (void)setBool:(BOOL)value forKey:(NSString *)keyName {
     [self setObject:[NSNumber numberWithBool:value] forKey:keyName];
 }
