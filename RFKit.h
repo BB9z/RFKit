@@ -9,8 +9,8 @@
     http://www.opensource.org/licenses/mit-license.php
  */
 
-#ifndef _RFKit_h_
-#define _RFKit_h_ 1.5.0
+#ifndef RFKit_h
+#define RFKit_h 1.5.0
 
 #import "RFRuntime.h"
 #import "RFGeometry.h"

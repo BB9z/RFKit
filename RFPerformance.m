@@ -65,7 +65,7 @@
     kern_return_t kernReturn = host_statistics(mach_host_self(), HOST_VM_INFO, (host_info_t)&vmStats, &infoCount);
 	
     if (kernReturn == KERN_SUCCESS) {
-        NSLog(@"free: %lu\nactive: %lu\ninactive: %lu\nwire: %lu\nzero fill: %lu\nreactivations: %lu\npageins: %lu\npageouts: %lu\nfaults: %u\ncow_faults: %u\nlookups: %u\nhits: %u",
+        dout(@"free: %lu\nactive: %lu\ninactive: %lu\nwire: %lu\nzero fill: %lu\nreactivations: %lu\npageins: %lu\npageouts: %lu\nfaults: %u\ncow_faults: %u\nlookups: %u\nhits: %u",
 			  (unsigned long)vmStats.free_count * vm_page_size,
 			  (unsigned long)vmStats.active_count * vm_page_size,
 			  (unsigned long)vmStats.inactive_count * vm_page_size,

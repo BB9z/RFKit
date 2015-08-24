@@ -2,17 +2,17 @@
 	Debug output kit(dout)
 	RFKit
 
-	ver 2.7
+	ver 2.8
  
-    Copyright (c) 2012-2014 BB9z
+    Copyright (c) 2012-2015 BB9z
     https://github.com/BB9z/RFKit
 
     The MIT License (MIT)
     http://www.opensource.org/licenses/mit-license.php
  */
 
-#ifndef _DOUT_H_
-#define _DOUT_H_ 2.7
+#ifndef DOUT_H
+#define DOUT_H 2.8
 
 #import "RFRuntime.h"
 
@@ -59,10 +59,10 @@
 
 
 /// main
-#define __dout(LV, ...)\
+#define _dout_level(LV, ...)\
     {if(RFDebugLevel >= LV) DoutLog(__VA_ARGS__);}
 
-#define dout(...)       __dout(RFDebugLevelError, __VA_ARGS__)
+#define dout(...)       _dout_level(RFDebugLevelError, __VA_ARGS__)
 
 #define douts(...)      dout((__VA_ARGS__))
 #define douto(...)      dout(@"%s = <%@> %@", #__VA_ARGS__, [(NSObject *)(__VA_ARGS__) class], (__VA_ARGS__))
@@ -87,11 +87,11 @@
 #pragma mark Log helper
 
 #ifndef dout_debug
-    #define dout_debug(...) __dout(RFDebugLevelVerbose, @"<Debug> %@", [NSString stringWithFormat:__VA_ARGS__])
+    #define dout_debug(...) _dout_level(RFDebugLevelVerbose, @"<Debug> %@", [NSString stringWithFormat:__VA_ARGS__])
 #endif
 
 #ifndef dout_info
-    #define dout_info(...) __dout(RFDebugLevelInfo, @"<Info> %@", [NSString stringWithFormat:__VA_ARGS__])
+    #define dout_info(...) _dout_level(RFDebugLevelInfo, @"<Info> %@", [NSString stringWithFormat:__VA_ARGS__])
 #endif
 
 #ifndef dout_warning
@@ -105,7 +105,7 @@
 
     #else
         #define dout_warning(...)\
-            __dout(RFDebugLevelWarning, @"<Warning> %@", [NSString stringWithFormat:__VA_ARGS__])
+            _dout_level(RFDebugLevelWarning, @"<Warning> %@", [NSString stringWithFormat:__VA_ARGS__])
     #endif
 #endif
 
@@ -120,7 +120,7 @@
 
     #else
         #define dout_error(...)\
-            __dout(RFDebugLevelError, @"<Error> %@", [NSString stringWithFormat:__VA_ARGS__]);
+            _dout_level(RFDebugLevelError, @"<Error> %@", [NSString stringWithFormat:__VA_ARGS__]);
     #endif
 #endif
 

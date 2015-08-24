@@ -49,7 +49,7 @@
 - (NSArray *)filesInDirectory:(NSURL *)directory withExtensions:(NSSet *)fileTypes directoryEnumerationOptions:(NSDirectoryEnumerationOptions)mask errorHandler:(BOOL (^)(NSURL *url, NSError *error))handler {
     
     NSError *e = nil;
-#define _RFKit_NSFileManager_handleError \
+#define RFKit_NSFileManager_handleError_ \
     if (e && handler) {\
         handler(fileURL, e);\
         e = nil;\
@@ -61,19 +61,19 @@
     for (NSURL *fileURL in dirEnumerator) {
         NSNumber *isDirectory;
         [fileURL getResourceValue:&isDirectory forKey:NSURLIsDirectoryKey error:&e];
-        _RFKit_NSFileManager_handleError
+        RFKit_NSFileManager_handleError_
         if ([isDirectory boolValue]) continue;
         
         NSString *fileName = nil;
         [fileURL getResourceValue:&fileName forKey:NSURLNameKey error:&e];
-        _RFKit_NSFileManager_handleError
+        RFKit_NSFileManager_handleError_
         
         if (fileTypes.count == 0 || [fileTypes member:[fileName pathExtension]]) {
             [fileArray addObject:fileURL];
         }
     }
     return fileArray;
-#undef _RFKit_NSFileManager_handleError
+#undef RFKit_NSFileManager_handleError_
 }
 
 - (long long)fileSizeForPath:(NSString *)path {

@@ -4,8 +4,8 @@
  
     Math and Graphics helper
  
-    Copyright (c) 2012-2014 BB9z
-    https://github.com/bb9z/RFKit
+    Copyright (c) 2012-2015 BB9z
+    https://github.com/BB9z/RFKit
  
     The MIT License (MIT)
     http://www.opensource.org/licenses/mit-license.php
@@ -13,8 +13,8 @@
 
 #import "RFRuntime.h"
 
-#ifndef _RFKit_RFGeometry_h_
-#define _RFKit_RFGeometry_h_
+#ifndef RFKit_RFGeometry_h
+#define RFKit_RFGeometry_h
 
 #pragma mark - Const
 #ifndef RFMathNotChange
