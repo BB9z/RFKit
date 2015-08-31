@@ -14,6 +14,7 @@
 //#import "NSDate+RFKit.h"
 //#import "NSDateFormatter+RFKit.h"
 #import "NSDictionary+RFKit.h"
+#import "NSError+RFKit.h"
 //#import "NSFileManager+RFKit.h"
 //#import "NSJSONSerialization+RFKit.h"
 //#import "NSNumberFormatter+RFKit.h"
