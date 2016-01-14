@@ -10,8 +10,8 @@ const CGSize  CGSizeNotChange  = {RFMathNotChange, RFMathNotChange};
 CGPoint CGPointMid(CGPoint a, CGPoint b) {
 	return CGPointMake((a.x+b.x)/2, (a.y+b.y)/2);
 }
-float CGPointDistance(CGPoint a, CGPoint b) {
-	return (float)sqrt((a.x-b.x)*(a.x-b.x) + (a.y-b.y)*(a.y-b.y));
+CGFloat CGPointDistance(CGPoint a, CGPoint b) {
+	return (CGFloat)sqrt((a.x-b.x)*(a.x-b.x) + (a.y-b.y)*(a.y-b.y));
 }
 CGPoint CGPointAtLineRatio(CGPoint start, CGPoint end, CGFloat ratio) {
 	return CGPointMake(start.x + (end.x-start.x)*ratio, start.y + (end.y-start.y)*ratio);
@@ -124,10 +124,9 @@ CGRect CGRectChange(CGRect original, RFCGRectChangeFlag flag, CGFloat newValue) 
 
 #pragma mark CGAngle
 CGAngle CGAngleFromPoints(CGPoint start, CGPoint end) {
-//	float t = atan2f(end.y-start.y, end.x-start.x);
-//	dout_float(CGAngleDegrees(t))
 	return atan2f(end.y-start.y, end.x-start.x);
 }
-float CGAngleDegrees(CGAngle a) {
+
+CGFloat CGAngleDegrees(CGAngle a) {
 	return a/M_PI*180.f;
 }
