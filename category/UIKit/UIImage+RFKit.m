@@ -1,39 +1,51 @@
 
 #import "UIImage+RFKit.h"
 #import "RFRuntime.h"
+#import "RFGeometry.h"
 
 @implementation UIImage (RFKit)
+
 + (UIImage *)resourceName:(NSString *)PNGFileName{
-	return [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:PNGFileName ofType:@"png"]];
+    NSString *path = [[NSBundle mainBundle] pathForResource:PNGFileName ofType:@"png"];
+    if (!path) return nil;
+    return [UIImage imageWithContentsOfFile:path];
 }
 
 + (UIImage *)resourceName:(NSString *)fileName ofType:(NSString *)type {
-	return [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:fileName ofType:type]];
+    NSString *path = [[NSBundle mainBundle] pathForResource:fileName ofType:type];
+    if (!path) return nil;
+	return [UIImage imageWithContentsOfFile:path];
+}
+
+- (CGSize)pixelSize {
+    return CGSizeScaled(self.size, self.scale);
 }
 
 - (UIImage *)thumbnailImageWithMaxSize:(CGSize)targetSize {
-    CGFloat xSource = self.size.width;
-    CGFloat ySource = self.size.height;
-    CGFloat xTarget = targetSize.width;
-    CGFloat yTarget = targetSize.height;
-    NSParameterAssert(xTarget > 0 && yTarget > 0);
-    if (xSource <= xTarget && ySource <= yTarget) {
-        return RF_AUTORELEASE([self copy]);
+    CGFloat scale = self.scale;
+    CGFloat wSource = self.size.width * scale;
+    CGFloat hSource = self.size.height * scale;
+    CGFloat wTarget = targetSize.width;
+    CGFloat hTarget = targetSize.height;
+    NSParameterAssert(wTarget > 0 && hTarget > 0);
+    if (wSource <= wTarget && hSource <= hTarget) {
+        return [self copy];
     }
 
-    CGRect tmpImageRect = CGRectMake(0, 0, xSource, ySource);
-
-    if (xSource/xTarget > ySource/yTarget) {
-        tmpImageRect.size.width = xTarget;
-        tmpImageRect.size.height = xTarget/xSource*ySource;
+    CGRect pixelFrame = (CGRect){ CGPointZero, { wSource, hSource} };
+    if (wSource/wTarget > hSource/hTarget) {
+        pixelFrame.size.width = wTarget;
+        pixelFrame.size.height = wTarget/wSource * hSource;
     }
     else {
-        tmpImageRect.size.height = yTarget;
-        tmpImageRect.size.width = yTarget/ySource*xSource;
+        pixelFrame.size.height = hTarget;
+        pixelFrame.size.width = hTarget/hSource * wSource;
     }
+    pixelFrame = CGRectIntegral(pixelFrame);
 
-    UIGraphicsBeginImageContext(tmpImageRect.size);
-    [self drawInRect:tmpImageRect];
+    CGRect drawRect = CGRectScaled(pixelFrame, 1.f/scale);
+    UIGraphicsBeginImageContextWithOptions(drawRect.size, NO, scale);
+    [self drawInRect:drawRect];
     UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
     if (!newImage) dout_error(@"Resize Image Faile");
     UIGraphicsEndImageContext();
@@ -43,7 +55,7 @@
 //!ref: http://stackoverflow.com/a/605385/945906
 - (UIImage *)imageAspectFillSize:(CGSize)targetSize opaque:(BOOL)opaque scale:(CGFloat)scale {
 	if (CGSizeEqualToSize(self.size, targetSize)) {
-		return RF_AUTORELEASE([self copy]);
+		return [self copy];
 	}
 	
 	CGFloat xSource = self.size.width;
@@ -82,7 +94,7 @@
 
 - (UIImage *)imageAspectFitSize:(CGSize)targetSize opaque:(BOOL)opaque scale:(CGFloat)scale {
     if (CGSizeEqualToSize(self.size, targetSize)) {
-		return RF_AUTORELEASE([self copy]);
+		return [self copy];
 	}
 	
 	CGFloat xSource = self.size.width;
