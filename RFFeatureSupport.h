@@ -24,14 +24,7 @@
 #define RFOnlySupportLoadFromNib            NSObject
 
 // 
-#define RFForSubclass                      NSObject
+#define RFForSubclass                       NSObject
 
 // All property support key value observing.
 #define RFSupportKeyValueObserving          NSObject
-
-#pragma mark - DEPRECATED
-
-#define RFSupportIOS4_3                     NSObject
-#define RFSupportIOS5_0                     NSObject
-#define RFSupportIOS6_0                     NSObject
-
