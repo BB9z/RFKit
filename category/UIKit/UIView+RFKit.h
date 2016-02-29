@@ -2,7 +2,7 @@
     UIView extension
     RFKit
 
-    Copyright (c) 2012-2015 BB9z
+    Copyright (c) 2012-2016 BB9z
     https://github.com/BB9z/RFKit
 
     The MIT License (MIT)
@@ -30,11 +30,11 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
  @param delay       The amount of time (measured in seconds) to wait before beginning the animations. Specify a value of 0 to begin the animations immediately.
  @param options     A mask of options indicating how you want to perform the animations. For a list of valid constants, see UIViewAnimationOptions.
  @param animated    YES if animations should be executed; otherwise, NO.
- @param before      A block object to be executed before animations. If animated was NO, this block won’t executed. This parameter may be NULL.
- @param animations  A block object containing the changes to commit to the views. This is where you programmatically change any animatable properties of the views in your view hierarchy. This block takes no parameters and has no return value. This parameter must not be NULL.
- @param completion  A block object to be executed after animations block executed, regardless animated was YES or NO. This block has no return value and takes a single Boolean argument that indicates whether or not the animations actually finished before the completion handler was called. If the duration of the animation is 0, this block is performed at the beginning of the next run loop cycle. This parameter may be NULL.
+ @param before      A block object to be executed before animations. If animated was NO, this block won’t executed.
+ @param animations  A block object containing the changes to commit to the views. This is where you programmatically change any animatable properties of the views in your view hierarchy. This block takes no parameters and has no return value.
+ @param completion  A block object to be executed after animations block executed, regardless animated was YES or NO. This block has no return value and takes a single Boolean argument that indicates whether or not the animations actually finished before the completion handler was called. If the duration of the animation is 0, this block is performed at the beginning of the next run loop cycle.
  */
-+ (void)animateWithDuration:(NSTimeInterval)duration delay:(NSTimeInterval)delay options:(UIViewAnimationOptions)options animated:(BOOL)animated beforeAnimations:(void (^)(void))before animations:(void (^)(void))animations completion:(void (^)(BOOL finished))completion;
++ (void)animateWithDuration:(NSTimeInterval)duration delay:(NSTimeInterval)delay options:(UIViewAnimationOptions)options animated:(BOOL)animated beforeAnimations:(void (^_Nullable)(void))before animations:(void (^_Nullable)(void))animations completion:(void (^_Nullable)(BOOL finished))completion;
 
 #pragma mark -
 /** Move a UIView relative to it’s current position.
@@ -77,16 +77,16 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
  @param view1 This value must not be `nil`.
  @param view2 This value must not be `nil`.
  */
-+ (UIView *)commonSuperviewWith:(UIView *)view1 anotherView:(UIView *)view2;
++ (UIView *_Nullable)commonSuperviewWith:(UIView *_Nonnull)view1 anotherView:(UIView *_Nonnull)view2;
 
-- (void)addSubview:(UIView *)view frame:(CGRect)rect;
-- (void)addSubview:(UIView *)view resizeOption:(RFViewResizeOption)option;
+- (void)addSubview:(UIView *_Nonnull)view frame:(CGRect)rect;
+- (void)addSubview:(UIView *_Nonnull)view resizeOption:(RFViewResizeOption)option;
 
-- (void)removeSubview:(UIView *)view;
+- (void)removeSubview:(UIView *_Nullable)view;
 - (void)removeAllSubviews;
 
-- (void)bringAboveView:(UIView *)aView;
-- (void)sentBelowView:(UIView *)aView;
+- (void)bringAboveView:(UIView *_Nullable)aView;
+- (void)sentBelowView:(UIView *_Nullable)aView;
 
 - (void)bringToFront;
 - (void)sentToBack;
@@ -97,9 +97,9 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
 - (BOOL)isInFront;
 - (BOOL)isAtBack;
 
-- (void)exchangeDepthsWithView:(UIView *)swapView;
+- (void)exchangeDepthsWithView:(UIView *_Nullable)swapView;
 
-- (id)superviewOfClass:(Class)viewClass;
+- (id _Nullable)superviewOfClass:(Class _Nonnull)viewClass;
 
 #pragma mark - Others
 /** A Boolean value that indicates whether the receiver is displayed.
@@ -118,12 +118,14 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
 - (CGRect)frameOnScreen;
 
 /** Converts the receiver’s bounds from the receiver’s coordinate system to that of the specified view.
+ 
+ @param view The view that is the target of the conversion operation. If view is nil, this method instead converts to window base coordinates. Otherwise, both view and the receiver must belong to the same UIWindow object.
 
  @return The converted rectangle.
  */
-- (CGRect)boundsInView:(UIView *)view;
+- (CGRect)boundsInView:(UIView *_Nullable)view;
 
-- (UIImage *)renderToImage;
+- (UIImage *_Nullable)renderToImage;
 
 - (CGFloat)distanceBetweenFrameBottomAndSuperviewBottom;
 
@@ -134,7 +136,7 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
  
  @return A view controller, may not be the receiver´s parent.
 */
-- (UIViewController *)viewController;
+- (UIViewController *_Nullable)viewController;
 
 /** Return a newly view object unarchived from the nib file which located in the specified bundle.
  
@@ -144,7 +146,7 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
  
  @return A view object. May be nil if cannot find specified archived object.
  */
-+ (instancetype)loadWithNibName:(NSString *)nibName bundle:(NSBundle *)nibBundle;
++ (instancetype _Nullable)loadWithNibName:(NSString *_Nullable)nibName bundle:(NSBundle *_Nullable)nibBundle;
 
 /** Return a newly view object unarchived from the nib file which located in the main bundle.
  
@@ -154,6 +156,6 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
  
  @see loadWithNibName:bundle:
  */
-+ (instancetype)loadWithNibName:(NSString *)nibName;
++ (instancetype _Nullable)loadWithNibName:(NSString *_Nullable)nibName;
 
 @end

@@ -5,12 +5,12 @@
 
 @implementation UIView (RFKit)
 
-+ (void)animateWithDuration:(NSTimeInterval)duration delay:(NSTimeInterval)delay options:(UIViewAnimationOptions)options animated:(BOOL)animated beforeAnimations:(void (^)(void))before animations:(void (^)(void))animations completion:(void (^)(BOOL finished))completion {
++ (void)animateWithDuration:(NSTimeInterval)duration delay:(NSTimeInterval)delay options:(UIViewAnimationOptions)options animated:(BOOL)animated beforeAnimations:(void (^_Nullable)(void))before animations:(void (^_Nullable)(void))animations completion:(void (^_Nullable)(BOOL finished))completion {
     if (animated) {
         if (before) {
             before();
         }
-        [UIView animateWithDuration:duration delay:delay options:options animations:animations completion:completion];
+        [UIView animateWithDuration:duration delay:delay options:options animations:(id)animations completion:completion];
     }
     else {
         if (animations) {
@@ -56,6 +56,7 @@
 }
 
 #pragma mark - View Hierarchy Management
+
 + (UIView *)commonSuperviewWith:(UIView *)view1 anotherView:(UIView *)view2 {
     NSParameterAssert(view1);
     NSParameterAssert(view2);
@@ -70,7 +71,7 @@
     UIView *commonSuperview = nil;
 
     // Loop until all superviews are included in this array or find a view’s superview in this array.
-    NSInteger checkIndex = 0;
+    NSUInteger checkIndex = 0;
     UIView *checkingView = nil;
     while (checkIndex < mergedViewHierarchy.count && !commonSuperview) {
         checkingView = mergedViewHierarchy[checkIndex++];
@@ -86,12 +87,12 @@
     return commonSuperview;
 }
 
-- (void)addSubview:(UIView *)view frame:(CGRect)rect {
+- (void)addSubview:(UIView *_Nonnull)view frame:(CGRect)rect {
 	[self addSubview:view];
 	view.frame = rect;
 }
 
-- (void)addSubview:(UIView *)view resizeOption:(RFViewResizeOption)option {
+- (void)addSubview:(UIView *_Nonnull)view resizeOption:(RFViewResizeOption)option {
 	[self addSubview:view];
 	float aspect;
 	float aspectSelf;
@@ -165,7 +166,7 @@
 	}
 }
 
-- (NSUInteger)siblingIndex {
+- (NSUInteger)_rf_siblingIndex {
 	return [self.superview.subviews indexOfObject:self];
 }
 
@@ -200,12 +201,12 @@
 }
 
 - (void)bringOneLevelUp {
-	NSUInteger ixCurrent = [self siblingIndex];
+	NSUInteger ixCurrent = [self _rf_siblingIndex];
 	[self.superview exchangeSubviewAtIndex:ixCurrent withSubviewAtIndex:ixCurrent+1];
 }
 
 - (void)sendOneLevelDown {
-	NSUInteger ixCurrent = [self siblingIndex];
+	NSUInteger ixCurrent = [self _rf_siblingIndex];
 	[self.superview exchangeSubviewAtIndex:ixCurrent withSubviewAtIndex:ixCurrent-1];
 }
 
@@ -218,11 +219,12 @@
 }
 
 - (void)exchangeDepthsWithView:(UIView *)swapView {
-	[self.superview exchangeSubviewAtIndex:[self siblingIndex] withSubviewAtIndex:[swapView siblingIndex]];
+    if (!swapView) return;
+	[self.superview exchangeSubviewAtIndex:[self _rf_siblingIndex] withSubviewAtIndex:[swapView _rf_siblingIndex]];
 }
 
-- (id)superviewOfClass:(Class)viewClass {
-    UIView *ctView = self.superview;
+- (id _Nullable)superviewOfClass:(Class _Nonnull)viewClass {
+    UIView *_Nullable ctView = self.superview;
     while (ctView && ![ctView isKindOfClass:viewClass]) {
         ctView = ctView.superview;
     }
@@ -290,13 +292,15 @@
     return [self.window convertRect:frameInWindow toWindow:nil];
 }
 
-- (CGRect)boundsInView:(UIView *)view {
+- (CGRect)boundsInView:(UIView *_Nullable)view {
     return [self convertRect:self.bounds toView:view];
 }
 
-- (UIImage *)renderToImage {
+- (UIImage *_Nullable)renderToImage {
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0);
-    [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    CGContextRef ref = UIGraphicsGetCurrentContext();
+    if (!ref) return nil;
+    [self.layer renderInContext:ref];
     UIImage * img = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return img;
@@ -308,11 +312,11 @@
 	return hSuper - frame.origin.y - frame.size.height;
 }
 
-- (UIViewController *)viewController {
+- (UIViewController *_Nullable)viewController {
     return [self.nextResponder viewController];
 }
 
-+ (instancetype)loadWithNibName:(NSString *)nibName bundle:(NSBundle *)nibBundle {
++ (instancetype _Nullable)loadWithNibName:(NSString *_Nullable)nibName bundle:(NSBundle *_Nullable)nibBundle {
     if (!nibName) {
         nibName = NSStringFromClass([self class]);
     }
@@ -327,7 +331,7 @@
     return nil;
 }
 
-+ (instancetype)loadWithNibName:(NSString *)nibName {
++ (instancetype _Nullable)loadWithNibName:(NSString *_Nullable)nibName {
     return [self loadWithNibName:nibName bundle:nil];
 }
 
