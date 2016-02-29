@@ -10,7 +10,7 @@
     [significantFormatter setUsesSignificantDigits:YES];
     [significantFormatter setMinimumSignificantDigits:min];
     [significantFormatter setMaximumSignificantDigits:max];
-    return RF_AUTORELEASE(significantFormatter);
+    return significantFormatter;
 }
 
 // base on: http://stackoverflow.com/a/2975631/945906
@@ -29,7 +29,6 @@
     
     // Beware of reusing this format string. -[NSString stringWithFormat] ignores \0, *printf does not.
     NSString *formatedString = [NSString stringWithFormat:@"%@ %cB", [formatter stringFromNumber:@(bytes)], units[exponent]];
-    RF_RELEASE_OBJ(formatter)
     return formatedString;
 }
 

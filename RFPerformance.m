@@ -28,7 +28,6 @@
 	if (self) {
 		NSMutableDictionary *tmp = [[NSMutableDictionary alloc] initWithCapacity:20];
 		self.timeTable = tmp;
-		RF_RELEASE_OBJ(tmp)
 		timeBase = clock();
 	}
 	return self;
@@ -36,8 +35,6 @@
 
 - (void)dealloc {
 	self.timeTable = nil;
-	
-	RF_DEALLOC_OBJ(super)
 }
 
 - (time_t)addTimePoint:(NSString *)name {
@@ -47,7 +44,6 @@
 		dout(@"Warning: A time point with the same name already existed.");
 	}
 	(self.timeTable)[name] = tmpTime;
-	RF_RELEASE_OBJ(tmpTime);
 	return t;
 }
 

@@ -69,9 +69,6 @@ RFRuntime
 ### 默认头文件
 RFRuntime 默认包括了 UIKit 和 Foundation 头文件。
 
-### RFARC
-专用于处理ARC的兼容，借助 `RF_STRONG`、`RF_WEAK` 等宏可以写出同时兼容ARC和非ARC环境的代码。iOS 6 后，ARC 增加了对 GCD 的支持，随之又增加了 `RF_dispatch_retain`，`RF_dispatch_release`，`RF_GCD_STRONG` 和 `RF_GCD_WEAK`。
-
 ### RFFeatureSupport
 定义了一些伪协议用来标记一个类支持或不支持某些特性。
 

@@ -10,7 +10,7 @@
     NSMutableString *string = [orgString mutableCopy];
     CFStringTransform((__bridge CFMutableStringRef)string, NULL, kCFStringTransformMandarinLatin, NO);
     CFStringTransform((__bridge CFMutableStringRef)string, NULL, kCFStringTransformStripDiacritics, NO);
-    return RF_AUTORELEASE(string);
+    return string;
 }
 
 - (BOOL)containsString:(NSString *)string {

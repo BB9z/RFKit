@@ -22,7 +22,6 @@
     }\
     - (void)dealloc {\
         NSLog(@"%@ dealloc << %p", [self class], self);\
-        RF_DEALLOC_OBJ(super)\
     }
 #endif
 
@@ -37,7 +36,7 @@
 
 
 @interface RFPerformance : NSObject
-@property(RF_STRONG, atomic) NSMutableDictionary * timeTable;
+@property(strong, atomic) NSMutableDictionary * timeTable;
 
 + (RFPerformance *)sharedInstance;
 

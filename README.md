@@ -70,9 +70,6 @@ Handle build or runtime differences. Provides an unified and simple interface fo
 ### Default header file
 UIKit and Foundation header is included in RFRuntime by default.
 
-### RFARC
-Dedicated to processing the ARC's compatible. One can write code which is compatible with the ARC and non-ARC environment with `RF_STRONG` and `RF_WEAK`. As ARC support GCD after iOS 6, `RF_dispatch_retain`, `RF_dispatch_release`, `RF_GCD_STRONG` and `RF_GCD_WEAK` were added.
-
 ### RFFeatureSupport
 Defined some fake protocols for declaring a class support something or not.
 
