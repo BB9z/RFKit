@@ -21,7 +21,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UncaughtExceptionHandler : NSObject
+DEPRECATED_ATTRIBUTE @interface UncaughtExceptionHandler : NSObject
 @end
 
-void InstallUncaughtExceptionHandler(void);
+void InstallUncaughtExceptionHandler(void) DEPRECATED_ATTRIBUTE;
