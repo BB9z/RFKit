@@ -22,6 +22,7 @@
 #import "NSString+RFKit.h"
 //#import "NSURL+RFKit.h"
 
+#if !TARGET_OS_WATCH
 //#import "NSLayoutConstraint+RFKit.h"
 #import "UIAlertView+RFKit.h"
 #import "UIButton+RFKit.h"
@@ -38,3 +39,4 @@
 #import "UIView+RFKit.h"
 #import "UIViewController+RFKit.h"
 //#import "UIWebView+RFKit.h"
+#endif
