@@ -22,10 +22,13 @@ Specify develop branch to install the lastest version:
 pod 'RFKit', :git => 'https://github.com/BB9z/RFKit.git', :branch => 'develop'
 ```
 
-RFKit support subspec, to install all RFKit components:
+A more complex sample:
 
 ```
-pod 'RFKit/ALL', :git => 'https://github.com/BB9z/RFKit.git'
+pod 'RFKit',
+    :git => 'https://github.com/BB9z/RFKit.git',
+    :branch => 'develop',
+    :subspecs => ['Default', 'Category/NSDateFormatter']
 ```
 
 ### Manual
@@ -109,7 +112,5 @@ Performance toolkit.
 Others
 -------------
 Some external components were placed under `external` folder.
-
-UncaughtExceptionHandler, generally used for internal testing. Call  `InstallUncaughtExceptionHandler()` to active. It catch errors at runtime to determine problems in non-debug environment.
 
 Change log: https://github.com/BB9z/RFKit/releases
