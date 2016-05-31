@@ -2,7 +2,7 @@
     UIDevice extension
     RFKit
 
-    Copyright (c) 2012-2015 BB9z
+    Copyright (c) 2012-2016 BB9z
     https://github.com/BB9z/RFKit
 
     The MIT License (MIT)
@@ -10,6 +10,10 @@
  */
 
 #import <UIKit/UIKit.h>
+
+#ifndef RF_iOS9Before
+#   define RF_iOS9Before (floor(NSFoundationVersionNumber) < 1200)
+#endif
 
 #ifndef RF_iOS8Before
 #   define RF_iOS8Before (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_7_1)
