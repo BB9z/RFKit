@@ -11,6 +11,31 @@
     return self[index];
 }
 
+- (nonnull NSArray *)rf_subarrayWithRangeLocation:(const NSInteger)location length:(const NSInteger)length {
+    const NSInteger count = self.count;
+    NSInteger loc = (location >= 0)? location : count + location;
+    NSInteger len = length;
+    if (len < 0) {
+        len = -len;
+        loc -= len - 1;
+    }
+
+    NSInteger to = loc + len;
+    if (to < 0
+        || loc > count) {
+        return @[];
+    }
+
+    if (loc < 0) {
+        loc = 0;
+    }
+    if (to > count) {
+        to = count;
+    }
+    NSRange range = NSMakeRange(loc, to - loc);
+    return [self subarrayWithRange:range];
+}
+
 @end
 
 @implementation NSMutableArray (RFKit)

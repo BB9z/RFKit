@@ -23,6 +23,29 @@
  @return The object located at index.
  */
 - (nullable ObjectType)rf_objectAtIndex:(NSUInteger)index;
+
+/**
+ Safely returns a new array containing the receiving array’s elements that fall within the limits specified by a given range which may out of the receiving array’s range.
+
+ Both location and length can be negative.
+
+ @code
+
+ NSArray *a = @[ @1, @2, @3, @4, @5 ];
+ [a rf_subarrayWithRangeLocation: 1 length: 2];   // [2, 3]
+ [a rf_subarrayWithRangeLocation: 1 length:99];   // [2, 3, 4, 5]
+ [a rf_subarrayWithRangeLocation: 1 length: 0];   // [ ]
+ [a rf_subarrayWithRangeLocation: 1 length:-1];   // [2]
+ [a rf_subarrayWithRangeLocation: 1 length:-5];   // [1, 2]
+ [a rf_subarrayWithRangeLocation:99 length: 2];   // [ ]
+ [a rf_subarrayWithRangeLocation:-1 length:-2];   // [4, 5] Last two items
+ [a rf_subarrayWithRangeLocation:-1 length:-99];  // [1, 2, 3, 4, 5]
+ [a rf_subarrayWithRangeLocation:-5 length: 2];   // [1, 2]
+
+ @endcode
+ */
+- (nonnull NSArray<ObjectType> *)rf_subarrayWithRangeLocation:(NSInteger)location length:(NSInteger)length;
+
 @end
 
 @interface NSMutableArray<ObjectType> (RFKit)
