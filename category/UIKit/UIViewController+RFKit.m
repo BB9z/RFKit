@@ -3,6 +3,14 @@
 
 @implementation UIViewController (RFKit)
 
+- (BOOL)isViewAppeared {
+    if (self.isViewLoaded
+        && self.view.window) {
+        return YES;
+    }
+    return NO;
+}
+
 + (UIViewController *)rootViewControllerWhichCanPresentModalViewController {
     UIViewController *vc = ([UIApplication sharedApplication].keyWindow.rootViewController)? : [(UIWindow *)[[UIApplication sharedApplication].windows firstObject] rootViewController];
     
