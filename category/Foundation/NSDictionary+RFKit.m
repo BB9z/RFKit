@@ -8,16 +8,16 @@
 	return [self get:self[aKey] defaults:anObject];
 }
 
-- (BOOL)boolForKey:(NSString *)keyName {
+- (BOOL)boolForKey:(id<NSCopying>)keyName {
     return [self[keyName] boolValue];
 }
-- (float)floatForKey:(NSString *)keyName {
+- (float)floatForKey:(id<NSCopying>)keyName {
     return [self[keyName] floatValue];
 }
-- (NSInteger)integerForKey:(NSString *)keyName {
+- (NSInteger)integerForKey:(id<NSCopying>)keyName {
     return [self[keyName] integerValue];
 }
-- (double)doubleForKey:(NSString *)keyName {
+- (double)doubleForKey:(id<NSCopying>)keyName {
     return [self[keyName] doubleValue];
 }
 
