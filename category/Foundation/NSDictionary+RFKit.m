@@ -40,23 +40,16 @@
     return keyCopedCount;
 }
 
-- (void)rf_setObject:(id)anObject forKey:(id<NSCopying>)aKey {
-    if (anObject) {
+- (void)rf_setObject:(nullable id)anObject forKey:(nullable id<NSCopying>)aKey {
+    if (anObject && aKey) {
         [self setObject:anObject forKey:aKey];
     }
 }
 
-- (void)setBool:(BOOL)value forKey:(NSString *)keyName {
-    [self setObject:[NSNumber numberWithBool:value] forKey:keyName];
-}
-- (void)setFloat:(float)value forKey:(NSString *)keyName {
-    [self setObject:[NSNumber numberWithFloat:value] forKey:keyName];
-}
-- (void)setInteger:(NSInteger)value forKey:(NSString *)keyName {
-    [self setObject:[NSNumber numberWithInteger:value] forKey:keyName];
-}
-- (void)setDouble:(double)value forKey:(NSString *)keyName {
-    [self setObject:[NSNumber numberWithDouble:value] forKey:keyName];
+- (void)rf_removeObjectForKey:(nullable id)aKey {
+    if (aKey) {
+        [self removeObjectForKey:aKey];
+    }
 }
 
 @end

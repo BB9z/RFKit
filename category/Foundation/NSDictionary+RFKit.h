@@ -2,7 +2,7 @@
     NSDictionary extension
     RFKit
 
-    Copyright (c) 2012-2015 BB9z
+    Copyright (c) 2012-2016 BB9z
     https://github.com/BB9z/RFKit
 
     The MIT License (MIT)
@@ -13,12 +13,12 @@
 
 @interface NSDictionary (RFKit)
 
-- (id)objectForKey:(id)aKey defaultMarker:(id)anObject;
+- (id)objectForKey:(nonnull id)aKey defaultMarker:(nullable id)anObject;
 
-- (BOOL)boolForKey:(NSString *)keyName;
-- (float)floatForKey:(NSString *)keyName;
-- (NSInteger)integerForKey:(NSString *)keyName;
-- (double)doubleForKey:(NSString *)keyName;
+- (BOOL)boolForKey:(nonnull NSString *)keyName;
+- (float)floatForKey:(nonnull NSString *)keyName;
+- (NSInteger)integerForKey:(nonnull NSString *)keyName;
+- (double)doubleForKey:(nonnull NSString *)keyName;
 
 @end
 
@@ -31,16 +31,19 @@
  */
 - (NSUInteger)addEntriesFromDictionary:(NSDictionary *)sourceDictionary withSpecifiedKeys:(NSString *)firstKey, ... NS_REQUIRES_NIL_TERMINATION;
 
-/** Adds a given key-value pair to the dictionary.
+/** 
+ Safely adds a given key-value pair to the dictionary.
  
  @param anObject The value for aKey. Can be nil.
  @param aKey The key for value.
  */
-- (void)rf_setObject:(id)anObject forKey:(id<NSCopying>)aKey;
+- (void)rf_setObject:(nullable id)anObject forKey:(nullable id<NSCopying>)aKey;
 
-- (void)setBool:(BOOL)value forKey:(NSString *)keyName DEPRECATED_ATTRIBUTE;
-- (void)setFloat:(float)value forKey:(NSString *)keyName DEPRECATED_ATTRIBUTE;
-- (void)setInteger:(NSInteger)value forKey:(NSString *)keyName DEPRECATED_ATTRIBUTE;
-- (void)setDouble:(double)value forKey:(NSString *)keyName DEPRECATED_ATTRIBUTE;
+/**
+ Safely removes a given key and its associated value from the dictionary.
+ 
+ @param akey The key to remove. Can be nil.
+ */
+- (void)rf_removeObjectForKey:(nullable id)aKey;
 
 @end
