@@ -8,16 +8,16 @@
 	return [self get:self[aKey] defaults:anObject];
 }
 
-- (BOOL)boolForKey:(NSString *)keyName {
+- (BOOL)boolForKey:(id<NSCopying>)keyName {
     return [self[keyName] boolValue];
 }
-- (float)floatForKey:(NSString *)keyName {
+- (float)floatForKey:(id<NSCopying>)keyName {
     return [self[keyName] floatValue];
 }
-- (NSInteger)integerForKey:(NSString *)keyName {
+- (NSInteger)integerForKey:(id<NSCopying>)keyName {
     return [self[keyName] integerValue];
 }
-- (double)doubleForKey:(NSString *)keyName {
+- (double)doubleForKey:(id<NSCopying>)keyName {
     return [self[keyName] doubleValue];
 }
 
@@ -40,17 +40,16 @@
     return keyCopedCount;
 }
 
-- (void)setBool:(BOOL)value forKey:(NSString *)keyName {
-    [self setObject:[NSNumber numberWithBool:value] forKey:keyName];
+- (void)rf_setObject:(nullable id)anObject forKey:(nullable id<NSCopying>)aKey {
+    if (anObject && aKey) {
+        [self setObject:anObject forKey:aKey];
+    }
 }
-- (void)setFloat:(float)value forKey:(NSString *)keyName {
-    [self setObject:[NSNumber numberWithFloat:value] forKey:keyName];
-}
-- (void)setInteger:(NSInteger)value forKey:(NSString *)keyName {
-    [self setObject:[NSNumber numberWithInteger:value] forKey:keyName];
-}
-- (void)setDouble:(double)value forKey:(NSString *)keyName {
-    [self setObject:[NSNumber numberWithDouble:value] forKey:keyName];
+
+- (void)rf_removeObjectForKey:(nullable id)aKey {
+    if (aKey) {
+        [self removeObjectForKey:aKey];
+    }
 }
 
 @end

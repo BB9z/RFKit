@@ -17,7 +17,7 @@
         return;
     }
 
-    UIView *comment = [UIView commonSuperviewWith:self.firstItem anotherView:self.secondItem];
+    UIView *comment = [UIView commonSuperviewWith:(UIView *_Nonnull)self.firstItem anotherView:(UIView *_Nonnull)self.secondItem];
     [comment layoutIfNeeded];
 }
 

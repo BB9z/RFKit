@@ -4,8 +4,8 @@
  
     Math and Graphics helper
  
-    Copyright (c) 2012-2014 BB9z
-    https://github.com/bb9z/RFKit
+    Copyright (c) 2012-2016 BB9z
+    https://github.com/BB9z/RFKit
  
     The MIT License (MIT)
     http://www.opensource.org/licenses/mit-license.php
@@ -13,8 +13,8 @@
 
 #import "RFRuntime.h"
 
-#ifndef _RFKit_RFGeometry_h_
-#define _RFKit_RFGeometry_h_
+#ifndef RFKit_RFGeometry_h
+#define RFKit_RFGeometry_h
 
 #pragma mark - Const
 #ifndef RFMathNotChange
@@ -53,7 +53,7 @@ typedef NS_ENUM(NSInteger, RFAlignmentAnchor) {
 #pragma mark -
 #pragma mark CGPoint
 CGPoint	CGPointMid		(CGPoint a, CGPoint b);
-float	CGPointDistance	(CGPoint a, CGPoint b);
+CGFloat	CGPointDistance	(CGPoint a, CGPoint b);
 CGPoint CGPointAtLineRatio(CGPoint start, CGPoint end, CGFloat ratio);
 CGPoint CGPointOfRectCenter(CGRect a);
 
@@ -84,9 +84,9 @@ CGRect CGRectChange(CGRect original, RFCGRectChangeFlag flag, CGFloat newValue);
 
 #pragma mark CGAngle
 // radian measure
-typedef float CGAngle;
+typedef CGFloat CGAngle;
 CGAngle	CGAngleFromPoints(CGPoint start, CGPoint end);
-float	CGAngleDegrees	(CGAngle a);
+CGFloat	CGAngleDegrees	(CGAngle a);
 
 
 #endif

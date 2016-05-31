@@ -2,8 +2,8 @@
     RFPerformance
     RFKit
 
-    Copyright (c) 2012-2013 BB9z
-    https://github.com/bb9z/RFKit
+    Copyright (c) 2012-2013, 2015 BB9z
+    https://github.com/BB9z/RFKit
 
     The MIT License (MIT)
     http://www.opensource.org/licenses/mit-license.php
@@ -22,17 +22,21 @@
     }\
     - (void)dealloc {\
         NSLog(@"%@ dealloc << %p", [self class], self);\
-        RF_DEALLOC_OBJ(super)\
     }
 #endif
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wreserved-id-macro"
 
 #ifndef _RFAlloctionLog
 #   define _RFAlloctionLog
 #endif
 
+#pragma clang diagnostic pop
+
 
 @interface RFPerformance : NSObject
-@property(RF_STRONG, atomic) NSMutableDictionary * timeTable;
+@property(strong, atomic) NSMutableDictionary * timeTable;
 
 + (RFPerformance *)sharedInstance;
 

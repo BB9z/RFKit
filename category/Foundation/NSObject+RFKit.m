@@ -25,9 +25,6 @@
     
     for (NSUInteger i = 0; i < indexCount; i++) {
         id ctIndex = indexsArray[i];
-        _douto(ctObjectSet)
-        _douto(ctIndex)
-        
         if ([ctIndex isKindOfClass:[NSNumber class]]) {
             if ([ctObjectSet respondsToSelector:@selector(objectAtIndex:)]) {
                 NSNumber *indexObj = ctIndex;
@@ -55,33 +52,28 @@
 }
 
 - (NSArray *)objectsForDictKeyArray:(NSArray *)keyArray {
-    _douto(self)
-    _douto([keyArray firstObject])
     // 空数组，第一个元素非NSString
     if (keyArray.count == 0 ||
         ![keyArray.firstObject isKindOfClass:[NSString class]]) {
-        _douts(@"空数组，第一个元素非NSString")
         return nil;
     }
     
     // 既不是数组也不是字典
     if (![self respondsToSelector:@selector(objectForKey:)] && ![self respondsToSelector:@selector(objectAtIndex:)]) {
-        _douts(@"既不是数组也不是字典")
         return nil;
     }
-    
+
+    id firstIndex = keyArray.firstObject;
+
     // 字典，只有一个key
     if (keyArray.count == 1 && [self respondsToSelector:@selector(objectForKey:)]) {
-        _douts(@"字典，只有一个key")
-        id tmp = ((NSDictionary *)self)[keyArray.firstObject];
-        _douto(tmp)
+        id tmp = ((NSDictionary *)self)[firstIndex];
         if (tmp) {
              return @[tmp];
         }
         else {
             return nil;
         }
-        
     }
     
     // keyArray.count >=1，参数无误
@@ -89,22 +81,19 @@
     NSMutableArray *arrayFirstRemoved = [NSMutableArray arrayWithArray:keyArray];
     [arrayFirstRemoved removeObjectAtIndex:0];
     
-    // Array
     if ([self isKindOfClass:[NSArray class]]) {
-        _douts(@"array")
+        // Array
         NSMutableArray *r = [NSMutableArray arrayWithCapacity:20];
         
         for (id obj in (NSArray *)self) {
             id tmp = [obj objectsForDictKeyArray:keyArray];
             [r addObjectsFromArray:tmp];
         }
-        _douto(r)
         return r;
     }
     else {
-        _douts(@"dict")
         // Dict
-        id ctObjectSet = ((NSDictionary *)self)[[keyArray firstObject]];
+        id ctObjectSet = ((NSDictionary *)self)[firstIndex];
         return [ctObjectSet objectsForDictKeyArray:arrayFirstRemoved];
     }
 }

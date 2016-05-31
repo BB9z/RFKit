@@ -10,14 +10,14 @@ const CGSize  CGSizeNotChange  = {RFMathNotChange, RFMathNotChange};
 CGPoint CGPointMid(CGPoint a, CGPoint b) {
 	return CGPointMake((a.x+b.x)/2, (a.y+b.y)/2);
 }
-float CGPointDistance(CGPoint a, CGPoint b) {
-	return (float)sqrt((a.x-b.x)*(a.x-b.x) + (a.y-b.y)*(a.y-b.y));
+CGFloat CGPointDistance(CGPoint a, CGPoint b) {
+	return (CGFloat)sqrt((a.x-b.x)*(a.x-b.x) + (a.y-b.y)*(a.y-b.y));
 }
 CGPoint CGPointAtLineRatio(CGPoint start, CGPoint end, CGFloat ratio) {
 	return CGPointMake(start.x + (end.x-start.x)*ratio, start.y + (end.y-start.y)*ratio);
 }
 CGPoint CGPointOfRectCenter(CGRect a) {
-	return CGPointMake((a.origin.x+a.size.width)/2, (a.origin.y+a.size.height)/2);
+	return CGPointMake(CGRectGetMidX(a), CGRectGetMidY(a));
 }
 
 
@@ -34,8 +34,8 @@ CGSize CGSizeScaled(CGSize original, float scale) {
 CGRect CGRectMakeWithPoints(CGPoint a, CGPoint b) {
     CGFloat x = fminf(a.x, b.x);
     CGFloat y = fminf(a.y, b.y);
-    CGFloat width = fabsf(a.x-b.x);
-    CGFloat height = fabsf(a.y-b.y);
+    CGFloat width = fabs(a.x-b.x);
+    CGFloat height = fabs(a.y-b.y);
     return CGRectMake(x, y, width, height);
 }
 
@@ -124,10 +124,9 @@ CGRect CGRectChange(CGRect original, RFCGRectChangeFlag flag, CGFloat newValue) 
 
 #pragma mark CGAngle
 CGAngle CGAngleFromPoints(CGPoint start, CGPoint end) {
-//	float t = atan2f(end.y-start.y, end.x-start.x);
-//	dout_float(CGAngleDegrees(t))
 	return atan2f(end.y-start.y, end.x-start.x);
 }
-float CGAngleDegrees(CGAngle a) {
+
+CGFloat CGAngleDegrees(CGAngle a) {
 	return a/M_PI*180.f;
 }

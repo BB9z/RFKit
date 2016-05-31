@@ -2,17 +2,17 @@
 	Debug output kit(dout)
 	RFKit
 
-	ver 2.7
+	ver 2.8
  
-    Copyright (c) 2012-2014 BB9z
+    Copyright (c) 2012-2016 BB9z
     https://github.com/BB9z/RFKit
 
     The MIT License (MIT)
     http://www.opensource.org/licenses/mit-license.php
  */
 
-#ifndef _DOUT_H_
-#define _DOUT_H_ 2.7
+#ifndef DOUT_H
+#define DOUT_H 2.9
 
 #import "RFRuntime.h"
 
@@ -59,39 +59,39 @@
 
 
 /// main
-#define __dout(LV, ...)\
+#define _dout_level(LV, ...)\
     {if(RFDebugLevel >= LV) DoutLog(__VA_ARGS__);}
 
-#define dout(...)       __dout(RFDebugLevelError, __VA_ARGS__)
+#define dout(...)       _dout_level(RFDebugLevelError, __VA_ARGS__)
 
 #define douts(...)      dout((__VA_ARGS__))
-#define douto(...)      dout(@"%s = <%@> %@", #__VA_ARGS__, [(NSObject *)(__VA_ARGS__) class], (__VA_ARGS__))
-#define doutp(...)      dout(@"%s -> %p", #__VA_ARGS__, (__VA_ARGS__))
-#define doutv(...)      dout(@"%s = %@", #__VA_ARGS__, [((UIView *)(__VA_ARGS__)) performSelector:@selector(recursiveDescription)])
+#define douto(...)      dout(@"%@ = <%@> %@", @(#__VA_ARGS__), [(NSObject *)(__VA_ARGS__) class], (__VA_ARGS__))
+#define doutp(...)      dout(@"%@ -> %p",   @(#__VA_ARGS__), (__VA_ARGS__))
+#define doutv(...)      dout(@"%@ = %@",    @(#__VA_ARGS__), [((UIView *)(__VA_ARGS__)) performSelector:@selector(recursiveDescription)])
 
-#define dout_bool(...)  dout(@"%s = %@", #__VA_ARGS__, ((BOOL)(__VA_ARGS__))? @"YES" : @"NO")
-#define dout_int(...)   dout(@"%s = %ld", #__VA_ARGS__, ((long)(__VA_ARGS__)))
-#define dout_hex(...)   dout(@"%s = %#.8x", #__VA_ARGS__, ((int)(__VA_ARGS__)))
-#define dout_float(...) dout(@"%s = %f", #__VA_ARGS__, ((float)(__VA_ARGS__)))
+#define dout_bool(...)  dout(@"%@ = %@",    @(#__VA_ARGS__), ((BOOL)(__VA_ARGS__))? @"YES" : @"NO")
+#define dout_int(...)   dout(@"%@ = %ld",   @(#__VA_ARGS__), ((long)(__VA_ARGS__)))
+#define dout_hex(...)   dout(@"%@ = %#.8x", @(#__VA_ARGS__), ((int)(__VA_ARGS__)))
+#define dout_float(...) dout(@"%@ = %f",    @(#__VA_ARGS__), ((float)(__VA_ARGS__)))
 
-#define dout_point(...) dout(@"%s = %@", #__VA_ARGS__, NSStringFromCGPoint((CGPoint)(__VA_ARGS__)))
-#define dout_size(...)  dout(@"%s = %@", #__VA_ARGS__, NSStringFromCGSize((CGSize)(__VA_ARGS__)))
-#define dout_rect(...)  dout(@"%s = %@", #__VA_ARGS__, NSStringFromCGRect((CGRect)(__VA_ARGS__)))
-#define dout_insets(...)  dout(@"%s = %@", #__VA_ARGS__, NSStringFromUIEdgeInsets((UIEdgeInsets)(__VA_ARGS__)))
+#define dout_point(...) dout(@"%@ = %@",    @(#__VA_ARGS__), NSStringFromCGPoint((CGPoint)(__VA_ARGS__)))
+#define dout_size(...)  dout(@"%@ = %@",    @(#__VA_ARGS__), NSStringFromCGSize((CGSize)(__VA_ARGS__)))
+#define dout_rect(...)  dout(@"%@ = %@",    @(#__VA_ARGS__), NSStringFromCGRect((CGRect)(__VA_ARGS__)))
+#define dout_insets(...)  dout(@"%@ = %@",  @(#__VA_ARGS__), NSStringFromUIEdgeInsets((UIEdgeInsets)(__VA_ARGS__)))
 
-#define doutwork()      dout(@"%s: It Works!", __FUNCTION__)
-#define douttrace()     dout(@"%s @%@", __PRETTY_FUNCTION__, [NSThread callStackSymbols])
-#define doutlastmethod()  dout(@"%s @%@", __PRETTY_FUNCTION__, ([[NSThread callStackSymbols] rf_objectAtIndex:1]))
-#define doutline()      dout(@"%s line:%d", __PRETTY_FUNCTION__, __LINE__)
+#define doutwork()      dout(@"%@: It Works!", @(__FUNCTION__))
+#define douttrace()     dout(@"%@ @%@", @(__PRETTY_FUNCTION__), [NSThread callStackSymbols])
+#define doutlastmethod()  dout(@"%@ @%@", @(__PRETTY_FUNCTION__), ([[NSThread callStackSymbols] rf_objectAtIndex:1]))
+#define doutline()      dout(@"%@ line:%d", @(__PRETTY_FUNCTION__), __LINE__)
 
 #pragma mark Log helper
 
 #ifndef dout_debug
-    #define dout_debug(...) __dout(RFDebugLevelVerbose, @"<Debug> %@", [NSString stringWithFormat:__VA_ARGS__])
+    #define dout_debug(...) _dout_level(RFDebugLevelVerbose, @"<Debug> %@", [NSString stringWithFormat:__VA_ARGS__])
 #endif
 
 #ifndef dout_info
-    #define dout_info(...) __dout(RFDebugLevelInfo, @"<Info> %@", [NSString stringWithFormat:__VA_ARGS__])
+    #define dout_info(...) _dout_level(RFDebugLevelInfo, @"<Info> %@", [NSString stringWithFormat:__VA_ARGS__])
 #endif
 
 #ifndef dout_warning
@@ -105,7 +105,7 @@
 
     #else
         #define dout_warning(...)\
-            __dout(RFDebugLevelWarning, @"<Warning> %@", [NSString stringWithFormat:__VA_ARGS__])
+            _dout_level(RFDebugLevelWarning, @"<Warning> %@", [NSString stringWithFormat:__VA_ARGS__])
     #endif
 #endif
 
@@ -120,7 +120,7 @@
 
     #else
         #define dout_error(...)\
-            __dout(RFDebugLevelError, @"<Error> %@", [NSString stringWithFormat:__VA_ARGS__]);
+            _dout_level(RFDebugLevelError, @"<Error> %@", [NSString stringWithFormat:__VA_ARGS__]);
     #endif
 #endif
 
@@ -134,10 +134,10 @@
 #ifndef RFALog
 #   if RFDEBUG
 #       define RFALog(...)\
-            [[NSAssertionHandler currentHandler] handleFailureInFunction:[NSString stringWithCString:__PRETTY_FUNCTION__ encoding:NSUTF8StringEncoding] file:[NSString stringWithCString:__FILE__ encoding:NSUTF8StringEncoding] lineNumber:__LINE__ description:__VA_ARGS__];
+            [[NSAssertionHandler currentHandler] handleFailureInFunction:(id)[NSString stringWithCString:__PRETTY_FUNCTION__ encoding:NSUTF8StringEncoding] file:(id)[NSString stringWithCString:__FILE__ encoding:NSUTF8StringEncoding] lineNumber:__LINE__ description:__VA_ARGS__];
 #   else
 #       define RFALog(...)\
-            dout_error(@"%s %@", __PRETTY_FUNCTION__, [NSString stringWithFormat:__VA_ARGS__])
+            dout_error(@"%@ %@", @(__PRETTY_FUNCTION__), [NSString stringWithFormat:__VA_ARGS__])
 #   endif
 #endif
 

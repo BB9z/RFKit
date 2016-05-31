@@ -2,7 +2,7 @@
     UIImage extension
     RFKit
 
-    Copyright (c) 2012-2015 BB9z
+    Copyright (c) 2012-2016 BB9z
     https://github.com/BB9z/RFKit
 
     The MIT License (MIT)
@@ -12,11 +12,21 @@
 #import <UIKit/UIKit.h>
 
 @interface UIImage (RFKit)
+
 + (UIImage *)resourceName:(NSString *)PNGFileName;
 + (UIImage *)resourceName:(NSString *)fileName ofType:(NSString *)type;
 
 /**
+ Return the dimensions of the image in pixels, taking orientation into account.
+ */
+- (CGSize)pixelSize;
+
+/**
  Creat a thumbnail image which it’s width and height not larger than the specified size.
+ 
+ @param targetSize pixel size. Both width and height must be great than zero.
+ 
+ @return New copyed image which has same scale with the reciver.
  */
 - (UIImage *)thumbnailImageWithMaxSize:(CGSize)targetSize;
 

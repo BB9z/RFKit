@@ -22,10 +22,13 @@ Specify develop branch to install the lastest version:
 pod 'RFKit', :git => 'https://github.com/BB9z/RFKit.git', :branch => 'develop'
 ```
 
-RFKit support subspec, to install all RFKit components:
+A more complex sample:
 
 ```
-pod 'RFKit/ALL', :git => 'https://github.com/BB9z/RFKit.git'
+pod 'RFKit',
+    :git => 'https://github.com/BB9z/RFKit.git',
+    :branch => 'develop',
+    :subspecs => ['Default', 'Category/NSDateFormatter']
 ```
 
 ### Manual
@@ -70,9 +73,6 @@ Handle build or runtime differences. Provides an unified and simple interface fo
 ### Default header file
 UIKit and Foundation header is included in RFRuntime by default.
 
-### RFARC
-Dedicated to processing the ARC's compatible. One can write code which is compatible with the ARC and non-ARC environment with `RF_STRONG` and `RF_WEAK`. As ARC support GCD after iOS 6, `RF_dispatch_retain`, `RF_dispatch_release`, `RF_GCD_STRONG` and `RF_GCD_WEAK` were added.
-
 ### RFFeatureSupport
 Defined some fake protocols for declaring a class support something or not.
 
@@ -112,7 +112,5 @@ Performance toolkit.
 Others
 -------------
 Some external components were placed under `external` folder.
-
-UncaughtExceptionHandler, generally used for internal testing. Call  `InstallUncaughtExceptionHandler()` to active. It catch errors at runtime to determine problems in non-debug environment.
 
 Change log: https://github.com/BB9z/RFKit/releases

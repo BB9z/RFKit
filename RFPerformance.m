@@ -28,7 +28,6 @@
 	if (self) {
 		NSMutableDictionary *tmp = [[NSMutableDictionary alloc] initWithCapacity:20];
 		self.timeTable = tmp;
-		RF_RELEASE_OBJ(tmp)
 		timeBase = clock();
 	}
 	return self;
@@ -36,8 +35,6 @@
 
 - (void)dealloc {
 	self.timeTable = nil;
-	
-	RF_DEALLOC_OBJ(super)
 }
 
 - (time_t)addTimePoint:(NSString *)name {
@@ -47,7 +44,6 @@
 		dout(@"Warning: A time point with the same name already existed.");
 	}
 	(self.timeTable)[name] = tmpTime;
-	RF_RELEASE_OBJ(tmpTime);
 	return t;
 }
 
@@ -65,7 +61,7 @@
     kern_return_t kernReturn = host_statistics(mach_host_self(), HOST_VM_INFO, (host_info_t)&vmStats, &infoCount);
 	
     if (kernReturn == KERN_SUCCESS) {
-        NSLog(@"free: %lu\nactive: %lu\ninactive: %lu\nwire: %lu\nzero fill: %lu\nreactivations: %lu\npageins: %lu\npageouts: %lu\nfaults: %u\ncow_faults: %u\nlookups: %u\nhits: %u",
+        dout(@"free: %lu\nactive: %lu\ninactive: %lu\nwire: %lu\nzero fill: %lu\nreactivations: %lu\npageins: %lu\npageouts: %lu\nfaults: %u\ncow_faults: %u\nlookups: %u\nhits: %u",
 			  (unsigned long)vmStats.free_count * vm_page_size,
 			  (unsigned long)vmStats.active_count * vm_page_size,
 			  (unsigned long)vmStats.inactive_count * vm_page_size,

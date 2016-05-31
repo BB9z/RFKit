@@ -21,7 +21,7 @@
 
 /** Returns a date formatter object which was set with current locale.
 
- The data format is `yyyy'-'MM'-'dd' 'HH':'mm':'ss`.
+ The date format is `yyyy'-'MM'-'dd' 'HH':'mm':'ss`.
  
  @return A cached `NSDateFormatter` object.
  
@@ -31,7 +31,7 @@
 
 /** Returns a date formatter object which was set with current locale.
 
- The data format is `yyyy'-'MM'-'dd`.
+ The date format is `yyyy'-'MM'-'dd`.
 
  @return A cached `NSDateFormatter` object.
  
@@ -39,6 +39,15 @@
  */
 + (NSDateFormatter *)currentLocaleFormatterOnlyDate;
 
+/** Returns a date formatter object which was set with current locale.
+ 
+ The date format is also localized.
+
+ @param templateString A string containing date format patterns (such as “MM” or “h”).
+ 
+ @return A `NSDateFormatter` object.
+ */
++ (NSDateFormatter *)currentLocaleFormatterFromTemplate:(NSString *)templateString;
 
 /** Returns a date formatter object with a given date format and a specified time zone.
  

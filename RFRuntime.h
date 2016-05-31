@@ -2,8 +2,8 @@
     RFRuntime
     RFKit
 
-    Copyright (c) 2012-2013 BB9z
-    https://github.com/bb9z/RFKit
+    Copyright (c) 2012-2013, 2015 BB9z
+    https://github.com/BB9z/RFKit
 
     The MIT License (MIT)
     http://www.opensource.org/licenses/mit-license.php
@@ -80,12 +80,12 @@ NSString *footerViewFramePath = @keypathClassInstance(UITableView, tableFooterVi
  */
 
 #define keypathClassInstance(...)\
-    metamacro_if_eq(2, metamacro_argcount(__VA_ARGS__))(keypathClassInstance1(__VA_ARGS__))(keypathClassInstance2(__VA_ARGS__))
+    metamacro_if_eq(2, metamacro_argcount(__VA_ARGS__))(_rf_keypathClassInstance1_(__VA_ARGS__))(_rf_keypathClassInstance2_(__VA_ARGS__))
 
-#define keypathClassInstance1(CLASS, PATH)\
+#define _rf_keypathClassInstance1_(CLASS, PATH)\
     (({CLASS *_proxy_; ((void)(NO && ((void)_proxy_.PATH, NO)), # PATH);}))
 
-#define keypathClassInstance2(CLASS, PROPERTY, PATH)\
+#define _rf_keypathClassInstance2_(CLASS, PROPERTY, PATH)\
     (({CLASS *_proxy_; ((void)(NO && ((void)_proxy_.PROPERTY.PATH, NO)), # PATH);}))
 
 #pragma mark - Language Addition
@@ -103,7 +103,7 @@ NSString *footerViewFramePath = @keypathClassInstance(UITableView, tableFooterVi
  
  @endcode
  */
-#define RFDefineConstString(...) metamacro_if_eq(1, metamacro_argcount(__VA_ARGS__))(_RFDefineConstString1(metamacro_at0(__VA_ARGS__)))(_RFDefineConstString2(metamacro_at0(__VA_ARGS__), metamacro_at1(__VA_ARGS__)))
+#define RFDefineConstString(...) metamacro_if_eq(1, metamacro_argcount(__VA_ARGS__))(_rf_DefineConstString1_(metamacro_at0(__VA_ARGS__)))(_rf_DefineConstString2_(metamacro_at0(__VA_ARGS__), metamacro_at1(__VA_ARGS__)))
 
-#define _RFDefineConstString1(name) NSString *const name = @metamacro_stringify_(name)
-#define _RFDefineConstString2(name, value) NSString *const name = @value
+#define _rf_DefineConstString1_(name) NSString *const name = @metamacro_stringify_(name)
+#define _rf_DefineConstString2_(name, value) NSString *const name = @value

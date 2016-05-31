@@ -10,7 +10,7 @@
     NSMutableString *string = [orgString mutableCopy];
     CFStringTransform((__bridge CFMutableStringRef)string, NULL, kCFStringTransformMandarinLatin, NO);
     CFStringTransform((__bridge CFMutableStringRef)string, NULL, kCFStringTransformStripDiacritics, NO);
-    return RF_AUTORELEASE(string);
+    return string;
 }
 
 - (BOOL)containsString:(NSString *)string {
@@ -33,6 +33,21 @@
 		[reversedStr appendString: [NSString stringWithFormat:@"%C", [self characterAtIndex:--len]]];   
 	
 	return reversedStr;
+}
+
+- (NSString *)stringByTrimmingToLength:(NSUInteger)newLength withTruncationToken:(NSString *)truncationToken {
+    if (self.length <= newLength) {
+        return [self copy];
+    }
+
+    if (truncationToken.length > newLength) {
+        @throw [NSException exceptionWithName:NSInvalidArgumentException reason:@"Truncation token string is longer than new length." userInfo:nil];
+        return nil;
+    }
+
+    NSUInteger tokenLength = truncationToken.length;
+    NSString *tmp = [self stringByPaddingToLength:newLength - tokenLength withString:@"" startingAtIndex:0];
+    return [tmp stringByAppendingString:truncationToken?: @""];
 }
 
 //! via: http://stackoverflow.com/questions/1524604/md5-algorithm-in-objective-c

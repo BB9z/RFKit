@@ -2,7 +2,7 @@
     NSObject extension
     RFKit
 
-    Copyright (c) 2012-2015 BB9z
+    Copyright (c) 2012-2016 BB9z
     https://github.com/BB9z/RFKit
 
     The MIT License (MIT)
@@ -13,12 +13,12 @@
 
 @interface NSObject (RFKit)
 
-+ (void)defaultFill:(id)test with:(id)value;
-- (id)get:(id)test defaults:(id)value;
++ (void)defaultFill:(id _Nullable)test with:(id _Nullable)value;
+- (id _Nullable)get:(id _Nullable)test defaults:(id _Nullable)value;
 
-- (NSArray *)objectsForIndexArray:(NSArray *)indexsArray;
-- (NSArray *)objectsForDictKeyArray:(NSArray *)keyArray;
+- (NSArray<id> *_Nonnull)objectsForIndexArray:(NSArray<id> *_Nullable)indexsArray;
+- (NSArray<id> *_Nullable)objectsForDictKeyArray:(NSArray<NSString *> *_Nonnull)keyArray;
 
-- (id)performRespondedSelector:(SEL)aSelector;
+- (id _Nullable)performRespondedSelector:(SEL _Nonnull)aSelector;
 
 @end

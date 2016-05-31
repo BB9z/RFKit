@@ -35,6 +35,31 @@
  */
 - (BOOL)containsString:(NSString *)string options:(NSStringCompareOptions)mask;
 
+/**
+ Returns a new string formed from the receiver by replacing characters with specified string from the end.
+
+ Here are some examples of usage:
+ 
+ @code
+ [@"abcde" stringByTrimmingToLength:9 withTruncationToken:@"..."];
+ // Result in "abcde"
+ 
+ [@"abcde" stringByTrimmingToLength:5 withTruncationToken:@"..."];
+ // Result in "abcde"
+
+ [@"abcde" stringByTrimmingToLength:4 withTruncationToken:@"..."];
+ // Result in "a..."
+ @endcode
+ 
+ @param newLength The new length for the receiver.
+ @param truncationToken
+    The string to apply to the truncation token at the end of the truncated string. This value may be nil.
+    May raises an `NSInvalidArgumentException` if `truncationToken` is longer than `newLength`.
+
+ @return A new string formed from the receiver by replacing characters with specified string from the end as necessary.
+ */
+- (NSString *)stringByTrimmingToLength:(NSUInteger)newLength withTruncationToken:(NSString *)truncationToken;
+
 /** Reverse a NSString
  
  @return String reversed

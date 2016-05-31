@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'RFKit'
-  s.version      = '1.5'
+  s.version      = '1.6.1'
   s.summary      = 'Tool kit for daily iOS development.'
   s.homepage     = 'https://github.com/BB9z/RFKit'
   s.license      = { :type => 'MIT', :file => 'LICENSE_RFKit' }
@@ -11,8 +11,9 @@ Pod::Spec.new do |s|
     :tag => s.version.to_s
   }
   
-  s.ios.deployment_target = '5.0'
+  s.ios.deployment_target = '6.0'
   # s.osx.deployment_target = '10.7'
+  s.watchos.deployment_target = '2.0'
 
   s.exclude_files = 'UnitTest'
 
@@ -34,7 +35,7 @@ Pod::Spec.new do |s|
     ss.dependency 'RFKit/Runtime'
     ss.dependency 'RFKit/RFGeometry'
     
-    ss.source_files = 'RFKit.h', 'RFKitDefaultCategories.h'
+    ss.source_files = 'RFKit.{h,m}', 'RFKitDefaultCategories.h'
     ss.dependency 'RFKit/Category/Default'
   end
   
@@ -66,6 +67,7 @@ Pod::Spec.new do |s|
       ssp.dependency 'RFKit/Category/NSArray'
       ssp.dependency 'RFKit/Category/NSBundle'
       ssp.dependency 'RFKit/Category/NSDictionary'
+      ssp.dependency 'RFKit/Category/NSError'
       ssp.dependency 'RFKit/Category/NSObject'
       ssp.dependency 'RFKit/Category/NSString'
 
@@ -120,6 +122,10 @@ Pod::Spec.new do |s|
     ss.subspec 'NSDictionary' do |ssp|
       ssp.dependency 'RFKit/Category/NSObject'
       ssp.source_files = 'category/Foundation/NSDictionary+*'
+    end
+    
+    ss.subspec 'NSError' do |ssp|
+      ssp.source_files = 'category/Foundation/NSError+*'
     end
     
     ss.subspec 'NSFileManager' do |ssp|

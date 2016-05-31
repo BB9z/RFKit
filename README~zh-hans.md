@@ -22,9 +22,12 @@ pod 'RFKit'
 pod 'RFKit', :git => 'https://github.com/BB9z/RFKit.git', :branch => 'develop'
 ```
 
-RFKit 支持 CocoaPad subspec，安装全部组件可以使用下列规则：
+更复杂的列子：
 ```
-pod 'RFKit/ALL', :git => 'https://github.com/BB9z/RFKit.git'
+pod 'RFKit',
+    :git => 'https://github.com/BB9z/RFKit.git',
+    :branch => 'develop',
+    :subspecs => ['Default', 'Category/NSDateFormatter']
 ```
 
 ### 手工引用
@@ -69,9 +72,6 @@ RFRuntime
 ### 默认头文件
 RFRuntime 默认包括了 UIKit 和 Foundation 头文件。
 
-### RFARC
-专用于处理ARC的兼容，借助 `RF_STRONG`、`RF_WEAK` 等宏可以写出同时兼容ARC和非ARC环境的代码。iOS 6 后，ARC 增加了对 GCD 的支持，随之又增加了 `RF_dispatch_retain`，`RF_dispatch_release`，`RF_GCD_STRONG` 和 `RF_GCD_WEAK`。
-
 ### RFFeatureSupport
 定义了一些伪协议用来标记一个类支持或不支持某些特性。
 
@@ -79,12 +79,11 @@ RFRuntime 默认包括了 UIKit 和 Foundation 头文件。
 一些 GCD 便捷方法。
 
 ### 语言扩展
-包括几个来自 [libextobjc](https://github.com/jspahrsummers/libextobjc) 和 [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa/blob/master/LICENSE.md) 的组件：
+包括几个来自 [libextobjc](https://github.com/jspahrsummers/libextobjc) 的组件：
 
 * metamacros.h，支持元编程的工具宏；
 * EXTKeyPathCoding，key path 自动完成辅助工具；
-* EXTScope，与作用域相关的几个实用工具；
-* NSObject+RACKVOWrapper，方便好用的 KVO 包装，block 回调、自动移除监听等。
+* EXTScope，与作用域相关的几个实用工具。
 
 @keypathClassInstance 与 @keypath 类似，直接使用类而无需额外的实例变量。
 
@@ -113,5 +112,3 @@ RFPerformance & doutkit
 其他
 -------------
 external 文件夹下存放其他外部组件。
-
-UncaughtExceptionHandler，一般用于内部测试，调用 `InstallUncaughtExceptionHandler()` 激活后，可以捕获到应用运行时的错误，帮助在非调试环境确定问题所在。

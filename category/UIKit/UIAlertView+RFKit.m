@@ -3,7 +3,7 @@
 
 @implementation UIAlertView (RFKit)
 
-+ (void)showWithTitle:(NSString *)title message:(NSString *)message  buttonTitle:(NSString *)buttonTitle {
++ (void)showWithTitle:(NSString *)title message:(NSString *)message buttonTitle:(NSString *)buttonTitle {
     if (buttonTitle == nil) {
         buttonTitle = @"OK";
     }

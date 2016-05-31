@@ -68,10 +68,7 @@ NSString *DoutCurrentThreadOrQueueName(void) {
         return threadName;
     }
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    NSString *queueName = @(dispatch_queue_get_label(dispatch_get_current_queue()));
-#pragma clang diagnostic pop
+    NSString *queueName = @(dispatch_queue_get_label(DISPATCH_CURRENT_QUEUE_LABEL));
     if (queueName.length) {
         return queueName;
     }

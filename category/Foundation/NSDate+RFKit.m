@@ -5,7 +5,7 @@
 @implementation NSDate (RFKit)
 
 + (NSDate *)dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day hour:(NSInteger)hour minute:(NSInteger)minute second:(NSInteger)second {
-    NSDateComponents *dc = RF_AUTORELEASE([[NSDateComponents alloc] init]);
+    NSDateComponents *dc = [[NSDateComponents alloc] init];
     dc.year = year;
     dc.month = month;
     dc.day = day;

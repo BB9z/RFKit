@@ -7,7 +7,7 @@
 + (NSString *)stringWithJSONObject:(id)obj options:(NSJSONWritingOptions)opt error:(NSError *__autoreleasing *)error {
     if (!obj) return nil;
     NSData *d = [NSJSONSerialization dataWithJSONObject:obj options:opt error:error];
-    return RF_AUTORELEASE([[NSString alloc] initWithData:d encoding:NSUTF8StringEncoding]);
+    return [[NSString alloc] initWithData:d encoding:NSUTF8StringEncoding];
 }
 
 + (id)JSONObjectWithString:(NSString *)string usingEncoding:(NSStringEncoding)encoding allowLossyConversion:(BOOL)lossy options:(NSJSONReadingOptions)opt error:(NSError *__autoreleasing *)error {

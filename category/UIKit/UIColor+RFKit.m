@@ -5,26 +5,26 @@
 
 #pragma mark HexColor
 // These code base on: http://imchao.net/2012/01/08/using-hex-value-with-uicolor/
-- (UIColor *)initWithRGBHex:(NSInteger)hexValue alpha:(CGFloat)alpha {
+- (UIColor *_Nonnull)initWithRGBHex:(NSInteger)hexValue alpha:(CGFloat)alpha {
 	return [self initWithRed:((hexValue & 0xFF0000) >> 16)/255.0f
 					   green:((hexValue & 0xFF00) >> 8)/255.0f
 						blue:(hexValue & 0xFF)/255.0f
 					   alpha:alpha];
 }
 
-+ (UIColor *)colorWithRGBHex:(NSInteger)hexValue alpha:(CGFloat)alpha {
++ (UIColor *_Nonnull)colorWithRGBHex:(NSInteger)hexValue alpha:(CGFloat)alpha {
     return [UIColor colorWithRed:((hexValue & 0xFF0000) >> 16)/255.0f 
 						   green:((hexValue & 0xFF00) >> 8)/255.0f
 							blue:(hexValue & 0xFF)/255.0f 
 						   alpha:alpha];
 }
 
-+ (UIColor *)colorWithRGBHex:(NSInteger)hexValue {
++ (UIColor *_Nonnull)colorWithRGBHex:(NSInteger)hexValue {
     return [UIColor colorWithRGBHex:hexValue alpha:1.0f];
 }
 
 
-+ (UIColor *)colorWithRGBString:(NSString *)nsstring {
++ (UIColor *_Nonnull)colorWithRGBString:(NSString *_Nonnull)nsstring {
 	NSUInteger length = nsstring.length-1;
 //	if (length != 3 && length != 6 ) return [UIColor clearColor];
 	if (length != 6 ) return [UIColor clearColor];
@@ -34,7 +34,7 @@
 	return [UIColor colorWithRGBHex:color];
 }
 
-+ (UIColor *)colorWithRGBString:(NSString *)nsstring alpha:(CGFloat)alpha {
++ (UIColor *_Nonnull)colorWithRGBString:(NSString *_Nonnull)nsstring alpha:(CGFloat)alpha {
 	NSUInteger length = nsstring.length-1;
 	//	if (length != 3 && length != 6 ) return [UIColor clearColor];
 	if (length != 6 ) return [UIColor clearColor]; 
@@ -44,11 +44,13 @@
 	return [UIColor colorWithRGBHex:color alpha:alpha];
 }
 
-+ (UIColor *)colorWithPatternImageName:(NSString *)resourceName {
-	return [UIColor colorWithPatternImage:[UIImage imageNamed:resourceName]];
++ (UIColor *_Nullable)colorWithPatternImageName:(NSString *_Nonnull)resourceName {
+    UIImage *img = [UIImage imageNamed:resourceName];
+    if (!img) return nil;
+	return [UIColor colorWithPatternImage:img];
 }
 
-+ (UIColor *)randColorWithAlpha:(CGFloat)alpha {
++ (UIColor *_Nonnull)randColorWithAlpha:(CGFloat)alpha {
     BOOL fakeRandom = NO;
     if (fakeRandom) {
         return [UIColor colorWithRed:rand()%255/255.f green:rand()%255/255.f blue:rand()%255/255.f alpha:alpha];
@@ -58,7 +60,7 @@
     }
 }
 
-- (UIColor *)mixedColorWithRatio:(CGFloat)ratio1 color:(UIColor *)color {
+- (UIColor *_Nonnull)mixedColorWithRatio:(CGFloat)ratio1 color:(UIColor *_Nonnull)color {
     CGFloat red1;
     CGFloat green1;
     CGFloat blue1;
