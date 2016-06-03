@@ -2,7 +2,7 @@
     UIAlertView extension
     RFKit
 
-    Copyright (c) 2012-2013, 2015 BB9z
+    Copyright (c) 2012-2013, 2015-2016 BB9z
     https://github.com/BB9z/RFKit
 
     The MIT License (MIT)

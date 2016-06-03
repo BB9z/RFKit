@@ -13,12 +13,12 @@
 
 @interface NSDictionary<KeyType, ObjectType> (RFKit)
 
-- (nullable id)objectForKey:(nonnull KeyType)aKey defaultMarker:(nullable ObjectType)anObject;
+- (nullable id)objectForKey:(nonnull KeyType<NSCopying>)aKey defaultMarker:(nullable ObjectType)anObject;
 
-- (BOOL)boolForKey:(nonnull KeyType)aKey;
-- (float)floatForKey:(nonnull KeyType)aKey;
-- (NSInteger)integerForKey:(nonnull KeyType)aKey;
-- (double)doubleForKey:(nonnull KeyType)aKey;
+- (BOOL)boolForKey:(nonnull KeyType<NSCopying>)aKey;
+- (float)floatForKey:(nonnull KeyType<NSCopying>)aKey;
+- (NSInteger)integerForKey:(nonnull KeyType<NSCopying>)aKey;
+- (double)doubleForKey:(nonnull KeyType<NSCopying>)aKey;
 
 @end
 
@@ -29,7 +29,7 @@
  @param sourceDictionary The dictionary from which to add entries.
  @param firstKey ... Keys specifying which entry will be added to the reciver.
  */
-- (NSUInteger)addEntriesFromDictionary:(nullable NSDictionary *)sourceDictionary withSpecifiedKeys:(nullable KeyType)firstKey, ... NS_REQUIRES_NIL_TERMINATION;
+- (NSUInteger)addEntriesFromDictionary:(nullable NSDictionary *)sourceDictionary withSpecifiedKeys:(nullable KeyType<NSCopying>)firstKey, ... NS_REQUIRES_NIL_TERMINATION;
 
 /** 
  Safely adds a given key-value pair to the dictionary.
@@ -37,13 +37,13 @@
  @param anObject The value for aKey. Can be nil.
  @param aKey The key for value.
  */
-- (void)rf_setObject:(nullable ObjectType)anObject forKey:(nullable KeyType)aKey;
+- (void)rf_setObject:(nullable ObjectType)anObject forKey:(nullable KeyType<NSCopying>)aKey;
 
 /**
  Safely removes a given key and its associated value from the dictionary.
  
- @param akey The key to remove. Can be nil.
+ @param aKey The key to remove. Can be nil.
  */
-- (void)rf_removeObjectForKey:(nullable KeyType)aKey;
+- (void)rf_removeObjectForKey:(nullable KeyType<NSCopying>)aKey;
 
 @end
