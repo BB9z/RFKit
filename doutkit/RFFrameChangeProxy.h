@@ -20,7 +20,10 @@
 #endif
 
 #ifndef _RFFrameChangeLog
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wreserved-id-macro"
 #   define _RFFrameChangeLog
+#pragma clang diagnostic pop
 #endif
 
 @interface RFFrameChangeProxyView : UIView

@@ -316,14 +316,12 @@
     return [self.nextResponder viewController];
 }
 
-+ (instancetype _Nullable)loadWithNibName:(NSString *_Nullable)nibName bundle:(NSBundle *_Nullable)nibBundle {
-    if (!nibName) {
-        nibName = NSStringFromClass([self class]);
-    }
++ (nullable instancetype)loadWithNibName:(nullable NSString *)nibName bundle:(nullable NSBundle *)nibBundle {
+    NSString *name = nibName?: NSStringFromClass([self class]);
     if (!nibBundle) {
         nibBundle = [NSBundle mainBundle];
     }
-    for (id obj in [nibBundle loadNibNamed:nibName owner:nil options:nil]) {
+    for (id obj in [nibBundle loadNibNamed:name owner:nil options:nil]) {
         if ([obj isKindOfClass:[self class]]) {
             return obj;
         }
