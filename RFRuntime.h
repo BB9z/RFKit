@@ -2,7 +2,7 @@
     RFRuntime
     RFKit
 
-    Copyright (c) 2012-2013, 2015 BB9z
+    Copyright (c) 2012-2013, 2015, 2017 BB9z
     https://github.com/BB9z/RFKit
 
     The MIT License (MIT)
@@ -51,7 +51,11 @@ enum {
 
 #pragma mark - Headers
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
+#if TARGET_OS_MAC
+#   import <AppKit/AppKit.h>
+#else
+#   import <UIKit/UIKit.h>
+#endif
 
 #import "dout.h"
 #import "RFARC.h"
