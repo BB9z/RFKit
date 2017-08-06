@@ -51,7 +51,7 @@ enum {
 
 #pragma mark - Headers
 #import <Foundation/Foundation.h>
-#if TARGET_OS_MAC
+#if TARGET_OS_OSX
 #   import <AppKit/AppKit.h>
 #else
 #   import <UIKit/UIKit.h>

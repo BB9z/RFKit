@@ -4,7 +4,7 @@
 @implementation RFFrameChangeProxyView
 RFFrameChangeLog
 
-#if TARGET_OS_MAC
+#if TARGET_OS_OSX
 #define NSStringFromCGRect NSStringFromRect
 #endif
 

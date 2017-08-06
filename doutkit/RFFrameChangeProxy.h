@@ -11,7 +11,7 @@
 #import "RFRuntime.h"
 
 #ifndef RFFrameChangeLog
-#if TARGET_OS_MAC
+#if TARGET_OS_OSX
 #   define RFFrameChangeLog \
     - (void)setFrame:(CGRect)frame {\
         dout(@"Change frame from %@ to %@. Trace:", NSStringFromRect(self.frame), NSStringFromRect(frame));\
@@ -35,7 +35,7 @@
 #pragma clang diagnostic pop
 #endif
 
-#if TARGET_OS_MAC
+#if TARGET_OS_OSX
 @interface RFFrameChangeProxyView : NSView
 #else
 @interface RFFrameChangeProxyView : UIView
