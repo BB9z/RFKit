@@ -2,7 +2,7 @@
     NSFileManager extension
     RFKit
 
-    Copyright (c) 2012-2015 BB9z
+    Copyright (c) 2012-2015, 2018 BB9z
     https://github.com/bb9z/RFKit
 
     The MIT License (MIT)
@@ -13,7 +13,8 @@
 
 @interface NSFileManager (RFKit)
 
-/** Get a NSURL object of the specified directory in an search path directory.
+/**
+ Get a NSURL object of the specified directory in an search path directory.
  
  @param pathComponent
      The path component of the sub directory. May be nil.
@@ -29,11 +30,23 @@
  
  @return A URL pointing to the directory, or nil if the url is a file or error occurs.
  */
-- (NSURL *)subDirectoryURLWithPathComponent:(NSString *)pathComponent inDirectory:(NSSearchPathDirectory)directory createIfNotExist:(BOOL)createIfNotExist error:(NSError *__autoreleasing *)error;
+- (nullable NSURL *)subDirectoryURLWithPathComponent:(nullable NSString *)pathComponent inDirectory:(NSSearchPathDirectory)directory createIfNotExist:(BOOL)createIfNotExist error:(NSError *__nullable __autoreleasing *__nullable)error;
 
-- (NSArray *)subDirectoryOfDirectoryAtPath:(NSString *)path error:(NSError *__autoreleasing *)error;
+/**
+ Get subdirectories under the specified directory.
+ 
+ @param path
+     The path for the directory.
+ 
+ @param error
+     If an error occurs, upon return contains an NSError object that describes the problem. Pass NULL if you do not want error information.
+ 
+ @return An array of absolute paths.
+ */
+- (nonnull NSArray<NSString *> *)subDirectoryOfDirectoryAtPath:(nonnull NSString *)path error:(NSError *__nullable __autoreleasing *__nullable)error;
 
-/** Performs a deep search of the specified directory and returns URLs for the contained items which has given file extension.
+/**
+ Performs a deep search of the specified directory and returns URLs for the contained items which has given file extension.
  
  @param directory
      The URL for the directory whose contents you want to enumerate.
@@ -50,21 +63,29 @@
  
  @return An array of NSURL.
  */
-- (NSArray *)filesInDirectory:(NSURL *)directory withExtensions:(NSSet *)fileTypes directoryEnumerationOptions:(NSDirectoryEnumerationOptions)mask errorHandler:(BOOL (^)(NSURL *url, NSError *error))handler;
+- (nonnull NSArray<NSURL *> *)filesInDirectory:(nonnull NSURL *)directory withExtensions:(nullable NSSet *)fileTypes directoryEnumerationOptions:(NSDirectoryEnumerationOptions)mask errorHandler:(nullable BOOL (^)(NSURL *__nonnull url, NSError *__nonnull error))handler;
 
-/** Get file size of the given path, support directory. This method will not traverse any symbolic link.
+/**
+ Get file size of the given path, support directory. This method will not traverse any symbolic link.
  
  @return file size. If the file not exist, the return value will be 0. If error occurs, the return value will be -1.
  */
-- (long long)fileSizeForPath:(NSString *)path error:(NSError *__autoreleasing *)error;
+- (long long)fileSizeForPath:(nullable NSString *)path error:(NSError *__nullable __autoreleasing *__nullable)error;
 
 /// @see fileSizeForPath:error:.
-- (long long)fileSizeForPath:(NSString *)path;
+- (long long)fileSizeForPath:(nullable NSString *)path DEPRECATED_MSG_ATTRIBUTE("Use fileSizeForPath:error: instead");
 
-/** Get size of a directory, include file count and subdirectory count in that directory. This method will not traverse any symbolic link.
+/**
+ Get size of a directory, include file count and subdirectory count in that directory.
  
- @return Directory size. If the path is not a directory zero will be returned.
+ This method will not traverse any symbolic link, but the alias file size will be calculated. The returned size is not on disk size.
+ 
+ @warning This method traverse the contents of the directory. It may takes a lot of time and block the thread if there are lots of file.
+ 
+ @bug If part of the directory is inaccessible, the rest part will still be calculated and there is no error.
+ 
+ @return Directory size. Return 0 when the path is not a directory. Return -1 when any error occurs.
  */
-- (long long)sizeForDirectory:(NSString *)directoryPath fileCount:(int *)fileCount directoryCount:(int *)directoryCount error:(NSError *__autoreleasing *)error;
+- (long long)sizeForDirectory:(nullable NSString *)directoryPath fileCount:(nullable long *)fileCount directoryCount:(nullable long *)directoryCount error:(NSError *__nullable __autoreleasing *__nullable)error;
 
 @end

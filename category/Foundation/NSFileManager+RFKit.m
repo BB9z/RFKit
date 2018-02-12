@@ -6,7 +6,7 @@
 
 - (NSURL *)subDirectoryURLWithPathComponent:(NSString *)pathComponent inDirectory:(NSSearchPathDirectory)directory createIfNotExist:(BOOL)createIfNotExist error:(NSError *__autoreleasing *)error {
 
-    NSURL *parentDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:directory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:error];
+    NSURL *parentDirectoryURL = [self URLForDirectory:directory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:error];
     NSURL *directoryURL = [parentDirectoryURL URLByAppendingPathComponent:pathComponent? pathComponent : @""];
     
     BOOL isDirectory = YES;
@@ -26,8 +26,8 @@
     return directoryURL;
 }
 
-- (NSArray *)subDirectoryOfDirectoryAtPath:(NSString *)path error:(NSError *__autoreleasing *)error {
-	NSMutableArray * sub = [[self contentsOfDirectoryAtPath:path error:error] mutableCopy];
+- (NSArray<NSString *> *)subDirectoryOfDirectoryAtPath:(NSString *)path error:(NSError *__autoreleasing *)error {
+	NSMutableArray *sub = [[self contentsOfDirectoryAtPath:path error:error] mutableCopy];
 	_douto(sub)
 	
 	BOOL isDir = false;
@@ -46,7 +46,7 @@
 	return [NSArray arrayWithArray:sub];
 }
 
-- (NSArray *)filesInDirectory:(NSURL *)directory withExtensions:(NSSet *)fileTypes directoryEnumerationOptions:(NSDirectoryEnumerationOptions)mask errorHandler:(BOOL (^)(NSURL *url, NSError *error))handler {
+- (NSArray<NSURL *> *)filesInDirectory:(NSURL *)directory withExtensions:(NSSet *)fileTypes directoryEnumerationOptions:(NSDirectoryEnumerationOptions)mask errorHandler:(BOOL (^)(NSURL *url, NSError *error))handler {
     
     NSError *e = nil;
 #define RFKit_NSFileManager_handleError_ \
@@ -59,17 +59,20 @@
     
     NSDirectoryEnumerator *dirEnumerator = [self enumeratorAtURL:directory includingPropertiesForKeys:@[NSURLNameKey, NSURLIsDirectoryKey] options:mask errorHandler:handler];
     for (NSURL *fileURL in dirEnumerator) {
-        NSNumber *isDirectory;
-        [fileURL getResourceValue:&isDirectory forKey:NSURLIsDirectoryKey error:&e];
-        RFKit_NSFileManager_handleError_
-        if ([isDirectory boolValue]) continue;
-        
-        NSString *fileName = nil;
-        [fileURL getResourceValue:&fileName forKey:NSURLNameKey error:&e];
-        RFKit_NSFileManager_handleError_
-        
-        if (fileTypes.count == 0 || [fileTypes member:[fileName pathExtension]]) {
-            [fileArray addObject:fileURL];
+        @autoreleasepool {
+            NSNumber *isDirectory;
+            [fileURL getResourceValue:&isDirectory forKey:NSURLIsDirectoryKey error:&e];
+            RFKit_NSFileManager_handleError_
+            if ([isDirectory boolValue]) continue;
+            
+            NSString *fileName = nil;
+            [fileURL getResourceValue:&fileName forKey:NSURLNameKey error:&e];
+            RFKit_NSFileManager_handleError_
+            
+            if (!fileTypes.count
+                || [fileTypes member:[fileName pathExtension]]) {
+                [fileArray addObject:fileURL];
+            }
         }
     }
     return fileArray;
@@ -100,50 +103,63 @@
     return fileDict.fileSize;
 }
 
-- (long long)sizeForDirectory:(NSString *)directoryPath fileCount:(int *)fileCount directoryCount:(int *)directoryCount error:(NSError *__autoreleasing *)inputError {
+//! REF: https://stackoverflow.com/a/28660040/945906
+- (long long)sizeForDirectory:(NSString *)directoryPath fileCount:(long *)fileCount directoryCount:(long *)directoryCount error:(NSError *__autoreleasing *)inputError {
+
     long long fileSize = 0;
     BOOL isDir = NO;
     BOOL isExist = [self fileExistsAtPath:directoryPath isDirectory:&isDir];
-    int cFile = 0;
-    int cDir = 0;
+    long cFile = 0;
+    long cDir = 0;
     
-    if ((!isExist || !isDir) && inputError) {
-        *inputError = [NSError errorWithDomain:@"com.github.RFKit.NSFileManager" code:-1 userInfo:@{ NSLocalizedDescriptionKey : @"Given path is not a directory." }];
+    if (!isExist || !isDir) {
+        if (inputError) {
+            *inputError = [NSError errorWithDomain:@"com.github.RFKit.NSFileManager" code:-1 userInfo:@{ NSLocalizedDescriptionKey : @"Given path is not a directory." }];
+        }
         return 0;
     }
     
-    NSEnumerator *fileEnumerator = [self enumeratorAtPath:directoryPath];
-    NSString *fileName;
-    NSError *error = nil;
-    while ((fileName = [fileEnumerator nextObject])) {
-        NSString *file = [directoryPath stringByAppendingPathComponent:fileName];
-        if (![self fileExistsAtPath:file isDirectory:&isDir]) continue;
-        
-        if (isDir) {
-            cDir++;
-            continue;
-        }
+    __block NSError *error = nil;
+    NSEnumerator *fileEnumerator = [self enumeratorAtURL:[NSURL fileURLWithPath:directoryPath] includingPropertiesForKeys:@[
+        NSURLIsDirectoryKey,
+        NSURLFileSizeKey,
+    ] options:(NSDirectoryEnumerationOptions)0 errorHandler:nil];
+    // Continues to enumerate items when an error occurs, or lead to breaking change.
 
-        NSDictionary *fileDict = [self attributesOfItemAtPath:file error:&error];
-        if (error) {
-            _dout_error(@"%@", error);
-            continue;
-        }
+    for (NSURL *file in fileEnumerator) {
+        @autoreleasepool {
+            if (error) {
+                break;
+            }
         
-        fileSize += [fileDict fileSize];
-        cFile++;
+            NSNumber *isDirObj = nil;
+            if (![file getResourceValue:&isDirObj forKey:NSURLIsDirectoryKey error:&error]) break;
+            if (isDirObj.boolValue) {
+                cDir++;
+                continue;
+            }
+            
+            NSNumber *fileSizeObj;
+            if (![file getResourceValue:&fileSizeObj forKey:NSURLFileSizeKey error:&error]) break;
+            
+            fileSize += fileSizeObj.longLongValue;
+            cFile++;
+        }
     }
     
-    if (error && inputError) {
-        *inputError = error;
+    if (error) {
+        if (inputError) {
+            *inputError = error;
+        }
+        return -1;
     }
+    
     if (fileCount) {
         *fileCount = cFile;
     }
     if (directoryCount) {
         *directoryCount = cDir;
     }
-    
     return fileSize;
 }
 
