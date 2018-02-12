@@ -25,15 +25,15 @@ CGPoint CGPointOfRectCenter(CGRect a) {
 CGSize CGSizeFromPoints(CGPoint start, CGPoint end) {
 	return CGSizeMake(end.x-start.x, end.y-start.y);
 }
-CGSize CGSizeScaled(CGSize original, float scale) {
+CGSize CGSizeScaled(CGSize original, double scale) {
 	return CGSizeMake(original.width*scale, original.height*scale);
 }
 
 
 #pragma mark CGRect
 CGRect CGRectMakeWithPoints(CGPoint a, CGPoint b) {
-    CGFloat x = fminf(a.x, b.x);
-    CGFloat y = fminf(a.y, b.y);
+    CGFloat x = fmin(a.x, b.x);
+    CGFloat y = fmin(a.y, b.y);
     CGFloat width = fabs(a.x-b.x);
     CGFloat height = fabs(a.y-b.y);
     return CGRectMake(x, y, width, height);
@@ -124,9 +124,9 @@ CGRect CGRectChange(CGRect original, RFCGRectChangeFlag flag, CGFloat newValue) 
 
 #pragma mark CGAngle
 CGAngle CGAngleFromPoints(CGPoint start, CGPoint end) {
-	return atan2f(end.y-start.y, end.x-start.x);
+	return atan2(end.y-start.y, end.x-start.x);
 }
 
 CGFloat CGAngleDegrees(CGAngle a) {
-	return a/M_PI*180.f;
+	return a/M_PI * 180.;
 }

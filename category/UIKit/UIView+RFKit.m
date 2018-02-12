@@ -94,8 +94,8 @@
 
 - (void)addSubview:(UIView *_Nonnull)view resizeOption:(RFViewResizeOption)option {
 	[self addSubview:view];
-	float aspect;
-	float aspectSelf;
+	double aspect;
+	double aspectSelf;
 	CGFloat wSelf = self.bounds.size.width;
 	CGFloat hSelf = self.bounds.size.height;
 	CGFloat wView = view.bounds.size.width;
@@ -236,7 +236,7 @@
 - (BOOL)isVisible {
     _douto(self)
     
-    if (self.hidden || self.alpha == 0.f) {
+    if (self.hidden || self.alpha == 0.) {
         return NO;
     }
     
@@ -271,7 +271,7 @@
             return NO;
         }
         
-        if (parent.hidden || parent.alpha == 0.f) return NO;
+        if (parent.hidden || parent.alpha == 0.) return NO;
         
         ctFrame = [parent convertRect:ctFrame toView:parent.superview];
         parent = parent.superview;

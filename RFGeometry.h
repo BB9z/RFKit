@@ -4,7 +4,7 @@
  
     Math and Graphics helper
  
-    Copyright (c) 2012-2016 BB9z
+    Copyright (c) 2012-2016, 2018 BB9z
     https://github.com/BB9z/RFKit
  
     The MIT License (MIT)
@@ -60,7 +60,7 @@ CGPoint CGPointOfRectCenter(CGRect a);
 
 #pragma mark CGSize
 CGSize	CGSizeFromPoints(CGPoint a, CGPoint b);
-CGSize	CGSizeScaled	(CGSize original, float scale);
+CGSize	CGSizeScaled	(CGSize original, double scale);
 
 
 #pragma mark CGRect
@@ -77,8 +77,8 @@ CGRect CGRectMakeWithCenterAndSize(CGPoint centerPoint, CGSize rectSize);
 CGRect CGRectResize(CGRect original, CGSize newSize, RFResizeAnchor resizeAnchor);
 
 // center not changed
-CG_INLINE CGRect CGRectScaled(CGRect original, float scale) {
-    return CGRectResize(original, CGSizeMake(original.size.width*scale, original.size.height*scale), RFResizeAnchorCenter);
+CG_INLINE CGRect CGRectScaled(CGRect original, double scale) {
+    return CGRectResize(original, CGSizeMake(original.size.width *scale, original.size.height *scale), RFResizeAnchorCenter);
 }
 CGRect CGRectChange(CGRect original, RFCGRectChangeFlag flag, CGFloat newValue);
 

@@ -2,7 +2,7 @@
     UIColor extension
     RFKit
 
-    Copyright (c) 2012-2013, 2015-2016 BB9z
+    Copyright (c) 2012-2013, 2015-2016, 2018 BB9z
     https://github.com/bb9z/RFKit
 
     The MIT License (MIT)
@@ -13,16 +13,16 @@
 
 @interface UIColor (RFKit)
 
-- (UIColor *_Nonnull)initWithRGBHex:(NSInteger)hexValue alpha:(CGFloat)alpha;
-+ (UIColor *_Nonnull)colorWithRGBHex:(NSInteger)hexValue alpha:(CGFloat)alpha;
-+ (UIColor *_Nonnull)colorWithRGBHex:(NSInteger)hexValue;
+- (nonnull UIColor *)initWithRGBHex:(NSInteger)hexValue alpha:(CGFloat)alpha;
++ (nonnull UIColor *)colorWithRGBHex:(NSInteger)hexValue alpha:(CGFloat)alpha;
++ (nonnull UIColor *)colorWithRGBHex:(NSInteger)hexValue;
 
-+ (UIColor *_Nonnull)colorWithRGBString:(NSString *_Nonnull)nsstring;
-+ (UIColor *_Nonnull)colorWithRGBString:(NSString *_Nonnull)nsstring alpha:(CGFloat)alpha;
++ (nonnull UIColor *)colorWithRGBString:(nonnull NSString *)nsstring;
++ (nonnull UIColor *)colorWithRGBString:(nonnull NSString *)nsstring alpha:(CGFloat)alpha;
 
-+ (UIColor *_Nullable)colorWithPatternImageName:(NSString *_Nonnull)resourceName;
++ (nullable UIColor *)colorWithPatternImageName:(nonnull NSString *)resourceName;
 
-+ (UIColor *_Nonnull)randColorWithAlpha:(CGFloat)alpha;
++ (nonnull UIColor *)randColorWithAlpha:(CGFloat)alpha;
 
 /**
  Creates and returns a mixed color object using the specified mix ratio and color.
@@ -32,5 +32,5 @@
 
  @return The color object.
  */
-- (UIColor *_Nonnull)mixedColorWithRatio:(CGFloat)ratio color:(UIColor *_Nonnull)color;
+- (nonnull UIColor *)mixedColorWithRatio:(CGFloat)ratio color:(nonnull UIColor *)color;
 @end
