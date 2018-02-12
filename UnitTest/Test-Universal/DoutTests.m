@@ -11,6 +11,7 @@
 #import "RFKit.h"
 
 #define kPerformanceLoopTime 1000
+#undef RFDebugLevel
 #define RFDebugLevel RFDebugLevelVerbose
 
 @implementation DoutTests
@@ -102,12 +103,14 @@
     _dout_error(@"E %d", a)
 }
 
-#define __dout(LV, ...)\
+#undef _dout_level
+#define _dout_level(LV, ...)\
     DoutLog(__VA_ARGS__)
 
 #define DoutLogString(string) string
 
 - (void)testOutputVerify {
+//    dout_int(999)
     XCTAssertEqualObjects(dout_int(999), @"999 = 999", @"Output verify");
     XCTAssertEqualObjects(dout_rect(CGRectMake(1, 2, 3, 4)), @"CGRectMake(1, 2, 3, 4) = {{1, 2}, {3, 4}}", @"Output verify");
 }

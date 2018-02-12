@@ -13,15 +13,6 @@
 @implementation NSFileManagerTests
 
 - (void)setUp {
-    self.testDirPath = [[NSBundle mainBundle].bundlePath stringByAppendingPathComponent:@"NSFileManagerTest"];
-    ;
-    XCTAssertTrue(([self isPath:self.testDirPath matchPathComponent:@"RFKit.app/NSFileManagerTest"]));
-    
-    NSFileManager *fm = [NSFileManager defaultManager];
-    BOOL isDir = NO;
-    BOOL isExist = [fm fileExistsAtPath:self.testDirPath isDirectory:&isDir];
-    XCTAssertTrue(isExist, @"Test dir not exist");
-    XCTAssertTrue(isDir, @"Test dir not a directory");
 }
 
 - (void)testSubDirectoryURLWithPathComponentInDirectory {
@@ -36,7 +27,7 @@
     
     // Test: no creat
     NSURL *t1 = [fm subDirectoryURLWithPathComponent:@"T1" inDirectory:NSDocumentDirectory createIfNotExist:NO error:&e];
-    XCTAssertTrue(([self isPath:t1.path matchPathComponent:@"Documents/T1"]));
+    [self assertPath:t1.path matchPathComponent:@"Documents/T1"];
     XCTAssertNil(e, @"Should not get a error");
     
     XCTAssertFalse([fm fileExistsAtPath:t1.path], @"Nothing should created");
@@ -44,7 +35,7 @@
     // Test: creat
     t1 = nil;
     t1 = [fm subDirectoryURLWithPathComponent:@"T1" inDirectory:NSDocumentDirectory createIfNotExist:YES error:&e];
-    XCTAssertTrue(([self isPath:t1.path matchPathComponent:@"Documents/T1"]));
+    [self assertPath:t1.path matchPathComponent:@"Documents/T1"];
     XCTAssertNil(e, @"Should not get a error");
     isDir = NO;
     isExist = [fm fileExistsAtPath:t1.path isDirectory:&isDir];
@@ -74,8 +65,13 @@
     XCTAssertNil(e, @"Should not get a error");
 }
 
-- (BOOL)isPath:(NSString *)path matchPathComponent:(NSString *)pathComponent {
-    return [path isEqualToString:[NSHomeDirectory() stringByAppendingFormat:@"/%@", pathComponent]];
+- (void)assertPath:(NSString *)path matchPathComponent:(NSString *)pathComponent {
+    NSString *path2 = [NSHomeDirectory() stringByAppendingFormat:@"/%@", pathComponent];
+    BOOL b1 = [[NSFileManager defaultManager] fileExistsAtPath:path];
+    BOOL b2 = [[NSFileManager defaultManager] fileExistsAtPath:path2];
+    dout_bool(b1)
+    dout_bool(b2)
+    XCTAssertEqualObjects(path, path2);
 }
 
 @end

@@ -9,5 +9,4 @@
 #import <XCTest/XCTest.h>
 
 @interface NSFileManagerTests : XCTestCase
-@property (copy, nonatomic) NSString *testDirPath;
 @end
