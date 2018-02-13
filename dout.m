@@ -73,5 +73,5 @@ NSString *DoutCurrentThreadOrQueueName(void) {
         return queueName;
     }
 
-    return [NSString stringWithFormat:@"%p", [NSThread currentThread]];
+    return [NSString stringWithFormat:@"%p", (void *)[NSThread currentThread]];
 }

@@ -1,6 +1,8 @@
 
 #import "UIAlertView+RFKit.h"
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 @implementation UIAlertView (RFKit)
 
 + (void)showWithTitle:(NSString *)title message:(NSString *)message buttonTitle:(NSString *)buttonTitle {
@@ -11,3 +13,4 @@
 }
 
 @end
+#pragma clang diagnostic pop

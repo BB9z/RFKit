@@ -2,7 +2,7 @@
     RFKit
     This file define which extension category will included by default.
  
-    Copyright (c) 2012-2015 BB9z
+    Copyright (c) 2012-2015, 2017 BB9z
     https://github.com/bb9z/RFKit
  
     The MIT License (MIT)
@@ -22,7 +22,7 @@
 #import "NSString+RFKit.h"
 //#import "NSURL+RFKit.h"
 
-#if !TARGET_OS_WATCH
+#if TARGET_OS_IOS
 //#import "NSLayoutConstraint+RFKit.h"
 #import "UIAlertView+RFKit.h"
 #import "UIButton+RFKit.h"

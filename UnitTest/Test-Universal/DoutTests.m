@@ -6,14 +6,18 @@
 //  Copyright (c) 2013年 RFUI. All rights reserved.
 //
 
-#import "DoutTests.h"
-#import "dout.h"
+#import <XCTest/XCTest.h>
 #import "RFKit.h"
+#import "dout.h"
+
+@interface RTDout : XCTestCase
+@end
 
 #define kPerformanceLoopTime 1000
+#undef RFDebugLevel
 #define RFDebugLevel RFDebugLevelVerbose
 
-@implementation DoutTests
+@implementation RTDout
 
 - (void)testPerformance {
     // Skip this test
@@ -102,15 +106,16 @@
     _dout_error(@"E %d", a)
 }
 
-#define __dout(LV, ...)\
+#undef _dout_level
+#define _dout_level(LV, ...)\
     DoutLog(__VA_ARGS__)
 
 #define DoutLogString(string) string
 
 - (void)testOutputVerify {
+//    dout_int(999)
     XCTAssertEqualObjects(dout_int(999), @"999 = 999", @"Output verify");
     XCTAssertEqualObjects(dout_rect(CGRectMake(1, 2, 3, 4)), @"CGRectMake(1, 2, 3, 4) = {{1, 2}, {3, 4}}", @"Output verify");
 }
-
 
 @end

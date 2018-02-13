@@ -2,7 +2,7 @@
     RFFrameChangeProxy
     RFKit
 
-    Copyright (c) 2012-2014 BB9z
+    Copyright (c) 2012-2014, 2017 BB9z
     https://github.com/RFUI/Core
 
     The MIT License (MIT)
@@ -11,6 +11,14 @@
 #import "RFRuntime.h"
 
 #ifndef RFFrameChangeLog
+#if TARGET_OS_OSX
+#   define RFFrameChangeLog \
+    - (void)setFrame:(CGRect)frame {\
+        dout(@"Change frame from %@ to %@. Trace:", NSStringFromRect(self.frame), NSStringFromRect(frame));\
+        [super setFrame:frame];\
+        douttrace()\
+    }
+#else
 #   define RFFrameChangeLog \
     - (void)setFrame:(CGRect)frame {\
         dout(@"Change frame from %@ to %@. Trace:", NSStringFromCGRect(self.frame), NSStringFromCGRect(frame));\
@@ -18,11 +26,18 @@
         douttrace()\
     }
 #endif
-
-#ifndef _RFFrameChangeLog
-#   define _RFFrameChangeLog
 #endif
 
-@interface RFFrameChangeProxyView : UIView
+#ifndef _RFFrameChangeLog
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wreserved-id-macro"
+#   define _RFFrameChangeLog
+#pragma clang diagnostic pop
+#endif
 
+#if TARGET_OS_OSX
+@interface RFFrameChangeProxyView : NSView
+#else
+@interface RFFrameChangeProxyView : UIView
+#endif
 @end

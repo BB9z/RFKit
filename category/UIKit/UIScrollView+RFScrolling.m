@@ -27,7 +27,7 @@
     NSInteger row = [self numberOfRowsInSection:section] - 1;
     if (row < 0) return;
 
-    [self scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    [self scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section] atScrollPosition:UITableViewScrollPositionBottom animated:animated];
 }
 
 @end

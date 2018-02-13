@@ -1,19 +1,19 @@
 Pod::Spec.new do |s|
   s.name         = 'RFKit'
-  s.version      = '1.6.1'
-  s.summary      = 'Tool kit for daily iOS development.'
+  s.version      = '1.7.0'
+  s.summary      = 'Tool kit for daily cocoa development.'
   s.homepage     = 'https://github.com/BB9z/RFKit'
   s.license      = { :type => 'MIT', :file => 'LICENSE_RFKit' }
   s.authors      = { 'BB9z' => 'BB9z@me.com' }
-  s.social_media_url = 'https://twitter.com/bb9z'
   s.source       = {
     :git => 'https://github.com/BB9z/RFKit.git',
     :tag => s.version.to_s
   }
   
-  s.ios.deployment_target = '6.0'
-  # s.osx.deployment_target = '10.7'
+  s.ios.deployment_target = '7.0'
+  s.osx.deployment_target = '10.8'
   s.watchos.deployment_target = '2.0'
+  s.tvos.deployment_target = '9.0'
 
   s.exclude_files = 'UnitTest'
 
@@ -42,8 +42,10 @@ Pod::Spec.new do |s|
   s.subspec 'ALL' do |ss|
     ss.dependency 'RFKit/Default'
     ss.dependency 'RFKit/Category/All'
-    ss.dependency 'RFKit/Performance'
-    ss.dependency 'RFKit/UncaughtExceptionHandler'
+    
+    ss.ios.dependency 'RFKit/Performance'
+    ss.osx.dependency 'RFKit/Performance'
+    ss.ios.dependency 'RFKit/UncaughtExceptionHandler'
   end
   
   s.subspec 'Runtime' do |ss|
@@ -160,81 +162,117 @@ Pod::Spec.new do |s|
     
     # UIKit
     ss.subspec 'NSLayoutConstraint' do |ssp|
+      # macOS not supported
+      ssp.ios.deployment_target = '6.0'
+      ssp.tvos.deployment_target = '9.0'
       ssp.dependency 'RFKit/Category/UIView'
       ssp.source_files = 'category/UIKit/NSLayoutConstraint+*'
     end
     
     ss.subspec 'UIAlertView' do |ssp|
+      ssp.ios.deployment_target = '2.0'
       ssp.source_files = 'category/UIKit/UIAlertView+*'
     end
     
     ss.subspec 'UIButton' do |ssp|
+      ssp.ios.deployment_target = '6.0'
+      ssp.tvos.deployment_target = '9.0'
       ssp.source_files = 'category/UIKit/UIButton+*'
     end
     
     ss.subspec 'UIColor' do |ssp|
+      ssp.ios.deployment_target = '6.0'
+      ssp.tvos.deployment_target = '9.0'
+      ssp.watchos.deployment_target = '2.0'
       ssp.source_files = 'category/UIKit/UIColor+*'
     end
     
     ss.subspec 'UIDevice' do |ssp|
       ssp.dependency 'RFKit/Runtime'
+      ssp.ios.deployment_target = '6.0'
+      ssp.tvos.deployment_target = '9.0'
       ssp.source_files = 'category/UIKit/UIDevice+*'
     end
     
     ss.subspec 'UIImage' do |ssp|
       ssp.dependency 'RFKit/Runtime'
+      ssp.ios.deployment_target = '6.0'
+      ssp.tvos.deployment_target = '9.0'
+      ssp.watchos.deployment_target = '2.0'
       ssp.source_files = 'category/UIKit/UIImage+*'
     end
     
     ss.subspec 'UINavigationController' do |ssp|
       ssp.dependency 'RFKit/Category/NSArray'
+      ssp.ios.deployment_target = '6.0'
+      ssp.tvos.deployment_target = '9.0'
       ssp.source_files = 'category/UIKit/UINavigationController+*'
     end
     
     ss.subspec 'UIResponder' do |ssp|
+      ssp.ios.deployment_target = '6.0'
+      ssp.tvos.deployment_target = '9.0'
       ssp.source_files = 'category/UIKit/UIResponder+*'
     end
     
     ss.subspec 'UIScrollView+RFScrolling' do |ssp|
+      ssp.ios.deployment_target = '6.0'
+      ssp.tvos.deployment_target = '9.0'
       ssp.source_files = 'category/UIKit/UIScrollView+RFScrolling*'
     end
     
     ss.subspec 'UISearchBar' do |ssp|
+      ssp.ios.deployment_target = '6.0'
+      ssp.tvos.deployment_target = '9.0'
       ssp.source_files = 'category/UIKit/UISearchBar+*'
     end
     
     ss.subspec 'UIStoryboard' do |ssp|
+      ssp.ios.deployment_target = '6.0'
+      ssp.tvos.deployment_target = '9.0'
       ssp.source_files = 'category/UIKit/UIStoryboard+*'
     end
     
     ss.subspec 'UITableView' do |ssp|
       ssp.dependency 'RFKit/Category/UIView+RFAnimate'
+      ssp.ios.deployment_target = '6.0'
+      ssp.tvos.deployment_target = '9.0'
       ssp.source_files = 'category/UIKit/UITableView+*'
     end
     
     ss.subspec 'UIView+RFAnimate' do |ssp|
       ssp.dependency 'RFKit/Runtime'
+      ssp.ios.deployment_target = '6.0'
+      ssp.tvos.deployment_target = '9.0'
       ssp.source_files = 'category/UIKit/UIView+RFAnimate*'
     end
     
     ss.subspec 'UIView' do |ssp|
       ssp.dependency 'RFKit/RFGeometry'
       ssp.dependency 'RFKit/Category/UIResponder'
+      ssp.ios.deployment_target = '6.0'
+      ssp.tvos.deployment_target = '9.0'
       ssp.framework    = 'QuartzCore'
       ssp.source_files = 'category/UIKit/UIView+RFKit*'
     end
     
     ss.subspec 'UIViewController' do |ssp|
+      ssp.ios.deployment_target = '6.0'
+      ssp.tvos.deployment_target = '9.0'
       ssp.source_files = 'category/UIKit/UIViewController+*'
     end
     
     ss.subspec 'UIWebView' do |ssp|
+      ssp.ios.deployment_target = '6.0'
       ssp.source_files = 'category/UIKit/UIWebView+*'
     end
   end
   
   s.subspec 'Performance' do |ss|
     ss.dependency 'RFKit/Runtime'
+    ss.ios.deployment_target = '2.0'
+    ss.osx.deployment_target = '10.0'
+    ss.tvos.deployment_target = '9.0'
     ss.public_header_files =
       'RFPerformance.h',
       'doutkit/*.h'
@@ -246,8 +284,8 @@ Pod::Spec.new do |s|
   
   s.subspec 'UncaughtExceptionHandler' do |ss|
     ss.dependency 'RFKit/Runtime'
-    ss.public_header_files = 'external/UncaughtExceptionHandler/*.h'
-    ss.source_files = 'external/UncaughtExceptionHandler/*.{h,m}'
+    ss.ios.public_header_files = 'external/UncaughtExceptionHandler/*.h'
+    ss.ios.source_files = 'external/UncaughtExceptionHandler/*.{h,m}'
   end
 end
 

@@ -2,7 +2,7 @@
     RFPerformance
     RFKit
 
-    Copyright (c) 2012-2013, 2015 BB9z
+    Copyright (c) 2012-2013, 2015-2016 BB9z
     https://github.com/BB9z/RFKit
 
     The MIT License (MIT)
@@ -17,11 +17,11 @@
 #   define RFAlloctionLog \
     + (id)alloc {\
         id var = [super alloc];\
-        NSLog(@"%@ alloc >> %p", [self class], var);\
+        NSLog(@"%@ alloc >> %p", [self class], (__bridge void *)var);\
         return var;\
     }\
     - (void)dealloc {\
-        NSLog(@"%@ dealloc << %p", [self class], self);\
+        NSLog(@"%@ dealloc << %p", [self class], (__bridge void *)self);\
     }
 #endif
 

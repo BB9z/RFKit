@@ -29,7 +29,7 @@
  * a useless construct in such a case anyways.
  */
 #define onExit \
-    autoreleasepool {} \
+    ext_keywordify \
     __strong ext_cleanupBlock_t metamacro_concat(ext_exitBlock_, __LINE__) __attribute__((cleanup(ext_executeCleanupBlock), unused)) = ^
 
 /**
@@ -43,7 +43,7 @@
  * See #strongify for an example of usage.
  */
 #define weakify(...) \
-    autoreleasepool {} \
+    ext_keywordify \
     metamacro_foreach_cxt(ext_weakify_,, __weak, __VA_ARGS__)
 
 /**
@@ -51,7 +51,7 @@
  * classes that do not support weak references.
  */
 #define unsafeify(...) \
-    autoreleasepool {} \
+    ext_keywordify \
     metamacro_foreach_cxt(ext_weakify_,, __unsafe_unretained, __VA_ARGS__)
 
 /**
@@ -81,19 +81,42 @@
  * @endcode
  */
 #define strongify(...) \
-    autoreleasepool {} \
+    ext_keywordify \
     _Pragma("clang diagnostic push") \
     _Pragma("clang diagnostic ignored \"-Wshadow\"") \
     metamacro_foreach(ext_strongify_,, __VA_ARGS__) \
     _Pragma("clang diagnostic pop")
 
 /*** implementation details follow ***/
-typedef void (^ext_cleanupBlock_t)();
+typedef void (^ext_cleanupBlock_t)(void);
 
-void ext_executeCleanupBlock (__strong ext_cleanupBlock_t *block);
+#if defined(__cplusplus)
+extern "C" {
+#endif
+    void ext_executeCleanupBlock (__strong ext_cleanupBlock_t *block);
+#if defined(__cplusplus)
+}
+#endif
 
 #define ext_weakify_(INDEX, CONTEXT, VAR) \
     CONTEXT __typeof__(VAR) metamacro_concat(VAR, _weak_) = (VAR);
 
 #define ext_strongify_(INDEX, VAR) \
     __strong __typeof__(VAR) VAR = metamacro_concat(VAR, _weak_);
+
+// Details about the choice of backing keyword:
+//
+// The use of @try/@catch/@finally can cause the compiler to suppress
+// return-type warnings.
+// The use of @autoreleasepool {} is not optimized away by the compiler,
+// resulting in superfluous creation of autorelease pools.
+//
+// Since neither option is perfect, and with no other alternatives, the
+// compromise is to use @autorelease in DEBUG builds to maintain compiler
+// analysis, and to use @try/@catch otherwise to avoid insertion of unnecessary
+// autorelease pools.
+#if defined(DEBUG) && !defined(NDEBUG)
+#define ext_keywordify autoreleasepool {}
+#else
+#define ext_keywordify try {} @catch (...) {}
+#endif

@@ -7,9 +7,9 @@
 ._*
 *.bak
 
-
 xcuserdata/
 project.xcworkspace/
+Pods/
 
 IOSInjectionBundle/
 .idea/

@@ -2,7 +2,7 @@
     RFAlloctionProxy
     RFKit
 
-    Copyright (c) 2012-2014 BB9z
+    Copyright (c) 2012-2014, 2017 BB9z
     https://github.com/RFUI/Core
 
     The MIT License (MIT)
@@ -16,8 +16,16 @@
  If you subclass the object, you can use RFAlloctionLog directly. RFAlloctionProxyView and RFAlloctionProxyButton just make it convenient to use, as you could just change the class name instead of have to write an new class.
  */
 
+#if TARGET_OS_OSX
+@interface RFAlloctionProxyView : NSView
+#else
 @interface RFAlloctionProxyView : UIView
+#endif
 @end
 
+#if TARGET_OS_OSX
+@interface RFAlloctionProxyButton : NSButton
+#else
 @interface RFAlloctionProxyButton : UIButton
+#endif
 @end

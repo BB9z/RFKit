@@ -36,10 +36,14 @@ NSString *lowercaseStringPath = @keypath(NSString.new, lowercaseString);
  * uses of \@keypath.
  */
 #define keypath(...) \
-    metamacro_if_eq(1, metamacro_argcount(__VA_ARGS__))(keypath1(__VA_ARGS__))(keypath2(__VA_ARGS__))
+    _Pragma("clang diagnostic push") \
+    _Pragma("clang diagnostic ignored \"-Warc-repeated-use-of-weak\"") \
+    metamacro_if_eq(1, metamacro_argcount(__VA_ARGS__))(keypath1(__VA_ARGS__))(keypath2(__VA_ARGS__)) \
+    _Pragma("clang diagnostic pop") \
 
 #define keypath1(PATH) \
-    (((void)(NO && ((void)PATH, NO)), strchr(# PATH, '.') + 1))
+    (((void)(NO && ((void)PATH, NO)), \
+    ({ char *__extobjckeypath__ = strchr(# PATH, '.'); NSCAssert(__extobjckeypath__, @"Provided key path is invalid."); __extobjckeypath__ + 1; })))
 
 #define keypath2(OBJ, PATH) \
     (((void)(NO && ((void)OBJ.PATH, NO)), # PATH))
@@ -50,10 +54,10 @@ NSString *lowercaseStringPath = @keypath(NSString.new, lowercaseString);
  *
  * @code
  
- NSString *employessFirstNamePath = @collectionKeypath(department.employees, Employee.new, firstName)
+ NSString *employeesFirstNamePath = @collectionKeypath(department.employees, Employee.new, firstName)
  // => @"employees.firstName"
  
- NSString *employessFirstNamePath = @collectionKeypath(Department.new, employees, Employee.new, firstName)
+ NSString *employeesFirstNamePath = @collectionKeypath(Department.new, employees, Employee.new, firstName)
  // => @"employees.firstName"
 
  * @endcode
