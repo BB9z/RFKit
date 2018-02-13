@@ -2,7 +2,7 @@
 	Debug output kit(dout)
 	RFKit
 
-	ver 2.9
+	ver 2.9.1
  
     Copyright (c) 2012-2016 BB9z
     https://github.com/BB9z/RFKit
@@ -74,10 +74,17 @@
 #define dout_hex(...)   dout(@"%@ = %#.8x", @(#__VA_ARGS__), ((int)(__VA_ARGS__)))
 #define dout_float(...) dout(@"%@ = %f",    @(#__VA_ARGS__), ((float)(__VA_ARGS__)))
 
+#if TARGET_OS_OSX
+#define dout_point(...) dout(@"%@ = %@",    @(#__VA_ARGS__), NSStringFromPoint((NSPoint)(__VA_ARGS__)))
+#define dout_size(...)  dout(@"%@ = %@",    @(#__VA_ARGS__), NSStringFromSize((NSSize)(__VA_ARGS__)))
+#define dout_rect(...)  dout(@"%@ = %@",    @(#__VA_ARGS__), NSStringFromRect((NSRect)(__VA_ARGS__)))
+#define dout_insets(...)
+#else
 #define dout_point(...) dout(@"%@ = %@",    @(#__VA_ARGS__), NSStringFromCGPoint((CGPoint)(__VA_ARGS__)))
 #define dout_size(...)  dout(@"%@ = %@",    @(#__VA_ARGS__), NSStringFromCGSize((CGSize)(__VA_ARGS__)))
 #define dout_rect(...)  dout(@"%@ = %@",    @(#__VA_ARGS__), NSStringFromCGRect((CGRect)(__VA_ARGS__)))
 #define dout_insets(...)  dout(@"%@ = %@",  @(#__VA_ARGS__), NSStringFromUIEdgeInsets((UIEdgeInsets)(__VA_ARGS__)))
+#endif
 
 #define doutwork()      dout(@"%@: It Works!", @(__FUNCTION__))
 #define douttrace()     dout(@"%@ @%@", @(__PRETTY_FUNCTION__), [NSThread callStackSymbols])
