@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'RFKit'
-  s.version      = '1.6.1'
+  s.version      = '1.7.0'
   s.summary      = 'Tool kit for daily cocoa development.'
   s.homepage     = 'https://github.com/BB9z/RFKit'
   s.license      = { :type => 'MIT', :file => 'LICENSE_RFKit' }

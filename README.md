@@ -2,9 +2,9 @@
 
 <base href="//github.com/BB9z/RFKit/blob/master/" />
 
-<small>*English :us:* [简体中文 :cn:](README~zh-hans.md)</small>
+<small>*English* [简体中文 :cn:](README~zh-hans.md)</small>
 
-RFKit was a useful toolkit for daily iOS development.
+RFKit is a useful toolkit for daily Cocoa development.
 
 ## Install
 
@@ -113,4 +113,4 @@ Performance toolkit.
 
 Some external components were placed under `external` folder.
 
-Change log: https://github.com/BB9z/RFKit/releases
+[Change log](https://github.com/BB9z/RFKit/releases)

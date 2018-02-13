@@ -1,7 +1,7 @@
 
 #import "RFKit.h"
 
-double RFKitVersionNumber = 1005001.0;
+double RFKitVersionNumber = 1007000.0;
 
 #ifndef __IPHONE_9_0
 #   error "RFKit require iOS SDK 9.0 or later to build."

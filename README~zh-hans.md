@@ -2,9 +2,9 @@
 
 <base href="//github.com/BB9z/RFKit/blob/master/" />
 
-<small>[English :us:](README.md) *简体中文 :cn:*</small>
+<small>[English :us:](README.md) *简体中文*</small>
 
-RFKit 包含一套对日常iOS开发很有帮助的工具。
+RFKit 包含一套对日常 Cocoa 开发很有帮助的工具。
 
 ## 安装
 
@@ -112,3 +112,5 @@ UIKit 和 Foundation 的扩展是 RFKit 的重要组成部分，包含了很多�
 ## 其他
 
 external 文件夹下存放其他外部组件。
+
+[Change log](https://github.com/BB9z/RFKit/releases)
