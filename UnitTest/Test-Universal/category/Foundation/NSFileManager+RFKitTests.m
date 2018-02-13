@@ -6,11 +6,14 @@
 //  Copyright (c) 2013年 RFUI. All rights reserved.
 //
 
-#import "NSFileManagerTests.h"
+#import <XCTest/XCTest.h>
 #import "NSFileManager+RFKit.h"
 #import "dout.h"
 
-@implementation NSFileManagerTests
+@interface RTFileManager : XCTestCase
+@end
+
+@implementation RTFileManager
 
 - (void)setUp {
 }

@@ -13,11 +13,12 @@
 		D513B0DF20318D4400C62520 /* NSLayoutConstraint+RFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D513B0DC20318D4400C62520 /* NSLayoutConstraint+RFKit.m */; };
 		D513B0E020318D4400C62520 /* UIScrollView+RFScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = D513B0DD20318D4400C62520 /* UIScrollView+RFScrolling.m */; };
 		D513B0E82031917C00C62520 /* Test_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D513B0E72031917C00C62520 /* Test_iOS.swift */; };
-		D513B0FF2031D0BB00C62520 /* NSFileManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D513B0F82031D0BB00C62520 /* NSFileManagerTests.m */; };
-		D513B1002031D0BB00C62520 /* NSDateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D513B0FB2031D0BB00C62520 /* NSDateTests.m */; };
+		D513B0FF2031D0BB00C62520 /* NSFileManager+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D513B0F82031D0BB00C62520 /* NSFileManager+RFKitTests.m */; };
+		D513B1002031D0BB00C62520 /* NSDate+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D513B0FB2031D0BB00C62520 /* NSDate+RFKitTests.m */; };
 		D513B1012031D0BB00C62520 /* DoutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D513B0FC2031D0BB00C62520 /* DoutTests.m */; };
 		D56E4F8619237564007EAAA6 /* UINavigationController+RFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D56E4F8319237564007EAAA6 /* UINavigationController+RFKit.m */; };
 		D56E4F8719237564007EAAA6 /* UIResponder+RFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D56E4F8519237564007EAAA6 /* UIResponder+RFKit.m */; };
+		D594688220327D8F00A1AE3D /* NSObject+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D594688120327D8F00A1AE3D /* NSObject+RFKitTests.m */; };
 		D5A58193176E137500401423 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5A58192176E137500401423 /* UIKit.framework */; };
 		D5A58195176E137500401423 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5A58194176E137500401423 /* Foundation.framework */; };
 		D5A58197176E137500401423 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5A58196176E137500401423 /* CoreGraphics.framework */; };
@@ -82,16 +83,14 @@
 		D513B0E72031917C00C62520 /* Test_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_iOS.swift; sourceTree = "<group>"; };
 		D513B0E92031917C00C62520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D513B0F02031BD9900C62520 /* OCBridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCBridgingHeader.h; sourceTree = "<group>"; };
-		D513B0F52031D0BA00C62520 /* NSFileManagerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSFileManagerTests.h; sourceTree = "<group>"; };
-		D513B0F82031D0BB00C62520 /* NSFileManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSFileManagerTests.m; sourceTree = "<group>"; };
-		D513B0FA2031D0BB00C62520 /* NSDateTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDateTests.h; sourceTree = "<group>"; };
-		D513B0FB2031D0BB00C62520 /* NSDateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateTests.m; sourceTree = "<group>"; };
+		D513B0F82031D0BB00C62520 /* NSFileManager+RFKitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+RFKitTests.m"; sourceTree = "<group>"; };
+		D513B0FB2031D0BB00C62520 /* NSDate+RFKitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+RFKitTests.m"; sourceTree = "<group>"; };
 		D513B0FC2031D0BB00C62520 /* DoutTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoutTests.m; sourceTree = "<group>"; };
-		D513B0FD2031D0BB00C62520 /* DoutTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoutTests.h; sourceTree = "<group>"; };
 		D56E4F8219237564007EAAA6 /* UINavigationController+RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+RFKit.h"; sourceTree = "<group>"; };
 		D56E4F8319237564007EAAA6 /* UINavigationController+RFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+RFKit.m"; sourceTree = "<group>"; };
 		D56E4F8419237564007EAAA6 /* UIResponder+RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+RFKit.h"; sourceTree = "<group>"; };
 		D56E4F8519237564007EAAA6 /* UIResponder+RFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+RFKit.m"; sourceTree = "<group>"; };
+		D594688120327D8F00A1AE3D /* NSObject+RFKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RFKitTests.m"; sourceTree = "<group>"; };
 		D5A5818F176E137500401423 /* RFKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RFKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5A58192176E137500401423 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D5A58194176E137500401423 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -223,7 +222,6 @@
 			isa = PBXGroup;
 			children = (
 				D513B0F22031D0BA00C62520 /* category */,
-				D513B0FD2031D0BB00C62520 /* DoutTests.h */,
 				D513B0FC2031D0BB00C62520 /* DoutTests.m */,
 			);
 			path = "Test-Universal";
@@ -240,28 +238,11 @@
 		D513B0F32031D0BA00C62520 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				D513B0F92031D0BB00C62520 /* NSDate */,
-				D513B0F42031D0BA00C62520 /* NSFileManager */,
+				D513B0FB2031D0BB00C62520 /* NSDate+RFKitTests.m */,
+				D513B0F82031D0BB00C62520 /* NSFileManager+RFKitTests.m */,
+				D594688120327D8F00A1AE3D /* NSObject+RFKitTests.m */,
 			);
 			path = Foundation;
-			sourceTree = "<group>";
-		};
-		D513B0F42031D0BA00C62520 /* NSFileManager */ = {
-			isa = PBXGroup;
-			children = (
-				D513B0F52031D0BA00C62520 /* NSFileManagerTests.h */,
-				D513B0F82031D0BB00C62520 /* NSFileManagerTests.m */,
-			);
-			path = NSFileManager;
-			sourceTree = "<group>";
-		};
-		D513B0F92031D0BB00C62520 /* NSDate */ = {
-			isa = PBXGroup;
-			children = (
-				D513B0FA2031D0BB00C62520 /* NSDateTests.h */,
-				D513B0FB2031D0BB00C62520 /* NSDateTests.m */,
-			);
-			path = NSDate;
 			sourceTree = "<group>";
 		};
 		D5A58186176E137500401423 = {
@@ -536,9 +517,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D513B1012031D0BB00C62520 /* DoutTests.m in Sources */,
-				D513B1002031D0BB00C62520 /* NSDateTests.m in Sources */,
-				D513B0FF2031D0BB00C62520 /* NSFileManagerTests.m in Sources */,
+				D513B1002031D0BB00C62520 /* NSDate+RFKitTests.m in Sources */,
+				D513B0FF2031D0BB00C62520 /* NSFileManager+RFKitTests.m in Sources */,
 				D513B0E82031917C00C62520 /* Test_iOS.swift in Sources */,
+				D594688220327D8F00A1AE3D /* NSObject+RFKitTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,10 +6,13 @@
 //  Copyright (c) 2013年 RFUI. All rights reserved.
 //
 
-#import "NSDateTests.h"
+#import <XCTest/XCTest.h>
 #import "NSDate+RFKit.h"
 
-@implementation NSDateTests
+@interface RTNSDate : XCTestCase
+@end
+
+@implementation RTNSDate
 
 - (void)testNilParameters {
     NSDate *now = [NSDate date];
