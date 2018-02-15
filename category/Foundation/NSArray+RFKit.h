@@ -2,7 +2,7 @@
     NSArray extension
     RFKit
 
-    Copyright (c) 2012-2016 BB9z
+    Copyright (c) 2012-2016, 2018 BB9z
     https://github.com/BB9z/RFKit
 
     The MIT License (MIT)
@@ -60,18 +60,19 @@
 /**
  Inserts a given object into the array's contents at a given index safely.
 
- @param anObject    The object to add to the array's content. This value can be `nil`.
- @param index       The index in the array at which to insert anObject. If index is beyond the end of the array, nothing hanppaned.
+ @param anObject The object to add to the array's content. This value can be `nil`.
+ @param index The index in the array at which to insert anObject. If index is beyond the end of the array, nothing hanppaned.
  */
 - (void)rf_insertObject:(nullable ObjectType)anObject atIndex:(NSUInteger)index;
 
 
-/** Filter a given dictionary with specified keys and adds these objects to the end of the receiving array’s content.
+/**
+ Filter a given dictionary with specified keys and adds these objects to the end of the receiving array’s content.
 
  @param sourceDictionary The dictionary from which to add entries
  @param firstKey ... Keys specifying which object will be added to the reciver.
  */
-- (void)addObjectsFromDictionary:(nullable NSDictionary *)sourceDictionary withSpecifiedKeys:(nullable NSString *)firstKey, ...NS_REQUIRES_NIL_TERMINATION;
+- (void)addObjectsFromDictionary:(nullable NSDictionary *)sourceDictionary withSpecifiedKeys:(nonnull NSString *)firstKey, ...NS_REQUIRES_NIL_TERMINATION;
 
 /**
  Replaces last object in the array. If the array is empty, the object will be added as first object.
@@ -85,6 +86,6 @@
 
  @param predicate The block to apply to elements in the array.
  */
-- (void)removeObjectsPassingTest:(BOOL (^_Nonnull)(ObjectType _Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop))predicate;
+- (void)removeObjectsPassingTest:(BOOL (^__nonnull)(ObjectType __nonnull obj, NSUInteger idx, BOOL *__nonnull stop))predicate;
 
 @end

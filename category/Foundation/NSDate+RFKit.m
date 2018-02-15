@@ -4,7 +4,7 @@
 
 @implementation NSDate (RFKit)
 
-+ (NSDate *)dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day hour:(NSInteger)hour minute:(NSInteger)minute second:(NSInteger)second {
++ (nonnull NSDate *)dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day hour:(NSInteger)hour minute:(NSInteger)minute second:(NSInteger)second {
     NSDateComponents *dc = [[NSDateComponents alloc] init];
     dc.year = year;
     dc.month = month;
@@ -15,12 +15,12 @@
     return [[NSCalendar currentCalendar] dateFromComponents:dc];
 }
 
-+ (NSDate *)dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day {
++ (nonnull NSDate *)dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day {
     return [NSDate dateWithYear:year month:month day:day hour:0 minute:0 second:0];
 }
 
-- (BOOL)isSameDayWithDate:(NSDate *)date {
-    if (!date) return false;
+- (BOOL)isSameDayWithDate:(nullable NSDate *)date {
+    if (!date) return NO;
 
     NSDateComponents *target = [[NSCalendar currentCalendar] components:(NSCalendarUnit)(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:date];
     NSDateComponents *source = [[NSCalendar currentCalendar] components:(NSCalendarUnit)(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:self];
@@ -28,7 +28,7 @@
 }
 
 //! ref: http://stackoverflow.com/a/4739650/945906
-+ (NSInteger)daysBetweenDate:(NSDate *)fromDateTime andDate:(NSDate *)toDateTime {
++ (NSInteger)daysBetweenDate:(nonnull NSDate *)fromDateTime andDate:(nonnull NSDate *)toDateTime {
     if (!fromDateTime && !toDateTime) return 0;
     NSParameterAssert(fromDateTime != nil);
     NSParameterAssert(toDateTime != nil);
@@ -44,19 +44,21 @@
     return difference.day;
 }
 
-- (NSDate *)startTimeOfDate {
+- (nonnull NSDate *)startTimeOfDate {
     NSDateComponents *components = [[NSCalendar currentCalendar] components:(NSCalendarUnit)(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:self];
     components.hour = 0;
     components.minute = 0;
     components.second = 0;
+    // Date components is always vaild so the return value cannot be nil.
     return [[NSCalendar currentCalendar] dateFromComponents:components];
 }
 
-- (NSDate *)endTimeOfDate {
+- (nonnull NSDate *)endTimeOfDate {
     NSDateComponents *components = [[NSCalendar currentCalendar] components:(NSCalendarUnit)(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:self];
     components.hour = 24;
     components.minute = 0;
     components.second = 0;
+    // As this time is actually the start time of the next day. Date components is always vaild so the return value cannot be nil.
     return [[NSCalendar currentCalendar] dateFromComponents:components];
 }
 

@@ -2,7 +2,7 @@
     NSBundle extension
     RFKit
 
-    Copyright (c) 2012-2015 BB9z
+    Copyright (c) 2012-2015, 2018 BB9z
     https://github.com/BB9z/RFKit
 
     The MIT License (MIT)
@@ -12,15 +12,23 @@
 #import <Foundation/Foundation.h>
 
 @interface NSBundle (RFKit)
-+ (NSString *)mainBundlePathForCaches;
-+ (NSString *)mainBundlePathForPreferences;
-+ (NSString *)mainBundlePathForDocuments;
-+ (NSString *)mainBundlePathForTemp;
-+ (NSString *)pathForMainBoundlePath:(NSString *)path;
+
++ (nonnull NSString *)mainBundlePathForCaches;
++ (nonnull NSString *)mainBundlePathForPreferences;
++ (nonnull NSString *)mainBundlePathForDocuments;
++ (nonnull NSString *)mainBundlePathForTemp;
 
 /**
-    Bundle version string, according to Info.plist file.
-    CFBundleShortVersionString + CFBundleVersion
+ Get a path relative to NSHomeDirectory().
+ 
+ @param path Relative path component
  */
-- (NSString *)versionString;
++ (nonnull NSString *)pathForMainBoundlePath:(nullable NSString *)path;
+
+/**
+ Bundle version string, according to Info.plist file.
+ 
+ CFBundleShortVersionString + CFBundleVersion
+ */
+- (nonnull NSString *)versionString;
 @end

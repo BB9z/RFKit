@@ -21,6 +21,6 @@
  
  @return An NSError object for domain with the specified error code and the localized description.
  */
-+ (nonnull instancetype)errorWithDomain:(NSString *__nullable)domain code:(NSInteger)code localizedDescription:(NSString *__nullable)localizedDescription;
++ (nonnull instancetype)errorWithDomain:(nullable NSString *)domain code:(NSInteger)code localizedDescription:(nullable NSString *)localizedDescription;
 
 @end
