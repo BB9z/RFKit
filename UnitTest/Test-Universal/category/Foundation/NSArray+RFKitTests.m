@@ -17,12 +17,13 @@
 
 - (void)testSafeOperations {
     NSArray *a = @[];
-    XCTAssertNoThrow([a rf_objectAtIndex:9], @"");
+    [a rf_objectAtIndex:9];
     
     NSMutableArray *ma = a.mutableCopy;
-    XCTAssertNoThrow([ma rf_addObject:nil], @"");
-    XCTAssertNoThrow([ma rf_insertObject:nil atIndex:0], @"");
-    XCTAssertNoThrow([ma rf_insertObject:@1 atIndex:99], @"");
+    [ma rf_addObject:nil];
+    [ma rf_insertObject:nil atIndex:0];
+    [ma rf_insertObject:@1 atIndex:99];
+    XCTAssert(ma.count == 0, @"Invaild input should have no effect");
 }
 
 - (void)testSubarrayRange {
