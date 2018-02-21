@@ -11,11 +11,11 @@
 - (BOOL)boolForKey:(id<NSCopying>)aKey {
     return [self[aKey] boolValue];
 }
-- (float)floatForKey:(id<NSCopying>)aKey {
-    return [self[aKey] floatValue];
-}
 - (NSInteger)integerForKey:(id<NSCopying>)aKey {
     return [self[aKey] integerValue];
+}
+- (float)floatForKey:(id<NSCopying>)aKey {
+    return [self[aKey] floatValue];
 }
 - (double)doubleForKey:(id<NSCopying>)aKey {
     return [self[aKey] doubleValue];
@@ -41,15 +41,13 @@
 }
 
 - (void)rf_setObject:(nullable id)anObject forKey:(nullable id<NSCopying>)aKey {
-    if (anObject && aKey) {
-        [self setObject:(id)anObject forKey:(id)aKey];
-    }
+    if (!anObject || !aKey) return;
+    [self setObject:(id)anObject forKey:(id)aKey];
 }
 
 - (void)rf_removeObjectForKey:(nullable id<NSCopying>)aKey {
-    if (aKey) {
-        [self removeObjectForKey:(id)aKey];
-    }
+    if (!aKey) return;
+    [self removeObjectForKey:(id)aKey];
 }
 
 @end
