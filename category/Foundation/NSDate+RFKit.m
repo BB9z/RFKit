@@ -29,7 +29,6 @@
 
 //! ref: http://stackoverflow.com/a/4739650/945906
 + (NSInteger)daysBetweenDate:(nonnull NSDate *)fromDateTime andDate:(nonnull NSDate *)toDateTime {
-    if (!fromDateTime && !toDateTime) return 0;
     NSParameterAssert(fromDateTime != nil);
     NSParameterAssert(toDateTime != nil);
     

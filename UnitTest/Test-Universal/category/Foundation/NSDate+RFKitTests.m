@@ -36,11 +36,11 @@
 - (void)testNilParameters {
     NSDate *now = [NSDate date];
     
-    XCTAssertFalse([now isSameDayWithDate:nil]);
-    XCTAssertEqual([NSDate daysBetweenDate:nil andDate:nil], 0);
-    XCTAssertThrows([NSDate daysBetweenDate:now andDate:nil]);
-    XCTAssertThrows([NSDate daysBetweenDate:nil andDate:now]);
-    XCTAssertEqual([NSDate daysBetweenDate:now andDate:now], 0);
+    XCTAssertFalse([now isSameDayWithDate:nil], @"nil input should return false");
+    XCTAssertThrows([NSDate daysBetweenDate:nil andDate:nil], @"Parameter cannot be nil");
+    XCTAssertThrows([NSDate daysBetweenDate:now andDate:nil], @"Parameter cannot be nil");
+    XCTAssertThrows([NSDate daysBetweenDate:nil andDate:now], @"Parameter cannot be nil");
+    XCTAssertEqual([NSDate daysBetweenDate:now andDate:now], 0, @"Same day should return 0");
 }
 
 @end
