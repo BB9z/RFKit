@@ -2,7 +2,7 @@
     NSURL extension
     RFKit
 
-    Copyright (c) 2012-2014 BB9z
+    Copyright (c) 2012-2014, 2018 BB9z
     https://github.com/bb9z/RFKit
 
     The MIT License (MIT)
@@ -13,9 +13,9 @@
 
 @interface NSURL (RFKit)
 
-/**	Cover query string into NSDictionary
+/**
+ Cover query string into NSDictionary
  */
-- (NSDictionary *)queryDictionary;
-
+- (nullable NSDictionary *)queryDictionary;
 
 @end

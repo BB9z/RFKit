@@ -3,7 +3,7 @@
 
 @implementation NSURL (RFKit)
 
-- (NSDictionary *)queryDictionary {
+- (nullable NSDictionary *)queryDictionary {
 	NSString * queryString = self.query;
 	if (!queryString) return nil;
 	
@@ -16,7 +16,10 @@
 		if (fieldValueArray.count == 2) {
 			NSString *filed = fieldValueArray[0];
 			NSString *value = fieldValueArray[1];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 			queryDictionary[filed] = [value stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+#pragma clang diagnostic pop
 		}
 	}
 	return queryDictionary;

@@ -90,7 +90,7 @@
 - (nullable id)performRespondedSelector:(SEL)aSelector {
     if (![self respondsToSelector:aSelector]) return nil;
     NSMethodSignature *ms = [self methodSignatureForSelector:aSelector];
-    NSAssert(ms, @"Cannot get method signature for %s", aSelector);
+    NSAssert(ms, @"Cannot get method signature for %@", NSStringFromSelector(aSelector));
     NSAssert(ms.numberOfArguments == 2, @"The selector must have no arguments.");
     const char *rtype = ms.methodReturnType;
     IMP aIMP = [self methodForSelector:aSelector];

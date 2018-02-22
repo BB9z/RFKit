@@ -36,9 +36,11 @@
     NSDate *toDate;
     
     NSCalendar *calendar = [NSCalendar currentCalendar];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     [calendar rangeOfUnit:NSDayCalendarUnit startDate:&fromDate interval:NULL forDate:fromDateTime];
     [calendar rangeOfUnit:NSDayCalendarUnit startDate:&toDate interval:NULL forDate:toDateTime];
-    
+#pragma clang diagnostic pop
     NSDateComponents *difference = [calendar components:NSCalendarUnitDay fromDate:fromDate toDate:toDate options:(NSCalendarOptions)0];
     return difference.day;
 }
