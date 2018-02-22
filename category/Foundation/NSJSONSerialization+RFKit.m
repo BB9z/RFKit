@@ -36,7 +36,7 @@
     }
 
     NSString *json = [JSONPString substringWithRange:NSMakeRange(begin.location + 1, (end.location - begin.location) - 1)];
-    id obj = [NSJSONSerialization JSONObjectWithString:json usingEncoding:NSUTF8StringEncoding allowLossyConversion:YES options:(NSJSONReadingOptions)0 error:error];
+    id obj = [NSJSONSerialization JSONObjectWithString:json usingEncoding:NSUTF8StringEncoding allowLossyConversion:YES options:NSJSONReadingAllowFragments error:error];
     return obj;
 }
 
