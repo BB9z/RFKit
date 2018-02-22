@@ -1,6 +1,6 @@
 //
-//  RTNSObject.m
-//  Test-iOS
+//  NSObject+RFKitTests.m
+//  RFKit
 //
 //  Created by BB9z on 13/02/2018.
 //  Copyright © 2018 RFUI. All rights reserved.
@@ -24,6 +24,51 @@
     test = NSNull.null;
     test = [test get:test defaults:defaultValue];
     XCTAssertEqualObjects(test, defaultValue, @"NSNull default");
+}
+
+- (void)testObjectsForIndexArray {
+    NSArray *a = @[
+        NSNull.null,
+        @{
+            @"a": @{
+                @"1": @"got"
+            },
+            @"b": NSNull.null
+        }
+    ];
+    
+    XCTAssertEqualObjects(([a objectsForIndexArray:@[ @1, @"a", @"1" ]]), (@[ @"got" ]), @"");
+    
+    NSDictionary *d = @{
+        @"a": @[ @1 ],
+        @"b": @[ @2 ]
+    };
+    XCTAssertEqualObjects(([d objectsForIndexArray:@[ @"a" ]]), (@[ @1 ]), @"");
+    
+    NSString *c = @"foo";
+    XCTAssertEqualObjects(([c objectsForIndexArray:@[ ]]), (@[ c ]), @"");
+    XCTAssertThrows(([c objectsForIndexArray:@[ @"a" ]]), @"");
+}
+
+- (void)testObjectsForDictKeyArray {
+    NSArray *a = @[
+        NSNull.null,
+        @{
+            @"a": @1
+        },
+        @{
+            @"a": @2
+        },
+        @{
+            @"b": @"some"
+        },
+        @[
+            @{
+                @"a": @3
+            }
+        ]
+    ];
+    XCTAssertEqualObjects(([a objectsForDictKeyArray:@[ @"a" ]]), (@[ @1, @2, @3 ]), @"");
 }
 
 - (void)testPerformSelector {

@@ -13,55 +13,50 @@
 	}
 }
 
-- (NSArray *)objectsForIndexArray:(NSArray *)indexsArray {
+- (nonnull NSArray *)objectsForIndexArray:(nullable NSArray *)indexsArray {
     NSUInteger indexCount = indexsArray.count;
     id ctObjectSet = self;
     
     for (NSUInteger i = 0; i < indexCount; i++) {
         id ctIndex = indexsArray[i];
-        if ([ctIndex isKindOfClass:[NSNumber class]]) {
-            if ([ctObjectSet respondsToSelector:@selector(objectAtIndex:)]) {
-                NSNumber *indexObj = ctIndex;
-                ctObjectSet = ctObjectSet[[indexObj intValue]];
-            }
-            else {
+        if ([ctIndex isKindOfClass:NSNumber.class]) {
+            if (![ctObjectSet respondsToSelector:@selector(objectAtIndex:)]) {
                 @throw [NSException exceptionWithName:@"RFKit: Bad selector" reason:[NSString stringWithFormat:@"%@ can`t responds objectAtIndex: for index %@.", ctObjectSet, ctIndex] userInfo:@{@"set": self, @"indexsArray": indexsArray}];
             }
+            NSNumber *indexObj = ctIndex;
+            ctObjectSet = [ctObjectSet objectAtIndex:indexObj.integerValue];
         }
         else {
-            if ([ctObjectSet respondsToSelector:@selector(objectForKey:)]) {
-                NSString *indexObj = ctIndex;
-                ctObjectSet = ((NSDictionary *)ctObjectSet)[indexObj];
-            }
-            else {
+            if (![ctObjectSet respondsToSelector:@selector(objectForKey:)]) {
                 @throw [NSException exceptionWithName:@"RFKit: Bad selector" reason:[NSString stringWithFormat:@"%@ can`t responds objectForKey: for index %@.", ctObjectSet, ctIndex] userInfo:@{@"set": self, @"indexsArray": indexsArray}];
             }
+            ctObjectSet = [ctObjectSet objectForKey:ctIndex];
         }
     }
 
-    if (![ctObjectSet isKindOfClass:[NSArray class]]) {
+    if (![ctObjectSet isKindOfClass:NSArray.class]) {
         ctObjectSet = @[ctObjectSet];
     }
     return ctObjectSet;
 }
 
-- (NSArray *)objectsForDictKeyArray:(NSArray *)keyArray {
-    // 空数组，第一个元素非NSString
-    if (keyArray.count == 0 ||
-        ![keyArray.firstObject isKindOfClass:[NSString class]]) {
+- (nullable NSArray *)objectsForDictKeyArray:(nullable NSArray *)keyArray {
+    if (keyArray.count == 0
+        || ![keyArray.firstObject isKindOfClass:NSString.class]) {
         return nil;
     }
     
-    // 既不是数组也不是字典
-    if (![self respondsToSelector:@selector(objectForKey:)] && ![self respondsToSelector:@selector(objectAtIndex:)]) {
+    if (![self respondsToSelector:@selector(objectForKey:)]
+        && ![self respondsToSelector:@selector(objectAtIndex:)]) {
         return nil;
     }
 
     id firstIndex = keyArray.firstObject;
 
     // 字典，只有一个key
-    if (keyArray.count == 1 && [self respondsToSelector:@selector(objectForKey:)]) {
-        id tmp = ((NSDictionary *)self)[firstIndex];
+    if (keyArray.count == 1
+        && [self respondsToSelector:@selector(objectForKey:)]) {
+        id tmp = [(NSDictionary *)self objectForKey:firstIndex];
         if (tmp) {
              return @[tmp];
         }
@@ -75,7 +70,7 @@
     NSMutableArray *arrayFirstRemoved = [NSMutableArray arrayWithArray:keyArray];
     [arrayFirstRemoved removeObjectAtIndex:0];
     
-    if ([self isKindOfClass:[NSArray class]]) {
+    if ([self isKindOfClass:NSArray.class]) {
         // Array
         NSMutableArray *r = [NSMutableArray arrayWithCapacity:20];
         
@@ -87,7 +82,7 @@
     }
     else {
         // Dict
-        id ctObjectSet = ((NSDictionary *)self)[firstIndex];
+        id ctObjectSet = [(NSDictionary *)self objectForKey:firstIndex];
         return [ctObjectSet objectsForDictKeyArray:arrayFirstRemoved];
     }
 }
