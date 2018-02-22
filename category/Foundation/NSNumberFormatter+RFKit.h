@@ -2,7 +2,7 @@
     NSNumberFormatter extension
     RFKit
 
-    Copyright (c) 2012-2015 BB9z
+    Copyright (c) 2012-2015, 2018 BB9z
     https://github.com/BB9z/RFKit
 
     The MIT License (MIT)
@@ -13,16 +13,18 @@
 
 @interface NSNumberFormatter (RFKit)
 
-/** Returns an NSNumberFormatter with specified significant digits config.
+/**
+ Returns an NSNumberFormatter with specified significant digits config.
 
  @param min The minimum number of significant digits for the formatter.
  @param max The maximum number of significant digits for the formatter.
 
  @return An NSNumberFormatter with specified significant digits config.
  */
-+ (NSNumberFormatter *)significantFormatterWithMinimumDigits:(NSUInteger)min maximumDigits:(NSUInteger)max;
++ (nonnull NSNumberFormatter *)significantFormatterWithMinimumDigits:(NSUInteger)min maximumDigits:(NSUInteger)max;
 
-/** Returns a string containing the formatted value of the provided file size.
+/**
+ Returns a string containing the formatted value of the provided file size.
  
  Deprecated. See NSByteCountFormatter.
 
@@ -31,14 +33,15 @@
 
  @return A formated string.
  */
-+ (NSString *)formatedFileSizeStringWithBytes:(long long)bytes useBinaryUnites:(BOOL)isBinaryUnites  DEPRECATED_ATTRIBUTE;
++ (nonnull NSString *)formatedFileSizeStringWithBytes:(long long)bytes useBinaryUnites:(BOOL)isBinaryUnites DEPRECATED_MSG_ATTRIBUTE("Use NSByteCountFormatter instead");
 
-/** Returns a string containing the formatted value of the provided float value.
+/**
+ Returns a string containing the formatted value of the provided float value.
 
  @param floatVaule A float value that is parsed to create the returned string object.
 
  @return A string containing the formatted value of number using the receiver’s current settings.
  */
-- (NSString *)stringFromFloat:(float)floatVaule;
+- (nonnull NSString *)stringFromFloat:(float)floatVaule DEPRECATED_ATTRIBUTE;
 
 @end
