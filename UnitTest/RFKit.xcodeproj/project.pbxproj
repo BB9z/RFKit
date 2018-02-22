@@ -26,6 +26,9 @@
 		D57E75CC203E9C0A001BB427 /* NSString+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D57E75CB203E9C09001BB427 /* NSString+RFKitTests.m */; };
 		D57E75CD203E9C0A001BB427 /* NSString+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D57E75CB203E9C09001BB427 /* NSString+RFKitTests.m */; };
 		D57E75CE203E9C0A001BB427 /* NSString+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D57E75CB203E9C09001BB427 /* NSString+RFKitTests.m */; };
+		D57E75D0203EB350001BB427 /* NSURL+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D57E75CF203EB350001BB427 /* NSURL+RFKitTests.m */; };
+		D57E75D1203EB350001BB427 /* NSURL+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D57E75CF203EB350001BB427 /* NSURL+RFKitTests.m */; };
+		D57E75D2203EB350001BB427 /* NSURL+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D57E75CF203EB350001BB427 /* NSURL+RFKitTests.m */; };
 		D594688220327D8F00A1AE3D /* NSObject+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D594688120327D8F00A1AE3D /* NSObject+RFKitTests.m */; };
 		D59468E92032867A00A1AE3D /* DoutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D513B0FC2031D0BB00C62520 /* DoutTests.m */; };
 		D59468EA2032867D00A1AE3D /* NSObject+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D594688120327D8F00A1AE3D /* NSObject+RFKitTests.m */; };
@@ -79,6 +82,7 @@
 		D5722FB0203DAC4800C610E2 /* NSError+RFKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSError+RFKitTests.m"; sourceTree = "<group>"; };
 		D57E75C5203E49CF001BB427 /* NSJSONSerialization+RFKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSJSONSerialization+RFKitTests.m"; sourceTree = "<group>"; };
 		D57E75CB203E9C09001BB427 /* NSString+RFKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+RFKitTests.m"; sourceTree = "<group>"; };
+		D57E75CF203EB350001BB427 /* NSURL+RFKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURL+RFKitTests.m"; sourceTree = "<group>"; };
 		D594688120327D8F00A1AE3D /* NSObject+RFKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RFKitTests.m"; sourceTree = "<group>"; };
 		D59468E1203281DE00A1AE3D /* Test-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Test-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D59468E5203281DE00A1AE3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -174,6 +178,7 @@
 				D57E75C5203E49CF001BB427 /* NSJSONSerialization+RFKitTests.m */,
 				D594688120327D8F00A1AE3D /* NSObject+RFKitTests.m */,
 				D57E75CB203E9C09001BB427 /* NSString+RFKitTests.m */,
+				D57E75CF203EB350001BB427 /* NSURL+RFKitTests.m */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -596,7 +601,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D57E75CC203E9C0A001BB427 /* NSString+RFKitTests.m in Sources */,
 				D513B1012031D0BB00C62520 /* DoutTests.m in Sources */,
 				D5C6F5A82032D39500D1E8DF /* NSArray+RFKitTests.m in Sources */,
 				D513B1002031D0BB00C62520 /* NSDate+RFKitTests.m in Sources */,
@@ -606,6 +610,8 @@
 				D513B0FF2031D0BB00C62520 /* NSFileManager+RFKitTests.m in Sources */,
 				D57E75C6203E49CF001BB427 /* NSJSONSerialization+RFKitTests.m in Sources */,
 				D594688220327D8F00A1AE3D /* NSObject+RFKitTests.m in Sources */,
+				D57E75CC203E9C0A001BB427 /* NSString+RFKitTests.m in Sources */,
+				D57E75D0203EB350001BB427 /* NSURL+RFKitTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -613,7 +619,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D57E75CD203E9C0A001BB427 /* NSString+RFKitTests.m in Sources */,
 				D59468E92032867A00A1AE3D /* DoutTests.m in Sources */,
 				D5C6F5A92032D39500D1E8DF /* NSArray+RFKitTests.m in Sources */,
 				D59468EC2032868300A1AE3D /* NSDate+RFKitTests.m in Sources */,
@@ -623,6 +628,8 @@
 				D59468EB2032868000A1AE3D /* NSFileManager+RFKitTests.m in Sources */,
 				D57E75C7203E49CF001BB427 /* NSJSONSerialization+RFKitTests.m in Sources */,
 				D59468EA2032867D00A1AE3D /* NSObject+RFKitTests.m in Sources */,
+				D57E75CD203E9C0A001BB427 /* NSString+RFKitTests.m in Sources */,
+				D57E75D1203EB350001BB427 /* NSURL+RFKitTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,7 +637,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D57E75CE203E9C0A001BB427 /* NSString+RFKitTests.m in Sources */,
 				D5C6F5A32032BB6000D1E8DF /* DoutTests.m in Sources */,
 				D5C6F5AA2032D39500D1E8DF /* NSArray+RFKitTests.m in Sources */,
 				D5C6F5A42032BB6700D1E8DF /* NSDate+RFKitTests.m in Sources */,
@@ -640,6 +646,8 @@
 				D5C6F5A52032BB6A00D1E8DF /* NSFileManager+RFKitTests.m in Sources */,
 				D57E75C8203E49CF001BB427 /* NSJSONSerialization+RFKitTests.m in Sources */,
 				D5C6F5A62032BB6D00D1E8DF /* NSObject+RFKitTests.m in Sources */,
+				D57E75CE203E9C0A001BB427 /* NSString+RFKitTests.m in Sources */,
+				D57E75D2203EB350001BB427 /* NSURL+RFKitTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
