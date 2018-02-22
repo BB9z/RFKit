@@ -2,7 +2,7 @@
     UIButton extension
     RFKit
 
-    Copyright (c) 2012-2015 BB9z
+    Copyright (c) 2012-2015, 2018 BB9z
     https://github.com/BB9z/RFKit
 
     The MIT License (MIT)
@@ -27,7 +27,7 @@
  @param backGroundImageName Resource name of the background image. Set to nil will not
     change, set to @"" will clear the button background image.
  */
-- (void)setResourceImage:(NSString *)imageName background:(NSString *)backGroundImageName;
+- (void)setResourceImage:(nullable NSString *)imageName background:(nullable NSString *)backGroundImageName DEPRECATED_ATTRIBUTE;
 
 /** Change the background image to be resizable with the specified cap insets for the specified button state.
 

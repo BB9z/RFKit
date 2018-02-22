@@ -4,10 +4,10 @@
 @implementation UIButton (RFKit)
 
 // Reserved  Selected Disabled Highlighted
-- (void)setResourceImage:(NSString *)imageName background:(NSString *)backGroundImageName {
-	NSString * file = nil;
-	NSString * type = @"png";
-	
+- (void)setResourceImage:(nullable NSString *)imageName background:(nullable NSString *)backGroundImageName {
+    NSString *file = nil;
+    NSString *type = @"png";
+    
     if (imageName.length > 0) {
         file = [[NSBundle mainBundle] pathForResource:imageName ofType:type];
         if (file) {
@@ -35,8 +35,8 @@
         [self setImage:nil forState:UIControlStateDisabled];
         [self setImage:nil forState:UIControlStateSelected];
     }
-		
-	if (backGroundImageName.length > 0) {
+    
+    if (backGroundImageName.length > 0) {
         file = [[NSBundle mainBundle] pathForResource:backGroundImageName ofType:type];
         if (file) {
             [self setBackgroundImage:[UIImage imageWithContentsOfFile:file] forState:UIControlStateNormal];
@@ -47,7 +47,7 @@
             [self setBackgroundImage:[UIImage imageWithContentsOfFile:file] forState:UIControlStateHighlighted];
         }
         
-        file = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@_disabled",backGroundImageName] ofType:type]; 
+        file = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@_disabled",backGroundImageName] ofType:type];
         if (file) {
             [self setBackgroundImage:[UIImage imageWithContentsOfFile:file] forState:UIControlStateDisabled];
         }
