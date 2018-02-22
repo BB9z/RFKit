@@ -2,7 +2,7 @@
     UIImage extension
     RFKit
 
-    Copyright (c) 2012-2016 BB9z
+    Copyright (c) 2012-2016, 2018 BB9z
     https://github.com/BB9z/RFKit
 
     The MIT License (MIT)
@@ -13,8 +13,8 @@
 
 @interface UIImage (RFKit)
 
-+ (UIImage *)resourceName:(NSString *)PNGFileName;
-+ (UIImage *)resourceName:(NSString *)fileName ofType:(NSString *)type;
++ (nullable UIImage *)resourceName:(nonnull NSString *)PNGFileName DEPRECATED_ATTRIBUTE;
++ (nullable UIImage *)resourceName:(nonnull NSString *)fileName ofType:(nullable NSString *)type DEPRECATED_ATTRIBUTE;
 
 /**
  Return the dimensions of the image in pixels, taking orientation into account.
