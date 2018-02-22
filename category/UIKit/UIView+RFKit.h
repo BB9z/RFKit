@@ -24,7 +24,8 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
 
 @interface UIView (RFKit)
 
-/** Animate helper for animateWithDuration:delay:options:animations:completion:
+/**
+ Animate helper for animateWithDuration:delay:options:animations:completion:
  
  @param duration    The total duration of the animations, measured in seconds. If you specify a negative value or 0, the changes are made without animating them.
  @param delay       The amount of time (measured in seconds) to wait before beginning the animations. Specify a value of 0 to begin the animations immediately.
@@ -34,10 +35,12 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
  @param animations  A block object containing the changes to commit to the views. This is where you programmatically change any animatable properties of the views in your view hierarchy. This block takes no parameters and has no return value.
  @param completion  A block object to be executed after animations block executed, regardless animated was YES or NO. This block has no return value and takes a single Boolean argument that indicates whether or not the animations actually finished before the completion handler was called. If the duration of the animation is 0, this block is performed at the beginning of the next run loop cycle.
  */
-+ (void)animateWithDuration:(NSTimeInterval)duration delay:(NSTimeInterval)delay options:(UIViewAnimationOptions)options animated:(BOOL)animated beforeAnimations:(void (^_Nullable)(void))before animations:(void (^_Nullable)(void))animations completion:(void (^_Nullable)(BOOL finished))completion;
++ (void)animateWithDuration:(NSTimeInterval)duration delay:(NSTimeInterval)delay options:(UIViewAnimationOptions)options animated:(BOOL)animated beforeAnimations:(void (^__nullable)(void))before animations:(void (^__nullable)(void))animations completion:(void (^__nullable)(BOOL finished))completion;
 
 #pragma mark -
-/** Move a UIView relative to it’s current position.
+
+/**
+ Move a UIView relative to it’s current position.
  
  @param x	X-axis distance to move
  @param y	Y-axis distance to move
@@ -45,9 +48,10 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
  */
 - (void)moveX:(CGFloat)x Y:(CGFloat)y;
 
-/** Move a UIView to specified position.
+/**
+ Move a UIView to specified position.
  
- @discussion This method use frame setting new position. Set parameter equal to CGFLOAT_MAX if you don’t want move in that direction.
+ This method use frame setting new position. Set parameter equal to CGFLOAT_MAX if you don’t want move in that direction.
  
  @param x	New position on x-axis
  @param y	New position on y-axis
@@ -55,17 +59,29 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
  */
 - (void)moveToX:(CGFloat)x Y:(CGFloat)y;
 
-/** Resize a UIView
+/**
+ Resize a UIView
  
- @discussion Set parameter equal to RFMathNotChange if you don’t want resize that direction.
+ Set parameter equal to RFMathNotChange if you don’t want resize that direction.
  
  @param width	New width
  @param height	New height
  */
 - (void)resizeWidth:(CGFloat)width height:(CGFloat)height;
+
+/**
+ Resize a UIView relative to the specified anchor point.
+ 
+ Set parameter equal to RFMathNotChange if you don’t want resize that direction.
+ 
+ @param width    New width
+ @param height   New height
+ @param resizeAnchor Determine how to change the frame with the new size.
+ */
 - (void)resizeWidth:(CGFloat)width height:(CGFloat)height resizeAnchor:(RFResizeAnchor)resizeAnchor;
 
-/** Resizes and moves the receiver view so it fits its superview bounds.
+/**
+ Resizes and moves the receiver view so it fits its superview bounds.
  */
 - (void)sizeToFitSuperview;
 
@@ -77,34 +93,81 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
  @param view1 This value must not be `nil`.
  @param view2 This value must not be `nil`.
  */
-+ (UIView *_Nullable)commonSuperviewWith:(UIView *_Nonnull)view1 anotherView:(UIView *_Nonnull)view2;
++ (nullable UIView *)commonSuperviewWith:(nonnull UIView *)view1 anotherView:(nonnull UIView *)view2;
 
-- (void)addSubview:(UIView *_Nonnull)view frame:(CGRect)rect;
-- (void)addSubview:(UIView *_Nonnull)view resizeOption:(RFViewResizeOption)option;
+/**
+ Adds a view to the view’s subviews and changes the frame rectangle at the same time.
+ */
+- (void)addSubview:(nonnull UIView *)view frame:(CGRect)rect;
 
-- (void)removeSubview:(UIView *_Nullable)view;
+/**
+ Adds a view to the view’s subviews and resizes at the same time.
+ */
+- (void)addSubview:(nonnull UIView *)view resizeOption:(RFViewResizeOption)option;
+
+/**
+ Remove a view from the reciver’s subviews.
+ */
+- (void)removeSubview:(nullable UIView *)view;
+
+/**
+ Remove the reciver’s all subviews.
+ */
 - (void)removeAllSubviews;
 
-- (void)bringAboveView:(UIView *_Nullable)aView;
-- (void)sentBelowView:(UIView *_Nullable)aView;
+/**
+ Moves the reciver so that it appears above another view in the view hierarchy.
+ */
+- (void)bringAboveView:(nullable UIView *)aView;
 
+/**
+ Moves the reciver so that it appears above another view in the view hierarchy.
+ */
+- (void)sentBelowView:(nullable UIView *)aView;
+
+/**
+ Moves the reciver so that it appears on top of its siblings in the view hierarchy.
+ */
 - (void)bringToFront;
+
+/**
+ Moves the reciver so that it appears behind its siblings in the view hierarchy.
+ */
 - (void)sentToBack;
 
+/**
+ Exchange the reciver and the view above the reciver in the view hierarchy.
+ */
 - (void)bringOneLevelUp;
+
+/**
+ Exchange the reciver and the view below the reciver in the view hierarchy.
+ */
 - (void)sendOneLevelDown;
 
+/**
+ Returns a Boolean value indicating whether the receiver appears on top of its siblings.
+ */
 - (BOOL)isInFront;
+
+/**
+ Returns a Boolean value indicating whether the receiver appears behind of its siblings.
+ */
 - (BOOL)isAtBack;
 
-- (void)exchangeDepthsWithView:(UIView *_Nullable)swapView;
+- (void)exchangeDepthsWithView:(nullable UIView *)swapView DEPRECATED_ATTRIBUTE;
 
-- (id _Nullable)superviewOfClass:(Class _Nonnull)viewClass;
+/**
+ Find a superview of the receiver which is kind of the given class in view hierarchy.
+ */
+- (nullable __kindof UIView *)superviewOfClass:(nonnull Class)viewClass;
 
 #pragma mark - Others
-/** A Boolean value that indicates whether the receiver is displayed.
+
+/**
+ A Boolean value that indicates whether the receiver is displayed.
  
- @discussion This method not only consider view’s hidden, alpha property or whether was added into a view or not. It looks up every supview to make sure the view is in screen’s bounds and not cliped indeed. But covered by another view is not considering.
+ This method not only consider view’s hidden, alpha property or whether was added into a view or not. It looks up every supview to make sure the view is in screen’s bounds and not cliped indeed. But covered by another view is not considering.
  
  Before a view is added to the view hierarchies, such as within UIViewController’s viewDidLoad method, the view is not visible because it’s not on screen yet.
  
@@ -117,28 +180,36 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
  */
 - (CGRect)frameOnScreen;
 
-/** Converts the receiver’s bounds from the receiver’s coordinate system to that of the specified view.
+/**
+ Converts the receiver’s bounds from the receiver’s coordinate system to that of the specified view.
  
  @param view The view that is the target of the conversion operation. If view is nil, this method instead converts to window base coordinates. Otherwise, both view and the receiver must belong to the same UIWindow object.
 
  @return The converted rectangle.
  */
-- (CGRect)boundsInView:(UIView *_Nullable)view;
+- (CGRect)boundsInView:(nullable UIView *)view;
 
-- (UIImage *_Nullable)renderToImage;
+/**
+ Renders the receiver’s layer into a UIImage object.
+ */
+- (nonnull UIImage *)renderToImage;
 
+/**
+ Returns the distance between the frame bottom and superview’s bound bottom.
+ */
 - (CGFloat)distanceBetweenFrameBottomAndSuperviewBottom;
 
-
-/** Traversing the responder chain to get a UIViewController reletive to the receiver.
+/**
+ Traversing the responder chain to get a UIViewController reletive to the receiver.
   
  @warning The receiver may be not the returned view controller´s view property.
  
  @return A view controller, may not be the receiver´s parent.
 */
-- (UIViewController *_Nullable)viewController;
+- (nullable UIViewController *)viewController;
 
-/** Return a newly view object unarchived from the nib file which located in the specified bundle.
+/**
+ Return a newly view object unarchived from the nib file which located in the specified bundle.
  
  @param nibName The name of the nib file to associate with the view. If nil, this method looks for the nib file which has  the same name with the class name. The nib file name should not contain any leading path information and the .nib extension.
  
@@ -146,9 +217,10 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
  
  @return A view object. May be nil if cannot find specified archived object.
  */
-+ (instancetype _Nullable)loadWithNibName:(NSString *_Nullable)nibName bundle:(NSBundle *_Nullable)nibBundle;
++ (nullable instancetype)loadWithNibName:(nullable NSString *)nibName bundle:(nullable NSBundle *)nibBundle;
 
-/** Return a newly view object unarchived from the nib file which located in the main bundle.
+/**
+ Return a newly view object unarchived from the nib file which located in the main bundle.
  
  @param nibName The name of the nib file to associate with the view. If nil, this method looks for the nib file which has  the same name with the class name. The nib file name should not contain any leading path information and the .nib extension.
  
@@ -156,6 +228,6 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
  
  @see loadWithNibName:bundle:
  */
-+ (instancetype _Nullable)loadWithNibName:(NSString *_Nullable)nibName;
++ (nullable instancetype)loadWithNibName:(nullable NSString *)nibName;
 
 @end
