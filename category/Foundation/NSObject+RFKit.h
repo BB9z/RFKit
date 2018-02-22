@@ -13,11 +13,21 @@
 
 @interface NSObject (RFKit)
 
-- (id _Nullable)get:(id _Nullable)test defaults:(id _Nullable)value DEPRECATED_ATTRIBUTE;
+- (nullable id)get:(nullable id)test defaults:(nullable id)value DEPRECATED_ATTRIBUTE;
 
-- (NSArray<id> *_Nonnull)objectsForIndexArray:(NSArray<id> *_Nullable)indexsArray;
-- (NSArray<id> *_Nullable)objectsForDictKeyArray:(NSArray<NSString *> *_Nonnull)keyArray;
+- (nonnull NSArray<id> *)objectsForIndexArray:(nullable NSArray<id> *)indexsArray;
+- (nullable NSArray<id> *)objectsForDictKeyArray:(nonnull NSArray<NSString *> *)keyArray;
 
-- (id _Nullable)performRespondedSelector:(SEL _Nonnull)aSelector;
+/**
+ Safely sends a specified message to the receiver and returns the result of the message.
+ 
+ @param aSelector A selector identifying the message to send, may be NULL. The message must take no arguments or an `NSInvalidArgumentException` is raised.
+
+ @return An object that is the result of the message.
+    If the method return type is boolean or any basic number type, the result is wrapped in an NSNumber object.
+    If the method return type is char * or selector, the result is wrapped in an NSString object.
+    Other unsupport return type result an NSInvalidArgumentException` raised.
+ */
+- (nullable id)performRespondedSelector:(nullable SEL)aSelector;
 
 @end

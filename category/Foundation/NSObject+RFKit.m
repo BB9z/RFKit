@@ -92,17 +92,51 @@
     }
 }
 
-- (id)performRespondedSelector:(SEL)aSelector {
-    if ([self respondsToSelector:aSelector]) {
-        // via http://stackoverflow.com/a/7933931/945906
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        return [self performSelector:aSelector];
-#pragma clang diagnostic pop
+- (nullable id)performRespondedSelector:(SEL)aSelector {
+    if (![self respondsToSelector:aSelector]) return nil;
+    NSMethodSignature *ms = [self methodSignatureForSelector:aSelector];
+    NSAssert(ms, @"Cannot get method signature for %s", aSelector);
+    NSAssert(ms.numberOfArguments == 2, @"The selector must have no arguments.");
+    const char *rtype = ms.methodReturnType;
+    IMP aIMP = [self methodForSelector:aSelector];
+    
+#define _isType(TYPE)\
+    (strncmp(rtype, @encode(TYPE), 1) == 0)
+    
+    if (_isType(id) || _isType(Class)) {
+        id (*method)(id, SEL) = (void *)aIMP;
+        return method(self, aSelector);
     }
-    else {
+    if (_isType(SEL) || _isType(char *)) {
+        char * (*method)(id, SEL) = (void *)aIMP;
+        return [NSString stringWithCString:method(self, aSelector) encoding:NSUTF8StringEncoding];
+    }
+    if (_isType(void)) {
+        id (*method)(id, SEL) = (void *)aIMP;
+        method(self, aSelector);
         return nil;
     }
+    if (_isType(BOOL) || _isType(Boolean) || _isType(boolean_t)) {
+        BOOL (*method)(id, SEL) = (void *)aIMP;
+        return [NSNumber numberWithBool:method(self, aSelector)];
+    }
+    
+#define _isNumberThenReturn(INDEX, TYPE)\
+    if (_isType(TYPE)) {\
+        TYPE (*method)(id, SEL) = (void *)aIMP;\
+        return @(method(self, aSelector));\
+    }
+    metamacro_foreach(_isNumberThenReturn, ,
+                      char, unsigned char,
+                      short, unsigned short,
+                      int, unsigned int,
+                      long, unsigned long,
+                      long long, unsigned long long,
+                      float,
+                      double)
+
+    NSAssert(false, @"Unsupport method return type: %s", rtype);
+    return nil;
 }
 
 @end
