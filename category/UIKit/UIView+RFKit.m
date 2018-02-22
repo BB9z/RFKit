@@ -202,12 +202,16 @@
 
 - (void)bringOneLevelUp {
 	NSUInteger ixCurrent = [self _rf_siblingIndex];
-	[self.superview exchangeSubviewAtIndex:ixCurrent withSubviewAtIndex:ixCurrent+1];
+    if (ixCurrent + 1 < self.superview.subviews.count) {
+        [self.superview exchangeSubviewAtIndex:ixCurrent withSubviewAtIndex:ixCurrent+1];
+    }
 }
 
 - (void)sendOneLevelDown {
 	NSUInteger ixCurrent = [self _rf_siblingIndex];
-	[self.superview exchangeSubviewAtIndex:ixCurrent withSubviewAtIndex:ixCurrent-1];
+    if (ixCurrent > 0) {
+        [self.superview exchangeSubviewAtIndex:ixCurrent withSubviewAtIndex:ixCurrent-1];
+    }
 }
 
 - (BOOL)isInFront {
