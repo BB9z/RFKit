@@ -3,7 +3,7 @@
 
 @implementation UIStoryboard (RFKit)
 
-- (id)instantiateViewControllerWithIdentifierUsingClass:(Class)viewControllerClass {
+- (nonnull id)instantiateViewControllerWithIdentifierUsingClass:(nonnull Class)viewControllerClass {
     return [self instantiateViewControllerWithIdentifier:NSStringFromClass(viewControllerClass)];
 }
 

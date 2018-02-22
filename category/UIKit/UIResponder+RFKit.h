@@ -2,7 +2,7 @@
     UIResponder extension
     RFKit
 
-    Copyright (c) 2014-2015 BB9z
+    Copyright (c) 2014-2015, 2018 BB9z
     https://github.com/BB9z/RFKit
 
     The MIT License (MIT)
@@ -17,11 +17,11 @@
 
  @return A view controller. `nil` if cannot find a UIViewController in responder chain.
  */
-- (id)viewController;
+- (nullable __kindof UIViewController *)viewController;
 
 /**
  Find current firstResponder through the responder chain.
  */
-+ (id)firstResponder;
++ (nullable id)firstResponder;
 
 @end

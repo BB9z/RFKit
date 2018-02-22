@@ -10,7 +10,7 @@
     }
 }
 
-- (id)dequeueReusableCellWithClass:(Class)cellClass {
+- (nullable __kindof UITableViewCell *)dequeueReusableCellWithClass:(nonnull Class)cellClass {
     return [self dequeueReusableCellWithIdentifier:NSStringFromClass(cellClass)];
 }
 

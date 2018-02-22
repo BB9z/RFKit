@@ -5,13 +5,13 @@
 
 @implementation UIImage (RFKit)
 
-+ (UIImage *)resourceName:(NSString *)PNGFileName{
++ (nullable UIImage *)resourceName:(nonnull NSString *)PNGFileName{
     NSString *path = [[NSBundle mainBundle] pathForResource:PNGFileName ofType:@"png"];
     if (!path) return nil;
     return [UIImage imageWithContentsOfFile:path];
 }
 
-+ (UIImage *)resourceName:(NSString *)fileName ofType:(NSString *)type {
++ (nullable UIImage *)resourceName:(nonnull NSString *)fileName ofType:(nullable NSString *)type {
     NSString *path = [[NSBundle mainBundle] pathForResource:fileName ofType:type];
     if (!path) return nil;
 	return [UIImage imageWithContentsOfFile:path];
@@ -21,7 +21,7 @@
     return CGSizeScaled(self.size, self.scale);
 }
 
-- (UIImage *)thumbnailImageWithMaxSize:(CGSize)targetSize {
+- (nonnull UIImage *)thumbnailImageWithMaxSize:(CGSize)targetSize {
     CGFloat scale = self.scale;
     CGFloat wSource = self.size.width * scale;
     CGFloat hSource = self.size.height * scale;
@@ -43,17 +43,16 @@
     }
     pixelFrame = CGRectIntegral(pixelFrame);
 
-    CGRect drawRect = CGRectScaled(pixelFrame, 1.f/scale);
+    CGRect drawRect = CGRectScaled(pixelFrame, 1./scale);
     UIGraphicsBeginImageContextWithOptions(drawRect.size, NO, scale);
     [self drawInRect:drawRect];
-    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
-    if (!newImage) dout_error(@"Resize Image Faile");
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return newImage;
 }
 
 //!ref: http://stackoverflow.com/a/605385/945906
-- (UIImage *)imageAspectFillSize:(CGSize)targetSize opaque:(BOOL)opaque scale:(CGFloat)scale {
+- (nonnull UIImage *)imageAspectFillSize:(CGSize)targetSize opaque:(BOOL)opaque scale:(CGFloat)scale {
 	if (CGSizeEqualToSize(self.size, targetSize)) {
 		return [self copy];
 	}
@@ -82,17 +81,16 @@
 	
     UIGraphicsBeginImageContextWithOptions(targetSize, opaque, scale);
 	[self drawInRect:tmpImageRect];
-	UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
-	if (!newImage) dout_error(@"Resize Image Faile");
+	UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
 	UIGraphicsEndImageContext();
 	return newImage;
 }
 
-- (UIImage *)imageAspectFillSize:(CGSize)targetSize {
+- (nonnull UIImage *)imageAspectFillSize:(CGSize)targetSize {
     return [self imageAspectFillSize:targetSize opaque:NO scale:1.0];
 }
 
-- (UIImage *)imageAspectFitSize:(CGSize)targetSize opaque:(BOOL)opaque scale:(CGFloat)scale {
+- (nonnull UIImage *)imageAspectFitSize:(CGSize)targetSize opaque:(BOOL)opaque scale:(CGFloat)scale {
     if (CGSizeEqualToSize(self.size, targetSize)) {
 		return [self copy];
 	}
@@ -121,18 +119,17 @@
 	
     UIGraphicsBeginImageContextWithOptions(targetSize, opaque, scale);
 	[self drawInRect:tmpImageRect];
-	UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
-	if (!newImage) dout_error(@"Resize Image Faile");
+	UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
 	UIGraphicsEndImageContext();
 	return newImage;
 }
 
-- (UIImage *)imageAspectFitSize:(CGSize)targetSize {
+- (nonnull UIImage *)imageAspectFitSize:(CGSize)targetSize {
     return [self imageAspectFitSize:targetSize opaque:NO scale:1.0];
 }
 
 //!ref: http://stackoverflow.com/a/7704399/945906 
-- (UIImage *)imageWithCropRect:(CGRect)rect {
+- (nullable UIImage *)imageWithCropRect:(CGRect)rect {
     CGFloat scale = self.scale;
     rect = CGRectApplyAffineTransform(rect, CGAffineTransformMakeScale(scale, scale));
     CGImageRef imageRef = CGImageCreateWithImageInRect(self.CGImage, rect);
@@ -141,22 +138,22 @@
     return result;
 }
 
-- (UIImage*)imageWithScaledSize:(CGSize)newSize {
+- (nonnull UIImage*)imageWithScaledSize:(CGSize)newSize {
     UIGraphicsBeginImageContextWithOptions(newSize, NO, self.scale);
     [self drawInRect:(CGRect){CGPointZero, newSize}];
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    if (!newImage) dout_error(@"Resize Image Faile");
     UIGraphicsEndImageContext();
     return newImage;
 }
 
-- (UIImage*)imageWithScale:(CGFloat)scale {
+- (nonnull UIImage*)imageWithScale:(CGFloat)scale {
     CGSize newSize = CGSizeMake(self.size.width*scale, self.size.height*scale);
     return [self imageWithScaledSize:newSize];
 }
 
 #pragma mark - Tint color
-- (UIImage *)imageWithTintColor:(UIColor *)tintColor {
+
+- (nonnull UIImage *)imageWithTintColor:(nonnull UIColor *)tintColor {
     CGRect contextBounds = CGRectMake(0, 0, self.size.width, self.size.height);
     UIGraphicsBeginImageContextWithOptions(self.size, NO, 0);
     
@@ -169,7 +166,7 @@
     return tintImageKeepBright;
 }
 
-- (UIImage *)imageOnlyKeepsAlphaWithTintColor:(UIColor *)tintColor {
+- (nonnull UIImage *)imageOnlyKeepsAlphaWithTintColor:(UIColor *)tintColor {
     CGRect contextBounds = CGRectMake(0, 0, self.size.width, self.size.height);
     UIGraphicsBeginImageContextWithOptions(self.size, NO, 0);
     

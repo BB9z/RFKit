@@ -5,10 +5,10 @@ static __weak id _RFKit_UIResponder_currentFirstResponder;
 
 @implementation UIResponder (RFKit)
 
-- (id)viewController {
+- (nullable __kindof UIViewController *)viewController {
     id nextResponder = self;
     do {
-        if ([nextResponder isKindOfClass:[UIViewController class]]) {
+        if ([nextResponder isKindOfClass:UIViewController.class]) {
             return nextResponder;
         }
     } while ((nextResponder = [nextResponder nextResponder]));
@@ -17,7 +17,7 @@ static __weak id _RFKit_UIResponder_currentFirstResponder;
 }
 
 //! REF: http://stackoverflow.com/a/14135456/945906
-+ (id)firstResponder {
++ (nullable id)firstResponder {
     _RFKit_UIResponder_currentFirstResponder = nil;
     [[UIApplication sharedApplication] sendAction:@selector(_rf_findFirstResponder:) to:nil from:nil forEvent:nil];
     return _RFKit_UIResponder_currentFirstResponder;

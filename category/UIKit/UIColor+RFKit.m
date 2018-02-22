@@ -3,64 +3,44 @@
 
 @implementation UIColor (RFKit)
 
-#pragma mark HexColor
 // These code base on: http://imchao.net/2012/01/08/using-hex-value-with-uicolor/
-- (UIColor *_Nonnull)initWithRGBHex:(NSInteger)hexValue alpha:(CGFloat)alpha {
-	return [self initWithRed:((hexValue & 0xFF0000) >> 16)/255.
-					   green:((hexValue & 0xFF00) >> 8)/255.
-						blue:(hexValue & 0xFF)/255.
-					   alpha:alpha];
+- (nonnull UIColor *)initWithRGBHex:(int)hexValue alpha:(CGFloat)alpha {
+	return [self initWithRed:((hexValue & 0xFF0000) >> 16)/255. green:((hexValue & 0xFF00) >> 8)/255. blue:(hexValue & 0xFF)/255. alpha:alpha];
 }
 
-+ (UIColor *_Nonnull)colorWithRGBHex:(NSInteger)hexValue alpha:(CGFloat)alpha {
-    return [UIColor colorWithRed:((hexValue & 0xFF0000) >> 16)/255.
-						   green:((hexValue & 0xFF00) >> 8)/255.
-							blue:(hexValue & 0xFF)/255.
-						   alpha:alpha];
++ (nonnull UIColor *)colorWithRGBHex:(int)hexValue alpha:(CGFloat)alpha {
+    return [UIColor colorWithRed:((hexValue & 0xFF0000) >> 16)/255. green:((hexValue & 0xFF00) >> 8)/255. blue:(hexValue & 0xFF)/255. alpha:alpha];
 }
 
-+ (UIColor *_Nonnull)colorWithRGBHex:(NSInteger)hexValue {
++ (nonnull UIColor *)colorWithRGBHex:(int)hexValue {
     return [UIColor colorWithRGBHex:hexValue alpha:1.];
 }
 
-
-+ (UIColor *_Nonnull)colorWithRGBString:(NSString *_Nonnull)nsstring {
-	NSUInteger length = nsstring.length-1;
-//	if (length != 3 && length != 6 ) return [UIColor clearColor];
-	if (length != 6 ) return [UIColor clearColor];
-	if ([nsstring characterAtIndex:0] != '#') return [UIColor clearColor];
-	int color;
-	sscanf([nsstring UTF8String], "#%x", &color);
-	return [UIColor colorWithRGBHex:color];
-}
-
-+ (UIColor *_Nonnull)colorWithRGBString:(NSString *_Nonnull)nsstring alpha:(CGFloat)alpha {
++ (nonnull UIColor *)colorWithRGBString:(nonnull NSString *)nsstring alpha:(CGFloat)alpha {
 	NSUInteger length = nsstring.length-1;
 	//	if (length != 3 && length != 6 ) return [UIColor clearColor];
 	if (length != 6 ) return [UIColor clearColor]; 
 	if ([nsstring characterAtIndex:0] != '#') return [UIColor clearColor];
 	int color;
-	sscanf([nsstring UTF8String], "#%x", &color);
+	sscanf(nsstring.UTF8String, "#%x", &color);
 	return [UIColor colorWithRGBHex:color alpha:alpha];
 }
 
-+ (UIColor *_Nullable)colorWithPatternImageName:(NSString *_Nonnull)resourceName {
++ (nonnull UIColor *)colorWithRGBString:(nonnull NSString *)nsstring {
+    return [UIColor colorWithRGBString:nsstring alpha:1];
+}
+
++ (nullable UIColor *)colorWithPatternImageName:(nonnull NSString *)resourceName {
     UIImage *img = [UIImage imageNamed:resourceName];
     if (!img) return nil;
 	return [UIColor colorWithPatternImage:img];
 }
 
-+ (UIColor *_Nonnull)randColorWithAlpha:(CGFloat)alpha {
-    BOOL fakeRandom = NO;
-    if (fakeRandom) {
-        return [UIColor colorWithRed:rand()%255/255. green:rand()%255/255. blue:rand()%255/255. alpha:alpha];
-    }
-    else {
-        return [UIColor colorWithRed:arc4random()%255/255. green:arc4random()%255/255. blue:arc4random()%255/255. alpha:alpha];
-    }
++ (nonnull UIColor *)randColorWithAlpha:(CGFloat)alpha {
+    return [UIColor colorWithRed:arc4random()%255/255. green:arc4random()%255/255. blue:arc4random()%255/255. alpha:alpha];
 }
 
-- (UIColor *_Nonnull)mixedColorWithRatio:(CGFloat)ratio1 color:(UIColor *_Nonnull)color {
+- (nonnull UIColor *)mixedColorWithRatio:(CGFloat)ratio1 color:(nonnull UIColor *)color {
     CGFloat red1;
     CGFloat green1;
     CGFloat blue1;

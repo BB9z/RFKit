@@ -28,37 +28,47 @@
  
  @return New copyed image which has same scale with the reciver.
  */
-- (UIImage *)thumbnailImageWithMaxSize:(CGSize)targetSize;
-
-// Aspect scale, may crop image
-- (UIImage *)imageAspectFillSize:(CGSize)targetSize opaque:(BOOL)opaque scale:(CGFloat)scale;
+- (nonnull UIImage *)thumbnailImageWithMaxSize:(CGSize)targetSize;
 
 /**
- This method is equivalent to calling the imageAspectFillSize:opaque:scale: method with the opaque parameter set to `NO` and a scale factor of `1.0`.
+ Aspect scale, may crop image
  */
-- (UIImage *)imageAspectFillSize:(CGSize)targetSize;
-
-// Aspect scale, no crop
-- (UIImage *)imageAspectFitSize:(CGSize)targetSize opaque:(BOOL)opaque scale:(CGFloat)scale;
+- (nonnull UIImage *)imageAspectFillSize:(CGSize)targetSize opaque:(BOOL)opaque scale:(CGFloat)scale;
 
 /**
- This method is equivalent to calling the imageAspectFitSize:opaque:scale: method with the opaque parameter set to `NO` and a scale factor of `1.0`.
+ This method is equivalent to calling the `imageAspectFillSize:opaque:scale:` method with the opaque parameter set to `NO` and a scale factor of `1.0`.
  */
-- (UIImage *)imageAspectFitSize:(CGSize)targetSize;
+- (nonnull UIImage *)imageAspectFillSize:(CGSize)targetSize;
 
-// Crop image, no resize
-- (UIImage *)imageWithCropRect:(CGRect)rect;
+/**
+ Aspect scale, no crop. If opaque is `YES`, the result may has white edges. If opaque is `NO`, the result may has transparent edges.
+ */
+- (nonnull UIImage *)imageAspectFitSize:(CGSize)targetSize opaque:(BOOL)opaque scale:(CGFloat)scale;
 
-// Scale image, may change the aspect ratio
-- (UIImage *)imageWithScaledSize:(CGSize)newSize;
+/**
+ This method is equivalent to calling the `imageAspectFitSize:opaque:scale:` method with the opaque parameter set to `NO` and a scale factor of `1.0`.
+ */
+- (nonnull UIImage *)imageAspectFitSize:(CGSize)targetSize;
 
-// Scale image, keep the aspect ratio
-- (UIImage *)imageWithScale:(CGFloat)scale;
+/**
+ Crop image, no resize
+ */
+- (nullable UIImage *)imageWithCropRect:(CGRect)rect;
+
+/**
+ Scale image, may change the aspect ratio
+ */
+- (nonnull UIImage *)imageWithScaledSize:(CGSize)newSize;
+
+/**
+ Scale image, keep the aspect ratio
+ */
+- (nonnull UIImage *)imageWithScale:(CGFloat)scale;
 
 #pragma mark - Tint color
-/// @name Tint color
 
-/** Creates and returns an tined image object that uses the specified color object.
+/**
+ Creates and returns an tined image object that uses the specified color object.
 
  This method preserve the highlights, shadows and alpha of the source image.
  
@@ -68,9 +78,10 @@
  
  @return A tinted image.
 */
-- (UIImage *)imageWithTintColor:(UIColor *)tintColor;
+- (nonnull UIImage *)imageWithTintColor:(nonnull UIColor *)tintColor;
 
-/** Creates and returns an tined image object that uses the specified color object.
+/**
+ Creates and returns an tined image object that uses the specified color object.
 
  This method only preserve the alpha of the source image.
  
@@ -80,7 +91,7 @@
  
  @return A tinted image.
 */
-- (UIImage *)imageOnlyKeepsAlphaWithTintColor:(UIColor *)tintColor;
+- (nonnull UIImage *)imageOnlyKeepsAlphaWithTintColor:(nonnull UIColor *)tintColor;
 
 
 @end

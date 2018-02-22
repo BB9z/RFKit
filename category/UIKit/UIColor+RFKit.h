@@ -13,15 +13,70 @@
 
 @interface UIColor (RFKit)
 
-- (nonnull UIColor *)initWithRGBHex:(NSInteger)hexValue alpha:(CGFloat)alpha;
-+ (nonnull UIColor *)colorWithRGBHex:(NSInteger)hexValue alpha:(CGFloat)alpha;
-+ (nonnull UIColor *)colorWithRGBHex:(NSInteger)hexValue;
+/**
+ Initializes and returns a color object using the specified opacity and RGB component values.
+ 
+ @param hexValue The RGB component value in hex, eg: 0xFFFFFF.
+ @param alpha The opacity value of the color object.
+ 
+ @return An initialized color object.
+ */
+- (nonnull UIColor *)initWithRGBHex:(int)hexValue alpha:(CGFloat)alpha;
 
-+ (nonnull UIColor *)colorWithRGBString:(nonnull NSString *)nsstring;
+/**
+ Creates and returns a color object using the specified opacity and RGB component values.
+ 
+ @param hexValue The RGB component value in hex, eg: 0xFFFFFF.
+ @param alpha The opacity value of the color object.
+ 
+ @return The color object.
+ */
++ (nonnull UIColor *)colorWithRGBHex:(int)hexValue alpha:(CGFloat)alpha;
+
+/**
+ Creates and returns a color object using the specified RGB component values.
+
+ @param hexValue The RGB component value in hex, eg: 0xFFFFFF.
+ 
+ @return The color object.
+ */
++ (nonnull UIColor *)colorWithRGBHex:(int)hexValue;
+
+/**
+ Creates and returns a color object using the specified opacity and RGB component values.
+
+ @param nsstring The RGB component value in hex string, eg: "#FFFFFF".
+ @param alpha The opacity value of the color object.
+ 
+ @return The color object.
+ */
 + (nonnull UIColor *)colorWithRGBString:(nonnull NSString *)nsstring alpha:(CGFloat)alpha;
 
+/**
+ Creates and returns a color object using the specified RGB component values.
+ 
+ @param nsstring The RGB component value in hex string, eg: "#FFFFFF".
+ 
+ @return The color object.
+ */
++ (nonnull UIColor *)colorWithRGBString:(nonnull NSString *)nsstring;
+
+/**
+ Creates and returns a color object object using the specified image.
+ 
+ @param resourceName The name of the image file.
+ 
+ @return The color object.
+ */
 + (nullable UIColor *)colorWithPatternImageName:(nonnull NSString *)resourceName;
 
+/**
+ Creates and returns a color object that component values are random with the specified alpha component.
+ 
+ @param alpha The opacity value of the color object.
+ 
+ @return The color object.
+ */
 + (nonnull UIColor *)randColorWithAlpha:(CGFloat)alpha;
 
 /**
