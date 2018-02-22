@@ -2,7 +2,7 @@
     NSError extension
     RFKit
 
-    Copyright (c) 2015 BB9z
+    Copyright (c) 2015, 2018 BB9z
     https://github.com/BB9z/RFKit
 
     The MIT License (MIT)
@@ -15,7 +15,7 @@
 /**
  Creates and initializes a NSError object for a given domain, code and localized description.
  
- @param domain The error domain—this can be one of the predefined NSError domains, or an arbitrary string describing a custom domain. If nil, application’s bundle identifier will be used.
+ @param domain The error domain—this can be one of the predefined NSError domains, or an arbitrary string describing a custom domain. If nil, application’s bundle identifier (if available) or `NSCocoaErrorDomain` will be used.
  @param code The error code for the error.
  @param localizedDescription Customized localized description of the error
  
