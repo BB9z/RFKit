@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import <RFKit/NSJSONSerialization+RFKit.h>
+#import "NSJSONSerialization+RFKit.h"
 #import "dout.h"
 
 @interface RTNSJSONSerialization : XCTestCase
