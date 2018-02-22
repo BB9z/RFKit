@@ -29,6 +29,11 @@
 		D57E75D0203EB350001BB427 /* NSURL+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D57E75CF203EB350001BB427 /* NSURL+RFKitTests.m */; };
 		D57E75D1203EB350001BB427 /* NSURL+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D57E75CF203EB350001BB427 /* NSURL+RFKitTests.m */; };
 		D57E75D2203EB350001BB427 /* NSURL+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D57E75CF203EB350001BB427 /* NSURL+RFKitTests.m */; };
+		D57E75D4203EFCB7001BB427 /* UIView+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D57E75D3203EFCB6001BB427 /* UIView+RFKitTests.m */; };
+		D57E75D7203F0051001BB427 /* RTHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D57E75D6203F0051001BB427 /* RTHelper.m */; };
+		D57E75D8203F0051001BB427 /* RTHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D57E75D6203F0051001BB427 /* RTHelper.m */; };
+		D57E75D9203F0051001BB427 /* RTHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D57E75D6203F0051001BB427 /* RTHelper.m */; };
+		D57E75DA203F05E7001BB427 /* RTHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D57E75D6203F0051001BB427 /* RTHelper.m */; };
 		D594688220327D8F00A1AE3D /* NSObject+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D594688120327D8F00A1AE3D /* NSObject+RFKitTests.m */; };
 		D59468E92032867A00A1AE3D /* DoutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D513B0FC2031D0BB00C62520 /* DoutTests.m */; };
 		D59468EA2032867D00A1AE3D /* NSObject+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D594688120327D8F00A1AE3D /* NSObject+RFKitTests.m */; };
@@ -83,6 +88,9 @@
 		D57E75C5203E49CF001BB427 /* NSJSONSerialization+RFKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSJSONSerialization+RFKitTests.m"; sourceTree = "<group>"; };
 		D57E75CB203E9C09001BB427 /* NSString+RFKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+RFKitTests.m"; sourceTree = "<group>"; };
 		D57E75CF203EB350001BB427 /* NSURL+RFKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURL+RFKitTests.m"; sourceTree = "<group>"; };
+		D57E75D3203EFCB6001BB427 /* UIView+RFKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+RFKitTests.m"; sourceTree = "<group>"; };
+		D57E75D5203F0051001BB427 /* RTHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTHelper.h; sourceTree = "<group>"; };
+		D57E75D6203F0051001BB427 /* RTHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RTHelper.m; sourceTree = "<group>"; };
 		D594688120327D8F00A1AE3D /* NSObject+RFKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RFKitTests.m"; sourceTree = "<group>"; };
 		D59468E1203281DE00A1AE3D /* Test-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Test-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D59468E5203281DE00A1AE3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -137,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				D513B0E92031917C00C62520 /* Info.plist */,
+				D57E75D3203EFCB6001BB427 /* UIView+RFKitTests.m */,
 			);
 			path = "Test-iOS";
 			sourceTree = "<group>";
@@ -154,6 +163,8 @@
 			children = (
 				D513B0F22031D0BA00C62520 /* category */,
 				D513B0FC2031D0BB00C62520 /* DoutTests.m */,
+				D57E75D5203F0051001BB427 /* RTHelper.h */,
+				D57E75D6203F0051001BB427 /* RTHelper.m */,
 			);
 			path = "Test-Universal";
 			sourceTree = "<group>";
@@ -612,6 +623,8 @@
 				D594688220327D8F00A1AE3D /* NSObject+RFKitTests.m in Sources */,
 				D57E75CC203E9C0A001BB427 /* NSString+RFKitTests.m in Sources */,
 				D57E75D0203EB350001BB427 /* NSURL+RFKitTests.m in Sources */,
+				D57E75D7203F0051001BB427 /* RTHelper.m in Sources */,
+				D57E75D4203EFCB7001BB427 /* UIView+RFKitTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,6 +643,7 @@
 				D59468EA2032867D00A1AE3D /* NSObject+RFKitTests.m in Sources */,
 				D57E75CD203E9C0A001BB427 /* NSString+RFKitTests.m in Sources */,
 				D57E75D1203EB350001BB427 /* NSURL+RFKitTests.m in Sources */,
+				D57E75D8203F0051001BB427 /* RTHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,6 +662,7 @@
 				D5C6F5A62032BB6D00D1E8DF /* NSObject+RFKitTests.m in Sources */,
 				D57E75CE203E9C0A001BB427 /* NSString+RFKitTests.m in Sources */,
 				D57E75D2203EB350001BB427 /* NSURL+RFKitTests.m in Sources */,
+				D57E75D9203F0051001BB427 /* RTHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,6 +670,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D57E75DA203F05E7001BB427 /* RTHelper.m in Sources */,
 				D5C6F59E20328F7000D1E8DF /* Target_watchOS.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
