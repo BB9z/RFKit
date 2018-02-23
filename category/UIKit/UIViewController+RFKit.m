@@ -11,7 +11,7 @@
     return NO;
 }
 
-+ (UIViewController *)rootViewControllerWhichCanPresentModalViewController {
++ (nullable UIViewController *)rootViewControllerWhichCanPresentModalViewController {
     UIViewController *vc = ([UIApplication sharedApplication].keyWindow.rootViewController)? : [(UIWindow *)[[UIApplication sharedApplication].windows firstObject] rootViewController];
     
     while (vc.presentedViewController) {
@@ -21,7 +21,7 @@
     return vc;
 }
 
-- (void)addChildViewController:(UIViewController *)childController intoView:(UIView *)viewControllerSubview {
+- (void)addChildViewController:(nonnull UIViewController *)childController intoView:(nullable UIView *)viewControllerSubview {
     [self addChildViewController:childController];
     if (viewControllerSubview) {
         [viewControllerSubview addSubview:childController.view];
@@ -47,7 +47,7 @@
     }
 }
 
-- (id)parentViewControllerOfClass:(Class)viewControllerClas {
+- (nullable id)parentViewControllerOfClass:(nonnull Class)viewControllerClas {
     UIViewController *vc = self.parentViewController;
     while (vc && ![vc isKindOfClass:viewControllerClas]) {
         vc = vc.parentViewController;

@@ -13,7 +13,8 @@
 
 @interface UIWebView (RFKit)
 
-/** Make the receiver’s background transparent.
+/**
+ Make the receiver’s background transparent.
  */
 - (void)clearBackgroundImages;
 

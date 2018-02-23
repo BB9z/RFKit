@@ -8,16 +8,12 @@
     if (!self.firstItem && !self.secondAttribute) return;
 
     if (!self.firstItem || !self.secondAttribute) {
-        if (self.firstItem) {
-            [self.firstItem layoutIfNeeded];
-        }
-        if (self.secondItem) {
-            [self.secondItem layoutIfNeeded];
-        }
+        [self.firstItem layoutIfNeeded];
+        [self.secondItem layoutIfNeeded];
         return;
     }
 
-    UIView *comment = [UIView commonSuperviewWith:(UIView *_Nonnull)self.firstItem anotherView:(UIView *_Nonnull)self.secondItem];
+    UIView *comment = [UIView commonSuperviewWith:self.firstItem anotherView:self.secondItem];
     [comment layoutIfNeeded];
 }
 
