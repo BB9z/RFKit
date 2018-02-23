@@ -693,6 +693,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.bb9z.RFKit.Test-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				WARNING_CFLAGS = (
+					"$(inherited)",
+					"-Wno-deprecated-declarations",
+					"-Wno-nonnull",
+				);
 			};
 			name = Debug;
 		};
@@ -710,6 +715,11 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.bb9z.RFKit.Test-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				WARNING_CFLAGS = (
+					"$(inherited)",
+					"-Wno-deprecated-declarations",
+					"-Wno-nonnull",
+				);
 			};
 			name = Release;
 		};
@@ -733,6 +743,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.bb9z.RFKit.Test-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				WARNING_CFLAGS = (
+					"$(inherited)",
+					"-Wno-deprecated-declarations",
+					"-Wno-nonnull",
+				);
 			};
 			name = Debug;
 		};
@@ -755,6 +770,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.bb9z.RFKit.Test-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				WARNING_CFLAGS = (
+					"$(inherited)",
+					"-Wno-deprecated-declarations",
+					"-Wno-nonnull",
+				);
 			};
 			name = Release;
 		};
@@ -947,6 +967,11 @@
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 11.2;
+				WARNING_CFLAGS = (
+					"$(inherited)",
+					"-Wno-deprecated-declarations",
+					"-Wno-nonnull",
+				);
 			};
 			name = Debug;
 		};
@@ -969,6 +994,11 @@
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 11.2;
+				WARNING_CFLAGS = (
+					"$(inherited)",
+					"-Wno-deprecated-declarations",
+					"-Wno-nonnull",
+				);
 			};
 			name = Release;
 		};

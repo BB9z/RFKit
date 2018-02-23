@@ -1,10 +1,10 @@
 PODS:
-  - RFKit/ALL (1.6.1):
+  - RFKit/ALL (1.7.0):
     - RFKit/Category/All
     - RFKit/Default
     - RFKit/Performance
     - RFKit/UncaughtExceptionHandler
-  - RFKit/Category/All (1.6.1):
+  - RFKit/Category/All (1.7.0):
     - RFKit/Category/Default
     - RFKit/Category/NSDate
     - RFKit/Category/NSDateFormatter
@@ -17,7 +17,7 @@ PODS:
     - RFKit/Category/UISearchBar
     - RFKit/Category/UIView+RFAnimate
     - RFKit/Category/UIWebView
-  - RFKit/Category/Default (1.6.1):
+  - RFKit/Category/Default (1.7.0):
     - RFKit/Category/NSArray
     - RFKit/Category/NSBundle
     - RFKit/Category/NSDictionary
@@ -35,59 +35,59 @@ PODS:
     - RFKit/Category/UITableView
     - RFKit/Category/UIView
     - RFKit/Category/UIViewController
-  - RFKit/Category/NSArray (1.6.1)
-  - RFKit/Category/NSBundle (1.6.1)
-  - RFKit/Category/NSDate (1.6.1):
+  - RFKit/Category/NSArray (1.7.0)
+  - RFKit/Category/NSBundle (1.7.0)
+  - RFKit/Category/NSDate (1.7.0):
     - RFKit/Runtime
-  - RFKit/Category/NSDateFormatter (1.6.1)
-  - RFKit/Category/NSDictionary (1.6.1):
+  - RFKit/Category/NSDateFormatter (1.7.0)
+  - RFKit/Category/NSDictionary (1.7.0):
     - RFKit/Category/NSObject
-  - RFKit/Category/NSError (1.6.1)
-  - RFKit/Category/NSFileManager (1.6.1):
+  - RFKit/Category/NSError (1.7.0)
+  - RFKit/Category/NSFileManager (1.7.0):
     - RFKit/Runtime
-  - RFKit/Category/NSJSONSerialization (1.6.1):
+  - RFKit/Category/NSJSONSerialization (1.7.0):
     - RFKit/Runtime
-  - RFKit/Category/NSLayoutConstraint (1.6.1):
+  - RFKit/Category/NSLayoutConstraint (1.7.0):
     - RFKit/Category/UIView
-  - RFKit/Category/NSNumberFormatter (1.6.1):
+  - RFKit/Category/NSNumberFormatter (1.7.0):
     - RFKit/Runtime
-  - RFKit/Category/NSObject (1.6.1):
+  - RFKit/Category/NSObject (1.7.0):
     - RFKit/Runtime
-  - RFKit/Category/NSString (1.6.1):
+  - RFKit/Category/NSString (1.7.0):
     - RFKit/Runtime
-  - RFKit/Category/NSURL (1.6.1)
-  - RFKit/Category/UIAlertView (1.6.1)
-  - RFKit/Category/UIButton (1.6.1)
-  - RFKit/Category/UIColor (1.6.1)
-  - RFKit/Category/UIDevice (1.6.1):
+  - RFKit/Category/NSURL (1.7.0)
+  - RFKit/Category/UIAlertView (1.7.0)
+  - RFKit/Category/UIButton (1.7.0)
+  - RFKit/Category/UIColor (1.7.0)
+  - RFKit/Category/UIDevice (1.7.0):
     - RFKit/Runtime
-  - RFKit/Category/UIImage (1.6.1):
+  - RFKit/Category/UIImage (1.7.0):
     - RFKit/Runtime
-  - RFKit/Category/UINavigationController (1.6.1):
+  - RFKit/Category/UINavigationController (1.7.0):
     - RFKit/Category/NSArray
-  - RFKit/Category/UIResponder (1.6.1)
-  - RFKit/Category/UIScrollView+RFScrolling (1.6.1)
-  - RFKit/Category/UISearchBar (1.6.1)
-  - RFKit/Category/UIStoryboard (1.6.1)
-  - RFKit/Category/UITableView (1.6.1):
+  - RFKit/Category/UIResponder (1.7.0)
+  - RFKit/Category/UIScrollView+RFScrolling (1.7.0)
+  - RFKit/Category/UISearchBar (1.7.0)
+  - RFKit/Category/UIStoryboard (1.7.0)
+  - RFKit/Category/UITableView (1.7.0):
     - RFKit/Category/UIView+RFAnimate
-  - RFKit/Category/UIView (1.6.1):
+  - RFKit/Category/UIView (1.7.0):
     - RFKit/Category/UIResponder
     - RFKit/RFGeometry
-  - RFKit/Category/UIView+RFAnimate (1.6.1):
+  - RFKit/Category/UIView+RFAnimate (1.7.0):
     - RFKit/Runtime
-  - RFKit/Category/UIViewController (1.6.1)
-  - RFKit/Category/UIWebView (1.6.1)
-  - RFKit/Default (1.6.1):
+  - RFKit/Category/UIViewController (1.7.0)
+  - RFKit/Category/UIWebView (1.7.0)
+  - RFKit/Default (1.7.0):
     - RFKit/Category/Default
     - RFKit/RFGeometry
     - RFKit/Runtime
-  - RFKit/Performance (1.6.1):
+  - RFKit/Performance (1.7.0):
     - RFKit/Runtime
-  - RFKit/RFGeometry (1.6.1):
+  - RFKit/RFGeometry (1.7.0):
     - RFKit/Runtime
-  - RFKit/Runtime (1.6.1)
-  - RFKit/UncaughtExceptionHandler (1.6.1):
+  - RFKit/Runtime (1.7.0)
+  - RFKit/UncaughtExceptionHandler (1.7.0):
     - RFKit/Runtime
 
 DEPENDENCIES:
@@ -98,7 +98,7 @@ EXTERNAL SOURCES:
     :path: ..
 
 SPEC CHECKSUMS:
-  RFKit: 0dd1e806b5b5406ab177b47a361c856b0abc8a7a
+  RFKit: 517fed216e4c18788c72e3dd9f81d5ee02a7727c
 
 PODFILE CHECKSUM: 88696eaa952065c1e8bd8c9ae53aa3c8f211035b
 

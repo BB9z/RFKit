@@ -28,6 +28,18 @@ Pod::Spec.new do |s|
   s.preserve_paths = 'doc'
 
   s.requires_arc = true
+
+  s.pod_target_xcconfig = {
+    # These config should only exsists in develop branch.
+    'WARNING_CFLAGS'=> [
+      '-Weverything',                   # Enable all possiable as we are developing a library.
+      '-Wno-gnu-statement-expression',  # Allow ?: expression.
+      '-Wno-gnu-conditional-omitted-operand',
+      '-Wno-auto-import',               # Still needs old #import for backward compatibility. 
+      '-Wno-sign-conversion',
+      '-Wno-sign-compare',
+    ].join(' ')
+  }
   
   s.default_subspec = 'Default'
   
