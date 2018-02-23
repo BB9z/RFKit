@@ -34,6 +34,8 @@
  @code
  - (BOOL)doSomethingWithBlock:(RF_NOESCAPE void(^)(void))block;
  @endcode
+ 
+ @deprecated(RFKit(2.0)): Use NS_NOESCAPE
  */
 #if __has_attribute(noescape)
 #  define RF_NOESCAPE __attribute__((noescape))
@@ -49,6 +51,8 @@
  @code
  - (id)addObserverForSomething RF_WARN_UNUSED_RESULT;
  @endcode
+ 
+ @deprecated(RFKit(2.0)): Use NS_WARN_UNUSED_RESULT
  */
 #if __has_attribute(warn_unused_result)
 #  define RF_WARN_UNUSED_RESULT __attribute__((warn_unused_result))
@@ -59,7 +63,22 @@
 
 #pragma mark - SDK backward compatibility
 
-// API available introductions in Xcode 9
+#pragma mark Xcode 9
+
+
+#pragma mark Xcode 8
+// Xcode 8, with macOS 10.12 and iOS 10 SDK
+// https://developer.apple.com/library/content/releasenotes/Miscellaneous/RN-Foundation-OSX10.12/index.html
+
+#ifndef NS_NOESCAPE
+#   if __has_attribute(noescape)
+#       define NS_NOESCAPE __attribute__((noescape))
+#   else
+#       define NS_NOESCAPE
+#   endif
+#endif
+
+// API available
 #ifndef API_AVAILABLE
 #   define API_AVAILABLE(...)
 #endif
@@ -74,4 +93,15 @@
 
 #ifndef API_UNAVAILABLE
 #   define API_UNAVAILABLE(...)
+#endif
+
+#pragma mark Unknow
+// Introduction version Unknow
+
+#ifndef NS_WARN_UNUSED_RESULT
+#   if __has_attribute(warn_unused_result)
+#       define NS_WARN_UNUSED_RESULT __attribute__((warn_unused_result))
+#   else
+#       define NS_WARN_UNUSED_RESULT
+#   endif
 #endif
