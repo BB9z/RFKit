@@ -64,9 +64,10 @@
         return nil;
     }
 
-    NSUInteger tokenLength = truncationToken.length;
+    NSString *token = truncationToken?: @"";
+    NSUInteger tokenLength = token.length;
     NSString *tmp = [self stringByPaddingToLength:newLength - tokenLength withString:@"" startingAtIndex:0];
-    return [tmp stringByAppendingString:truncationToken?: @""];
+    return [tmp stringByAppendingString:token];
 }
 
 - (nonnull NSString *)extractedHTMLContent {

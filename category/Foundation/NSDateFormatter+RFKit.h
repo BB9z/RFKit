@@ -51,7 +51,7 @@
  
  @return A `NSDateFormatter` object.
  */
-+ (nonnull NSDateFormatter *)currentLocaleFormatterFromTemplate:(nullable NSString *)templateString;
++ (nonnull NSDateFormatter *)currentLocaleFormatterFromTemplate:(nonnull NSString *)templateString;
 
 /**
  Returns a date formatter object with a given date format and a specified time zone.

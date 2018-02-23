@@ -41,15 +41,14 @@
 @implementation NSMutableArray (RFKit)
 
 - (void)rf_addObject:(nullable id)anObject {
-    if (anObject) {
-        [self addObject:anObject];
-    }
+    if (!anObject) return;
+    [self addObject:(id)anObject];
 }
 
 - (void)rf_insertObject:(nullable id)anObject atIndex:(NSUInteger)index {
     if (!anObject) return;
     if (index > self.count) return;
-    [self insertObject:anObject atIndex:index];
+    [self insertObject:(id)anObject atIndex:index];
 }
 
 - (void)addObjectsFromDictionary:(nullable NSDictionary *)sourceDictionary withSpecifiedKeys:(nonnull NSString *)firstKey, ... {
@@ -65,13 +64,12 @@
 }
 
 - (void)setLastObject:(nullable id)anObject {
-    if (anObject) {
-        NSInteger idx = self.count - 1;
-        if (idx < 0) {
-            idx = 0;
-        }
-        self[idx] = anObject;
+    if (!anObject) return;
+    NSInteger idx = self.count - 1;
+    if (idx < 0) {
+        idx = 0;
     }
+    self[idx] = (id)anObject;
 }
 
 - (void)removeObjectsPassingTest:(BOOL (^__nonnull)(id __nonnull obj, NSUInteger idx, BOOL *__nonnull stop))predicate {

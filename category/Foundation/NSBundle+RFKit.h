@@ -23,7 +23,7 @@
  
  @param path Relative path component
  */
-+ (nonnull NSString *)pathForMainBoundlePath:(nullable NSString *)path;
++ (nonnull NSString *)pathForMainBoundlePath:(nonnull NSString *)path;
 
 /**
  Bundle version string, according to Info.plist file.

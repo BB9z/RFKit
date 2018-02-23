@@ -6,7 +6,7 @@
 
 + (nullable NSString *)stringWithJSONObject:(nullable id)obj options:(NSJSONWritingOptions)opt error:(NSError *__autoreleasing *)error {
     if (!obj) return nil;
-    NSData *d = [NSJSONSerialization dataWithJSONObject:obj options:opt error:error];
+    NSData *d = [NSJSONSerialization dataWithJSONObject:(id)obj options:opt error:error];
     return [[NSString alloc] initWithData:d encoding:NSUTF8StringEncoding];
 }
 

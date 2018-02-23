@@ -20,8 +20,8 @@
 @implementation RTDout
 
 - (void)testPerformance {
-    // Skip this test
-    return;
+    BOOL skip = YES;
+    if (skip) return;
     
     int i;
     
@@ -61,9 +61,15 @@
     dout_hex(a)
     
     dout_float(a)
+#if TARGET_OS_OSX
+    dout_point(NSMakePoint(12, 34))
+    dout_size(NSMakeSize(56, 78))
+    dout_rect(NSMakeRect(1, 2, 3, 4))
+#else
     dout_point(CGPointMake(12, 34))
     dout_size(CGSizeMake(56, 78))
     dout_rect(CGRectMake(1, 2, 3, 4))
+#endif
     
     doutwork()
     douttrace()

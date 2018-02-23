@@ -33,7 +33,7 @@
 }
 
 - (nonnull NSString *)stringFromFloat:(float)floatVaule {
-    return [self stringFromNumber:@(floatVaule)];
+    return (NSString *__nonnull)[self stringFromNumber:@(floatVaule)];
 }
 
 @end

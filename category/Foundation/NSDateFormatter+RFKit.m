@@ -33,7 +33,7 @@
 	return [share copy];
 }
 
-+ (nonnull NSDateFormatter *)currentLocaleFormatterFromTemplate:(nullable NSString *)template {
++ (nonnull NSDateFormatter *)currentLocaleFormatterFromTemplate:(nonnull NSString *)template {
     NSString *format = [NSDateFormatter dateFormatFromTemplate:template options:0 locale:[NSLocale currentLocale]];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setLocale:[NSLocale currentLocale]];
@@ -41,9 +41,12 @@
     return formatter;
 }
 
-+ (nonnull NSDateFormatter *)dateFormatterWithDateFormat:(nullable NSString *)formatString timeZoneWithName:(nullable NSString *)tzName {
++ (nonnull NSDateFormatter *)dateFormatterWithDateFormat:(nullable NSString *)formatString timeZoneWithName:(nullable NSString *)timezoneName {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setTimeZone:[NSTimeZone timeZoneWithName:tzName]];
+    if (timezoneName) {
+        NSString *tzName = timezoneName;
+        [formatter setTimeZone:[NSTimeZone timeZoneWithName:tzName]];
+    }
     [formatter setDateFormat:formatString];
     return formatter;
 }

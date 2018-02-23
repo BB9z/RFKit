@@ -19,7 +19,7 @@
 	return [NSHomeDirectory() stringByAppendingPathComponent:@"/tmp/"];
 }
 
-+ (nonnull NSString *)pathForMainBoundlePath:(nullable NSString *)path {
++ (nonnull NSString *)pathForMainBoundlePath:(nonnull NSString *)path {
     return [NSHomeDirectory() stringByAppendingPathComponent:path];
 }
 

@@ -45,16 +45,17 @@
         || ![keyArray.firstObject isKindOfClass:NSString.class]) {
         return nil;
     }
+    NSArray *keys = keyArray;
     
     if (![self respondsToSelector:@selector(objectForKey:)]
         && ![self respondsToSelector:@selector(objectAtIndex:)]) {
         return nil;
     }
 
-    id firstIndex = keyArray.firstObject;
+    id firstIndex = keys.firstObject;
 
     // 字典，只有一个key
-    if (keyArray.count == 1
+    if (keys.count == 1
         && [self respondsToSelector:@selector(objectForKey:)]) {
         id tmp = [(NSDictionary *)self objectForKey:firstIndex];
         if (tmp) {
@@ -67,7 +68,7 @@
     
     // keyArray.count >=1，参数无误
     // 字典或数组
-    NSMutableArray *arrayFirstRemoved = [NSMutableArray arrayWithArray:keyArray];
+    NSMutableArray *arrayFirstRemoved = [NSMutableArray arrayWithArray:keys];
     [arrayFirstRemoved removeObjectAtIndex:0];
     
     if ([self isKindOfClass:NSArray.class]) {
@@ -75,7 +76,7 @@
         NSMutableArray *r = [NSMutableArray arrayWithCapacity:20];
         
         for (id obj in (NSArray *)self) {
-            id tmp = [obj objectsForDictKeyArray:keyArray];
+            id tmp = [obj objectsForDictKeyArray:keys];
             [r addObjectsFromArray:tmp];
         }
         return r;
@@ -87,8 +88,9 @@
     }
 }
 
-- (nullable id)performRespondedSelector:(SEL)aSelector {
-    if (![self respondsToSelector:aSelector]) return nil;
+- (nullable id)performRespondedSelector:(nullable SEL)selector {
+    if (!selector || ![self respondsToSelector:selector]) return nil;
+    SEL aSelector = selector;
     NSMethodSignature *ms = [self methodSignatureForSelector:aSelector];
     NSAssert(ms, @"Cannot get method signature for %@", NSStringFromSelector(aSelector));
     NSAssert(ms.numberOfArguments == 2, @"The selector must have no arguments.");
@@ -99,26 +101,26 @@
     (strncmp(rtype, @encode(TYPE), 1) == 0)
     
     if (_isType(id) || _isType(Class)) {
-        id (*method)(id, SEL) = (void *)aIMP;
+        id (*method)(id, SEL) = (id (*)(id, SEL))aIMP;
         return method(self, aSelector);
     }
     if (_isType(SEL) || _isType(char *)) {
-        char * (*method)(id, SEL) = (void *)aIMP;
+        char * (*method)(id, SEL) = (char *(*)(id, SEL))aIMP;
         return [NSString stringWithCString:method(self, aSelector) encoding:NSUTF8StringEncoding];
     }
     if (_isType(void)) {
-        id (*method)(id, SEL) = (void *)aIMP;
+        id (*method)(id, SEL) = (id (*)(id, SEL))aIMP;
         method(self, aSelector);
         return nil;
     }
     if (_isType(BOOL) || _isType(Boolean) || _isType(boolean_t)) {
-        BOOL (*method)(id, SEL) = (void *)aIMP;
+        BOOL (*method)(id, SEL) = (BOOL (*)(id, SEL))aIMP;
         return [NSNumber numberWithBool:method(self, aSelector)];
     }
     
 #define _isNumberThenReturn(INDEX, TYPE)\
     if (_isType(TYPE)) {\
-        TYPE (*method)(id, SEL) = (void *)aIMP;\
+        TYPE (*method)(id, SEL) = (TYPE (*)(id, SEL))aIMP;\
         return @(method(self, aSelector));\
     }
     metamacro_foreach(_isNumberThenReturn, ,
