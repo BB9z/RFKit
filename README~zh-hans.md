@@ -6,6 +6,14 @@
 
 RFKit 包含一套对日常 Cocoa 开发很有帮助的工具。
 
+## 版本支持
+
+| RFKit Version | Minimum Xcode Version | Minimum iOS Target  | Minimum macOS Target | Minimum watchOS Target | Minimum tvOS Target |
+|:-------------:|:---------------------:|:-------------------:|:--------------------:|:----------------------:|:-------------------:|
+| 2.0           | Xcode 8               | iOS 6  | macOS 10.8  | watchOS 2.0 | tvOS 9.0 |
+| 1.7           | Xcode 8               | iOS 6  | macOS 10.8  | watchOS 2.0 | tvOS 9.0 |
+| 1.6           | Xcode 7               | iOS 6  | N/A         | watchOS 2.0 | N/A      |
+
 ## 安装
 
 ### CocoaPods
