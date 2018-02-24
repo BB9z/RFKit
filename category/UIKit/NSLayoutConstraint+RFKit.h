@@ -2,7 +2,7 @@
     NSLayoutConstraint extension
     RFKit
 
-    Copyright (c) 2014-2015 BB9z
+    Copyright (c) 2014-2015, 2018 BB9z
     https://github.com/BB9z/RFKit
 
     The MIT License (MIT)
@@ -16,6 +16,6 @@
 /**
  Force the reciver affected view lay out the subviews immediately.
  */
-- (void)updateLayoutIfNeeded;
+- (void)updateLayoutIfNeeded API_AVAILABLE(ios(6.0), tvos(9.0));
 
 @end

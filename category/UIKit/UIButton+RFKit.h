@@ -34,6 +34,6 @@
  @param capInsets The values to use for the cap insets.
  @param state The state that uses the specified image. The values are described in UIControlState.
  */
-- (void)setBackgroundImageResizingCapInsets:(UIEdgeInsets)capInsets forState:(UIControlState)state NS_AVAILABLE_IOS(5_0);
+- (void)setBackgroundImageResizingCapInsets:(UIEdgeInsets)capInsets forState:(UIControlState)state API_AVAILABLE(ios(2.0), tvos(9.0));
 
 @end

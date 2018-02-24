@@ -35,7 +35,7 @@
  
  @return An array contains specified objects.
  */
-- (nonnull NSArray<id> *)objectsForIndexArray:(nullable NSArray<id> *)indexsArray;
+- (nonnull NSArray<id> *)objectsForIndexArray:(nullable NSArray<id> *)indexsArray API_AVAILABLE(macos(10.8), ios(6.0), tvos(9.0), watchos(2.0));
 
 /**
  Extracte objects from array or dictionary like object.
@@ -65,7 +65,7 @@
  
  @return An array contains extracted objects. If can not get specified objects, nil returns.
  */
-- (nullable NSArray<id> *)objectsForDictKeyArray:(nullable NSArray<NSString *> *)keyArray;
+- (nullable NSArray<id> *)objectsForDictKeyArray:(nullable NSArray<NSString *> *)keyArray API_AVAILABLE(macos(10.8), ios(6.0), tvos(9.0), watchos(2.0));
 
 /**
  Safely sends a specified message to the receiver and returns the result of the message.
@@ -77,6 +77,6 @@
     If the method return type is char * or selector, the result is wrapped in an NSString object.
     Other unsupport return type result an NSInvalidArgumentException` raised.
  */
-- (nullable id)performRespondedSelector:(nullable SEL)aSelector;
+- (nullable id)performRespondedSelector:(nullable SEL)aSelector API_AVAILABLE(macos(10.4), ios(2.0), tvos(9.0), watchos(2.0));
 
 @end

@@ -2,7 +2,7 @@
     Scroll extension for UIScrollView
     RFKit
 
-    Copyright (c) 2014-2015 BB9z
+    Copyright (c) 2014-2015, 2018 BB9z
     https://github.com/BB9z/RFKit
 
     The MIT License (MIT)
@@ -18,14 +18,14 @@
  
  @param animated `YES` if the scrolling should be animated, `NO` if it should be immediate.
  */
-- (void)scrollToTopAnimated:(BOOL)animated;
+- (void)scrollToTopAnimated:(BOOL)animated API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  Make the receiver scroll to the bottom.
 
  @param animated `YES` if the scrolling should be animated, `NO` if it should be immediate.
  */
-- (void)scrollToBottomAnimated:(BOOL)animated;
+- (void)scrollToBottomAnimated:(BOOL)animated API_AVAILABLE(ios(2.0), tvos(9.0));
 
 @end
 
@@ -36,6 +36,6 @@
 
  @param animated `YES` if the scrolling should be animated, `NO` if it should be immediate.
  */
-- (void)scrollToLastRowAnimated:(BOOL)animated;
+- (void)scrollToLastRowAnimated:(BOOL)animated API_AVAILABLE(ios(2.0), tvos(9.0));
 
 @end

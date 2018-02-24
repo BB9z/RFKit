@@ -16,14 +16,14 @@
 /**
  Returns a date representing the absolute time calculated from given components of current time zone.
  */
-+ (nonnull NSDate *)dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day hour:(NSInteger)hour minute:(NSInteger)minute second:(NSInteger)second;
++ (nonnull NSDate *)dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day hour:(NSInteger)hour minute:(NSInteger)minute second:(NSInteger)second API_AVAILABLE(macos(10.4), ios(2.0), tvos(9.0), watchos(2.0));
 
 /**
  Returns a date representing the absolute time calculated from given components of current time zone.
  
  @see dateWithYear:month:day:hour:minute:second:
  */
-+ (nonnull NSDate *)dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
++ (nonnull NSDate *)dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day API_AVAILABLE(macos(10.4), ios(2.0), tvos(9.0), watchos(2.0));
 
 /**
  Returns a Boolean value that indicates whether the receiver and a given date object are the same day.
@@ -32,7 +32,7 @@
  
  @return `YES` if the receiver and anObject are the same day, otherwise `NO`.
  */
-- (BOOL)isSameDayWithDate:(nullable NSDate *)date;
+- (BOOL)isSameDayWithDate:(nullable NSDate *)date API_AVAILABLE(macos(10.9), ios(7.0), tvos(9.0), watchos(2.0));
 
 /**
  Returns the number of calendar days between two dates.
@@ -42,15 +42,15 @@
  
  @return The number of calendar days between two dates.
  */
-+ (NSInteger)daysBetweenDate:(nonnull NSDate *)fromDateTime andDate:(nonnull NSDate *)toDateTime;
++ (NSInteger)daysBetweenDate:(nonnull NSDate *)fromDateTime andDate:(nonnull NSDate *)toDateTime API_AVAILABLE(macos(10.9), ios(7.0), tvos(9.0), watchos(2.0));
 
 /**
  Returns a date object at 00:00:00 of current day.
  */
-- (nonnull NSDate *)startTimeOfDate;
+- (nonnull NSDate *)startTimeOfDate API_AVAILABLE(macos(10.9), ios(7.0), tvos(9.0), watchos(2.0));
 
 /**
  Returns a date object at 24:00:00 of current day. This date is actually the start time of the next day.
  */
-- (nonnull NSDate *)endTimeOfDate;
+- (nonnull NSDate *)endTimeOfDate API_AVAILABLE(macos(10.9), ios(7.0), tvos(9.0), watchos(2.0));
 @end

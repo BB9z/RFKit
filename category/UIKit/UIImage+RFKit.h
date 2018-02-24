@@ -19,7 +19,7 @@
 /**
  Return the dimensions of the image in pixels, taking orientation into account.
  */
-- (CGSize)pixelSize;
+- (CGSize)pixelSize API_AVAILABLE(ios(4.0), tvos(9.0), watchos(2.0));
 
 /**
  Creat a thumbnail image which it’s width and height not larger than the specified size.
@@ -28,42 +28,42 @@
  
  @return New copyed image which has same scale with the reciver.
  */
-- (nonnull UIImage *)thumbnailImageWithMaxSize:(CGSize)targetSize;
+- (nonnull UIImage *)thumbnailImageWithMaxSize:(CGSize)targetSize API_AVAILABLE(ios(4.0), tvos(9.0), watchos(2.0));
 
 /**
  Aspect scale, may crop image
  */
-- (nonnull UIImage *)imageAspectFillSize:(CGSize)targetSize opaque:(BOOL)opaque scale:(CGFloat)scale;
+- (nonnull UIImage *)imageAspectFillSize:(CGSize)targetSize opaque:(BOOL)opaque scale:(CGFloat)scale API_AVAILABLE(ios(4.0), tvos(9.0), watchos(2.0));
 
 /**
  This method is equivalent to calling the `imageAspectFillSize:opaque:scale:` method with the opaque parameter set to `NO` and a scale factor of `1.0`.
  */
-- (nonnull UIImage *)imageAspectFillSize:(CGSize)targetSize;
+- (nonnull UIImage *)imageAspectFillSize:(CGSize)targetSize API_AVAILABLE(ios(4.0), tvos(9.0), watchos(2.0));
 
 /**
  Aspect scale, no crop. If opaque is `YES`, the result may has white edges. If opaque is `NO`, the result may has transparent edges.
  */
-- (nonnull UIImage *)imageAspectFitSize:(CGSize)targetSize opaque:(BOOL)opaque scale:(CGFloat)scale;
+- (nonnull UIImage *)imageAspectFitSize:(CGSize)targetSize opaque:(BOOL)opaque scale:(CGFloat)scale API_AVAILABLE(ios(4.0), tvos(9.0), watchos(2.0));
 
 /**
  This method is equivalent to calling the `imageAspectFitSize:opaque:scale:` method with the opaque parameter set to `NO` and a scale factor of `1.0`.
  */
-- (nonnull UIImage *)imageAspectFitSize:(CGSize)targetSize;
+- (nonnull UIImage *)imageAspectFitSize:(CGSize)targetSize API_AVAILABLE(ios(4.0), tvos(9.0), watchos(2.0));
 
 /**
  Crop image, no resize
  */
-- (nullable UIImage *)imageWithCropRect:(CGRect)rect;
+- (nullable UIImage *)imageWithCropRect:(CGRect)rect API_AVAILABLE(ios(4.0), tvos(9.0), watchos(2.0));
 
 /**
  Scale image, may change the aspect ratio
  */
-- (nonnull UIImage *)imageWithScaledSize:(CGSize)newSize;
+- (nonnull UIImage *)imageWithScaledSize:(CGSize)newSize API_AVAILABLE(ios(4.0), tvos(9.0), watchos(2.0));
 
 /**
  Scale image, keep the aspect ratio
  */
-- (nonnull UIImage *)imageWithScale:(CGFloat)scale;
+- (nonnull UIImage *)imageWithScale:(CGFloat)scale API_AVAILABLE(ios(4.0), tvos(9.0), watchos(2.0));
 
 #pragma mark - Tint color
 
@@ -78,7 +78,7 @@
  
  @return A tinted image.
 */
-- (nonnull UIImage *)imageWithTintColor:(nonnull UIColor *)tintColor;
+- (nonnull UIImage *)imageWithTintColor:(nonnull UIColor *)tintColor API_AVAILABLE(ios(4.0), tvos(9.0), watchos(2.0));
 
 /**
  Creates and returns an tined image object that uses the specified color object.
@@ -91,7 +91,7 @@
  
  @return A tinted image.
 */
-- (nonnull UIImage *)imageOnlyKeepsAlphaWithTintColor:(nonnull UIColor *)tintColor;
+- (nonnull UIImage *)imageOnlyKeepsAlphaWithTintColor:(nonnull UIColor *)tintColor API_AVAILABLE(ios(4.0), tvos(9.0), watchos(2.0));
 
 
 @end

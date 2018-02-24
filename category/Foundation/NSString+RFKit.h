@@ -25,7 +25,7 @@
  
  @return Lowercase md5 result.
  */
-- (nonnull NSString *)rf_MD5String;
+- (nonnull NSString *)rf_MD5String API_AVAILABLE(macos(10.0), ios(2.0), tvos(9.0), watchos(2.0));
 
 + (nullable NSString *)pinyinFromString:(nullable NSString *)orgString DEPRECATED_MSG_ATTRIBUTE("Use rf_pinyinStringWithStripDiacritics: instead.");
 
@@ -39,7 +39,7 @@
  
  @param stripDiacritics A Boolean value that indicates whether should remove diacritic markings.
  */
-- (nonnull NSString *)rf_pinyinStringWithStripDiacritics:(BOOL)stripDiacritics;
+- (nonnull NSString *)rf_pinyinStringWithStripDiacritics:(BOOL)stripDiacritics API_AVAILABLE(macos(10.4), ios(2.0), tvos(9.0), watchos(2.0));
 
 /**
  Returns a Boolean value indicating whether the receiver contains the specified string.
@@ -48,7 +48,7 @@
 
  @return `YES` if the receiver contains the string; otherwise, `NO`.
  */
-- (BOOL)containsString:(nonnull NSString *)string;
+- (BOOL)containsString:(nonnull NSString *)string API_AVAILABLE(macos(10.0), ios(2.0), tvos(9.0), watchos(2.0));
 
 /**
  Returns a Boolean value indicating whether the receiver contains the specified string.
@@ -58,7 +58,7 @@
 
  @return `YES` if the receiver contains the string; otherwise, `NO`.
  */
-- (BOOL)containsString:(nonnull NSString *)string options:(NSStringCompareOptions)mask;
+- (BOOL)containsString:(nonnull NSString *)string options:(NSStringCompareOptions)mask API_AVAILABLE(macos(10.5), ios(2.0), tvos(9.0), watchos(2.0));
 
 /**
  Returns a new string formed from the receiver by replacing characters with specified string from the end.
@@ -83,20 +83,20 @@
 
  @return A new string formed from the receiver by replacing characters with specified string from the end as necessary.
  */
-- (nonnull NSString *)stringByTrimmingToLength:(NSUInteger)newLength withTruncationToken:(nullable NSString *)truncationToken;
+- (nonnull NSString *)stringByTrimmingToLength:(NSUInteger)newLength withTruncationToken:(nullable NSString *)truncationToken API_AVAILABLE(macos(10.0), ios(2.0), tvos(9.0), watchos(2.0));
 
 /**
  Reverse a NSString
  
  @return String reversed
  */
-- (nonnull NSString *)reverseString;
+- (nonnull NSString *)reverseString API_AVAILABLE(macos(10.0), ios(2.0), tvos(9.0), watchos(2.0));
 
 /**
  Remove HTML tags in receiver’s.
  
  This method just replace HTML tags with empty string using regular expression. The additonal spaces and line breaks in HTML are preserved.
  */
-- (nonnull NSString *)extractedHTMLContent;
+- (nonnull NSString *)extractedHTMLContent API_AVAILABLE(macos(10.7), ios(4.0), tvos(9.0), watchos(2.0));
 
 @end

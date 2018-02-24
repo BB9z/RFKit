@@ -21,7 +21,7 @@
  
  @return An initialized color object.
  */
-- (nonnull UIColor *)initWithRGBHex:(int)hexValue alpha:(CGFloat)alpha;
+- (nonnull UIColor *)initWithRGBHex:(int)hexValue alpha:(CGFloat)alpha API_AVAILABLE(ios(2.0), tvos(9.0), watchos(2.0));
 
 /**
  Creates and returns a color object using the specified opacity and RGB component values.
@@ -31,7 +31,7 @@
  
  @return The color object.
  */
-+ (nonnull UIColor *)colorWithRGBHex:(int)hexValue alpha:(CGFloat)alpha;
++ (nonnull UIColor *)colorWithRGBHex:(int)hexValue alpha:(CGFloat)alpha API_AVAILABLE(ios(2.0), tvos(9.0), watchos(2.0));
 
 /**
  Creates and returns a color object using the specified RGB component values.
@@ -40,7 +40,7 @@
  
  @return The color object.
  */
-+ (nonnull UIColor *)colorWithRGBHex:(int)hexValue;
++ (nonnull UIColor *)colorWithRGBHex:(int)hexValue API_AVAILABLE(ios(2.0), tvos(9.0), watchos(2.0));
 
 /**
  Creates and returns a color object using the specified opacity and RGB component values.
@@ -50,7 +50,7 @@
  
  @return The color object.
  */
-+ (nonnull UIColor *)colorWithRGBString:(nonnull NSString *)nsstring alpha:(CGFloat)alpha;
++ (nonnull UIColor *)colorWithRGBString:(nonnull NSString *)nsstring alpha:(CGFloat)alpha API_AVAILABLE(ios(2.0), tvos(9.0), watchos(2.0));
 
 /**
  Creates and returns a color object using the specified RGB component values.
@@ -59,7 +59,7 @@
  
  @return The color object.
  */
-+ (nonnull UIColor *)colorWithRGBString:(nonnull NSString *)nsstring;
++ (nonnull UIColor *)colorWithRGBString:(nonnull NSString *)nsstring API_AVAILABLE(ios(2.0), tvos(9.0), watchos(2.0));
 
 /**
  Creates and returns a color object object using the specified image.
@@ -68,7 +68,7 @@
  
  @return The color object.
  */
-+ (nullable UIColor *)colorWithPatternImageName:(nonnull NSString *)resourceName;
++ (nullable UIColor *)colorWithPatternImageName:(nonnull NSString *)resourceName API_AVAILABLE(ios(2.0), tvos(9.0), watchos(2.0));
 
 /**
  Creates and returns a color object that component values are random with the specified alpha component.
@@ -77,7 +77,7 @@
  
  @return The color object.
  */
-+ (nonnull UIColor *)randColorWithAlpha:(CGFloat)alpha;
++ (nonnull UIColor *)randColorWithAlpha:(CGFloat)alpha API_AVAILABLE(ios(2.0), tvos(9.0), watchos(2.0));
 
 /**
  Creates and returns a mixed color object using the specified mix ratio and color.
@@ -87,5 +87,5 @@
 
  @return The color object.
  */
-- (nonnull UIColor *)mixedColorWithRatio:(CGFloat)ratio color:(nonnull UIColor *)color;
+- (nonnull UIColor *)mixedColorWithRatio:(CGFloat)ratio color:(nonnull UIColor *)color API_AVAILABLE(ios(2.0), tvos(9.0), watchos(2.0));
 @end

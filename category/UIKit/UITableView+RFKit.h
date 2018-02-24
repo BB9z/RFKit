@@ -23,7 +23,7 @@
  @param animated
     YES if you want to animate the deselection and NO if the change should be immediate.
  */
-- (void)deselectRows:(BOOL)animated;
+- (void)deselectRows:(BOOL)animated API_AVAILABLE(ios(5.0), tvos(9.0));
 
 /**
  Returns a reusable table-view cell object located by its class. The cell´s reuseIdentifier must equal to its class name.
@@ -32,16 +32,16 @@
  
  @return A UITableViewCell object with the associated identifier or nil if no such object exists in the reusable-cell queue.
  */
-- (nullable __kindof UITableViewCell *)dequeueReusableCellWithClass:(nonnull Class)cellClass;
+- (nullable __kindof UITableViewCell *)dequeueReusableCellWithClass:(nonnull Class)cellClass API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  Lays out the tableHeaderView with the size that satisfies the constraints it holds immediately.
  */
-- (void)autoLayoutTableHeaderView;
+- (void)autoLayoutTableHeaderView API_AVAILABLE(ios(6.0), tvos(9.0));
 
 /**
  Lays out the tableFooterView with the size that satisfies the constraints it holds immediately.
  */
-- (void)autoLayoutTableFooterView;
+- (void)autoLayoutTableFooterView API_AVAILABLE(ios(6.0), tvos(9.0));
 
 @end

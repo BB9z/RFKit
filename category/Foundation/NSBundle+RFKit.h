@@ -13,10 +13,10 @@
 
 @interface NSBundle (RFKit)
 
-+ (nonnull NSString *)mainBundlePathForCaches;
-+ (nonnull NSString *)mainBundlePathForPreferences;
-+ (nonnull NSString *)mainBundlePathForDocuments;
-+ (nonnull NSString *)mainBundlePathForTemp;
++ (nonnull NSString *)mainBundlePathForCaches API_AVAILABLE(ios(2.0)) API_UNAVAILABLE(macos);
++ (nonnull NSString *)mainBundlePathForPreferences API_AVAILABLE(ios(2.0));
++ (nonnull NSString *)mainBundlePathForDocuments API_AVAILABLE(ios(2.0));
++ (nonnull NSString *)mainBundlePathForTemp API_AVAILABLE(ios(2.0));
 
 /**
  Get a path relative to NSHomeDirectory().
@@ -30,5 +30,5 @@
  
  CFBundleShortVersionString + CFBundleVersion
  */
-- (nonnull NSString *)versionString;
+- (nonnull NSString *)versionString API_AVAILABLE(macos(10.8), ios(6.0), tvos(9.0), watchos(2.0));
 @end

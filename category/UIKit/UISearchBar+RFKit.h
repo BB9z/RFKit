@@ -2,7 +2,7 @@
     UISearchBar extension
     RFKit
 
-    Copyright (c) 2013, 2015 BB9z
+    Copyright (c) 2013, 2015, 2018 BB9z
     https://github.com/BB9z/RFKit
 
     The MIT License (MIT)
@@ -16,6 +16,6 @@
 /**
  Access the cancel button.
  */
-@property (nonatomic, nullable, readonly) UIButton *cancelButton;
+@property (nonatomic, nullable, readonly) UIButton *cancelButton API_AVAILABLE(ios(2.0), tvos(9.0));
 
 @end

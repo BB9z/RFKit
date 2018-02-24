@@ -18,5 +18,5 @@
  
  By using this method, you must set view controller stroryboard ID to it's class name.
  */
-- (nonnull __kindof UIViewController *)instantiateViewControllerWithIdentifierUsingClass:(nonnull Class)viewControllerClass;
+- (nonnull __kindof UIViewController *)instantiateViewControllerWithIdentifierUsingClass:(nonnull Class)viewControllerClass API_AVAILABLE(ios(5.0), tvos(9.0));
 @end

@@ -21,7 +21,7 @@
 
  @return An NSNumberFormatter with specified significant digits config.
  */
-+ (nonnull NSNumberFormatter *)significantFormatterWithMinimumDigits:(NSUInteger)min maximumDigits:(NSUInteger)max;
++ (nonnull NSNumberFormatter *)significantFormatterWithMinimumDigits:(NSUInteger)min maximumDigits:(NSUInteger)max API_AVAILABLE(macos(10.5), ios(2.0), tvos(9.0), watchos(2.0));
 
 /**
  Returns a string containing the formatted value of the provided file size.

@@ -22,7 +22,7 @@
  
  @return The Boolean value associated with the specified key. If the specified key doesn‘t exist, this method returns NO.
  */
-- (BOOL)boolForKey:(nonnull KeyType<NSCopying>)aKey;
+- (BOOL)boolForKey:(nonnull KeyType<NSCopying>)aKey API_AVAILABLE(macos(10.8), ios(6.0), tvos(9.0), watchos(2.0));
 
 /**
  Returns the integer value associated with the specified key.
@@ -31,7 +31,7 @@
  
  @return The integer value associated with the specified key. If the specified key doesn‘t exist, this method returns 0.
  */
-- (NSInteger)integerForKey:(nonnull KeyType<NSCopying>)aKey;
+- (NSInteger)integerForKey:(nonnull KeyType<NSCopying>)aKey API_AVAILABLE(macos(10.8), ios(6.0), tvos(9.0), watchos(2.0));
 
 /**
  Returns the float value associated with the specified key.
@@ -40,7 +40,7 @@
  
  @return The float value associated with the specified key. If the key doesn‘t exist, this method returns 0.
  */
-- (float)floatForKey:(nonnull KeyType<NSCopying>)aKey;
+- (float)floatForKey:(nonnull KeyType<NSCopying>)aKey API_AVAILABLE(macos(10.8), ios(6.0), tvos(9.0), watchos(2.0));
 
 /**
  Returns the double value associated with the specified key.
@@ -49,7 +49,7 @@
  
  @return The double value associated with the specified key. If the key doesn‘t exist, this method returns 0.
  */
-- (double)doubleForKey:(nonnull KeyType<NSCopying>)aKey;
+- (double)doubleForKey:(nonnull KeyType<NSCopying>)aKey API_AVAILABLE(macos(10.8), ios(6.0), tvos(9.0), watchos(2.0));
 
 @end
 
@@ -65,7 +65,7 @@
  
  @return Number of values added from sourceDictionary to the receiver.
  */
-- (NSUInteger)addEntriesFromDictionary:(nullable NSDictionary *)sourceDictionary withSpecifiedKeys:(nullable KeyType<NSCopying>)firstKey, ... NS_REQUIRES_NIL_TERMINATION;
+- (NSUInteger)addEntriesFromDictionary:(nullable NSDictionary *)sourceDictionary withSpecifiedKeys:(nullable KeyType<NSCopying>)firstKey, ... NS_REQUIRES_NIL_TERMINATION API_AVAILABLE(macos(10.8), ios(6.0), tvos(9.0), watchos(2.0));
 
 /** 
  Safely adds a given key-value pair to the dictionary.
@@ -73,13 +73,13 @@
  @param anObject The value for aKey. Can be `nil`.
  @param aKey The key for value.
  */
-- (void)rf_setObject:(nullable ObjectType)anObject forKey:(nullable KeyType<NSCopying>)aKey;
+- (void)rf_setObject:(nullable ObjectType)anObject forKey:(nullable KeyType<NSCopying>)aKey API_AVAILABLE(macos(10.0), ios(2.0), tvos(9.0), watchos(2.0));
 
 /**
  Safely removes a given key and its associated value from the dictionary.
  
  @param aKey The key to remove. Can be `nil`.
  */
-- (void)rf_removeObjectForKey:(nullable KeyType<NSCopying>)aKey;
+- (void)rf_removeObjectForKey:(nullable KeyType<NSCopying>)aKey API_AVAILABLE(macos(10.0), ios(2.0), tvos(9.0), watchos(2.0));
 
 @end

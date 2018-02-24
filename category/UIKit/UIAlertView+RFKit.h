@@ -19,6 +19,6 @@
  @param message Descriptive text that provides more details than the title.
  @param buttonTitle The title of the cancel button. If nil, OK will be used.
  */
-+ (void)showWithTitle:(nullable NSString *)title message:(nullable NSString *)message buttonTitle:(nullable NSString *)buttonTitle;
++ (void)showWithTitle:(nullable NSString *)title message:(nullable NSString *)message buttonTitle:(nullable NSString *)buttonTitle API_AVAILABLE(ios(2.0));
 
 @end

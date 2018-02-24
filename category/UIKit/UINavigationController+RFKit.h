@@ -16,26 +16,26 @@
 /**
  The view controller is about to be removed from the view hierarchy.
  */
-@property(nullable, readonly) UIViewController *disappearingViewController NS_AVAILABLE_IOS(2_0);
+@property(nullable, readonly) UIViewController *disappearingViewController API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  The view controller just before the `topViewController` in the navigation stack.
  */
-@property(nullable, readonly) UIViewController *previousViewController NS_AVAILABLE_IOS(2_0);
+@property(nullable, readonly) UIViewController *previousViewController API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  Get the previous view controller’s class of the specified view controller in the navigation stack.
  
  @return Returns the previous view controller’s class of the specified view controller.
  */
-- (nullable Class)previousViewControllerClassForViewController:(nonnull UIViewController *)viewController;
+- (nullable Class)previousViewControllerClassForViewController:(nonnull UIViewController *)viewController API_AVAILABLE(ios(6.0), tvos(9.0));
 
 /**
  Get the previous view controller of the specified view controller in the navigation stack.
 
  @return Returns the previous view controller of the specified view controller.
  */
-- (nullable id)previousViewControllerForViewController:(nonnull UIViewController *)viewController;
+- (nullable id)previousViewControllerForViewController:(nonnull UIViewController *)viewController API_AVAILABLE(ios(6.0), tvos(9.0));
 
 /**
  Return whether there is a given kind of view controller in the navigation stack before a view controller.
@@ -45,7 +45,7 @@
 
  @return Returns `YES` if there are any view controllers which is kind of given class before the specified view controller; otherwise, `NO`.
  */
-- (BOOL)hasViewControllerWithClass:(nonnull Class)aClass beforeViewController:(nullable UIViewController *)viewController;
+- (BOOL)hasViewControllerWithClass:(nonnull Class)aClass beforeViewController:(nullable UIViewController *)viewController API_AVAILABLE(ios(6.0), tvos(9.0));
 
 /**
  Return a view controller which is kind of the specified class in the navigation stack before a view controller.
@@ -53,7 +53,7 @@
  @param aClass A class object representing the kind of UIViewController to find.
  @param viewController If you specify `nil`, this method searchs all view controllers on the navigation stack reversely.
  */
-- (nullable id)viewControllerWithClass:(nonnull Class)aClass beforeViewController:(nullable UIViewController *)viewController;
+- (nullable id)viewControllerWithClass:(nonnull Class)aClass beforeViewController:(nullable UIViewController *)viewController API_AVAILABLE(ios(6.0), tvos(9.0));
 
 /**
  Replace the view controller at the top of the navigation stack.
@@ -61,6 +61,6 @@
  @param topViewController   Replace the view controller at the top of the navigation stack.
  @param animated    Specify YES to animate the transition or NO if you do not want the transition to be animated. You might specify NO if you are setting up the navigation controller at launch time.
  */
-- (void)setTopViewController:(nullable UIViewController *)topViewController animated:(BOOL)animated;
+- (void)setTopViewController:(nullable UIViewController *)topViewController animated:(BOOL)animated API_AVAILABLE(ios(3.0), tvos(9.0));
 
 @end

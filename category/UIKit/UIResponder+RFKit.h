@@ -17,11 +17,11 @@
 
  @return A view controller. `nil` if cannot find a UIViewController in responder chain.
  */
-- (nullable __kindof UIViewController *)viewController;
+- (nullable __kindof UIViewController *)viewController API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  Find current firstResponder through the responder chain.
  */
-+ (nullable id)firstResponder;
++ (nullable __kindof UIResponder *)firstResponder API_AVAILABLE(ios(2.0), tvos(9.0));
 
 @end

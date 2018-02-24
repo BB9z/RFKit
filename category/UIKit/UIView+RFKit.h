@@ -35,7 +35,7 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
  @param animations  A block object containing the changes to commit to the views. This is where you programmatically change any animatable properties of the views in your view hierarchy. This block takes no parameters and has no return value.
  @param completion  A block object to be executed after animations block executed, regardless animated was YES or NO. This block has no return value and takes a single Boolean argument that indicates whether or not the animations actually finished before the completion handler was called. If the duration of the animation is 0, this block is performed at the beginning of the next run loop cycle.
  */
-+ (void)animateWithDuration:(NSTimeInterval)duration delay:(NSTimeInterval)delay options:(UIViewAnimationOptions)options animated:(BOOL)animated beforeAnimations:(void (^__nullable)(void))before animations:(void (^__nullable)(void))animations completion:(void (^__nullable)(BOOL finished))completion;
++ (void)animateWithDuration:(NSTimeInterval)duration delay:(NSTimeInterval)delay options:(UIViewAnimationOptions)options animated:(BOOL)animated beforeAnimations:(void (^__nullable)(void))before animations:(void (^__nullable)(void))animations completion:(void (^__nullable)(BOOL finished))completion API_AVAILABLE(ios(4.0), tvos(9.0));
 
 #pragma mark -
 
@@ -46,7 +46,7 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
  @param y	Y-axis distance to move
  @see [UIView (RFKit) moveToX:Y:]
  */
-- (void)moveX:(CGFloat)x Y:(CGFloat)y;
+- (void)moveX:(CGFloat)x Y:(CGFloat)y API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  Move a UIView to specified position.
@@ -57,7 +57,7 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
  @param y	New position on y-axis
  @see  [UIView (RFKit) moveX:Y:]
  */
-- (void)moveToX:(CGFloat)x Y:(CGFloat)y;
+- (void)moveToX:(CGFloat)x Y:(CGFloat)y API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  Resize a UIView
@@ -67,7 +67,7 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
  @param width	New width
  @param height	New height
  */
-- (void)resizeWidth:(CGFloat)width height:(CGFloat)height;
+- (void)resizeWidth:(CGFloat)width height:(CGFloat)height API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  Resize a UIView relative to the specified anchor point.
@@ -78,12 +78,12 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
  @param height   New height
  @param resizeAnchor Determine how to change the frame with the new size.
  */
-- (void)resizeWidth:(CGFloat)width height:(CGFloat)height resizeAnchor:(RFResizeAnchor)resizeAnchor;
+- (void)resizeWidth:(CGFloat)width height:(CGFloat)height resizeAnchor:(RFResizeAnchor)resizeAnchor API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  Resizes and moves the receiver view so it fits its superview bounds.
  */
-- (void)sizeToFitSuperview;
+- (void)sizeToFitSuperview API_AVAILABLE(ios(2.0), tvos(9.0));
 
 #pragma mark - View Hierarchy Management
 
@@ -93,74 +93,74 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
  @param view1 This value must not be `nil`.
  @param view2 This value must not be `nil`.
  */
-+ (nullable UIView *)commonSuperviewWith:(nonnull UIView *)view1 anotherView:(nonnull UIView *)view2;
++ (nullable UIView *)commonSuperviewWith:(nonnull UIView *)view1 anotherView:(nonnull UIView *)view2 API_AVAILABLE(ios(6.0), tvos(9.0));
 
 /**
  Adds a view to the view’s subviews and changes the frame rectangle at the same time.
  */
-- (void)addSubview:(nonnull UIView *)view frame:(CGRect)rect;
+- (void)addSubview:(nonnull UIView *)view frame:(CGRect)rect API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  Adds a view to the view’s subviews and resizes at the same time.
  */
-- (void)addSubview:(nonnull UIView *)view resizeOption:(RFViewResizeOption)option;
+- (void)addSubview:(nonnull UIView *)view resizeOption:(RFViewResizeOption)option API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  Remove a view from the reciver’s subviews.
  */
-- (void)removeSubview:(nullable UIView *)view;
+- (void)removeSubview:(nullable UIView *)view API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  Remove the reciver’s all subviews.
  */
-- (void)removeAllSubviews;
+- (void)removeAllSubviews API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  Moves the reciver so that it appears above another view in the view hierarchy.
  */
-- (void)bringAboveView:(nullable UIView *)aView;
+- (void)bringAboveView:(nullable UIView *)aView API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  Moves the reciver so that it appears above another view in the view hierarchy.
  */
-- (void)sentBelowView:(nullable UIView *)aView;
+- (void)sentBelowView:(nullable UIView *)aView API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  Moves the reciver so that it appears on top of its siblings in the view hierarchy.
  */
-- (void)bringToFront;
+- (void)bringToFront API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  Moves the reciver so that it appears behind its siblings in the view hierarchy.
  */
-- (void)sentToBack;
+- (void)sentToBack API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  Exchange the reciver and the view above the reciver in the view hierarchy.
  */
-- (void)bringOneLevelUp;
+- (void)bringOneLevelUp API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  Exchange the reciver and the view below the reciver in the view hierarchy.
  */
-- (void)sendOneLevelDown;
+- (void)sendOneLevelDown API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  Returns a Boolean value indicating whether the receiver appears on top of its siblings.
  */
-- (BOOL)isInFront;
+- (BOOL)isInFront API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  Returns a Boolean value indicating whether the receiver appears behind of its siblings.
  */
-- (BOOL)isAtBack;
+- (BOOL)isAtBack API_AVAILABLE(ios(2.0), tvos(9.0));
 
 - (void)exchangeDepthsWithView:(nullable UIView *)swapView DEPRECATED_ATTRIBUTE;
 
 /**
  Find a superview of the receiver which is kind of the given class in view hierarchy.
  */
-- (nullable __kindof UIView *)superviewOfClass:(nonnull Class)viewClass;
+- (nullable __kindof UIView *)superviewOfClass:(nonnull Class)viewClass API_AVAILABLE(ios(2.0), tvos(9.0));
 
 #pragma mark - Others
 
@@ -173,12 +173,12 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
  
  @return `YES` if the view is visible, `NO` otherwise.
  */
-- (BOOL)isVisible;
+- (BOOL)isVisible API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  @return The frame rectangle, which describes the view’s location and size in its screen’s coordinate system.
  */
-- (CGRect)frameOnScreen;
+- (CGRect)frameOnScreen API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  Converts the receiver’s bounds from the receiver’s coordinate system to that of the specified view.
@@ -187,17 +187,17 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
 
  @return The converted rectangle.
  */
-- (CGRect)boundsInView:(nullable UIView *)view;
+- (CGRect)boundsInView:(nullable UIView *)view API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  Renders the receiver’s layer into a UIImage object.
  */
-- (nonnull UIImage *)renderToImage;
+- (nonnull UIImage *)renderToImage API_AVAILABLE(ios(4.0), tvos(9.0));
 
 /**
  Returns the distance between the frame bottom and superview’s bound bottom.
  */
-- (CGFloat)distanceBetweenFrameBottomAndSuperviewBottom;
+- (CGFloat)distanceBetweenFrameBottomAndSuperviewBottom API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  Traversing the responder chain to get a UIViewController reletive to the receiver.
@@ -206,7 +206,7 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
  
  @return A view controller, may not be the receiver´s parent.
 */
-- (nullable UIViewController *)viewController;
+- (nullable UIViewController *)viewController API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  Return a newly view object unarchived from the nib file which located in the specified bundle.
@@ -217,7 +217,7 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
  
  @return A view object. May be nil if cannot find specified archived object.
  */
-+ (nullable instancetype)loadWithNibName:(nullable NSString *)nibName bundle:(nullable NSBundle *)nibBundle;
++ (nullable instancetype)loadWithNibName:(nullable NSString *)nibName bundle:(nullable NSBundle *)nibBundle API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  Return a newly view object unarchived from the nib file which located in the main bundle.
@@ -228,6 +228,6 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
  
  @see loadWithNibName:bundle:
  */
-+ (nullable instancetype)loadWithNibName:(nullable NSString *)nibName;
++ (nullable instancetype)loadWithNibName:(nullable NSString *)nibName API_AVAILABLE(ios(2.0), tvos(9.0));
 
 @end

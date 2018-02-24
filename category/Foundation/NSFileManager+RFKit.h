@@ -30,7 +30,7 @@
  
  @return A URL pointing to the directory, or nil if the url is a file or error occurs.
  */
-- (nullable NSURL *)subDirectoryURLWithPathComponent:(nullable NSString *)pathComponent inDirectory:(NSSearchPathDirectory)directory createIfNotExist:(BOOL)createIfNotExist error:(NSError *__nullable __autoreleasing *__nullable)error;
+- (nullable NSURL *)subDirectoryURLWithPathComponent:(nullable NSString *)pathComponent inDirectory:(NSSearchPathDirectory)directory createIfNotExist:(BOOL)createIfNotExist error:(NSError *__nullable __autoreleasing *__nullable)error API_AVAILABLE(macos(10.8), ios(6.0), tvos(9.0), watchos(2.0));
 
 /**
  Get subdirectories under the specified directory.
@@ -43,7 +43,7 @@
  
  @return An array of absolute paths.
  */
-- (nonnull NSArray<NSString *> *)subDirectoryOfDirectoryAtPath:(nonnull NSString *)path error:(NSError *__nullable __autoreleasing *__nullable)error;
+- (nonnull NSArray<NSString *> *)subDirectoryOfDirectoryAtPath:(nonnull NSString *)path error:(NSError *__nullable __autoreleasing *__nullable)error API_AVAILABLE(macos(10.5), ios(2.0), tvos(9.0), watchos(2.0));
 
 /**
  Performs a deep search of the specified directory and returns URLs for the contained items which has given file extension.
@@ -63,14 +63,14 @@
  
  @return An array of NSURL.
  */
-- (nonnull NSArray<NSURL *> *)filesInDirectory:(nonnull NSURL *)directory withExtensions:(nullable NSSet *)fileTypes directoryEnumerationOptions:(NSDirectoryEnumerationOptions)mask errorHandler:(nullable BOOL (^)(NSURL *__nonnull url, NSError *__nonnull error))handler;
+- (nonnull NSArray<NSURL *> *)filesInDirectory:(nonnull NSURL *)directory withExtensions:(nullable NSSet *)fileTypes directoryEnumerationOptions:(NSDirectoryEnumerationOptions)mask errorHandler:(nullable BOOL (^)(NSURL *__nonnull url, NSError *__nonnull error))handler API_AVAILABLE(macos(10.6), ios(4.0), tvos(9.0), watchos(2.0));
 
 /**
  Get file size of the given path, support directory. This method will not traverse any symbolic link.
  
  @return file size. If the file not exist, the return value will be 0. If error occurs, the return value will be -1.
  */
-- (long long)fileSizeForPath:(nullable NSString *)path error:(NSError *__nullable __autoreleasing *__nullable)error;
+- (long long)fileSizeForPath:(nullable NSString *)path error:(NSError *__nullable __autoreleasing *__nullable)error API_AVAILABLE(macos(10.8), ios(6.0), tvos(9.0), watchos(2.0));
 
 /// @see fileSizeForPath:error:.
 - (long long)fileSizeForPath:(nullable NSString *)path DEPRECATED_MSG_ATTRIBUTE("Use fileSizeForPath:error: instead");
@@ -86,6 +86,6 @@
  
  @return Directory size. Return 0 when the path is not a directory. Return -1 when any error occurs.
  */
-- (long long)sizeForDirectory:(nullable NSString *)directoryPath fileCount:(nullable long *)fileCount directoryCount:(nullable long *)directoryCount error:(NSError *__nullable __autoreleasing *__nullable)error;
+- (long long)sizeForDirectory:(nullable NSString *)directoryPath fileCount:(nullable long *)fileCount directoryCount:(nullable long *)directoryCount error:(NSError *__nullable __autoreleasing *__nullable)error API_AVAILABLE(macos(10.8), ios(6.0), tvos(9.0), watchos(2.0));
 
 @end
