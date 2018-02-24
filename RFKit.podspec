@@ -57,6 +57,7 @@ Pod::Spec.new do |s|
     
     ss.ios.dependency 'RFKit/Performance'
     ss.osx.dependency 'RFKit/Performance'
+    ss.tvos.dependency 'RFKit/Performance'
     ss.ios.dependency 'RFKit/UncaughtExceptionHandler'
   end
   
@@ -87,15 +88,27 @@ Pod::Spec.new do |s|
 
       ssp.ios.dependency 'RFKit/Category/UIAlertView'
       ssp.ios.dependency 'RFKit/Category/UIButton'
+      ssp.tvos.dependency 'RFKit/Category/UIButton'
       ssp.ios.dependency 'RFKit/Category/UIColor'
+      ssp.tvos.dependency 'RFKit/Category/UIColor'
+      ssp.watchos.dependency 'RFKit/Category/UIColor'
       ssp.ios.dependency 'RFKit/Category/UIDevice'
+      ssp.tvos.dependency 'RFKit/Category/UIDevice'
       ssp.ios.dependency 'RFKit/Category/UIImage'
+      ssp.tvos.dependency 'RFKit/Category/UIImage'
+      ssp.watchos.dependency 'RFKit/Category/UIImage'
       ssp.ios.dependency 'RFKit/Category/UINavigationController'
+      ssp.tvos.dependency 'RFKit/Category/UINavigationController'
       ssp.ios.dependency 'RFKit/Category/UIResponder'
+      ssp.tvos.dependency 'RFKit/Category/UIResponder'
       ssp.ios.dependency 'RFKit/Category/UIStoryboard'
+      ssp.tvos.dependency 'RFKit/Category/UIStoryboard'
       ssp.ios.dependency 'RFKit/Category/UITableView'
+      ssp.tvos.dependency 'RFKit/Category/UITableView'
       ssp.ios.dependency 'RFKit/Category/UIView'
+      ssp.tvos.dependency 'RFKit/Category/UIView'
       ssp.ios.dependency 'RFKit/Category/UIViewController'
+      ssp.tvos.dependency 'RFKit/Category/UIViewController'
     end
     
     ss.subspec 'All' do |ssp|
@@ -109,9 +122,13 @@ Pod::Spec.new do |s|
       ssp.dependency 'RFKit/Category/NSURL'
     
       ssp.ios.dependency 'RFKit/Category/NSLayoutConstraint'
+      ssp.tvos.dependency 'RFKit/Category/NSLayoutConstraint'
       ssp.ios.dependency 'RFKit/Category/UIScrollView+RFScrolling'
+      ssp.tvos.dependency 'RFKit/Category/UIScrollView+RFScrolling'
       ssp.ios.dependency 'RFKit/Category/UISearchBar'
+      ssp.tvos.dependency 'RFKit/Category/UISearchBar'
       ssp.ios.dependency 'RFKit/Category/UIView+RFAnimate'
+      ssp.tvos.dependency 'RFKit/Category/UIView+RFAnimate'
       ssp.ios.dependency 'RFKit/Category/UIWebView'
     end
     
@@ -285,10 +302,6 @@ Pod::Spec.new do |s|
     ss.ios.deployment_target = '2.0'
     ss.osx.deployment_target = '10.0'
     ss.tvos.deployment_target = '9.0'
-    ss.public_header_files =
-      'RFPerformance.h',
-      'doutkit/*.h'
-
     ss.source_files =
       'RFPerformance.{h,m}',
       'doutkit/*.{h,m}'
@@ -296,7 +309,6 @@ Pod::Spec.new do |s|
   
   s.subspec 'UncaughtExceptionHandler' do |ss|
     ss.dependency 'RFKit/Runtime'
-    ss.ios.public_header_files = 'external/UncaughtExceptionHandler/*.h'
     ss.ios.source_files = 'external/UncaughtExceptionHandler/*.{h,m}'
   end
 end
