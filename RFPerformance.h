@@ -2,13 +2,12 @@
     RFPerformance
     RFKit
 
-    Copyright (c) 2012-2013, 2015-2016 BB9z
+    Copyright (c) 2012-2013, 2015-2016, 2018 BB9z
     https://github.com/BB9z/RFKit
 
     The MIT License (MIT)
     http://www.opensource.org/licenses/mit-license.php
 */
-
 
 #import "RFRuntime.h"
 
@@ -25,23 +24,19 @@
     }
 #endif
 
+#ifndef _RFAlloctionLog
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wreserved-id-macro"
-
-#ifndef _RFAlloctionLog
 #   define _RFAlloctionLog
+#pragma clang diagnostic pop
 #endif
 
-#pragma clang diagnostic pop
-
-
 @interface RFPerformance : NSObject
-@property(strong, atomic) NSMutableDictionary * timeTable;
+@property NSMutableDictionary *timeTable DEPRECATED_ATTRIBUTE;
 
-+ (RFPerformance *)sharedInstance;
++ (RFPerformance *)sharedInstance DEPRECATED_MSG_ATTRIBUTE("No singleton");
 
 /// Print menory usage details
-//! via http://www.keakon.net/2011/08/12/获取iOS设备的内存状况
 + (void)logMemoryInfo;
 
 /** @name 计时器 */
@@ -52,7 +47,7 @@
  @param name Name of the time point
  @return 当前时间
  */
-- (time_t)addTimePoint:(NSString *)name;
+- (time_t)addTimePoint:(NSString *)name DEPRECATED_ATTRIBUTE;
 
 
 /** 返回两个时间点间的时间差
@@ -63,6 +58,6 @@
  @param name2 另一点的名字
  @return 两点间时间差，单位秒
  */
-- (float)timeBetween:(NSString *)name1 another:(NSString *)name2;
+- (float)timeBetween:(NSString *)name1 another:(NSString *)name2 DEPRECATED_ATTRIBUTE;
 
 @end

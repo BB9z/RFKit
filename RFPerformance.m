@@ -54,6 +54,7 @@
 	return fabsf(time);
 }
 
+//! REF: http://www.keakon.net/2011/08/12/获取iOS设备的内存状况
 + (void)logMemoryInfo {
     vm_statistics_data_t vmStats;
     
