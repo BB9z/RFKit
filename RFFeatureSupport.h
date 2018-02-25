@@ -95,6 +95,25 @@
 #   define API_UNAVAILABLE(...)
 #endif
 
+#ifndef TARGET_OS_OSX
+#   define TARGET_OS_OSX (TARGET_OS_MAC && !TARGET_OS_IOS)
+#endif
+
+// Memo:
+// 23891898: class properties
+// 26921435: __swift__ macro
+// 28694859: __weak in MRC
+
+#pragma mark Xcode 7
+
+// Xcode 7: 19240897
+#ifndef NS_SWIFT_NAME
+#   define NS_SWIFT_NAME(...)
+#endif
+
+// Xcode release note
+// https://developer.apple.com/library/content/releasenotes/DeveloperTools/RN-Xcode/Chapters/Introduction.html
+
 #pragma mark Unknow
 // Introduction version Unknow
 
