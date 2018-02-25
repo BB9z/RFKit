@@ -60,8 +60,13 @@ Pod::Spec.new do |s|
     ss.tvos.dependency 'RFKit/Performance'
     ss.ios.dependency 'RFKit/UncaughtExceptionHandler'
   end
+
+  s.subspec 'Foundation' do |ss|
+    ss.source_files = 'RFFoundation.*'
+  end
   
   s.subspec 'Runtime' do |ss|
+    ss.dependency 'RFKit/Foundation'
     ss.source_files =
       'dout.{h,m}',
       'RFRuntime.*',
@@ -134,57 +139,68 @@ Pod::Spec.new do |s|
     
     # Foundation
     ss.subspec 'NSArray' do |ssp|
+      ssp.dependency 'RFKit/Foundation'
       ssp.source_files = 'category/Foundation/NSArray+*'
     end
     
     ss.subspec 'NSBundle' do |ssp|
+      ssp.dependency 'RFKit/Foundation'
       ssp.source_files = 'category/Foundation/NSBundle+*'
     end
     
     ss.subspec 'NSDate' do |ssp|
-      ssp.dependency 'RFKit/Runtime'
+      ssp.dependency 'RFKit/Foundation'
       ssp.source_files = 'category/Foundation/NSDate+*'
     end
     
     ss.subspec 'NSDateFormatter' do |ssp|
+      ssp.dependency 'RFKit/Foundation'
       ssp.source_files = 'category/Foundation/NSDateFormatter+*'
     end
     
     ss.subspec 'NSDictionary' do |ssp|
+      ssp.dependency 'RFKit/Foundation'
       ssp.dependency 'RFKit/Category/NSObject'
       ssp.source_files = 'category/Foundation/NSDictionary+*'
     end
     
     ss.subspec 'NSError' do |ssp|
+      ssp.dependency 'RFKit/Foundation'
       ssp.source_files = 'category/Foundation/NSError+*'
     end
     
     ss.subspec 'NSFileManager' do |ssp|
+      ssp.dependency 'RFKit/Foundation'
       ssp.dependency 'RFKit/Runtime'
       ssp.source_files = 'category/Foundation/NSFileManager+*'
     end
     
     ss.subspec 'NSJSONSerialization' do |ssp|
+      ssp.dependency 'RFKit/Foundation'
       ssp.dependency 'RFKit/Runtime'
       ssp.source_files = 'category/Foundation/NSJSONSerialization+*'
     end
     
     ss.subspec 'NSNumberFormatter' do |ssp|
+      ssp.dependency 'RFKit/Foundation'
       ssp.dependency 'RFKit/Runtime'
       ssp.source_files = 'category/Foundation/NSNumberFormatter+*'
     end
     
     ss.subspec 'NSObject' do |ssp|
+      ssp.dependency 'RFKit/Foundation'
       ssp.dependency 'RFKit/Runtime'
       ssp.source_files = 'category/Foundation/NSObject+*'
     end
     
     ss.subspec 'NSString' do |ssp|
+      ssp.dependency 'RFKit/Foundation'
       ssp.dependency 'RFKit/Runtime'
       ssp.source_files = 'category/Foundation/NSString+*'
     end
     
     ss.subspec 'NSURL' do |ssp|
+      ssp.dependency 'RFKit/Foundation'
       ssp.source_files = 'category/Foundation/NSURL+*'
     end
     
@@ -194,18 +210,21 @@ Pod::Spec.new do |s|
       # macOS not supported
       ssp.ios.deployment_target = '6.0'
       ssp.tvos.deployment_target = '9.0'
+      ssp.dependency 'RFKit/Foundation'
       ssp.dependency 'RFKit/Category/UIView'
       ssp.source_files = 'category/UIKit/NSLayoutConstraint+*'
     end
     
     ss.subspec 'UIAlertView' do |ssp|
       ssp.ios.deployment_target = '2.0'
+      ssp.dependency 'RFKit/Foundation'
       ssp.source_files = 'category/UIKit/UIAlertView+*'
     end
     
     ss.subspec 'UIButton' do |ssp|
       ssp.ios.deployment_target = '6.0'
       ssp.tvos.deployment_target = '9.0'
+      ssp.dependency 'RFKit/Foundation'
       ssp.source_files = 'category/UIKit/UIButton+*'
     end
     
@@ -213,74 +232,85 @@ Pod::Spec.new do |s|
       ssp.ios.deployment_target = '6.0'
       ssp.tvos.deployment_target = '9.0'
       ssp.watchos.deployment_target = '2.0'
+      ssp.dependency 'RFKit/Foundation'
       ssp.source_files = 'category/UIKit/UIColor+*'
     end
     
     ss.subspec 'UIDevice' do |ssp|
-      ssp.dependency 'RFKit/Runtime'
       ssp.ios.deployment_target = '6.0'
       ssp.tvos.deployment_target = '9.0'
+      ssp.dependency 'RFKit/Foundation'
+      ssp.dependency 'RFKit/Runtime'
       ssp.source_files = 'category/UIKit/UIDevice+*'
     end
     
     ss.subspec 'UIImage' do |ssp|
-      ssp.dependency 'RFKit/Runtime'
       ssp.ios.deployment_target = '6.0'
       ssp.tvos.deployment_target = '9.0'
       ssp.watchos.deployment_target = '2.0'
+      ssp.dependency 'RFKit/Foundation'
+      ssp.dependency 'RFKit/Runtime'
       ssp.source_files = 'category/UIKit/UIImage+*'
     end
     
     ss.subspec 'UINavigationController' do |ssp|
-      ssp.dependency 'RFKit/Category/NSArray'
       ssp.ios.deployment_target = '6.0'
       ssp.tvos.deployment_target = '9.0'
+      ssp.dependency 'RFKit/Foundation'
+      ssp.dependency 'RFKit/Category/NSArray'
       ssp.source_files = 'category/UIKit/UINavigationController+*'
     end
     
     ss.subspec 'UIResponder' do |ssp|
       ssp.ios.deployment_target = '6.0'
       ssp.tvos.deployment_target = '9.0'
+      ssp.dependency 'RFKit/Foundation'
       ssp.source_files = 'category/UIKit/UIResponder+*'
     end
     
     ss.subspec 'UIScrollView+RFScrolling' do |ssp|
       ssp.ios.deployment_target = '6.0'
       ssp.tvos.deployment_target = '9.0'
+      ssp.dependency 'RFKit/Foundation'
       ssp.source_files = 'category/UIKit/UIScrollView+RFScrolling*'
     end
     
     ss.subspec 'UISearchBar' do |ssp|
       ssp.ios.deployment_target = '6.0'
       ssp.tvos.deployment_target = '9.0'
+      ssp.dependency 'RFKit/Foundation'
       ssp.source_files = 'category/UIKit/UISearchBar+*'
     end
     
     ss.subspec 'UIStoryboard' do |ssp|
       ssp.ios.deployment_target = '6.0'
       ssp.tvos.deployment_target = '9.0'
+      ssp.dependency 'RFKit/Foundation'
       ssp.source_files = 'category/UIKit/UIStoryboard+*'
     end
     
     ss.subspec 'UITableView' do |ssp|
-      ssp.dependency 'RFKit/Category/UIView+RFAnimate'
       ssp.ios.deployment_target = '6.0'
       ssp.tvos.deployment_target = '9.0'
+      ssp.dependency 'RFKit/Foundation'
+      ssp.dependency 'RFKit/Category/UIView+RFAnimate'
       ssp.source_files = 'category/UIKit/UITableView+*'
     end
     
     ss.subspec 'UIView+RFAnimate' do |ssp|
-      ssp.dependency 'RFKit/Runtime'
       ssp.ios.deployment_target = '6.0'
       ssp.tvos.deployment_target = '9.0'
+      ssp.dependency 'RFKit/Foundation'
+      ssp.dependency 'RFKit/Runtime'
       ssp.source_files = 'category/UIKit/UIView+RFAnimate*'
     end
     
     ss.subspec 'UIView' do |ssp|
-      ssp.dependency 'RFKit/RFGeometry'
-      ssp.dependency 'RFKit/Category/UIResponder'
       ssp.ios.deployment_target = '6.0'
       ssp.tvos.deployment_target = '9.0'
+      ssp.dependency 'RFKit/Foundation'
+      ssp.dependency 'RFKit/RFGeometry'
+      ssp.dependency 'RFKit/Category/UIResponder'
       ssp.framework    = 'QuartzCore'
       ssp.source_files = 'category/UIKit/UIView+RFKit*'
     end
@@ -288,26 +318,30 @@ Pod::Spec.new do |s|
     ss.subspec 'UIViewController' do |ssp|
       ssp.ios.deployment_target = '6.0'
       ssp.tvos.deployment_target = '9.0'
+      ssp.dependency 'RFKit/Foundation'
       ssp.source_files = 'category/UIKit/UIViewController+*'
     end
     
     ss.subspec 'UIWebView' do |ssp|
       ssp.ios.deployment_target = '6.0'
+      ssp.dependency 'RFKit/Foundation'
       ssp.source_files = 'category/UIKit/UIWebView+*'
     end
   end
   
   s.subspec 'Performance' do |ss|
-    ss.dependency 'RFKit/Runtime'
     ss.ios.deployment_target = '2.0'
     ss.osx.deployment_target = '10.0'
     ss.tvos.deployment_target = '9.0'
+    ss.dependency 'RFKit/Foundation'
+    ss.dependency 'RFKit/Runtime'
     ss.source_files =
       'RFPerformance.{h,m}',
       'doutkit/*.{h,m}'
   end
   
   s.subspec 'UncaughtExceptionHandler' do |ss|
+    ss.dependency 'RFKit/Foundation'
     ss.dependency 'RFKit/Runtime'
     ss.ios.source_files = 'external/UncaughtExceptionHandler/*.{h,m}'
   end

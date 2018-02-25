@@ -8,6 +8,7 @@
     The MIT License (MIT)
     http://www.opensource.org/licenses/mit-license.php
  */
+#import "RFFoundation.h"
 #import <UIKit/UIKit.h>
 
 @interface UIAlertView (RFKit)

@@ -8,7 +8,7 @@
     The MIT License (MIT)
     http://www.opensource.org/licenses/mit-license.php
  */
-#import <Foundation/Foundation.h>
+#import "RFFoundation.h"
 
 @interface NSError (RFKit)
 
