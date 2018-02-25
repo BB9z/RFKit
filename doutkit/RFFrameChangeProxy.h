@@ -13,7 +13,7 @@
 #ifndef RFFrameChangeLog
 #if TARGET_OS_OSX
 #   define RFFrameChangeLog \
-    - (void)setFrame:(CGRect)frame {\
+    - (void)setFrame:(NSRect)frame {\
         dout(@"Change frame from %@ to %@. Trace:", NSStringFromRect(self.frame), NSStringFromRect(frame));\
         [super setFrame:frame];\
         douttrace()\
