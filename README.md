@@ -12,7 +12,7 @@ RFKit is a useful toolkit for daily Cocoa development.
 |:-------------:|:---------------------:|:-------------------:|:--------------------:|:----------------------:|:-------------------:|
 | 2.0           | Xcode 8               | iOS 6  | macOS 10.8  | watchOS 2.0 | tvOS 9.0 |
 | 1.7           | Xcode 8               | iOS 6  | macOS 10.8  | watchOS 2.0 | tvOS 9.0 |
-| 1.6           | Xcode 7               | iOS 6  | N/A         | watchOS 2.0 | N/A      |
+| 1.6           | Xcode 8               | iOS 6  | N/A         | watchOS 2.0 | N/A      |
 
 ## Install
 
