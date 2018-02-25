@@ -109,7 +109,7 @@
         return [NSString stringWithCString:method(self, aSelector) encoding:NSUTF8StringEncoding];
     }
     if (_isType(void)) {
-        id (*method)(id, SEL) = (id (*)(id, SEL))aIMP;
+        void (*method)(id, SEL) = (void (*)(id, SEL))aIMP;
         method(self, aSelector);
         return nil;
     }
