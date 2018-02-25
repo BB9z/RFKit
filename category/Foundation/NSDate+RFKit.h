@@ -32,7 +32,7 @@
  
  @return `YES` if the receiver and anObject are the same day, otherwise `NO`.
  */
-- (BOOL)isSameDayWithDate:(nullable NSDate *)date API_AVAILABLE(macos(10.9), ios(7.0), tvos(9.0), watchos(2.0));
+- (BOOL)isSameDayWithDate:(nullable NSDate *)date API_AVAILABLE(macos(10.4), ios(2.0), tvos(9.0), watchos(2.0));
 
 /**
  Returns the number of calendar days between two dates.
@@ -42,15 +42,15 @@
  
  @return The number of calendar days between two dates.
  */
-+ (NSInteger)daysBetweenDate:(nonnull NSDate *)fromDateTime andDate:(nonnull NSDate *)toDateTime API_AVAILABLE(macos(10.9), ios(7.0), tvos(9.0), watchos(2.0));
++ (NSInteger)daysBetweenDate:(nonnull NSDate *)fromDateTime andDate:(nonnull NSDate *)toDateTime API_AVAILABLE(macos(10.5), ios(2.0), tvos(9.0), watchos(2.0));
 
 /**
  Returns a date object at 00:00:00 of current day.
  */
-- (nonnull NSDate *)startTimeOfDate API_AVAILABLE(macos(10.9), ios(7.0), tvos(9.0), watchos(2.0));
+- (nonnull NSDate *)startTimeOfDate API_AVAILABLE(macos(10.4), ios(2.0), tvos(9.0), watchos(2.0));
 
 /**
  Returns a date object at 24:00:00 of current day. This date is actually the start time of the next day.
  */
-- (nonnull NSDate *)endTimeOfDate API_AVAILABLE(macos(10.9), ios(7.0), tvos(9.0), watchos(2.0));
+- (nonnull NSDate *)endTimeOfDate API_AVAILABLE(macos(10.4), ios(2.0), tvos(9.0), watchos(2.0));
 @end

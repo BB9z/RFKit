@@ -33,6 +33,18 @@
     XCTAssertNotNil(d, @"");
 }
 
+- (void)testDaysBetween {
+    NSDate *d1 = [NSDate dateWithYear:0 month:0 day:0 hour:0 minute:0 second:0];
+    NSDate *d2 = [NSDate dateWithYear:0 month:0 day:1 hour:0 minute:0 second:0];
+    XCTAssertEqual([NSDate daysBetweenDate:d1 andDate:d2], 1, @"");
+}
+
+- (void)testSameDay {
+    NSDate *d1 = [NSDate dateWithYear:0 month:0 day:0 hour:24 minute:0 second:0];
+    NSDate *d2 = [NSDate dateWithYear:0 month:0 day:1 hour:0 minute:0 second:0];
+    XCTAssertTrue([d1 isSameDayWithDate:d2], @"");
+}
+
 - (void)testNilParameters {
     NSDate *now = [NSDate date];
     
