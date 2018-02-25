@@ -13,7 +13,7 @@
 
 @interface NSBundle (RFKit)
 
-+ (nonnull NSString *)mainBundlePathForCaches API_AVAILABLE(ios(2.0)) API_UNAVAILABLE(macos);
++ (nonnull NSString *)mainBundlePathForCaches API_AVAILABLE(ios(2.0));
 + (nonnull NSString *)mainBundlePathForPreferences API_AVAILABLE(ios(2.0));
 + (nonnull NSString *)mainBundlePathForDocuments API_AVAILABLE(ios(2.0));
 + (nonnull NSString *)mainBundlePathForTemp API_AVAILABLE(ios(2.0));

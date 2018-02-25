@@ -132,7 +132,7 @@
                       float,
                       double)
 
-    NSAssert(false, @"Unsupport method return type: %s", rtype);
+    NSAssert(false, @"Unsupport method return type: %@", [NSString stringWithUTF8String:rtype]);
     return nil;
 }
 

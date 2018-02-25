@@ -6,12 +6,7 @@
 //  Copyright © 2018 RFUI. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#if TARGET_OS_OSX
-#   import <AppKit/AppKit.h>
-#else
-#   import <UIKit/UIKit.h>
-#endif
+#import "RFRuntime.h"
 
 /**
  Helper methods for unit test.

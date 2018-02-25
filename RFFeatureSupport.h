@@ -65,6 +65,8 @@
 
 #pragma mark Xcode 9
 
+// Memo:
+// 7184689: @available in Objective-C
 
 #pragma mark Xcode 8
 // Xcode 8, with macOS 10.12 and iOS 10 SDK
