@@ -5,16 +5,18 @@
 @implementation NSLayoutConstraint (RFKit)
 
 - (void)updateLayoutIfNeeded {
-    if (!self.firstItem && !self.secondAttribute) return;
-
-    if (!self.firstItem || !self.secondAttribute) {
-        [self.firstItem layoutIfNeeded];
-        [self.secondItem layoutIfNeeded];
+    UIView *a = [self.firstItem isKindOfClass:UIView.class]? self.firstItem : nil;
+    UIView *b = [self.secondItem isKindOfClass:UIView.class]? self.secondItem : nil;
+    if (a && b) {
+        [[UIView commonSuperviewWith:a anotherView:b] layoutIfNeeded];
         return;
     }
-
-    UIView *comment = [UIView commonSuperviewWith:self.firstItem anotherView:self.secondItem];
-    [comment layoutIfNeeded];
+    if (a) {
+        [a layoutIfNeeded];
+    }
+    if (b) {
+        [b layoutIfNeeded];
+    }
 }
 
 @end
