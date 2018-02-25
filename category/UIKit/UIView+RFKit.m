@@ -152,12 +152,12 @@
 }
 
 - (void)removeSubview:(nullable UIView *)view {
-    if ([self.subviews indexOfObject:view] != NSNotFound) {
-        [view removeFromSuperview];
-    }
-    else {
+    if (!view) return;
+    if ([self.subviews indexOfObject:(UIView *__nonnull)view] == NSNotFound) {
         dout_warning(@"RFKit [UIView removeSubview] 父视图没有指定的子视图")
+        return;
     }
+    [view removeFromSuperview];
 }
 
 - (void)removeAllSubviews {
@@ -171,24 +171,20 @@
 }
 
 - (void)bringAboveView:(nullable UIView *)aView {
-	if (aView == nil) {
-		return;
-	}
+	if (!aView) return;
 	CGRect tmp = self.frame;
 	UIView * sup = self.superview;
 	[self removeFromSuperview];
-	[sup insertSubview:self aboveSubview:aView];
+	[sup insertSubview:self aboveSubview:(UIView *__nonnull)aView];
 	self.frame = tmp;
 }
 
 - (void)sentBelowView:(nullable UIView *)aView {
-	if (aView == nil) {
-		return;
-	}
+	if (!aView) return;
 	CGRect tmp = self.frame;
 	UIView * sup = self.superview;
 	[self removeFromSuperview];
-	[sup insertSubview:self belowSubview:aView];
+	[sup insertSubview:self belowSubview:(UIView *__nonnull)aView];
 	self.frame = tmp;
 }
 
@@ -245,7 +241,7 @@
     }
     
     // Window is special. There may be an external screen.
-    if ([self isKindOfClass:[UIWindow class]]) {
+    if ([self isKindOfClass:UIWindow.class]) {
         UIWindow *selfRef = (UIWindow *)self;
         if (!selfRef.screen) return NO;
         return CGRectIntersectsRect(selfRef.screen.bounds, selfRef.frame);
@@ -302,7 +298,8 @@
 
 - (nonnull UIImage *)renderToImage {
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0);
-    [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    CGContextRef ref = UIGraphicsGetCurrentContext();
+    [self.layer renderInContext:ref];
     UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return img;

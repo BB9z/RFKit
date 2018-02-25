@@ -21,14 +21,14 @@
         id ctIndex = indexsArray[i];
         if ([ctIndex isKindOfClass:NSNumber.class]) {
             if (![ctObjectSet respondsToSelector:@selector(objectAtIndex:)]) {
-                @throw [NSException exceptionWithName:@"RFKit: Bad selector" reason:[NSString stringWithFormat:@"%@ can`t responds objectAtIndex: for index %@.", ctObjectSet, ctIndex] userInfo:@{@"set": self, @"indexsArray": indexsArray}];
+                @throw [NSException exceptionWithName:@"RFKit: Bad selector" reason:[NSString stringWithFormat:@"%@ can`t responds objectAtIndex: for index %@.", ctObjectSet, ctIndex] userInfo:@{@"set": self, @"indexsArray": (id)indexsArray}];
             }
             NSNumber *indexObj = ctIndex;
             ctObjectSet = [ctObjectSet objectAtIndex:indexObj.integerValue];
         }
         else {
             if (![ctObjectSet respondsToSelector:@selector(objectForKey:)]) {
-                @throw [NSException exceptionWithName:@"RFKit: Bad selector" reason:[NSString stringWithFormat:@"%@ can`t responds objectForKey: for index %@.", ctObjectSet, ctIndex] userInfo:@{@"set": self, @"indexsArray": indexsArray}];
+                @throw [NSException exceptionWithName:@"RFKit: Bad selector" reason:[NSString stringWithFormat:@"%@ can`t responds objectForKey: for index %@.", ctObjectSet, ctIndex] userInfo:@{@"set": self, @"indexsArray": (id)indexsArray}];
             }
             ctObjectSet = [ctObjectSet objectForKey:ctIndex];
         }

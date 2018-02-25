@@ -12,7 +12,7 @@
 }
 
 + (nullable UIViewController *)rootViewControllerWhichCanPresentModalViewController {
-    UIViewController *vc = ([UIApplication sharedApplication].keyWindow.rootViewController)? : [(UIWindow *)[[UIApplication sharedApplication].windows firstObject] rootViewController];
+    UIViewController *vc = (UIApplication.sharedApplication.keyWindow.rootViewController)? : UIApplication.sharedApplication.windows.firstObject.rootViewController;
     
     while (vc.presentedViewController) {
         vc = vc.presentedViewController;
@@ -55,9 +55,9 @@
     return vc;
 }
 
-//! ref: http://lldong.github.com/blog/2012/11/02/dissmiss-keyboard/
+//! REF: http://lldong.github.io/2012/11/02/dissmiss-keyboard.html
 - (void)dismissKeyboard {
-    [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
+    [UIApplication.sharedApplication sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
 }
 
 @end

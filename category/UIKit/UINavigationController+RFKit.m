@@ -24,7 +24,7 @@
 - (id)viewControllerWithClass:(nonnull Class)aClass beforeViewController:(nullable UIViewController *)viewController {
     NSUInteger idx = NSNotFound;
     if (viewController) {
-        idx = [self.viewControllers indexOfObject:viewController];
+        idx = [self.viewControllers indexOfObject:(UIViewController *__nonnull)viewController];
     }
     else {
         idx = self.viewControllers.count;
@@ -44,7 +44,7 @@
 }
 
 - (void)setTopViewController:(nullable UIViewController *)topViewController animated:(BOOL)animated {
-    NSMutableArray *vcs = [self.viewControllers mutableCopy];
+    NSMutableArray *vcs = self.viewControllers.mutableCopy;
     vcs.lastObject = topViewController;
     [self setViewControllers:vcs animated:animated];
 }

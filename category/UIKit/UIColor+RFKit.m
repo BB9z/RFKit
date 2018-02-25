@@ -20,7 +20,7 @@
 	NSUInteger length = nsstring.length-1;
 	//	if (length != 3 && length != 6 ) return [UIColor clearColor];
 	if (length != 6 ) return [UIColor clearColor]; 
-	if ([nsstring characterAtIndex:0] != '#') return [UIColor clearColor];
+	if ([nsstring characterAtIndex:0] != '#') return UIColor.clearColor;
 	int color;
 	sscanf(nsstring.UTF8String, "#%x", &color);
 	return [UIColor colorWithRGBHex:color alpha:alpha];
