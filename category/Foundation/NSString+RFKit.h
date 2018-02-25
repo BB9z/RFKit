@@ -41,6 +41,9 @@
  */
 - (nonnull NSString *)rf_pinyinStringWithStripDiacritics:(BOOL)stripDiacritics API_AVAILABLE(macos(10.4), ios(2.0), tvos(9.0), watchos(2.0));
 
+#if (MAC_OS_X_VERSION_MIN_REQUIRED < __MAC_10_10 && (!defined(__IPHONE_OS_VERSION_MIN_REQUIRED) || __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_8_0))
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wavailability"
 /**
  Returns a Boolean value indicating whether the receiver contains the specified string.
  
@@ -49,6 +52,8 @@
  @return `YES` if the receiver contains the string; otherwise, `NO`.
  */
 - (BOOL)containsString:(nonnull NSString *)string API_AVAILABLE(macos(10.0), ios(2.0), tvos(9.0), watchos(2.0));
+#pragma clang diagnostic pop
+#endif
 
 /**
  Returns a Boolean value indicating whether the receiver contains the specified string.
