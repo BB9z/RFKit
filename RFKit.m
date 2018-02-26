@@ -1,8 +1,6 @@
 
 #import "RFKit.h"
 
-double RFKitVersionNumber = 1007000.0;
-
 // Xcode 7: 6294649 Lightweight generics
 #if !__has_feature(objc_generics)
 #   error "RFKit requires generics which is provided on Xcode 7 or later."

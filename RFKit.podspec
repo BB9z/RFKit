@@ -47,7 +47,7 @@ Pod::Spec.new do |s|
     ss.dependency 'RFKit/Runtime'
     ss.dependency 'RFKit/RFGeometry'
     ss.dependency 'RFKit/Category/Default'
-    ss.source_files = 'RFKit.{h,m}'
+    ss.source_files = 'RFKit.{h,m}', 'RFKitDefaultCategories.h'
   end
   
   s.subspec 'ALL' do |ss|
@@ -120,8 +120,6 @@ Pod::Spec.new do |s|
 
       ssp.watchos.dependency 'RFKit/Category/UIColor'
       ssp.watchos.dependency 'RFKit/Category/UIImage'
-
-      ss.source_files = 'RFKitDefaultCategories.h'
     end
     
     ss.subspec 'All' do |ssp|
