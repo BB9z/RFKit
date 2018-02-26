@@ -79,6 +79,7 @@ PODS:
     - RFKit/Runtime
   - RFKit/Category/UIImage (1.7.0):
     - RFKit/Foundation
+    - RFKit/RFGeometry
     - RFKit/Runtime
   - RFKit/Category/UINavigationController (1.7.0):
     - RFKit/Category/NSArray
@@ -129,7 +130,7 @@ EXTERNAL SOURCES:
     :path: ..
 
 SPEC CHECKSUMS:
-  RFKit: a4dba3a30601a830f57e350dc857bdc9752224fe
+  RFKit: 7d637e0948a84b2697c0c2d4d79c5f9ba1370ecb
 
 PODFILE CHECKSUM: ea81365bd31065944b9ab945e792ddc9d5de2eb1
 

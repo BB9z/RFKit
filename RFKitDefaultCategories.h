@@ -39,4 +39,21 @@
 #import "UIView+RFKit.h"
 #import "UIViewController+RFKit.h"
 //#import "UIWebView+RFKit.h"
+
+#elif TARGET_OS_TV
+#import "UIButton+RFKit.h"
+#import "UIColor+RFKit.h"
+#import "UIDevice+RFKit.h"
+#import "UIImage+RFKit.h"
+#import "UINavigationController+RFKit.h"
+#import "UIResponder+RFKit.h"
+#import "UIStoryboard+RFKit.h"
+#import "UITableView+RFKit.h"
+#import "UIView+RFAnimate.h"
+#import "UIView+RFKit.h"
+#import "UIViewController+RFKit.h"
+
+#elif TARGET_OS_WATCH
+#import "UIColor+RFKit.h"
+#import "UIImage+RFKit.h"
 #endif
