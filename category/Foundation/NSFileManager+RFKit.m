@@ -4,10 +4,10 @@
 
 @implementation NSFileManager (RFKit)
 
-- (NSURL *)subDirectoryURLWithPathComponent:(NSString *)pathComponent inDirectory:(NSSearchPathDirectory)directory createIfNotExist:(BOOL)createIfNotExist error:(NSError *__autoreleasing *)error {
+- (nullable NSURL *)subDirectoryURLWithPathComponent:(nullable NSString *)pathComponent inDirectory:(NSSearchPathDirectory)directory createIfNotExist:(BOOL)createIfNotExist error:(NSError *__nullable __autoreleasing *__nullable)error {
 
     NSURL *parentDirectoryURL = [self URLForDirectory:directory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:error];
-    NSURL *directoryURL = [parentDirectoryURL URLByAppendingPathComponent:pathComponent? pathComponent : @""];
+    NSURL *directoryURL = pathComponent? [parentDirectoryURL URLByAppendingPathComponent:(NSString *__nonnull)pathComponent] : parentDirectoryURL;
     
     BOOL isDirectory = YES;
     if ([self fileExistsAtPath:(NSString *)[directoryURL path] isDirectory:&isDirectory] && !isDirectory) {
@@ -26,8 +26,8 @@
     return directoryURL;
 }
 
-- (NSArray<NSString *> *)subDirectoryOfDirectoryAtPath:(NSString *)path error:(NSError *__autoreleasing *)error {
-	NSMutableArray *sub = [[self contentsOfDirectoryAtPath:path error:error] mutableCopy];
+- (nonnull NSArray<NSString *> *)subDirectoryOfDirectoryAtPath:(nonnull NSString *)path error:(NSError *__autoreleasing *)error {
+	NSMutableArray *sub = [self contentsOfDirectoryAtPath:path error:error].mutableCopy;
 	_douto(sub)
 	
 	BOOL isDir = false;
@@ -46,7 +46,7 @@
 	return [NSArray arrayWithArray:sub];
 }
 
-- (NSArray<NSURL *> *)filesInDirectory:(NSURL *)directory withExtensions:(NSSet *)fileTypes directoryEnumerationOptions:(NSDirectoryEnumerationOptions)mask errorHandler:(BOOL (^)(NSURL *url, NSError *error))handler {
+- (nonnull NSArray<NSURL *> *)filesInDirectory:(nonnull NSURL *)directory withExtensions:(nullable NSSet *)fileTypes directoryEnumerationOptions:(NSDirectoryEnumerationOptions)mask errorHandler:(nullable BOOL (^)(NSURL *__nonnull url, NSError *__nonnull error))handler {
     
     NSError *e = nil;
 #define RFKit_NSFileManager_handleError_ \
@@ -79,22 +79,25 @@
 #undef RFKit_NSFileManager_handleError_
 }
 
-- (long long)fileSizeForPath:(NSString *)path {
+- (long long)fileSizeForPath:(nullable NSString *)path {
     return [self fileSizeForPath:path error:nil];
 }
 
-- (long long)fileSizeForPath:(NSString *)path error:(NSError *__autoreleasing *)inputError {
+- (long long)fileSizeForPath:(nullable NSString *)path error:(NSError *__autoreleasing *)inputError {
+    if (!path.length) return 0;
+    
+    NSString *aPath = path;
     BOOL isDir = NO;
-    if (![self fileExistsAtPath:path isDirectory:&isDir]) {
+    if (![self fileExistsAtPath:aPath isDirectory:&isDir]) {
         return 0;
     }
     
     if (isDir) {
-        return [self sizeForDirectory:path fileCount:NULL directoryCount:NULL error:inputError];
+        return [self sizeForDirectory:aPath fileCount:NULL directoryCount:NULL error:inputError];
     }
     
     NSError *error = nil;
-    NSDictionary *fileDict = [self attributesOfItemAtPath:path error:&error];
+    NSDictionary *fileDict = [self attributesOfItemAtPath:aPath error:&error];
     if (error && inputError) {
         *inputError = error;
         return -1;
@@ -104,11 +107,13 @@
 }
 
 //! REF: https://stackoverflow.com/a/28660040/945906
-- (long long)sizeForDirectory:(NSString *)directoryPath fileCount:(long *)fileCount directoryCount:(long *)directoryCount error:(NSError *__autoreleasing *)inputError {
-
+- (long long)sizeForDirectory:(nullable NSString *)directoryPath fileCount:(nullable long *)fileCount directoryCount:(nullable long *)directoryCount error:(NSError *__nullable __autoreleasing *__nullable)inputError {
+    if (!directoryPath.length) return 0;
+    
+    NSString *directory = directoryPath;
     long long fileSize = 0;
     BOOL isDir = NO;
-    BOOL isExist = [self fileExistsAtPath:directoryPath isDirectory:&isDir];
+    BOOL isExist = [self fileExistsAtPath:directory isDirectory:&isDir];
     long cFile = 0;
     long cDir = 0;
     
@@ -120,7 +125,7 @@
     }
     
     __block NSError *error = nil;
-    NSEnumerator *fileEnumerator = [self enumeratorAtURL:[NSURL fileURLWithPath:directoryPath] includingPropertiesForKeys:@[
+    NSEnumerator *fileEnumerator = [self enumeratorAtURL:[NSURL fileURLWithPath:directory] includingPropertiesForKeys:@[
         NSURLIsDirectoryKey,
         NSURLFileSizeKey,
     ] options:(NSDirectoryEnumerationOptions)0 errorHandler:nil];
@@ -148,18 +153,12 @@
     }
     
     if (error) {
-        if (inputError) {
-            *inputError = error;
-        }
+        if (inputError) *inputError = error;
         return -1;
     }
     
-    if (fileCount) {
-        *fileCount = cFile;
-    }
-    if (directoryCount) {
-        *directoryCount = cDir;
-    }
+    if (fileCount) *fileCount = cFile;
+    if (directoryCount) *directoryCount = cDir;
     return fileSize;
 }
 

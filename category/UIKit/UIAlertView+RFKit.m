@@ -5,11 +5,8 @@
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
 @implementation UIAlertView (RFKit)
 
-+ (void)showWithTitle:(NSString *)title message:(NSString *)message buttonTitle:(NSString *)buttonTitle {
-    if (buttonTitle == nil) {
-        buttonTitle = @"OK";
-    }
-    [[[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:buttonTitle otherButtonTitles:nil] show];
++ (void)showWithTitle:(nullable NSString *)title message:(nullable NSString *)message buttonTitle:(nullable NSString *)buttonTitle {
+    [[[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:buttonTitle?: @"OK" otherButtonTitles:nil] show];
 }
 
 @end

@@ -4,7 +4,7 @@
 
 @implementation NSNumberFormatter (RFKit)
 
-+ (NSNumberFormatter *)significantFormatterWithMinimumDigits:(NSUInteger)min maximumDigits:(NSUInteger)max {
++ (nonnull NSNumberFormatter *)significantFormatterWithMinimumDigits:(NSUInteger)min maximumDigits:(NSUInteger)max {
     
     NSNumberFormatter *significantFormatter = [[NSNumberFormatter alloc] init];
     [significantFormatter setUsesSignificantDigits:YES];
@@ -14,7 +14,7 @@
 }
 
 // base on: http://stackoverflow.com/a/2975631/945906
-+ (NSString *)formatedFileSizeStringWithBytes:(long long)bytes useBinaryUnites:(BOOL)isBinaryUnites {
++ (nonnull NSString *)formatedFileSizeStringWithBytes:(long long)bytes useBinaryUnites:(BOOL)isBinaryUnites {
     const char units[] = { '\0', 'k', 'M', 'G', 'T' }; // P E Z Y
     int maxUnits = sizeof units - 1;
     
@@ -32,8 +32,8 @@
     return formatedString;
 }
 
-- (NSString *)stringFromFloat:(float)floatVaule {
-    return [self stringFromNumber:@(floatVaule)];
+- (nonnull NSString *)stringFromFloat:(float)floatVaule {
+    return (NSString *__nonnull)[self stringFromNumber:@(floatVaule)];
 }
 
 @end

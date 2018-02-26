@@ -4,5 +4,4 @@
 @implementation UISearchBar (RFKit)
 @dynamic cancelButton;
 
-
 @end

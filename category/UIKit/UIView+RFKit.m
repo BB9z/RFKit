@@ -57,7 +57,7 @@
 
 #pragma mark - View Hierarchy Management
 
-+ (UIView *)commonSuperviewWith:(UIView *)view1 anotherView:(UIView *)view2 {
++ (nullable UIView *)commonSuperviewWith:(nonnull UIView *)view1 anotherView:(nonnull UIView *)view2 {
     NSParameterAssert(view1);
     NSParameterAssert(view2);
     if (view1 == view2) return view1.superview;
@@ -67,7 +67,7 @@
 
     // As we don’t know which view has a heigher level in view hierarchy,
     // We will add these view and their superview to an array.
-    NSMutableArray *mergedViewHierarchy = [@[ view1, view2 ] mutableCopy];
+    NSMutableArray *mergedViewHierarchy = @[ view1, view2 ].mutableCopy;
     UIView *commonSuperview = nil;
 
     // Loop until all superviews are included in this array or find a view’s superview in this array.
@@ -87,12 +87,12 @@
     return commonSuperview;
 }
 
-- (void)addSubview:(UIView *_Nonnull)view frame:(CGRect)rect {
+- (void)addSubview:(nonnull UIView *)view frame:(CGRect)rect {
 	[self addSubview:view];
 	view.frame = rect;
 }
 
-- (void)addSubview:(UIView *_Nonnull)view resizeOption:(RFViewResizeOption)option {
+- (void)addSubview:(nonnull UIView *)view resizeOption:(RFViewResizeOption)option {
 	[self addSubview:view];
 	double aspect;
 	double aspectSelf;
@@ -151,13 +151,13 @@
 	}
 }
 
-- (void)removeSubview:(UIView *)view {
-    if ([self.subviews indexOfObject:view] != NSNotFound) {
-        [view removeFromSuperview];
-    }
-    else {
+- (void)removeSubview:(nullable UIView *)view {
+    if (!view) return;
+    if ([self.subviews indexOfObject:(UIView *__nonnull)view] == NSNotFound) {
         dout_warning(@"RFKit [UIView removeSubview] 父视图没有指定的子视图")
+        return;
     }
+    [view removeFromSuperview];
 }
 
 - (void)removeAllSubviews {
@@ -170,60 +170,60 @@
 	return [self.superview.subviews indexOfObject:self];
 }
 
+- (void)bringAboveView:(nullable UIView *)aView {
+	if (!aView) return;
+	CGRect tmp = self.frame;
+	UIView * sup = self.superview;
+	[self removeFromSuperview];
+	[sup insertSubview:self aboveSubview:(UIView *__nonnull)aView];
+	self.frame = tmp;
+}
+
+- (void)sentBelowView:(nullable UIView *)aView {
+	if (!aView) return;
+	CGRect tmp = self.frame;
+	UIView * sup = self.superview;
+	[self removeFromSuperview];
+	[sup insertSubview:self belowSubview:(UIView *__nonnull)aView];
+	self.frame = tmp;
+}
+
 - (void)bringToFront {
-	[self.superview bringSubviewToFront:self];
+    [self.superview bringSubviewToFront:self];
 }
 
 - (void)sentToBack {
-	[self.superview sendSubviewToBack:self];
-}
-
-- (void)bringAboveView:(UIView *)aView {
-	if (aView == nil) {
-		return;
-	}
-	CGRect tmp = self.frame;
-	UIView * sup = self.superview;
-	[self removeFromSuperview];
-	[sup insertSubview:self aboveSubview:aView];
-	self.frame = tmp;
-}
-
-- (void)sentBelowView:(UIView *)aView {
-	if (aView == nil) {
-		return;
-	}
-	CGRect tmp = self.frame;
-	UIView * sup = self.superview;
-	[self removeFromSuperview];
-	[sup insertSubview:self belowSubview:aView];
-	self.frame = tmp;
+    [self.superview sendSubviewToBack:self];
 }
 
 - (void)bringOneLevelUp {
 	NSUInteger ixCurrent = [self _rf_siblingIndex];
-	[self.superview exchangeSubviewAtIndex:ixCurrent withSubviewAtIndex:ixCurrent+1];
+    if (ixCurrent + 1 < self.superview.subviews.count) {
+        [self.superview exchangeSubviewAtIndex:ixCurrent withSubviewAtIndex:ixCurrent+1];
+    }
 }
 
 - (void)sendOneLevelDown {
 	NSUInteger ixCurrent = [self _rf_siblingIndex];
-	[self.superview exchangeSubviewAtIndex:ixCurrent withSubviewAtIndex:ixCurrent-1];
+    if (ixCurrent > 0) {
+        [self.superview exchangeSubviewAtIndex:ixCurrent withSubviewAtIndex:ixCurrent-1];
+    }
 }
 
 - (BOOL)isInFront {
-    return ([self.superview.subviews lastObject] == self);
+    return self.superview.subviews.lastObject == self;
 }
 
 - (BOOL)isAtBack {
-    return ((self.superview.subviews)[0] == self);
+    return [self _rf_siblingIndex] == 0;
 }
 
-- (void)exchangeDepthsWithView:(UIView *)swapView {
+- (void)exchangeDepthsWithView:(nullable UIView *)swapView {
     if (!swapView) return;
 	[self.superview exchangeSubviewAtIndex:[self _rf_siblingIndex] withSubviewAtIndex:[swapView _rf_siblingIndex]];
 }
 
-- (id _Nullable)superviewOfClass:(Class _Nonnull)viewClass {
+- (nullable __kindof UIView *)superviewOfClass:(nonnull Class)viewClass {
     UIView *_Nullable ctView = self.superview;
     while (ctView && ![ctView isKindOfClass:viewClass]) {
         ctView = ctView.superview;
@@ -241,7 +241,7 @@
     }
     
     // Window is special. There may be an external screen.
-    if ([self isKindOfClass:[UIWindow class]]) {
+    if ([self isKindOfClass:UIWindow.class]) {
         UIWindow *selfRef = (UIWindow *)self;
         if (!selfRef.screen) return NO;
         return CGRectIntersectsRect(selfRef.screen.bounds, selfRef.frame);
@@ -292,16 +292,15 @@
     return [self.window convertRect:frameInWindow toWindow:nil];
 }
 
-- (CGRect)boundsInView:(UIView *_Nullable)view {
+- (CGRect)boundsInView:(nullable UIView *)view {
     return [self convertRect:self.bounds toView:view];
 }
 
-- (UIImage *_Nullable)renderToImage {
+- (nonnull UIImage *)renderToImage {
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0);
     CGContextRef ref = UIGraphicsGetCurrentContext();
-    if (!ref) return nil;
     [self.layer renderInContext:ref];
-    UIImage * img = UIGraphicsGetImageFromCurrentImageContext();
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return img;
 }
@@ -312,7 +311,7 @@
 	return hSuper - frame.origin.y - frame.size.height;
 }
 
-- (UIViewController *_Nullable)viewController {
+- (nullable UIViewController *)viewController {
     return [self.nextResponder viewController];
 }
 
@@ -329,7 +328,7 @@
     return nil;
 }
 
-+ (instancetype _Nullable)loadWithNibName:(NSString *_Nullable)nibName {
++ (nullable instancetype)loadWithNibName:(nullable NSString *)nibName {
     return [self loadWithNibName:nibName bundle:nil];
 }
 

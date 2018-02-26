@@ -2,14 +2,18 @@
     UIDevice extension
     RFKit
 
-    Copyright (c) 2012-2016 BB9z
+    Copyright (c) 2012-2016, 2018 BB9z
     https://github.com/BB9z/RFKit
 
     The MIT License (MIT)
     http://www.opensource.org/licenses/mit-license.php
  */
-
+#import "RFFoundation.h"
 #import <UIKit/UIKit.h>
+
+#ifndef RF_iOS10Before
+#   define RF_iOS10Before (floor(NSFoundationVersionNumber) < 1300)
+#endif
 
 #ifndef RF_iOS9Before
 #   define RF_iOS9Before (floor(NSFoundationVersionNumber) < 1200)
@@ -29,33 +33,37 @@
 
 @interface UIDevice (RFKit)
 
-/** If current device is iPad.
+/**
+ If current device is iPad.
  
  Detect using userInterfaceIdiom.
  
  @return `YES` if current device is iPad, otherwise `NO`.
  */
-- (BOOL)isPad NS_AVAILABLE_IOS(3_2);
+- (BOOL)isPad API_AVAILABLE(ios(3.2), tvos(9.0));
 
-
-/** If the device has a retina screen.
+/**
+ If the device has a retina screen.
 
  Detect using UIScreen's scale property.
 
  @return `YES` if the device has a retina screen, otherwise `NO`.
  */
-- (BOOL)isRetinaDisplay NS_AVAILABLE_IOS(4_0);
-
-
-/// Returns `YES` if the current process is being debugged (either running under the debugger or has a debugger attached post facto).
-//! via: https://developer.apple.com/library/mac/#qa/qa1361/_index.html
-- (BOOL)isBeingDebugged NS_AVAILABLE_IOS(2_0);
+- (BOOL)isRetinaDisplay API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
- 
+ Returns `YES` if the current process is being debugged (either running under the debugger or has a debugger attached post facto).
+ */
+- (BOOL)isBeingDebugged API_AVAILABLE(ios(2.0), tvos(9.0));
+
+/**
  @return The amount of free space on the file system. 
  */
-- (long long)fileSystemFreeSize NS_AVAILABLE_IOS(2_0);
-- (long long)fileSystemSize NS_AVAILABLE_IOS(2_0);
+- (long long)fileSystemFreeSize API_AVAILABLE(ios(6.0), tvos(9.0));
+
+/**
+ @return The size of the file system.
+ */
+- (long long)fileSystemSize API_AVAILABLE(ios(6.0), tvos(9.0));
 
 @end

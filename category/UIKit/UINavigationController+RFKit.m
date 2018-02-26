@@ -6,25 +6,25 @@
 @dynamic disappearingViewController;
 @dynamic previousViewController;
 
-- (Class)previousViewControllerClassForViewController:(UIViewController *)viewController {
+- (nullable Class)previousViewControllerClassForViewController:(nonnull UIViewController *)viewController {
     return [[self previousViewControllerForViewController:viewController] class];
 }
 
-- (id)previousViewControllerForViewController:(UIViewController *)viewController {
+- (nullable id)previousViewControllerForViewController:(nonnull UIViewController *)viewController {
     NSUInteger idx = [self.viewControllers indexOfObject:viewController];
     if (idx == 0 || idx == NSNotFound) return nil;
 
     return [self.viewControllers rf_objectAtIndex:(idx - 1)];
 }
 
-- (BOOL)hasViewControllerWithClass:(Class)aClass beforeViewController:(UIViewController *)viewController {
+- (BOOL)hasViewControllerWithClass:(nonnull Class)aClass beforeViewController:(nullable UIViewController *)viewController {
     return !!([self viewControllerWithClass:aClass beforeViewController:viewController]);
 }
 
-- (id)viewControllerWithClass:(Class)aClass beforeViewController:(UIViewController *)viewController {
+- (id)viewControllerWithClass:(nonnull Class)aClass beforeViewController:(nullable UIViewController *)viewController {
     NSUInteger idx = NSNotFound;
     if (viewController) {
-        idx = [self.viewControllers indexOfObject:viewController];
+        idx = [self.viewControllers indexOfObject:(UIViewController *__nonnull)viewController];
     }
     else {
         idx = self.viewControllers.count;
@@ -43,8 +43,8 @@
     return nil;
 }
 
-- (void)setTopViewController:(UIViewController *)topViewController animated:(BOOL)animated {
-    NSMutableArray *vcs = [self.viewControllers mutableCopy];
+- (void)setTopViewController:(nullable UIViewController *)topViewController animated:(BOOL)animated {
+    NSMutableArray *vcs = self.viewControllers.mutableCopy;
     vcs.lastObject = topViewController;
     [self setViewControllers:vcs animated:animated];
 }

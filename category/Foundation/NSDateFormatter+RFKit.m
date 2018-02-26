@@ -2,7 +2,8 @@
 #import "NSDateFormatter+RFKit.h"
 
 @implementation NSDateFormatter (RFKit)
-+ (NSDateFormatter *)GMTFormatter {
+
++ (nonnull NSDateFormatter *)GMTFormatter {
 	static NSDateFormatter * share;
 	if (!share) {
 		share = [[NSDateFormatter alloc] init];
@@ -12,7 +13,7 @@
 	return [share copy];
 }
 
-+ (NSDateFormatter *)currentLocaleFormatter {
++ (nonnull NSDateFormatter *)currentLocaleFormatter {
 	static NSDateFormatter * share;
 	if (!share) {
 		share = [[NSDateFormatter alloc] init];
@@ -22,7 +23,7 @@
 	return [share copy];
 }
 
-+ (NSDateFormatter *)currentLocaleFormatterOnlyDate {
++ (nonnull NSDateFormatter *)currentLocaleFormatterOnlyDate {
 	static NSDateFormatter * share;
 	if (!share) {
 		share = [[NSDateFormatter alloc] init];
@@ -32,7 +33,7 @@
 	return [share copy];
 }
 
-+ (NSDateFormatter *)currentLocaleFormatterFromTemplate:(NSString *)template {
++ (nonnull NSDateFormatter *)currentLocaleFormatterFromTemplate:(nonnull NSString *)template {
     NSString *format = [NSDateFormatter dateFormatFromTemplate:template options:0 locale:[NSLocale currentLocale]];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setLocale:[NSLocale currentLocale]];
@@ -40,9 +41,12 @@
     return formatter;
 }
 
-+ (NSDateFormatter *)dateFormatterWithDateFormat:(NSString *)formatString timeZoneWithName:(NSString *)tzName {
++ (nonnull NSDateFormatter *)dateFormatterWithDateFormat:(nullable NSString *)formatString timeZoneWithName:(nullable NSString *)timezoneName {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setTimeZone:[NSTimeZone timeZoneWithName:tzName]];
+    if (timezoneName) {
+        NSString *tzName = timezoneName;
+        [formatter setTimeZone:[NSTimeZone timeZoneWithName:tzName]];
+    }
     [formatter setDateFormat:formatString];
     return formatter;
 }

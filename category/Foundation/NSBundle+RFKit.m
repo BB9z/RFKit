@@ -2,27 +2,28 @@
 #import "NSBundle+RFKit.h"
 
 @implementation NSBundle (RFKit)
-+ (NSString *)mainBundlePathForCaches {
+
++ (nonnull NSString *)mainBundlePathForCaches {
 	return [NSHomeDirectory() stringByAppendingPathComponent:@"/Library/Caches/"];
 }
 
-+ (NSString *)mainBundlePathForPreferences {
++ (nonnull NSString *)mainBundlePathForPreferences {
 	return [NSHomeDirectory() stringByAppendingPathComponent:@"/Library/Preferences/"];
 }
 
-+ (NSString *)mainBundlePathForDocuments {
++ (nonnull NSString *)mainBundlePathForDocuments {
 	return [NSHomeDirectory() stringByAppendingPathComponent:@"/Documents/"];
 }
 
-+ (NSString *)mainBundlePathForTemp {
++ (nonnull NSString *)mainBundlePathForTemp {
 	return [NSHomeDirectory() stringByAppendingPathComponent:@"/tmp/"];
 }
 
-+ (NSString *)pathForMainBoundlePath:(NSString *)path {
++ (nonnull NSString *)pathForMainBoundlePath:(nonnull NSString *)path {
     return [NSHomeDirectory() stringByAppendingPathComponent:path];
 }
 
-- (NSString *)versionString {
+- (nonnull NSString *)versionString {
     NSString *bundleVersion = self.infoDictionary[@"CFBundleVersion"];
     NSString *shortVersion = self.infoDictionary[@"CFBundleShortVersionString"];
     return [NSString stringWithFormat:@"%@.%@", shortVersion, bundleVersion];

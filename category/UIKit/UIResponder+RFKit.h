@@ -2,13 +2,13 @@
     UIResponder extension
     RFKit
 
-    Copyright (c) 2014-2015 BB9z
+    Copyright (c) 2014-2015, 2018 BB9z
     https://github.com/BB9z/RFKit
 
     The MIT License (MIT)
     http://www.opensource.org/licenses/mit-license.php
  */
-
+#import "RFFoundation.h"
 #import <UIKit/UIKit.h>
 
 @interface UIResponder (RFKit)
@@ -17,11 +17,11 @@
 
  @return A view controller. `nil` if cannot find a UIViewController in responder chain.
  */
-- (id)viewController;
+- (nullable __kindof UIViewController *)viewController API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  Find current firstResponder through the responder chain.
  */
-+ (id)firstResponder;
++ (nullable __kindof UIResponder *)firstResponder API_AVAILABLE(ios(2.0), tvos(9.0));
 
 @end

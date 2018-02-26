@@ -3,8 +3,16 @@
 
 @implementation NSURL (RFKit)
 
-- (NSDictionary *)queryDictionary {
-	NSString * queryString = self.query;
+static inline NSString *stringFromURLFormat(NSString *value) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    return [[value stringByReplacingOccurrencesOfString:@"+" withString:@
+             " "] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+#pragma clang diagnostic pop
+}
+
+- (nullable NSDictionary *)queryDictionary {
+	NSString *queryString = self.query;
 	if (!queryString) return nil;
 	
 	NSMutableDictionary *queryDictionary = [NSMutableDictionary dictionary];
@@ -14,9 +22,9 @@
 	for (NSString *fieldValuePair in [queryString componentsSeparatedByCharactersInSet:charSetAmpersand]) {
 		NSArray *fieldValueArray = [fieldValuePair componentsSeparatedByCharactersInSet:charSetEqualsSign];
 		if (fieldValueArray.count == 2) {
-			NSString *filed = fieldValueArray[0];
-			NSString *value = fieldValueArray[1];
-			queryDictionary[filed] = [value stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            NSString *filed = stringFromURLFormat(fieldValueArray[0]);
+            NSString *value = stringFromURLFormat(fieldValueArray[1]);
+			queryDictionary[filed] = value;
 		}
 	}
 	return queryDictionary;

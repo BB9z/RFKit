@@ -2,8 +2,8 @@
     RFAlloctionProxy
     RFKit
 
-    Copyright (c) 2012-2014, 2017 BB9z
-    https://github.com/RFUI/Core
+    Copyright (c) 2012-2014, 2017-2018 BB9z
+    https://github.com/BB9z/RFKit
 
     The MIT License (MIT)
     http://www.opensource.org/licenses/mit-license.php
@@ -17,15 +17,19 @@
  */
 
 #if TARGET_OS_OSX
+API_AVAILABLE(macos(10.0))
 @interface RFAlloctionProxyView : NSView
 #else
+API_AVAILABLE(ios(2.0), tvos(9.0))
 @interface RFAlloctionProxyView : UIView
 #endif
 @end
 
 #if TARGET_OS_OSX
+API_AVAILABLE(macos(10.0))
 @interface RFAlloctionProxyButton : NSButton
 #else
+API_AVAILABLE(ios(2.0), tvos(9.0))
 @interface RFAlloctionProxyButton : UIButton
 #endif
 @end

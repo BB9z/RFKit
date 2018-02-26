@@ -52,15 +52,15 @@ typedef NS_ENUM(NSInteger, RFAlignmentAnchor) {
 
 #pragma mark -
 #pragma mark CGPoint
-CGPoint	CGPointMid		(CGPoint a, CGPoint b);
-CGFloat	CGPointDistance	(CGPoint a, CGPoint b);
+CGPoint	CGPointMid(CGPoint a, CGPoint b);
+CGFloat	CGPointDistance(CGPoint a, CGPoint b);
 CGPoint CGPointAtLineRatio(CGPoint start, CGPoint end, CGFloat ratio);
 CGPoint CGPointOfRectCenter(CGRect a);
 
 
 #pragma mark CGSize
 CGSize	CGSizeFromPoints(CGPoint a, CGPoint b);
-CGSize	CGSizeScaled	(CGSize original, double scale);
+CGSize	CGSizeScaled(CGSize original, double scale);
 
 
 #pragma mark CGRect
@@ -86,7 +86,7 @@ CGRect CGRectChange(CGRect original, RFCGRectChangeFlag flag, CGFloat newValue);
 // radian measure
 typedef CGFloat CGAngle;
 CGAngle	CGAngleFromPoints(CGPoint start, CGPoint end);
-CGFloat	CGAngleDegrees	(CGAngle a);
+CGFloat	CGAngleDegrees(CGAngle a);
 
 
 #endif

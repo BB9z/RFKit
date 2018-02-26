@@ -3,7 +3,7 @@
 
 @implementation NSArray (RFKit)
 
-- (id)rf_objectAtIndex:(NSUInteger)index {
+- (nullable id)rf_objectAtIndex:(NSUInteger)index {
     if (index >= self.count) {
         return nil;
     }
@@ -40,19 +40,18 @@
 
 @implementation NSMutableArray (RFKit)
 
-- (void)rf_addObject:(id)anObject {
-    if (anObject) {
-        [self addObject:anObject];
-    }
+- (void)rf_addObject:(nullable id)anObject {
+    if (!anObject) return;
+    [self addObject:(id)anObject];
 }
 
-- (void)rf_insertObject:(id)anObject atIndex:(NSUInteger)index {
+- (void)rf_insertObject:(nullable id)anObject atIndex:(NSUInteger)index {
     if (!anObject) return;
     if (index > self.count) return;
-    [self insertObject:anObject atIndex:index];
+    [self insertObject:(id)anObject atIndex:index];
 }
 
-- (void)addObjectsFromDictionary:(NSDictionary *)sourceDictionary withSpecifiedKeys:(NSString *)firstKey, ... {
+- (void)addObjectsFromDictionary:(nullable NSDictionary *)sourceDictionary withSpecifiedKeys:(nonnull NSString *)firstKey, ... {
     va_list ap;
     va_start(ap, firstKey);
     for (NSString *key = firstKey; key != nil; key = va_arg(ap, id)) {
@@ -64,17 +63,16 @@
     va_end(ap);
 }
 
-- (void)setLastObject:(id)anObject {
-    if (anObject) {
-        NSInteger idx = self.count - 1;
-        if (idx < 0) {
-            idx = 0;
-        }
-        self[idx] = anObject;
+- (void)setLastObject:(nullable id)anObject {
+    if (!anObject) return;
+    NSInteger idx = self.count - 1;
+    if (idx < 0) {
+        idx = 0;
     }
+    self[idx] = (id)anObject;
 }
 
-- (void)removeObjectsPassingTest:(BOOL (^)(id obj, NSUInteger idx, BOOL *stop))predicate {
+- (void)removeObjectsPassingTest:(BOOL (^__nonnull)(id __nonnull obj, NSUInteger idx, BOOL *__nonnull stop))predicate {
     NSIndexSet *is = [self indexesOfObjectsPassingTest:predicate];
     [self removeObjectsAtIndexes:is];
 }

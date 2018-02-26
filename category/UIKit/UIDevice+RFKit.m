@@ -9,7 +9,7 @@
     static BOOL isPad = NO;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        if ([self userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        if (self.userInterfaceIdiom == UIUserInterfaceIdiomPad) {
             isPad = YES;
         }
     });
@@ -28,26 +28,7 @@
     return isRetinaDisplay;
 }
 
-- (long long)fileSystemFreeSize {
-    NSError *e = nil;
-    NSDictionary *info = [[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:&e];
-    if (e || !info[NSFileSystemFreeSize]) {
-        dout_warning(@"Can`t get file system free size, reason: %@", e);
-        return -1;
-    }
-    return [info[NSFileSystemFreeSize] longLongValue];
-}
-
-- (long long)fileSystemSize {
-    NSError *e = nil;
-    NSDictionary *info = [[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:&e];
-    if (e || !info[NSFileSystemSize]) {
-        dout_warning(@"Can`t get file system size, reason: %@", e);
-        return -1;
-    }
-    return [info[NSFileSystemSize] longLongValue];
-}
-
+//! via: https://developer.apple.com/library/content/qa/qa1361/_index.html
 - (BOOL)isBeingDebugged {
     int                 junk;
     int                 mib[4];
@@ -72,6 +53,26 @@
     
     // We're being debugged if the P_TRACED flag is set.
     return ( (info.kp_proc.p_flag & P_TRACED) != 0 );
+}
+
+- (long long)fileSystemFreeSize {
+    NSError *e = nil;
+    NSDictionary *info = [NSFileManager.defaultManager attributesOfFileSystemForPath:NSHomeDirectory() error:&e];
+    if (e || !info[NSFileSystemFreeSize]) {
+        dout_warning(@"Can`t get file system free size, reason: %@", e);
+        return -1;
+    }
+    return [info[NSFileSystemFreeSize] longLongValue];
+}
+
+- (long long)fileSystemSize {
+    NSError *e = nil;
+    NSDictionary *info = [NSFileManager.defaultManager attributesOfFileSystemForPath:NSHomeDirectory() error:&e];
+    if (e || !info[NSFileSystemSize]) {
+        dout_warning(@"Can`t get file system size, reason: %@", e);
+        return -1;
+    }
+    return [info[NSFileSystemSize] longLongValue];
 }
 
 @end

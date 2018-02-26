@@ -33,7 +33,7 @@
     [self assertPath:t1.path matchPathComponent:@"Documents/T1"];
     XCTAssertNil(e, @"Should not get a error");
     
-    XCTAssertFalse([fm fileExistsAtPath:t1.path], @"Nothing should created");
+    XCTAssertFalse([fm fileExistsAtPath:RF_AS_NONNULL(t1.path)], @"Nothing should created");
     
     // Test: creat
     t1 = nil;
@@ -41,21 +41,21 @@
     [self assertPath:t1.path matchPathComponent:@"Documents/T1"];
     XCTAssertNil(e, @"Should not get a error");
     isDir = NO;
-    isExist = [fm fileExistsAtPath:t1.path isDirectory:&isDir];
+    isExist = [fm fileExistsAtPath:RF_AS_NONNULL(t1.path) isDirectory:&isDir];
     XCTAssertTrue(isDir && isExist, @"Creat dir fail");
     
     NSURL *t2 = [fm subDirectoryURLWithPathComponent:@"T1" inDirectory:NSDocumentDirectory createIfNotExist:YES error:&e];
     isDir = NO;
-    isExist = [fm fileExistsAtPath:t2.path isDirectory:&isDir];
-    XCTAssertTrue(isDir && isExist);
+    isExist = [fm fileExistsAtPath:RF_AS_NONNULL(t2.path) isDirectory:&isDir];
+    XCTAssertTrue(isDir && isExist, @"");
     
     
     [fm removeItemAtURL:t1 error:&e];
     XCTAssertNil(e, @"Should not get a error");
     
-    [fm createFileAtPath:t1.path contents:[[NSData alloc] init] attributes:nil];
+    [fm createFileAtPath:RF_AS_NONNULL(t1.path) contents:[[NSData alloc] init] attributes:nil];
     isDir = NO;
-    isExist = [fm fileExistsAtPath:t1.path isDirectory:&isDir];
+    isExist = [fm fileExistsAtPath:RF_AS_NONNULL(t1.path) isDirectory:&isDir];
     XCTAssertTrue(!isDir && isExist, @"Creat file fail");
     
     t1 = [fm subDirectoryURLWithPathComponent:@"T1" inDirectory:NSDocumentDirectory createIfNotExist:YES error:&e];
@@ -74,7 +74,7 @@
     BOOL b2 = [[NSFileManager defaultManager] fileExistsAtPath:path2];
     dout_bool(b1)
     dout_bool(b2)
-    XCTAssertEqualObjects(path, path2);
+    XCTAssertEqualObjects(path, path2, @"Paths should match");
 }
 
 @end

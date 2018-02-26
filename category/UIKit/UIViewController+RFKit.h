@@ -2,13 +2,13 @@
     UIViewController extension
     RFKit
 
-    Copyright (c) 2012-2013, 2015-2016 BB9z
-    https://github.com/bb9z/RFKit
+    Copyright (c) 2012-2013, 2015-2016, 2018 BB9z
+    https://github.com/BB9z/RFKit
 
     The MIT License (MIT)
     http://www.opensource.org/licenses/mit-license.php
  */
-
+#import "RFFoundation.h"
 #import <UIKit/UIKit.h>
 
 @interface UIViewController (RFKit)
@@ -16,42 +16,46 @@
 /**
  Returns a Boolean value indicating whether the view is added to a view hierarchy.
  */
-- (BOOL)isViewAppeared;
+- (BOOL)isViewAppeared API_AVAILABLE(ios(3.0), tvos(9.0));
 
-/** Return a view which can present another view controller.
+/**
+ Return a view which can present another view controller.
  
- @discussion First we get an window´s root view controller. Then  traverse its presentedViewController property until the presentedViewController property is nil.
+ First we get an window´s root view controller. Then  traverse its presentedViewController property until the presentedViewController property is nil.
  
  @return A view controller which can present another view controller.
  */
-+ (nullable UIViewController *)rootViewControllerWhichCanPresentModalViewController;
++ (nullable UIViewController *)rootViewControllerWhichCanPresentModalViewController API_AVAILABLE(ios(4.0), tvos(9.0));
 
-/** Adds the given view controller as a child and add its view to specified view as a subview.
+/**
+ Adds the given view controller as a child and add its view to specified view as a subview.
  
- @discussion Using this method, you dont need to call  `didMoveToParentViewController` manually.
+ Using this method, you dont need to call  `didMoveToParentViewController` manually.
  
  @param childController The view controller to be added as a child.
  @param viewControllerSubview Which view should childController´s view be added.
  */
-- (void)addChildViewController:(nonnull UIViewController *)childController intoView:(nullable UIView *)viewControllerSubview;
+- (void)addChildViewController:(nonnull UIViewController *)childController intoView:(nullable UIView *)viewControllerSubview API_AVAILABLE(ios(5.0), tvos(9.0));
 
-/** Removes the receiver and its view from its parent view controller and the view´s superview.
+/**
+ Removes the receiver and its view from its parent view controller and the view´s superview.
  
- @discussion Using this method, you dont need to call  `willMoveToParentViewController` manually.
+ Using this method, you dont need to call  `willMoveToParentViewController` manually.
  */
-- (void)removeFromParentViewControllerAndView;
+- (void)removeFromParentViewControllerAndView API_AVAILABLE(ios(5.0), tvos(9.0));
 
 /**
  Lookup an ancestor view controller with given class.
 
  @return A view controller which is kind of specified ancestor view controller of the the receiver.
  */
-- (nullable id)parentViewControllerOfClass:(nonnull Class)viewControllerClas;
+- (nullable id)parentViewControllerOfClass:(nonnull Class)viewControllerClas API_AVAILABLE(ios(2.0), tvos(9.0));
 
-/** Dismiss keyboard by resign the first responder status.
+/**
+ Dismiss keyboard by resign the first responder status.
  
- @discussion You can use this method to dismiss keyboard even the first responder not belong to the reciver.
+ You can use this method to dismiss keyboard even the first responder not belong to the reciver.
  */
-- (void)dismissKeyboard;
+- (void)dismissKeyboard API_AVAILABLE(ios(2.0), tvos(9.0));
 
 @end
