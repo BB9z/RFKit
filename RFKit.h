@@ -16,6 +16,4 @@
 #import "RFGeometry.h"
 #import "RFKitDefaultCategories.h"
 
-FOUNDATION_EXPORT double RFKitVersionNumber;
-
 #endif

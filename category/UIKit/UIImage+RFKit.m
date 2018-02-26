@@ -1,6 +1,5 @@
 
 #import "UIImage+RFKit.h"
-#import "RFRuntime.h"
 #import "RFGeometry.h"
 
 @implementation UIImage (RFKit)

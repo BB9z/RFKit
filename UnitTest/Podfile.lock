@@ -2,6 +2,7 @@ PODS:
   - RFKit/ALL (1.7.0):
     - RFKit/Category/All
     - RFKit/Default
+    - RFKit/doutkit
     - RFKit/Performance
     - RFKit/UncaughtExceptionHandler
   - RFKit/Category/All (1.7.0):
@@ -15,7 +16,6 @@ PODS:
     - RFKit/Category/NSURL
     - RFKit/Category/UIScrollView+RFScrolling
     - RFKit/Category/UISearchBar
-    - RFKit/Category/UIView+RFAnimate
     - RFKit/Category/UIWebView
   - RFKit/Category/Default (1.7.0):
     - RFKit/Category/NSArray
@@ -34,6 +34,7 @@ PODS:
     - RFKit/Category/UIStoryboard
     - RFKit/Category/UITableView
     - RFKit/Category/UIView
+    - RFKit/Category/UIView+RFAnimate
     - RFKit/Category/UIViewController
   - RFKit/Category/NSArray (1.7.0):
     - RFKit/Foundation
@@ -79,7 +80,7 @@ PODS:
     - RFKit/Runtime
   - RFKit/Category/UIImage (1.7.0):
     - RFKit/Foundation
-    - RFKit/Runtime
+    - RFKit/RFGeometry
   - RFKit/Category/UINavigationController (1.7.0):
     - RFKit/Category/NSArray
     - RFKit/Foundation
@@ -109,9 +110,11 @@ PODS:
     - RFKit/Category/Default
     - RFKit/RFGeometry
     - RFKit/Runtime
+  - RFKit/doutkit (1.7.0):
+    - RFKit/Performance
+    - RFKit/Runtime
   - RFKit/Foundation (1.7.0)
   - RFKit/Performance (1.7.0):
-    - RFKit/Foundation
     - RFKit/Runtime
   - RFKit/RFGeometry (1.7.0):
     - RFKit/Runtime
@@ -129,7 +132,7 @@ EXTERNAL SOURCES:
     :path: ..
 
 SPEC CHECKSUMS:
-  RFKit: a4dba3a30601a830f57e350dc857bdc9752224fe
+  RFKit: 4c4ab13f1a83237724ce7d97155d37915e60fd51
 
 PODFILE CHECKSUM: ea81365bd31065944b9ab945e792ddc9d5de2eb1
 
