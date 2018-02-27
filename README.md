@@ -65,7 +65,7 @@ Features:
 * Behavior can be highly customizable through the switch.
 * As macro, usually no performance loss.
 
-Details: [dout Document(in Chinese)](doc/dout.md)
+Details: [dout Document(in Chinese)](https://github.com/BB9z/RFKit/wiki/dout)
 
 ## RFRuntime
 
