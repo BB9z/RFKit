@@ -12,8 +12,6 @@
 
 @interface NSObject (RFKit)
 
-- (nullable id)get:(nullable id)test defaults:(nullable id)value DEPRECATED_ATTRIBUTE;
-
 /**
  Get objects through array or dictionary like object.
 

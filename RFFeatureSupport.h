@@ -28,38 +28,6 @@
 
 #pragma mark -
 
-/**
- Apply this attribute to a function or method declaration to indicate that a parameter will not be stored for later execution, such that it is guaranteed not to outlive the lifetime of the call. Function type parameters with the noescape declaration attribute do not require explicit use of self. for properties or methods.
-
- @code
- - (BOOL)doSomethingWithBlock:(RF_NOESCAPE void(^)(void))block;
- @endcode
- 
- @deprecated(RFKit(2.0)): Use NS_NOESCAPE
- */
-#if __has_attribute(noescape)
-#  define RF_NOESCAPE __attribute__((noescape))
-#else
-#  define RF_NOESCAPE
-#endif
-
-/**
- Apply this attribute to a method or function declaration to have the compiler emit a warning when the method or function is called without using its result.
-
- You can use this attribute to provide a warning message about incorrect usage of a nonmutating method that has a mutating counterpart.
-
- @code
- - (id)addObserverForSomething RF_WARN_UNUSED_RESULT;
- @endcode
- 
- @deprecated(RFKit(2.0)): Use NS_WARN_UNUSED_RESULT
- */
-#if __has_attribute(warn_unused_result)
-#  define RF_WARN_UNUSED_RESULT __attribute__((warn_unused_result))
-#else
-#  define RF_WARN_UNUSED_RESULT
-#endif
-
 // We purposefully don't have a matching @implementation.
 // We don't want +asNonnull to ever actually be called
 // because that will add a lot of overhead to every RBBNotNil

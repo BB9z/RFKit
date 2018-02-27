@@ -4,10 +4,6 @@
 
 @implementation NSDictionary (RFKit)
 
-- (id)objectForKey:(id<NSCopying>)aKey defaultMarker:(id)anObject {
-	return [self get:self[aKey] defaults:anObject];
-}
-
 - (BOOL)boolForKey:(id<NSCopying>)aKey {
     return [self[aKey] boolValue];
 }

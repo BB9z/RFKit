@@ -4,15 +4,6 @@
 
 @implementation NSObject (RFKit)
 
-- (id)get:(id)test defaults:(id)value {
-	if (test == nil || test == [NSNull null]) {
-		return value;
-	}
-	else {
-		return test;
-	}
-}
-
 - (nonnull NSArray *)objectsForIndexArray:(nullable NSArray *)indexsArray {
     NSUInteger indexCount = indexsArray.count;
     id ctObjectSet = self;

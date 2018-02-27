@@ -15,17 +15,6 @@
 
 @implementation RTNSObject
 
-- (void)testDefaults {
-    id defaultValue = @"NoNil";
-    id test = nil;
-    test = [@[] get:test defaults:defaultValue];
-    XCTAssertEqualObjects(test, defaultValue, @"nil default");
-    
-    test = NSNull.null;
-    test = [test get:test defaults:defaultValue];
-    XCTAssertEqualObjects(test, defaultValue, @"NSNull default");
-}
-
 - (void)testObjectsForIndexArray {
     NSArray *a = @[
         NSNull.null,

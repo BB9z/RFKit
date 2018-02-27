@@ -79,10 +79,6 @@
 #undef RFKit_NSFileManager_handleError_
 }
 
-- (long long)fileSizeForPath:(nullable NSString *)path {
-    return [self fileSizeForPath:path error:nil];
-}
-
 - (long long)fileSizeForPath:(nullable NSString *)path error:(NSError *__autoreleasing *)inputError {
     if (!path.length) return 0;
     

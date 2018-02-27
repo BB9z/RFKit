@@ -13,9 +13,6 @@
 
 @interface UIImage (RFKit)
 
-+ (nullable UIImage *)resourceName:(nonnull NSString *)PNGFileName DEPRECATED_ATTRIBUTE;
-+ (nullable UIImage *)resourceName:(nonnull NSString *)fileName ofType:(nullable NSString *)type DEPRECATED_ATTRIBUTE;
-
 /**
  Return the dimensions of the image in pixels, taking orientation into account.
  */

@@ -155,8 +155,6 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
  */
 - (BOOL)isAtBack API_AVAILABLE(ios(2.0), tvos(9.0));
 
-- (void)exchangeDepthsWithView:(nullable UIView *)swapView DEPRECATED_ATTRIBUTE;
-
 /**
  Find a superview of the receiver which is kind of the given class in view hierarchy.
  */

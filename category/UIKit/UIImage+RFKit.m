@@ -4,18 +4,6 @@
 
 @implementation UIImage (RFKit)
 
-+ (nullable UIImage *)resourceName:(nonnull NSString *)PNGFileName{
-    NSString *path = [[NSBundle mainBundle] pathForResource:PNGFileName ofType:@"png"];
-    if (!path) return nil;
-    return [UIImage imageWithContentsOfFile:path];
-}
-
-+ (nullable UIImage *)resourceName:(nonnull NSString *)fileName ofType:(nullable NSString *)type {
-    NSString *path = [[NSBundle mainBundle] pathForResource:fileName ofType:type];
-    if (!path) return nil;
-	return [UIImage imageWithContentsOfFile:path];
-}
-
 - (CGSize)pixelSize {
     return CGSizeScaled(self.size, self.scale);
 }

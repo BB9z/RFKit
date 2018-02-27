@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'RFKit'
-  s.version      = '1.7.0'
+  s.version      = '2.0.0'
   s.summary      = 'Tool kit for daily cocoa development.'
   s.homepage     = 'https://github.com/BB9z/RFKit'
   s.license      = { :type => 'MIT', :file => 'LICENSE_RFKit' }
@@ -60,7 +60,6 @@ Pod::Spec.new do |s|
     ss.ios.dependency  'RFKit/doutkit'
     ss.osx.dependency  'RFKit/doutkit'
     ss.tvos.dependency 'RFKit/doutkit'
-    ss.ios.dependency  'RFKit/UncaughtExceptionHandler'
   end
 
   s.subspec 'Foundation' do |ss|
@@ -345,12 +344,6 @@ Pod::Spec.new do |s|
     ss.dependency 'RFKit/Runtime'
     ss.dependency 'RFKit/Performance'
     ss.source_files = 'doutkit/*.{h,m}'
-  end
-
-  s.subspec 'UncaughtExceptionHandler' do |ss|
-    ss.dependency 'RFKit/Foundation'
-    ss.dependency 'RFKit/Runtime'
-    ss.ios.source_files = 'external/UncaughtExceptionHandler/*.{h,m}'
   end
 end
 

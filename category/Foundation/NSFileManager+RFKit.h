@@ -71,9 +71,6 @@
  */
 - (long long)fileSizeForPath:(nullable NSString *)path error:(NSError *__nullable __autoreleasing *__nullable)error API_AVAILABLE(macos(10.8), ios(6.0), tvos(9.0), watchos(2.0));
 
-/// @see fileSizeForPath:error:.
-- (long long)fileSizeForPath:(nullable NSString *)path DEPRECATED_MSG_ATTRIBUTE("Use fileSizeForPath:error: instead");
-
 /**
  Get size of a directory, include file count and subdirectory count in that directory.
  

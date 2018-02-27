@@ -12,8 +12,6 @@
 
 @interface NSDictionary<KeyType, ObjectType> (RFKit)
 
-- (nullable id)objectForKey:(nonnull KeyType<NSCopying>)aKey defaultMarker:(nullable ObjectType)anObject DEPRECATED_ATTRIBUTE;
-
 /**
  Returns the Boolean value associated with the specified key.
 

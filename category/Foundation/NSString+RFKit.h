@@ -13,20 +13,11 @@
 @interface NSString (RFKit)
 
 /**
- Calculate the MD5 value with given string.
- 
- @return Uppercased md5 result.
- */
-+ (nullable NSString *)MD5String:(nullable NSString *)string DEPRECATED_MSG_ATTRIBUTE("Use rf_MD5String instead.");
-
-/**
  Calculate MD5 value with the reciver content.
  
  @return Lowercase md5 result.
  */
 - (nonnull NSString *)rf_MD5String API_AVAILABLE(macos(10.0), ios(2.0), tvos(9.0), watchos(2.0));
-
-+ (nullable NSString *)pinyinFromString:(nullable NSString *)orgString DEPRECATED_MSG_ATTRIBUTE("Use rf_pinyinStringWithStripDiacritics: instead.");
 
 /**
  Returns a new string transliterate to latin from ideographs interpreted as Mandarin Chinese.

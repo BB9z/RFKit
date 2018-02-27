@@ -2,57 +2,10 @@
 
 #import "RFPerformance.h"
 #import "dout.h"
-
 // for Memory log
 #import <mach/mach.h>
 
-@interface RFPerformance () {
-    time_t timeBase;
-}
-@end
-
 @implementation RFPerformance
-@synthesize timeTable = _timeTable;
-
-+ (RFPerformance *)sharedInstance {
-    static RFPerformance *sharedInstance = nil;
-    static dispatch_once_t oncePredicate;
-    dispatch_once(&oncePredicate, ^{
-        sharedInstance = [[self alloc] init];
-    });
-	return sharedInstance;
-}
-
-- (RFPerformance *)init {
-	self = [super init];
-	if (self) {
-		NSMutableDictionary *tmp = [[NSMutableDictionary alloc] initWithCapacity:20];
-		self.timeTable = tmp;
-		timeBase = clock();
-	}
-	return self;
-}
-
-- (void)dealloc {
-	self.timeTable = nil;
-}
-
-- (time_t)addTimePoint:(NSString *)name {
-	time_t t = clock();
-	NSNumber * tmpTime = [[NSNumber alloc] initWithFloat:(t-timeBase)/(double)CLOCKS_PER_SEC];
-	if ((self.timeTable)[name]) {
-		dout(@"Warning: A time point with the same name already existed.");
-	}
-	(self.timeTable)[name] = tmpTime;
-	return t;
-}
-
-- (float)timeBetween:(NSString *)name1 another:(NSString *)name2 {
-	float time1 = [(NSNumber *)(self.timeTable)[name1] floatValue];
-	float time2 = [(NSNumber *)(self.timeTable)[name2] floatValue];
-	float time = time1 - time2;
-	return fabsf(time);
-}
 
 //! REF: http://www.keakon.net/2011/08/12/获取iOS设备的内存状况
 + (void)logMemoryInfo {
