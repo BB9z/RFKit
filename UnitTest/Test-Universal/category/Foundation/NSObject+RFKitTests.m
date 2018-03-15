@@ -93,8 +93,22 @@
 #define AssertEqualNumberType(METHOD)\
 XCTAssertEqualObjects([num performRespondedSelector:@selector(METHOD)], @(num.METHOD), @"");
 
-    AssertEqualNumberType(integerValue)
     AssertEqualNumberType(boolValue)
+    AssertEqualNumberType(charValue)
+    AssertEqualNumberType(doubleValue)
+    AssertEqualNumberType(floatValue)
+    AssertEqualNumberType(intValue)
+    AssertEqualNumberType(integerValue)
+    AssertEqualNumberType(longLongValue)
+    AssertEqualNumberType(longValue)
+    AssertEqualNumberType(shortValue)
+    AssertEqualNumberType(unsignedCharValue)
+    AssertEqualNumberType(unsignedIntegerValue)
+    AssertEqualNumberType(unsignedIntValue)
+    AssertEqualNumberType(unsignedLongLongValue)
+    AssertEqualNumberType(unsignedLongValue)
+    AssertEqualNumberType(unsignedShortValue)
+    XCTAssertEqualObjects([num performRespondedSelector:@selector(stringValue)], num.stringValue, @"");
     XCTAssert([num performRespondedSelector:@selector(class)] == num.class, @"Test Class");
     
     NSSortDescriptor *cp = [NSSortDescriptor sortDescriptorWithKey:@"key" ascending:YES selector:@selector(compare:)];

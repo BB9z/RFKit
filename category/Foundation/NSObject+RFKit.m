@@ -104,10 +104,6 @@
         method(self, aSelector);
         return nil;
     }
-    if (_isType(BOOL) || _isType(Boolean) || _isType(boolean_t)) {
-        BOOL (*method)(id, SEL) = (BOOL (*)(id, SEL))aIMP;
-        return [NSNumber numberWithBool:method(self, aSelector)];
-    }
     
 #define _isNumberThenReturn(INDEX, TYPE)\
     if (_isType(TYPE)) {\
@@ -122,6 +118,11 @@
                       long long, unsigned long long,
                       float,
                       double)
+    
+    if (_isType(BOOL) || _isType(Boolean)) {
+        BOOL (*method)(id, SEL) = (BOOL (*)(id, SEL))aIMP;
+        return [NSNumber numberWithBool:method(self, aSelector)];
+    }
 
     NSAssert(false, @"Unsupport method return type: %@", [NSString stringWithUTF8String:rtype]);
     return nil;
