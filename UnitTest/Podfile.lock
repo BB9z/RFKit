@@ -1,11 +1,11 @@
 PODS:
-  - RFKit/ALL (1.7.0):
+  - RFKit/ALL (1.7.1):
     - RFKit/Category/All
     - RFKit/Default
     - RFKit/doutkit
     - RFKit/Performance
     - RFKit/UncaughtExceptionHandler
-  - RFKit/Category/All (1.7.0):
+  - RFKit/Category/All (1.7.1):
     - RFKit/Category/Default
     - RFKit/Category/NSDate
     - RFKit/Category/NSDateFormatter
@@ -17,7 +17,7 @@ PODS:
     - RFKit/Category/UIScrollView+RFScrolling
     - RFKit/Category/UISearchBar
     - RFKit/Category/UIWebView
-  - RFKit/Category/Default (1.7.0):
+  - RFKit/Category/Default (1.7.1):
     - RFKit/Category/NSArray
     - RFKit/Category/NSBundle
     - RFKit/Category/NSDictionary
@@ -36,91 +36,91 @@ PODS:
     - RFKit/Category/UIView
     - RFKit/Category/UIView+RFAnimate
     - RFKit/Category/UIViewController
-  - RFKit/Category/NSArray (1.7.0):
+  - RFKit/Category/NSArray (1.7.1):
     - RFKit/Foundation
-  - RFKit/Category/NSBundle (1.7.0):
+  - RFKit/Category/NSBundle (1.7.1):
     - RFKit/Foundation
-  - RFKit/Category/NSDate (1.7.0):
+  - RFKit/Category/NSDate (1.7.1):
     - RFKit/Foundation
-  - RFKit/Category/NSDateFormatter (1.7.0):
+  - RFKit/Category/NSDateFormatter (1.7.1):
     - RFKit/Foundation
-  - RFKit/Category/NSDictionary (1.7.0):
+  - RFKit/Category/NSDictionary (1.7.1):
     - RFKit/Category/NSObject
     - RFKit/Foundation
-  - RFKit/Category/NSError (1.7.0):
+  - RFKit/Category/NSError (1.7.1):
     - RFKit/Foundation
-  - RFKit/Category/NSFileManager (1.7.0):
-    - RFKit/Foundation
-    - RFKit/Runtime
-  - RFKit/Category/NSJSONSerialization (1.7.0):
+  - RFKit/Category/NSFileManager (1.7.1):
     - RFKit/Foundation
     - RFKit/Runtime
-  - RFKit/Category/NSLayoutConstraint (1.7.0):
+  - RFKit/Category/NSJSONSerialization (1.7.1):
+    - RFKit/Foundation
+    - RFKit/Runtime
+  - RFKit/Category/NSLayoutConstraint (1.7.1):
     - RFKit/Category/UIView
     - RFKit/Foundation
-  - RFKit/Category/NSNumberFormatter (1.7.0):
+  - RFKit/Category/NSNumberFormatter (1.7.1):
     - RFKit/Foundation
     - RFKit/Runtime
-  - RFKit/Category/NSObject (1.7.0):
+  - RFKit/Category/NSObject (1.7.1):
     - RFKit/Foundation
     - RFKit/Runtime
-  - RFKit/Category/NSString (1.7.0):
+  - RFKit/Category/NSString (1.7.1):
     - RFKit/Foundation
     - RFKit/Runtime
-  - RFKit/Category/NSURL (1.7.0):
+  - RFKit/Category/NSURL (1.7.1):
     - RFKit/Foundation
-  - RFKit/Category/UIAlertView (1.7.0):
+  - RFKit/Category/UIAlertView (1.7.1):
     - RFKit/Foundation
-  - RFKit/Category/UIButton (1.7.0):
+  - RFKit/Category/UIButton (1.7.1):
     - RFKit/Foundation
-  - RFKit/Category/UIColor (1.7.0):
+  - RFKit/Category/UIColor (1.7.1):
     - RFKit/Foundation
-  - RFKit/Category/UIDevice (1.7.0):
+  - RFKit/Category/UIDevice (1.7.1):
     - RFKit/Foundation
     - RFKit/Runtime
-  - RFKit/Category/UIImage (1.7.0):
+  - RFKit/Category/UIImage (1.7.1):
     - RFKit/Foundation
     - RFKit/RFGeometry
-  - RFKit/Category/UINavigationController (1.7.0):
+  - RFKit/Category/UINavigationController (1.7.1):
     - RFKit/Category/NSArray
     - RFKit/Foundation
-  - RFKit/Category/UIResponder (1.7.0):
+  - RFKit/Category/UIResponder (1.7.1):
     - RFKit/Foundation
-  - RFKit/Category/UIScrollView+RFScrolling (1.7.0):
+  - RFKit/Category/UIScrollView+RFScrolling (1.7.1):
     - RFKit/Foundation
-  - RFKit/Category/UISearchBar (1.7.0):
+  - RFKit/Category/UISearchBar (1.7.1):
     - RFKit/Foundation
-  - RFKit/Category/UIStoryboard (1.7.0):
+  - RFKit/Category/UIStoryboard (1.7.1):
     - RFKit/Foundation
-  - RFKit/Category/UITableView (1.7.0):
+  - RFKit/Category/UITableView (1.7.1):
     - RFKit/Category/UIView+RFAnimate
     - RFKit/Foundation
-  - RFKit/Category/UIView (1.7.0):
+  - RFKit/Category/UIView (1.7.1):
     - RFKit/Category/UIResponder
     - RFKit/Foundation
     - RFKit/RFGeometry
-  - RFKit/Category/UIView+RFAnimate (1.7.0):
+  - RFKit/Category/UIView+RFAnimate (1.7.1):
     - RFKit/Foundation
     - RFKit/Runtime
-  - RFKit/Category/UIViewController (1.7.0):
+  - RFKit/Category/UIViewController (1.7.1):
     - RFKit/Foundation
-  - RFKit/Category/UIWebView (1.7.0):
+  - RFKit/Category/UIWebView (1.7.1):
     - RFKit/Foundation
-  - RFKit/Default (1.7.0):
+  - RFKit/Default (1.7.1):
     - RFKit/Category/Default
     - RFKit/RFGeometry
     - RFKit/Runtime
-  - RFKit/doutkit (1.7.0):
+  - RFKit/doutkit (1.7.1):
     - RFKit/Performance
     - RFKit/Runtime
-  - RFKit/Foundation (1.7.0)
-  - RFKit/Performance (1.7.0):
+  - RFKit/Foundation (1.7.1)
+  - RFKit/Performance (1.7.1):
     - RFKit/Runtime
-  - RFKit/RFGeometry (1.7.0):
+  - RFKit/RFGeometry (1.7.1):
     - RFKit/Runtime
-  - RFKit/Runtime (1.7.0):
+  - RFKit/Runtime (1.7.1):
     - RFKit/Foundation
-  - RFKit/UncaughtExceptionHandler (1.7.0):
+  - RFKit/UncaughtExceptionHandler (1.7.1):
     - RFKit/Foundation
     - RFKit/Runtime
 
@@ -132,7 +132,7 @@ EXTERNAL SOURCES:
     :path: ..
 
 SPEC CHECKSUMS:
-  RFKit: 4c4ab13f1a83237724ce7d97155d37915e60fd51
+  RFKit: 6ef1c657c318bf71bd9326faa25a5d0a7acef95f
 
 PODFILE CHECKSUM: ea81365bd31065944b9ab945e792ddc9d5de2eb1
 
