@@ -43,6 +43,9 @@
     NSDate *d1 = [NSDate dateWithYear:0 month:0 day:0 hour:24 minute:0 second:0];
     NSDate *d2 = [NSDate dateWithYear:0 month:0 day:1 hour:0 minute:0 second:0];
     XCTAssertTrue([d1 isSameDayWithDate:d2], @"");
+    
+    NSDate *d3 = [NSDate dateWithYear:0 month:0 day:2 hour:0 minute:0 second:0];
+    XCTAssertFalse([d2 isSameDayWithDate:d3], @"");
 }
 
 - (void)testNilParameters {

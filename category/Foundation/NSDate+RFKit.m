@@ -23,7 +23,7 @@
 
     NSDate *d = date;
     NSDateComponents *target = [NSCalendar.currentCalendar components:(NSCalendarUnit)(kCFCalendarUnitYear | kCFCalendarUnitMonth | kCFCalendarUnitDay) fromDate:d];
-    NSDateComponents *source = [NSCalendar.currentCalendar components:(NSCalendarUnit)(kCFCalendarUnitYear | kCFCalendarUnitMonth | kCFCalendarUnitDay) fromDate:d];
+    NSDateComponents *source = [NSCalendar.currentCalendar components:(NSCalendarUnit)(kCFCalendarUnitYear | kCFCalendarUnitMonth | kCFCalendarUnitDay) fromDate:self];
     return [target isEqual:source];
 }
 
