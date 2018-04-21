@@ -1,18 +1,37 @@
+
+# Xcode Project
+**/*.xcodeproj/xcuserdata/
+**/*.xcworkspace/xcuserdata/
+**/*.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+.idea/
+
+# Xcode Injection
+IOSInjectionProject/
+OSXInjectionProject/
+
+## Build generated
+build/
+DerivedData/
+*.hmap
+
+# CocoaPods & Carthage
+Pods/
+Carthage/Build
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# CSV
+*.orig
+.svn
+
+# Other
 *~
 .DS_Store
-.svn
 *.swp
-*.orig
 *.save
 ._*
 *.bak
-
-xcuserdata/
-project.xcworkspace/
-Pods/
-
-IOSInjectionBundle/
-.idea/
-
-*.psd
-PSD/
