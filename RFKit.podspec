@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version      = '2.0.0'
   s.summary      = 'Tool kit for daily cocoa development.'
   s.homepage     = 'https://github.com/BB9z/RFKit'
-  s.license      = { :type => 'MIT', :file => 'LICENSE_RFKit' }
+  s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.authors      = { 'BB9z' => 'BB9z@me.com' }
   s.source       = {
     :git => 'https://github.com/BB9z/RFKit.git',
