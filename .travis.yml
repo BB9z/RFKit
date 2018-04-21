@@ -25,6 +25,6 @@ script:
 - xcodebuild test -enableCodeCoverage YES -workspace UnitTest/RFKit.xcworkspace -scheme Test-iOS -destination "$XB_DEST_iOS" ONLY_ACTIVE_ARCH=NO | xcpretty
 - xcodebuild test -enableCodeCoverage YES -workspace UnitTest/RFKit.xcworkspace -scheme Test-tvOS -destination "$XB_DEST_tvOS" ONLY_ACTIVE_ARCH=NO | xcpretty
 - xcodebuild build -workspace UnitTest/RFKit.xcworkspace -scheme Target-watchOS ONLY_ACTIVE_ARCH=NO | xcpretty
-- if [[ 1 = "$POD_LINT" ]] then; pod lib lint --allow-warnings; fi
+- if [ 1 = "$POD_LINT" ]; then pod lib lint --allow-warnings; fi
 after_failure:
  - cat -n ~/Library/Logs/DiagnosticReports/xctest*.crash
