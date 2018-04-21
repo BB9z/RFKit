@@ -54,7 +54,11 @@
 #endif
 
 #ifndef TARGET_OS_OSX
-#   define TARGET_OS_OSX (TARGET_OS_MAC && !TARGET_OS_IOS)
+#   define TARGET_OS_OSX (TARGET_OS_MAC && !TARGET_OS_IPHONE)
+#endif
+
+#ifndef TARGET_OS_TV
+#   define TARGET_OS_TV 0
 #endif
 
 // Memo:

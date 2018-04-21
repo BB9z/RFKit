@@ -38,6 +38,7 @@ Pod::Spec.new do |s|
       '-Wno-auto-import',               # Still needs old #import for backward compatibility. 
       '-Wno-sign-conversion',
       '-Wno-sign-compare',
+      '-Wno-double-promotion'
     ].join(' ')
   }
   

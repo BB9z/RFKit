@@ -867,6 +867,7 @@
 					"-Wno-auto-import",
 					"-Wno-sign-conversion",
 					"-Wno-sign-compare",
+					"-Wno-float-conversion",
 				);
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -949,6 +950,7 @@
 					"-Wno-auto-import",
 					"-Wno-sign-conversion",
 					"-Wno-sign-compare",
+					"-Wno-float-conversion",
 				);
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
