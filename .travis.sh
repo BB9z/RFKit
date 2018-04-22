@@ -28,6 +28,9 @@ if [ "$RFCI_TASK" = "POD_LINT" ]; then
         echo "Skip pod lint"
     else
         echo "TRAVIS_BRANCH = $TRAVIS_BRANCH"
+        echo "Update cocoapods..."
+        gem install cocoapods --no-rdoc --no-ri --no-document --quiet
+        echo "Pod lint..."
         if [ "$TRAVIS_BRANCH" = "develop" ]; then
             pod lib lint --allow-warnings
         else
