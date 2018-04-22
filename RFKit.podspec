@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.watchos.deployment_target = '2.0'
   s.tvos.deployment_target = '9.0'
 
-  s.exclude_files = 'UnitTest'
+  s.exclude_files = 'Test'
 
   #s.public_header_files =
   #  '*.h',
