@@ -1,12 +1,12 @@
 /*!
-    UIView extension
-    RFKit
-
-    Copyright (c) 2012-2016, 2018 BB9z
-    https://github.com/BB9z/RFKit
-
-    The MIT License (MIT)
-    http://www.opensource.org/licenses/mit-license.php
+ UIView extension
+ RFKit
+ 
+ Copyright (c) 2012-2016, 2018 BB9z
+ https://github.com/BB9z/RFKit
+ 
+ The MIT License (MIT)
+ http://www.opensource.org/licenses/mit-license.php
  */
 #import "RFFoundation.h"
 #import <UIKit/UIKit.h>
@@ -229,3 +229,7 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
 + (nullable instancetype)loadWithNibName:(nullable NSString *)nibName API_AVAILABLE(ios(2.0), tvos(9.0));
 
 @end
+
+// UIViewAutoresizing enum extend
+extern UIViewAutoresizing const UIViewAutoresizingFlexibleSize;
+extern UIViewAutoresizing const UIViewAutoresizingFlexibleMargin;
