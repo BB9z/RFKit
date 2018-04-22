@@ -41,7 +41,7 @@
     XCTAssertEqualObjects(d, (@{ @"a": @1, @"b": @2 }), @"");
 
     [d removeAllObjects];
-    XCTAssertEqual(([d addEntriesFromDictionary:fromDic withSpecifiedKeys:@"c", @"c", nil]), 2, @"Add the same key");
+    XCTAssertEqual(([d addEntriesFromDictionary:fromDic withSpecifiedKeys:@"c", @"c", nil]), 1, @"Add the same key");
     XCTAssertEqualObjects(d, (@{ @"c": @3 }), @"");
 }
 
