@@ -24,17 +24,17 @@ XC_TestWatch() {
 }
 
 if [ "$RFCI_TASK" = "POD_LINT" ]; then
-    if [ $TRAVIS_COMMIT_MESSAGE = *"[skip lint]"* ]; then
+    if [ "$TRAVIS_COMMIT_MESSAGE" = *"[skip lint]"* ]; then
         echo "Skip pod lint"
-        exit 0
+    else
+        echo "TRAVIS_BRANCH = $TRAVIS_BRANCH"
+        if [ "$TRAVIS_BRANCH" = "develop" ]; then
+            pod lib lint --allow-warnings
+        else
+            pod lib lint
+        fi
     fi
 
-    echo "TRAVIS_BRANCH = $TRAVIS_BRANCH"
-    if [ "$TRAVIS_BRANCH" = "develop"]; then
-        pod lib lint --allow-warnings
-    else
-        pod lib lint
-    fi
 elif [ "$RFCI_TASK" = "Xcode9" ]; then
     echo "Test for macOS and watchOS."
     XC_TestMac

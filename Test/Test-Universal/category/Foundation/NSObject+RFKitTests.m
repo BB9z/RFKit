@@ -67,7 +67,10 @@
     id ret = [a performRespondedSelector:sel];
     XCTAssertNil(ret, @"Input nil, return nil");
     
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
     sel = @selector(notExsisted);
+#pragma clang diagnostic pop
     ret = [a performRespondedSelector:sel];
     XCTAssertNil(ret, @"Return nil if not responds");
     

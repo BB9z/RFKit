@@ -16,7 +16,7 @@ matrix:
       env: RFCI_TASK="Xcode8"
 before_install:
 # - gem install cocoapods --no-rdoc --no-ri --no-document --quiet
-- pod repo update master --silent
+# - pod repo update master --silent
 - pod install --project-directory=Test
 script: ./.travis.sh
 after_success:
