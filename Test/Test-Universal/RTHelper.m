@@ -81,7 +81,10 @@ BOOL RTImageCompare(UIImage *a, UIImage *b, double tolerance) {
     BOOL imageEqual = YES;
     
     // Do a fast compare if we can
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wfloat-equal"
     if (tolerance == 0) {
+#pragma clang diagnostic pop
         imageEqual = (memcmp(aPixels, bPixels, referenceImageSizeBytes) == 0);
     }
     else {

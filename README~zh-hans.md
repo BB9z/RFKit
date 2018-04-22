@@ -1,5 +1,8 @@
 # RFKit
 
+[![Build Status](https://travis-ci.org/BB9z/RFKit.svg?branch=develop)](https://travis-ci.org/BB9z/RFKit)
+[![codecov](https://codecov.io/gh/BB9z/RFKit/branch/develop/graph/badge.svg)](https://codecov.io/gh/BB9z/RFKit)
+
 <base href="//github.com/BB9z/RFKit/blob/master/" />
 
 <small>[English :us:](README.md) *简体中文*</small>
