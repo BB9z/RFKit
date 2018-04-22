@@ -20,10 +20,12 @@ before_install:
 - pod install --project-directory=Test
 script:
 - set -o pipefail
-- if [ 1 = "$TEST_SWIFT" ]; then xcodebuild test -workspace Test/RFKit.xcworkspace -scheme Test-Swift -destination "$XB_DEST_iOS" | xcpretty; fi
-- xcodebuild test -enableCodeCoverage YES -workspace Test/RFKit.xcworkspace -scheme Test-iOS -destination "$XB_DEST_iOS" ONLY_ACTIVE_ARCH=NO | xcpretty
-- xcodebuild test -enableCodeCoverage YES -workspace Test/RFKit.xcworkspace -scheme Test-tvOS -destination "$XB_DEST_tvOS" ONLY_ACTIVE_ARCH=NO | xcpretty
-- xcodebuild build -workspace Test/RFKit.xcworkspace -scheme Target-watchOS ONLY_ACTIVE_ARCH=NO | xcpretty
+- if [ 1 = "$TEST_SWIFT" ]; then xcodebuild test -workspace Test/RFKit.xcworkspace -scheme Test-Swift -destination "$XB_DEST_iOS" GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES | xcpretty; fi
+- xcodebuild test -enableCodeCoverage YES -workspace Test/RFKit.xcworkspace -scheme Test-iOS -destination "$XB_DEST_iOS" ONLY_ACTIVE_ARCH=NO GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES | xcpretty
+- xcodebuild test -enableCodeCoverage YES -workspace Test/RFKit.xcworkspace -scheme Test-tvOS -destination "$XB_DEST_tvOS" ONLY_ACTIVE_ARCH=NO GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES | xcpretty
+- xcodebuild build -workspace Test/RFKit.xcworkspace -scheme Target-watchOS ONLY_ACTIVE_ARCH=NO GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES | xcpretty
 - if [ 1 = "$POD_LINT" ]; then pod lib lint --allow-warnings; fi
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
 after_failure:
  - cat -n ~/Library/Logs/DiagnosticReports/xctest*.crash
