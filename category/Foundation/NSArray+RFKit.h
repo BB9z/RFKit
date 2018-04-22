@@ -84,6 +84,6 @@
 
  @param predicate The block to apply to elements in the array.
  */
-- (void)removeObjectsPassingTest:(BOOL (^__nonnull)(ObjectType __nonnull obj, NSUInteger idx, BOOL *__nonnull stop))predicate API_AVAILABLE(macos(10.6), ios(4.0), tvos(9.0), watchos(2.0));
+- (void)removeObjectsPassingTest:(NS_NOESCAPE BOOL (^__nonnull)(ObjectType __nonnull obj, NSUInteger idx, BOOL *__nonnull stop))predicate API_AVAILABLE(macos(10.6), ios(4.0), tvos(9.0), watchos(2.0));
 
 @end

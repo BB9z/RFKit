@@ -15,9 +15,11 @@
 /**
  Returns a date formatter object which has a GMT date format.
  
+ eg. 2010-01-01T23:00:59Z
+ 
  @return A cached `NSDateFormatter` object.
  */
-+ (nonnull NSDateFormatter *)GMTFormatter API_AVAILABLE(macos(10.0), ios(2.0), tvos(9.0), watchos(2.0));
++ (nonnull NSDateFormatter *)GMTFormatter API_AVAILABLE(macos(10.0), ios(2.0), tvos(9.0), watchos(2.0)) NS_SWIFT_NAME( GMT() );
 
 /**
  Returns a date formatter object which was set with current locale.
@@ -39,7 +41,7 @@
  
  @see `currentLocaleFormatter`
  */
-+ (nonnull NSDateFormatter *)currentLocaleFormatterOnlyDate API_AVAILABLE(macos(10.4), ios(2.0), tvos(9.0), watchos(2.0));
++ (nonnull NSDateFormatter *)currentLocaleFormatterOnlyDate API_AVAILABLE(macos(10.4), ios(2.0), tvos(9.0), watchos(2.0)) NS_SWIFT_NAME( currentLocaleOnlyDate() );
 
 /**
  Returns a date formatter object which was set with current locale.
@@ -50,7 +52,7 @@
  
  @return A `NSDateFormatter` object.
  */
-+ (nonnull NSDateFormatter *)currentLocaleFormatterFromTemplate:(nonnull NSString *)templateString API_AVAILABLE(macos(10.6), ios(4.0), tvos(9.0), watchos(2.0));
++ (nonnull NSDateFormatter *)currentLocaleFormatterFromTemplate:(nonnull NSString *)templateString API_AVAILABLE(macos(10.6), ios(4.0), tvos(9.0), watchos(2.0)) NS_SWIFT_NAME( currentLocale(fromTemplate:) );
 
 /**
  Returns a date formatter object with a given date format and a specified time zone.
@@ -60,7 +62,7 @@
  
  @return A `NSDateFormatter` object.
  */
-+ (nonnull NSDateFormatter *)dateFormatterWithDateFormat:(nullable NSString *)formatString timeZoneWithName:(nullable NSString *)tzName API_AVAILABLE(macos(10.0), ios(2.0), tvos(9.0), watchos(2.0));
++ (nonnull NSDateFormatter *)dateFormatterWithDateFormat:(nullable NSString *)formatString timeZoneWithName:(nullable NSString *)tzName API_AVAILABLE(macos(10.0), ios(2.0), tvos(9.0), watchos(2.0)) NS_SWIFT_NAME( init(format:timeZoneName:) );
 
 /**
  Returns a date formatter object with Asia/Hong_Kong time zone.
