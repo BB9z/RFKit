@@ -15,6 +15,7 @@ PODS:
     - RFKit/Category/NSURL
     - RFKit/Category/UIScrollView+RFScrolling
     - RFKit/Category/UISearchBar
+    - RFKit/Category/UIViewController+RFInterfaceOrientation
     - RFKit/Category/UIWebView
   - RFKit/Category/Default (2.0.0):
     - RFKit/Category/NSArray
@@ -103,6 +104,7 @@ PODS:
     - RFKit/Runtime
   - RFKit/Category/UIViewController (2.0.0):
     - RFKit/Foundation
+  - RFKit/Category/UIViewController+RFInterfaceOrientation (2.0.0)
   - RFKit/Category/UIWebView (2.0.0):
     - RFKit/Foundation
   - RFKit/Default (2.0.0):
@@ -128,7 +130,7 @@ EXTERNAL SOURCES:
     :path: ..
 
 SPEC CHECKSUMS:
-  RFKit: 3fd76917fc28444390e6bb3326f343103bc23199
+  RFKit: 047b3c6a4c393c3addcd148a1871b672fb2fdbd3
 
 PODFILE CHECKSUM: 6dbff99e7b11b52e6c8f964f14c37f8c61acc792
 

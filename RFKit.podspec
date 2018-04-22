@@ -133,13 +133,15 @@ Pod::Spec.new do |s|
       ssp.dependency 'RFKit/Category/NSNumberFormatter'
       ssp.dependency 'RFKit/Category/NSURL'
     
-      ssp.ios.dependency 'RFKit/Category/NSLayoutConstraint'
+      ssp.ios .dependency 'RFKit/Category/NSLayoutConstraint'
       ssp.tvos.dependency 'RFKit/Category/NSLayoutConstraint'
-      ssp.ios.dependency 'RFKit/Category/UIScrollView+RFScrolling'
+      ssp.ios .dependency 'RFKit/Category/UIScrollView+RFScrolling'
       ssp.tvos.dependency 'RFKit/Category/UIScrollView+RFScrolling'
-      ssp.ios.dependency 'RFKit/Category/UISearchBar'
+      ssp.ios .dependency 'RFKit/Category/UISearchBar'
       ssp.tvos.dependency 'RFKit/Category/UISearchBar'
-      ssp.ios.dependency 'RFKit/Category/UIWebView'
+      ssp.ios .dependency 'RFKit/Category/UIViewController+RFInterfaceOrientation'
+      ssp.tvos.dependency 'RFKit/Category/UIViewController+RFInterfaceOrientation'
+      ssp.ios .dependency 'RFKit/Category/UIWebView'
     end
     
     # Foundation
@@ -324,7 +326,13 @@ Pod::Spec.new do |s|
       ssp.ios.deployment_target = '6.0'
       ssp.tvos.deployment_target = '9.0'
       ssp.dependency 'RFKit/Foundation'
-      ssp.source_files = 'category/UIKit/UIViewController+*'
+      ssp.source_files = 'category/UIKit/UIViewController+RFKit*'
+    end
+
+    ss.subspec 'UIViewController+RFInterfaceOrientation' do |ssp|
+      ssp.ios.deployment_target = '6.0'
+      ssp.tvos.deployment_target = '9.0'
+      ssp.source_files = 'category/UIKit/UIViewController+RFInterfaceOrientation*'
     end
     
     ss.subspec 'UIWebView' do |ssp|
