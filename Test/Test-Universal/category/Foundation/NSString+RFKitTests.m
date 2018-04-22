@@ -17,13 +17,11 @@
 
 - (void)testMD5String {
     XCTAssertEqualObjects(@"string".rf_MD5String, @"b45cffe084dd3d20d928bee85e7b0f21", @"");
-    XCTAssertEqualObjects([NSString MD5String:@"string"], @"B45CFFE084DD3D20D928BEE85E7B0F21", @"");
 }
 
 - (void)testPinyinString {
     XCTAssertEqualObjects([@"中文，ABC, ö" rf_pinyinStringWithStripDiacritics:NO], @"zhōng wén， ABC, ö", @"");
     XCTAssertEqualObjects([@"中文，ABC, ö" rf_pinyinStringWithStripDiacritics:YES], @"zhong wen， ABC, o", @"");
-    XCTAssertEqualObjects([NSString pinyinFromString:@"中文"], @"zhong wen", @"");
 }
 
 - (void)testContainsString {

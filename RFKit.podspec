@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
   s.name         = 'RFKit'
-  s.version      = '1.7.1'
+  s.version      = '2.0.0'
   s.summary      = 'Tool kit for daily cocoa development.'
   s.homepage     = 'https://github.com/BB9z/RFKit'
-  s.license      = { :type => 'MIT', :file => 'LICENSE_RFKit' }
+  s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.authors      = { 'BB9z' => 'BB9z@me.com' }
   s.source       = {
     :git => 'https://github.com/BB9z/RFKit.git',
@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.watchos.deployment_target = '2.0'
   s.tvos.deployment_target = '9.0'
 
-  s.exclude_files = 'UnitTest'
+  s.exclude_files = 'Test'
 
   #s.public_header_files =
   #  '*.h',
@@ -51,7 +51,6 @@ Pod::Spec.new do |s|
     ss.ios.dependency  'RFKit/doutkit'
     ss.osx.dependency  'RFKit/doutkit'
     ss.tvos.dependency 'RFKit/doutkit'
-    ss.ios.dependency  'RFKit/UncaughtExceptionHandler'
   end
 
   s.subspec 'Foundation' do |ss|
@@ -123,13 +122,15 @@ Pod::Spec.new do |s|
       ssp.dependency 'RFKit/Category/NSNumberFormatter'
       ssp.dependency 'RFKit/Category/NSURL'
     
-      ssp.ios.dependency 'RFKit/Category/NSLayoutConstraint'
+      ssp.ios .dependency 'RFKit/Category/NSLayoutConstraint'
       ssp.tvos.dependency 'RFKit/Category/NSLayoutConstraint'
-      ssp.ios.dependency 'RFKit/Category/UIScrollView+RFScrolling'
+      ssp.ios .dependency 'RFKit/Category/UIScrollView+RFScrolling'
       ssp.tvos.dependency 'RFKit/Category/UIScrollView+RFScrolling'
-      ssp.ios.dependency 'RFKit/Category/UISearchBar'
+      ssp.ios .dependency 'RFKit/Category/UISearchBar'
       ssp.tvos.dependency 'RFKit/Category/UISearchBar'
-      ssp.ios.dependency 'RFKit/Category/UIWebView'
+      ssp.ios .dependency 'RFKit/Category/UIViewController+RFInterfaceOrientation'
+      ssp.tvos.dependency 'RFKit/Category/UIViewController+RFInterfaceOrientation'
+      ssp.ios .dependency 'RFKit/Category/UIWebView'
     end
     
     # Foundation
@@ -314,7 +315,13 @@ Pod::Spec.new do |s|
       ssp.ios.deployment_target = '6.0'
       ssp.tvos.deployment_target = '9.0'
       ssp.dependency 'RFKit/Foundation'
-      ssp.source_files = 'category/UIKit/UIViewController+*'
+      ssp.source_files = 'category/UIKit/UIViewController+RFKit*'
+    end
+
+    ss.subspec 'UIViewController+RFInterfaceOrientation' do |ssp|
+      ssp.ios.deployment_target = '6.0'
+      ssp.tvos.deployment_target = '9.0'
+      ssp.source_files = 'category/UIKit/UIViewController+RFInterfaceOrientation*'
     end
     
     ss.subspec 'UIWebView' do |ssp|
@@ -336,12 +343,6 @@ Pod::Spec.new do |s|
     ss.dependency 'RFKit/Runtime'
     ss.dependency 'RFKit/Performance'
     ss.source_files = 'doutkit/*.{h,m}'
-  end
-
-  s.subspec 'UncaughtExceptionHandler' do |ss|
-    ss.dependency 'RFKit/Foundation'
-    ss.dependency 'RFKit/Runtime'
-    ss.ios.source_files = 'external/UncaughtExceptionHandler/*.{h,m}'
   end
 end
 

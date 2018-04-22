@@ -218,11 +218,6 @@
     return [self _rf_siblingIndex] == 0;
 }
 
-- (void)exchangeDepthsWithView:(nullable UIView *)swapView {
-    if (!swapView) return;
-	[self.superview exchangeSubviewAtIndex:[self _rf_siblingIndex] withSubviewAtIndex:[swapView _rf_siblingIndex]];
-}
-
 - (nullable __kindof UIView *)superviewOfClass:(nonnull Class)viewClass {
     UIView *_Nullable ctView = self.superview;
     while (ctView && ![ctView isKindOfClass:viewClass]) {
@@ -333,3 +328,7 @@
 }
 
 @end
+
+#pragma mark - UIViewAutoresizing
+UIViewAutoresizing const UIViewAutoresizingFlexibleSize = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+UIViewAutoresizing const UIViewAutoresizingFlexibleMargin = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin;

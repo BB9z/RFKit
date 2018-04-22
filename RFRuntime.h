@@ -1,12 +1,12 @@
 /*!
-    RFRuntime
-    RFKit
-
-    Copyright (c) 2012-2013, 2015, 2017 BB9z
-    https://github.com/BB9z/RFKit
-
-    The MIT License (MIT)
-    http://www.opensource.org/licenses/mit-license.php
+ RFRuntime
+ RFKit
+ 
+ Copyright (c) 2012-2015, 2017-2018 BB9z
+ https://github.com/BB9z/RFKit
+ 
+ The MIT License (MIT)
+ http://www.opensource.org/licenses/mit-license.php
  */
 #pragma once
 #pragma mark - Macro options for Debug
@@ -61,6 +61,33 @@ enum {
 #import "RFARC.h"
 #import "RFDispatch.h"
 #import "RFFeatureSupport.h"
+
+#pragma mark - Bridge NS types and UI types
+
+#if TARGET_OS_OSX
+#if !defined(UIEdgeInsets)
+#   define UIEdgeInsets NSEdgeInsets
+#endif
+#if !defined(UIEdgeInsetsInsetRect)
+#   define UIEdgeInsetsMake NSEdgeInsetsMake
+#endif
+#if !defined(UIEdgeInsetsEqual)
+#   define UIEdgeInsetsEqualToEdgeInsets NSEdgeInsetsEqual
+#endif
+#if !defined(UIEdgeInsetsZero)
+#   define UIEdgeInsetsZero NSEdgeInsetsZero
+#endif
+
+#if !defined(UIView)
+#   define UIView NSView
+#endif
+#if !defined(UIButton)
+#   define UIButton NSButton
+#endif
+#if !defined(UIImage)
+#   define UIImage NSImage
+#endif
+#endif
 
 #pragma mark - ObjC Ext
 #import "metamacros.h"

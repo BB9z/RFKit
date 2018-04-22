@@ -1,12 +1,12 @@
 /*!
-    UIViewController extension
-    RFKit
-
-    Copyright (c) 2012-2013, 2015-2016, 2018 BB9z
-    https://github.com/BB9z/RFKit
-
-    The MIT License (MIT)
-    http://www.opensource.org/licenses/mit-license.php
+ UIViewController extension
+ RFKit
+ 
+ Copyright (c) 2012-2013, 2015-2016, 2018 BB9z
+ https://github.com/BB9z/RFKit
+ 
+ The MIT License (MIT)
+ http://www.opensource.org/licenses/mit-license.php
  */
 #import "RFFoundation.h"
 #import <UIKit/UIKit.h>
@@ -16,7 +16,7 @@
 /**
  Returns a Boolean value indicating whether the view is added to a view hierarchy.
  */
-- (BOOL)isViewAppeared API_AVAILABLE(ios(3.0), tvos(9.0));
+@property (readonly) BOOL isViewAppeared API_AVAILABLE(ios(3.0), tvos(9.0));
 
 /**
  Return a view which can present another view controller.

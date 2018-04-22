@@ -5,10 +5,6 @@
 
 @implementation NSString (RFKit)
 
-+ (nullable NSString *)MD5String:(nullable NSString *)string {
-    return string.rf_MD5String.uppercaseString;
-}
-
 //! via: https://stackoverflow.com/q/1524604/945906
 - (NSString *)rf_MD5String {
     const char *cStr = self.UTF8String;
@@ -20,10 +16,6 @@
         [output appendFormat:@"%02x", digest[i]];
     }
     return output.copy;
-}
-
-+ (nullable NSString *)pinyinFromString:(nullable NSString *)orgString {
-    return [orgString rf_pinyinStringWithStripDiacritics:YES];
 }
 
 //! via: http://lldong.github.io/2012/11/06/hanzi-to-pinyin.html

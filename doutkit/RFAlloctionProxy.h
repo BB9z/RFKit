@@ -16,20 +16,10 @@
  If you subclass the object, you can use RFAlloctionLog directly. RFAlloctionProxyView and RFAlloctionProxyButton just make it convenient to use, as you could just change the class name instead of have to write an new class.
  */
 
-#if TARGET_OS_OSX
-API_AVAILABLE(macos(10.0))
-@interface RFAlloctionProxyView : NSView
-#else
-API_AVAILABLE(ios(2.0), tvos(9.0))
+API_AVAILABLE(macos(10.0), ios(2.0), tvos(9.0))
 @interface RFAlloctionProxyView : UIView
-#endif
 @end
 
-#if TARGET_OS_OSX
-API_AVAILABLE(macos(10.0))
-@interface RFAlloctionProxyButton : NSButton
-#else
-API_AVAILABLE(ios(2.0), tvos(9.0))
+API_AVAILABLE(macos(10.0), ios(2.0), tvos(9.0))
 @interface RFAlloctionProxyButton : UIButton
-#endif
 @end

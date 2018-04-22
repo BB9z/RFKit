@@ -32,32 +32,8 @@
 #endif
 
 @interface RFPerformance : NSObject
-@property NSMutableDictionary *timeTable DEPRECATED_ATTRIBUTE;
-
-+ (RFPerformance *)sharedInstance DEPRECATED_MSG_ATTRIBUTE("No singleton");
 
 /// Print menory usage details
 + (void)logMemoryInfo;
-
-/** @name 计时器 */
-#pragma mark Timer
-
-/** 增加给定名称的时间点
- 
- @param name Name of the time point
- @return 当前时间
- */
-- (time_t)addTimePoint:(NSString *)name DEPRECATED_ATTRIBUTE;
-
-
-/** 返回两个时间点间的时间差
- 
- 参数不分先后
- 
- @param name1 一个点的名字
- @param name2 另一点的名字
- @return 两点间时间差，单位秒
- */
-- (float)timeBetween:(NSString *)name1 another:(NSString *)name2 DEPRECATED_ATTRIBUTE;
 
 @end

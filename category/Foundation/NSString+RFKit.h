@@ -1,32 +1,23 @@
 /*!
-    NSString extension
-    RFKit
-
-    Copyright (c) 2012-2013, 2015, 2018 BB9z
-    https://github.com/bb9z/RFKit
-
-    The MIT License (MIT)
-    http://www.opensource.org/licenses/mit-license.php
+ NSString extension
+ RFKit
+ 
+ Copyright (c) 2012-2013, 2015, 2018 BB9z
+ https://github.com/BB9z/RFKit
+ 
+ The MIT License (MIT)
+ http://www.opensource.org/licenses/mit-license.php
  */
 #import "RFFoundation.h"
 
 @interface NSString (RFKit)
 
 /**
- Calculate the MD5 value with given string.
- 
- @return Uppercased md5 result.
- */
-+ (nullable NSString *)MD5String:(nullable NSString *)string DEPRECATED_MSG_ATTRIBUTE("Use rf_MD5String instead.");
-
-/**
  Calculate MD5 value with the reciver content.
  
  @return Lowercase md5 result.
  */
-- (nonnull NSString *)rf_MD5String API_AVAILABLE(macos(10.0), ios(2.0), tvos(9.0), watchos(2.0));
-
-+ (nullable NSString *)pinyinFromString:(nullable NSString *)orgString DEPRECATED_MSG_ATTRIBUTE("Use rf_pinyinStringWithStripDiacritics: instead.");
+@property (nonnull, readonly) NSString *rf_MD5String API_AVAILABLE(macos(10.0), ios(2.0), tvos(9.0), watchos(2.0));
 
 /**
  Returns a new string transliterate to latin from ideographs interpreted as Mandarin Chinese.

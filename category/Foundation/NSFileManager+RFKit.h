@@ -1,12 +1,12 @@
 /*!
-    NSFileManager extension
-    RFKit
-
-    Copyright (c) 2012-2015, 2018 BB9z
-    https://github.com/bb9z/RFKit
-
-    The MIT License (MIT)
-    http://www.opensource.org/licenses/mit-license.php
+ NSFileManager extension
+ RFKit
+ 
+ Copyright (c) 2012-2015, 2018 BB9z
+ https://github.com/BB9z/RFKit
+ 
+ The MIT License (MIT)
+ http://www.opensource.org/licenses/mit-license.php
  */
 #import "RFFoundation.h"
 
@@ -70,9 +70,6 @@
  @return file size. If the file not exist, the return value will be 0. If error occurs, the return value will be -1.
  */
 - (long long)fileSizeForPath:(nullable NSString *)path error:(NSError *__nullable __autoreleasing *__nullable)error API_AVAILABLE(macos(10.8), ios(6.0), tvos(9.0), watchos(2.0));
-
-/// @see fileSizeForPath:error:.
-- (long long)fileSizeForPath:(nullable NSString *)path DEPRECATED_MSG_ATTRIBUTE("Use fileSizeForPath:error: instead");
 
 /**
  Get size of a directory, include file count and subdirectory count in that directory.

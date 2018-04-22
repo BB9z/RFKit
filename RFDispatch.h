@@ -19,7 +19,7 @@
 
  @warning The block will be executed on main thread.
  */
-API_AVAILABLE(macos(10.10), ios(8.0), tvos(9.0), watchos(2.0))
+API_AVAILABLE(macos(10.10), ios(6.0), tvos(9.0), watchos(2.0))
 DISPATCH_EXPORT DISPATCH_NONNULL2 DISPATCH_NOTHROW
 void dispatch_after_seconds(NSTimeInterval delayInSeconds, dispatch_block_t block);
 
@@ -28,14 +28,14 @@ void dispatch_after_seconds(NSTimeInterval delayInSeconds, dispatch_block_t bloc
  
  You can call this function on the application’s main thread and won’t results in deadlock.
  */
-API_AVAILABLE(macos(10.10), ios(8.0), tvos(9.0), watchos(2.0))
+API_AVAILABLE(macos(10.10), ios(6.0), tvos(9.0), watchos(2.0))
 DISPATCH_EXPORT DISPATCH_NONNULL_ALL DISPATCH_NOTHROW
 void dispatch_sync_on_main(dispatch_block_t block);
 
 /**
  Submits a block for asynchronous execution on the main queue.
  */
-API_AVAILABLE(macos(10.10), ios(8.0), tvos(9.0), watchos(2.0))
+API_AVAILABLE(macos(10.10), ios(6.0), tvos(9.0), watchos(2.0))
 DISPATCH_EXPORT DISPATCH_NONNULL_ALL DISPATCH_NOTHROW
 void dispatch_async_on_main(dispatch_block_t block);
 

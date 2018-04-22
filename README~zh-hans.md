@@ -1,4 +1,7 @@
-# RFKit Document
+# RFKit
+
+[![Build Status](https://travis-ci.org/BB9z/RFKit.svg?branch=develop)](https://travis-ci.org/BB9z/RFKit)
+[![codecov](https://codecov.io/gh/BB9z/RFKit/branch/develop/graph/badge.svg)](https://codecov.io/gh/BB9z/RFKit)
 
 <base href="//github.com/BB9z/RFKit/blob/master/" />
 
@@ -65,7 +68,7 @@ dout为调试打印而生，它包含了一套方便打印工具。
 * 行为可通过开关高度定制。
 * 因为是宏，当禁用时通常不会有性能损失。
 
-详见：[dout 文档](doc/dout.md)
+详见：[dout 文档](https://github.com/BB9z/RFKit/wiki/dout)
 
 ## RFRuntime
 

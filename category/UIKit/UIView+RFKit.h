@@ -1,12 +1,12 @@
 /*!
-    UIView extension
-    RFKit
-
-    Copyright (c) 2012-2016, 2018 BB9z
-    https://github.com/BB9z/RFKit
-
-    The MIT License (MIT)
-    http://www.opensource.org/licenses/mit-license.php
+ UIView extension
+ RFKit
+ 
+ Copyright (c) 2012-2016, 2018 BB9z
+ https://github.com/BB9z/RFKit
+ 
+ The MIT License (MIT)
+ http://www.opensource.org/licenses/mit-license.php
  */
 #import "RFFoundation.h"
 #import <UIKit/UIKit.h>
@@ -35,7 +35,7 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
  @param animations  A block object containing the changes to commit to the views. This is where you programmatically change any animatable properties of the views in your view hierarchy. This block takes no parameters and has no return value.
  @param completion  A block object to be executed after animations block executed, regardless animated was YES or NO. This block has no return value and takes a single Boolean argument that indicates whether or not the animations actually finished before the completion handler was called. If the duration of the animation is 0, this block is performed at the beginning of the next run loop cycle.
  */
-+ (void)animateWithDuration:(NSTimeInterval)duration delay:(NSTimeInterval)delay options:(UIViewAnimationOptions)options animated:(BOOL)animated beforeAnimations:(void (^__nullable)(void))before animations:(void (^__nullable)(void))animations completion:(void (^__nullable)(BOOL finished))completion API_AVAILABLE(ios(4.0), tvos(9.0));
++ (void)animateWithDuration:(NSTimeInterval)duration delay:(NSTimeInterval)delay options:(UIViewAnimationOptions)options animated:(BOOL)animated beforeAnimations:(NS_NOESCAPE void (^__nullable)(void))before animations:(void (^__nullable)(void))animations completion:(void (^__nullable)(BOOL finished))completion API_AVAILABLE(ios(4.0), tvos(9.0));
 
 #pragma mark -
 
@@ -46,7 +46,7 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
  @param y	Y-axis distance to move
  @see [UIView (RFKit) moveToX:Y:]
  */
-- (void)moveX:(CGFloat)x Y:(CGFloat)y API_AVAILABLE(ios(2.0), tvos(9.0));
+- (void)moveX:(CGFloat)x Y:(CGFloat)y API_AVAILABLE(ios(2.0), tvos(9.0)) NS_SWIFT_NAME( move(xOffset:yOffset:) );
 
 /**
  Move a UIView to specified position.
@@ -57,7 +57,7 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
  @param y	New position on y-axis
  @see  [UIView (RFKit) moveX:Y:]
  */
-- (void)moveToX:(CGFloat)x Y:(CGFloat)y API_AVAILABLE(ios(2.0), tvos(9.0));
+- (void)moveToX:(CGFloat)x Y:(CGFloat)y API_AVAILABLE(ios(2.0), tvos(9.0)) NS_SWIFT_NAME( move(x:y:) );
 
 /**
  Resize a UIView
@@ -67,7 +67,7 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
  @param width	New width
  @param height	New height
  */
-- (void)resizeWidth:(CGFloat)width height:(CGFloat)height API_AVAILABLE(ios(2.0), tvos(9.0));
+- (void)resizeWidth:(CGFloat)width height:(CGFloat)height API_AVAILABLE(ios(2.0), tvos(9.0)) NS_SWIFT_NAME( resize(width:height:) );
 
 /**
  Resize a UIView relative to the specified anchor point.
@@ -78,7 +78,7 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
  @param height   New height
  @param resizeAnchor Determine how to change the frame with the new size.
  */
-- (void)resizeWidth:(CGFloat)width height:(CGFloat)height resizeAnchor:(RFResizeAnchor)resizeAnchor API_AVAILABLE(ios(2.0), tvos(9.0));
+- (void)resizeWidth:(CGFloat)width height:(CGFloat)height resizeAnchor:(RFResizeAnchor)resizeAnchor API_AVAILABLE(ios(2.0), tvos(9.0)) NS_SWIFT_NAME( resize(width:height:anchor:) );
 
 /**
  Resizes and moves the receiver view so it fits its superview bounds.
@@ -93,7 +93,7 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
  @param view1 This value must not be `nil`.
  @param view2 This value must not be `nil`.
  */
-+ (nullable UIView *)commonSuperviewWith:(nonnull UIView *)view1 anotherView:(nonnull UIView *)view2 API_AVAILABLE(ios(6.0), tvos(9.0));
++ (nullable UIView *)commonSuperviewWith:(nonnull UIView *)view1 anotherView:(nonnull UIView *)view2 API_AVAILABLE(ios(6.0), tvos(9.0)) NS_SWIFT_NAME( commonSuperview(view1:view2:) );
 
 /**
  Adds a view to the view’s subviews and changes the frame rectangle at the same time.
@@ -148,14 +148,12 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
 /**
  Returns a Boolean value indicating whether the receiver appears on top of its siblings.
  */
-- (BOOL)isInFront API_AVAILABLE(ios(2.0), tvos(9.0));
+@property (readonly) BOOL isInFront API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  Returns a Boolean value indicating whether the receiver appears behind of its siblings.
  */
-- (BOOL)isAtBack API_AVAILABLE(ios(2.0), tvos(9.0));
-
-- (void)exchangeDepthsWithView:(nullable UIView *)swapView DEPRECATED_ATTRIBUTE;
+@property (readonly) BOOL isAtBack API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  Find a superview of the receiver which is kind of the given class in view hierarchy.
@@ -173,12 +171,12 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
  
  @return `YES` if the view is visible, `NO` otherwise.
  */
-- (BOOL)isVisible API_AVAILABLE(ios(2.0), tvos(9.0));
+@property (readonly) BOOL isVisible API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  @return The frame rectangle, which describes the view’s location and size in its screen’s coordinate system.
  */
-- (CGRect)frameOnScreen API_AVAILABLE(ios(2.0), tvos(9.0));
+@property (readonly) CGRect frameOnScreen API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  Converts the receiver’s bounds from the receiver’s coordinate system to that of the specified view.
@@ -206,7 +204,7 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
  
  @return A view controller, may not be the receiver´s parent.
 */
-- (nullable UIViewController *)viewController API_AVAILABLE(ios(2.0), tvos(9.0));
+@property (nullable, readonly) __kindof UIViewController *viewController API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  Return a newly view object unarchived from the nib file which located in the specified bundle.
@@ -231,3 +229,7 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
 + (nullable instancetype)loadWithNibName:(nullable NSString *)nibName API_AVAILABLE(ios(2.0), tvos(9.0));
 
 @end
+
+// UIViewAutoresizing enum extend
+extern UIViewAutoresizing const UIViewAutoresizingFlexibleSize;
+extern UIViewAutoresizing const UIViewAutoresizingFlexibleMargin;

@@ -1,12 +1,12 @@
 /*!
-    UITableView extension
-    RFKit
-
-    Copyright (c) 2013-2015 BB9z
-    https://github.com/BB9z/RFKit
-
-    The MIT License (MIT)
-    http://www.opensource.org/licenses/mit-license.php
+ UITableView extension
+ RFKit
+ 
+ Copyright (c) 2013-2015, 2018 BB9z
+ https://github.com/BB9z/RFKit
+ 
+ The MIT License (MIT)
+ http://www.opensource.org/licenses/mit-license.php
  */
 #import "RFFoundation.h"
 #import <UIKit/UIKit.h>
@@ -32,7 +32,7 @@
  
  @return A UITableViewCell object with the associated identifier or nil if no such object exists in the reusable-cell queue.
  */
-- (nullable __kindof UITableViewCell *)dequeueReusableCellWithClass:(nonnull Class)cellClass API_AVAILABLE(ios(2.0), tvos(9.0));
+- (nullable __kindof UITableViewCell *)dequeueReusableCellWithClass:(nonnull Class)cellClass API_AVAILABLE(ios(2.0), tvos(9.0)) NS_SWIFT_NAME( dequeueReusableCell(withCellClass:) );
 
 /**
  Lays out the tableHeaderView with the size that satisfies the constraints it holds immediately.

@@ -1,12 +1,12 @@
 /*!
-    UIDevice extension
-    RFKit
-
-    Copyright (c) 2012-2016, 2018 BB9z
-    https://github.com/BB9z/RFKit
-
-    The MIT License (MIT)
-    http://www.opensource.org/licenses/mit-license.php
+ UIDevice extension
+ RFKit
+ 
+ Copyright (c) 2012-2016, 2018 BB9z
+ https://github.com/BB9z/RFKit
+ 
+ The MIT License (MIT)
+ http://www.opensource.org/licenses/mit-license.php
  */
 #import "RFFoundation.h"
 #import <UIKit/UIKit.h>
@@ -40,7 +40,7 @@
  
  @return `YES` if current device is iPad, otherwise `NO`.
  */
-- (BOOL)isPad API_AVAILABLE(ios(3.2), tvos(9.0));
+@property (readonly) BOOL isPad API_AVAILABLE(ios(3.2), tvos(9.0));
 
 /**
  If the device has a retina screen.
@@ -49,21 +49,21 @@
 
  @return `YES` if the device has a retina screen, otherwise `NO`.
  */
-- (BOOL)isRetinaDisplay API_AVAILABLE(ios(2.0), tvos(9.0));
+@property (readonly) BOOL isRetinaDisplay API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  Returns `YES` if the current process is being debugged (either running under the debugger or has a debugger attached post facto).
  */
-- (BOOL)isBeingDebugged API_AVAILABLE(ios(2.0), tvos(9.0));
+@property (readonly) BOOL isBeingDebugged API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  @return The amount of free space on the file system. 
  */
-- (long long)fileSystemFreeSize API_AVAILABLE(ios(6.0), tvos(9.0));
+@property (readonly) long long fileSystemFreeSize API_AVAILABLE(ios(6.0), tvos(9.0));
 
 /**
  @return The size of the file system.
  */
-- (long long)fileSystemSize API_AVAILABLE(ios(6.0), tvos(9.0));
+@property (readonly) long long fileSystemSize API_AVAILABLE(ios(6.0), tvos(9.0));
 
 @end

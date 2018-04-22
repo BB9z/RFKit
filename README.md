@@ -1,5 +1,8 @@
 # RFKit
 
+[![Build Status](https://travis-ci.org/BB9z/RFKit.svg?branch=develop)](https://travis-ci.org/BB9z/RFKit)
+[![codecov](https://codecov.io/gh/BB9z/RFKit/branch/develop/graph/badge.svg)](https://codecov.io/gh/BB9z/RFKit)
+
 <base href="//github.com/BB9z/RFKit/blob/master/" />
 
 <small>*English* [简体中文 :cn:](README~zh-hans.md)</small>
@@ -65,7 +68,7 @@ Features:
 * Behavior can be highly customizable through the switch.
 * As macro, usually no performance loss.
 
-Details: [dout Document(in Chinese)](doc/dout.md)
+Details: [dout Document(in Chinese)](https://github.com/BB9z/RFKit/wiki/dout)
 
 ## RFRuntime
 

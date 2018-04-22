@@ -10,6 +10,11 @@
 #import "RFKit.h"
 #import "dout.h"
 
+struct MYPoint {
+    double x;
+    double y;
+};
+
 @interface RTDout : XCTestCase
 @end
 
@@ -59,17 +64,13 @@
     dout_hex(0)
     dout_hex(0x1234)
     dout_hex(a)
-    
     dout_float(a)
-#if TARGET_OS_OSX
-    dout_point(NSMakePoint(12, 34))
-    dout_size(NSMakeSize(56, 78))
-    dout_rect(NSMakeRect(1, 2, 3, 4))
-#else
-    dout_point(CGPointMake(12, 34))
-    dout_size(CGSizeMake(56, 78))
-    dout_rect(CGRectMake(1, 2, 3, 4))
-#endif
+    dout_point(CGPointMake(12, 34.1234567890))
+    dout_point((struct MYPoint){ .x = 1, .y = 2 })
+    dout_point(CGPointMake(1, 1), CGPointMake(2, 2))    // Only last will print.
+    dout_size(CGSizeMake(56, 78.1234567890))
+    dout_rect(CGRectMake(1, 2, 3, 4.1234567890))
+    dout_insets(UIEdgeInsetsMake(1, 2, 3, 4.1234567890))
     
     doutwork()
     douttrace()
@@ -97,9 +98,10 @@
     _dout_hex(a)
     
     _dout_float(a)
-    _dout_point(CGPointMake(12, 34))
-    _dout_size(CGSizeMake(56, 78))
-    _dout_rect(CGRectMake(1, 2, 3, 4))
+    _dout_point(CGPointMake(12, 34.1234567890))
+    _dout_size(CGSizeMake(56, 78.1234567890))
+    _dout_rect(CGRectMake(1, 2, 3, 4.1234567890))
+    _dout_insets(UIEdgeInsetsMake(1, 2, 3, 4.1234567890))
     
     _doutwork()
     _douttrace()

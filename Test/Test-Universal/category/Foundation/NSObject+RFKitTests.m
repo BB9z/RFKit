@@ -15,17 +15,6 @@
 
 @implementation RTNSObject
 
-- (void)testDefaults {
-    id defaultValue = @"NoNil";
-    id test = nil;
-    test = [@[] get:test defaults:defaultValue];
-    XCTAssertEqualObjects(test, defaultValue, @"nil default");
-    
-    test = NSNull.null;
-    test = [test get:test defaults:defaultValue];
-    XCTAssertEqualObjects(test, defaultValue, @"NSNull default");
-}
-
 - (void)testObjectsForIndexArray {
     NSArray *a = @[
         NSNull.null,
@@ -78,7 +67,10 @@
     id ret = [a performRespondedSelector:sel];
     XCTAssertNil(ret, @"Input nil, return nil");
     
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
     sel = @selector(notExsisted);
+#pragma clang diagnostic pop
     ret = [a performRespondedSelector:sel];
     XCTAssertNil(ret, @"Return nil if not responds");
     
