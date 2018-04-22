@@ -1,18 +1,16 @@
 /*!
-	Debug output kit(dout)
-	RFKit
-
-	ver 2.9.1
+ Debug output kit(dout)
+ RFKit
  
-    Copyright (c) 2012-2016 BB9z
-    https://github.com/BB9z/RFKit
-
-    The MIT License (MIT)
-    http://www.opensource.org/licenses/mit-license.php
+ Copyright (c) 2012-2016, 2018 BB9z
+ https://github.com/BB9z/RFKit
+ 
+ The MIT License (MIT)
+ http://www.opensource.org/licenses/mit-license.php
  */
 
 #ifndef DOUT_H
-#define DOUT_H 2.9
+#define DOUT_H 2.10
 
 #import "RFRuntime.h"
 
@@ -66,7 +64,7 @@
 
 #define douts(...)      dout((__VA_ARGS__))
 #define douto(...)      dout(@"%@ = <%@> %@", @(#__VA_ARGS__), [(NSObject *)(__VA_ARGS__) class], (__VA_ARGS__))
-#define doutp(...)      dout(@"%@ -> %p",   @(#__VA_ARGS__), (__VA_ARGS__))
+#define doutp(...)      dout(@"%@ -> %p",   @(#__VA_ARGS__), (void *)(__VA_ARGS__))
 #define doutv(...)      dout(@"%@ = %@",    @(#__VA_ARGS__), [((UIView *)(__VA_ARGS__)) performSelector:@selector(recursiveDescription)])
 
 #define dout_bool(...)  dout(@"%@ = %@",    @(#__VA_ARGS__), ((BOOL)(__VA_ARGS__))? @"YES" : @"NO")
@@ -74,21 +72,14 @@
 #define dout_hex(...)   dout(@"%@ = %#.8x", @(#__VA_ARGS__), ((int)(__VA_ARGS__)))
 #define dout_float(...) dout(@"%@ = %f",    @(#__VA_ARGS__), ((float)(__VA_ARGS__)))
 
-#if TARGET_OS_OSX
-#define dout_point(...) dout(@"%@ = %@",    @(#__VA_ARGS__), NSStringFromPoint((NSPoint)(__VA_ARGS__)))
-#define dout_size(...)  dout(@"%@ = %@",    @(#__VA_ARGS__), NSStringFromSize((NSSize)(__VA_ARGS__)))
-#define dout_rect(...)  dout(@"%@ = %@",    @(#__VA_ARGS__), NSStringFromRect((NSRect)(__VA_ARGS__)))
-#define dout_insets(...)
-#else
-#define dout_point(...) dout(@"%@ = %@",    @(#__VA_ARGS__), NSStringFromCGPoint((CGPoint)(__VA_ARGS__)))
-#define dout_size(...)  dout(@"%@ = %@",    @(#__VA_ARGS__), NSStringFromCGSize((CGSize)(__VA_ARGS__)))
-#define dout_rect(...)  dout(@"%@ = %@",    @(#__VA_ARGS__), NSStringFromCGRect((CGRect)(__VA_ARGS__)))
-#define dout_insets(...)  dout(@"%@ = %@",  @(#__VA_ARGS__), NSStringFromUIEdgeInsets((UIEdgeInsets)(__VA_ARGS__)))
-#endif
+#define dout_point(...) dout(@"%@ = {%@, %@}",    @(#__VA_ARGS__), @((__VA_ARGS__).x), @((__VA_ARGS__).y))
+#define dout_size(...)  dout(@"%@ = {%@, %@}",    @(#__VA_ARGS__), @((__VA_ARGS__).width), @((__VA_ARGS__).height))
+#define dout_rect(...)  dout(@"%@ = {{%@, %@}, {%@, %@}}",    @(#__VA_ARGS__), @((__VA_ARGS__).origin.x), @((__VA_ARGS__).origin.y), @((__VA_ARGS__).size.width), @((__VA_ARGS__).size.height))
+#define dout_insets(...)  dout(@"%@ = {%@, %@, %@, %@}",  @(#__VA_ARGS__), @((__VA_ARGS__).top), @((__VA_ARGS__).left), @((__VA_ARGS__).bottom), @((__VA_ARGS__).right))
 
 #define doutwork()      dout(@"%@: It Works!", @(__FUNCTION__))
 #define douttrace()     dout(@"%@ @%@", @(__PRETTY_FUNCTION__), [NSThread callStackSymbols])
-#define doutlastmethod()  dout(@"%@ @%@", @(__PRETTY_FUNCTION__), ([[NSThread callStackSymbols] rf_objectAtIndex:1]))
+#define doutlastmethod()  dout(@"%@ @%@", @(__PRETTY_FUNCTION__), ([NSThread.callStackSymbols rf_objectAtIndex:1]))
 #define doutline()      dout(@"%@ line:%d", @(__PRETTY_FUNCTION__), __LINE__)
 
 #pragma mark Log helper
@@ -134,8 +125,8 @@
 
 #pragma mark Assert
 /*!
-    Refrence: http://www.cimgf.com/2010/05/02/my-current-prefix-pch-file
-    Thanks to Marcus Zarra.
+ Refrence: http://www.cimgf.com/2010/05/02/my-current-prefix-pch-file
+ Thanks to Marcus Zarra.
  */
 
 #ifndef RFALog
