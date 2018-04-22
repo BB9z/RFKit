@@ -22,3 +22,9 @@ target 'Target-watchOS' do
     
     pod 'RFKit', :path => '..', :subspecs => ['ALL']
 end
+
+target 'Test-Swift' do
+    platform :ios, '11.0'
+
+    pod 'RFKit', :path => '..', :subspecs => ['ALL']
+end
