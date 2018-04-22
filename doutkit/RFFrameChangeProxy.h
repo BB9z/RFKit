@@ -1,12 +1,12 @@
 /*!
-    RFFrameChangeProxy
-    RFKit
-
-    Copyright (c) 2012-2014, 2017-2018 BB9z
-    https://github.com/BB9z/RFKit
-
-    The MIT License (MIT)
-    http://www.opensource.org/licenses/mit-license.php
+ RFFrameChangeProxy
+ RFKit
+ 
+ Copyright (c) 2012-2014, 2017-2018 BB9z
+ https://github.com/BB9z/RFKit
+ 
+ The MIT License (MIT)
+ http://www.opensource.org/licenses/mit-license.php
  */
 #import "RFRuntime.h"
 
@@ -35,11 +35,6 @@
 #pragma clang diagnostic pop
 #endif
 
-#if TARGET_OS_OSX
-API_AVAILABLE(macos(10.0))
-@interface RFFrameChangeProxyView : NSView
-#else
-API_AVAILABLE(ios(2.0), tvos(9.0))
+API_AVAILABLE(macos(10.0), ios(2.0), tvos(9.0))
 @interface RFFrameChangeProxyView : UIView
-#endif
 @end
