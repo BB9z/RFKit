@@ -19,7 +19,7 @@
  
  @return A cached `NSDateFormatter` object.
  */
-+ (nonnull NSDateFormatter *)GMTFormatter API_AVAILABLE(macos(10.0), ios(2.0), tvos(9.0), watchos(2.0)) NS_SWIFT_NAME( GMT() );
+@property (class, nonnull, readonly) NSDateFormatter *GMTFormatter API_AVAILABLE(macos(10.0), ios(2.0), tvos(9.0), watchos(2.0)) NS_SWIFT_NAME( GMT );
 
 /**
  Returns a date formatter object which was set with current locale.

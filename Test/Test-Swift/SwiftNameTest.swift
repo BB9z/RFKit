@@ -23,7 +23,7 @@ class SwiftNameTest: XCTestCase {
     }
     
     func testDateFormatter() {
-        DateFormatter.GMT()
+        let _ = DateFormatter.GMT
         DateFormatter.currentLocale()
         DateFormatter.currentLocaleOnlyDate()
         DateFormatter.currentLocale(fromTemplate: "yyyy")
