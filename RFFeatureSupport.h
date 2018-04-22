@@ -30,8 +30,8 @@
 
 // We purposefully don't have a matching @implementation.
 // We don't want +asNonnull to ever actually be called
-// because that will add a lot of overhead to every RBBNotNil
-// and we want RBBNotNil to be very cheap.
+// because that will add a lot of overhead to every RF_NONNULL
+// and we want RF_NONNULL to be very cheap.
 // If there is no @implementation, then if the +asNonnull is
 // actually called, we'll get a linker error complaining about
 // the lack of @implementation.
