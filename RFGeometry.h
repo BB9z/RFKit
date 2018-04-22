@@ -1,20 +1,17 @@
 /*!
-    RFGeometry
-    RFKit
+ RFGeometry
+ RFKit
  
-    Math and Graphics helper
+ Math and Graphics helper
  
-    Copyright (c) 2012-2016, 2018 BB9z
-    https://github.com/BB9z/RFKit
+ Copyright (c) 2012-2016, 2018 BB9z
+ https://github.com/BB9z/RFKit
  
-    The MIT License (MIT)
-    http://www.opensource.org/licenses/mit-license.php
+ The MIT License (MIT)
+ http://www.opensource.org/licenses/mit-license.php
  */
 
 #import "RFRuntime.h"
-
-#ifndef RFKit_RFGeometry_h
-#define RFKit_RFGeometry_h
 
 #pragma mark - Const
 #ifndef RFMathNotChange
@@ -69,7 +66,7 @@ typedef NS_ENUM(NSInteger, RFCGRectChangeFlag) {
 	RFCGRectChangeY,
 	RFCGRectChangeWidth,
 	RFCGRectChangeHeight
-} ;
+};
 
 CGRect CGRectMakeWithPoints(CGPoint a, CGPoint b);
 CGRect CGRectMakeWithCenterAndSize(CGPoint centerPoint, CGSize rectSize);
@@ -89,4 +86,18 @@ CGAngle	CGAngleFromPoints(CGPoint start, CGPoint end);
 CGFloat	CGAngleDegrees(CGAngle a);
 
 
-#endif
+#pragma mark UIEdgeInsets
+
+/**
+ Creates an edge inset.
+ */
+CG_INLINE UIEdgeInsets UIEdgeInsetsMakeWithSameMargin(CGFloat margin) {
+    return (UIEdgeInsets){ .top = margin, .left = margin, .bottom = margin, .right = margin };
+}
+
+/**
+ Creats an reverse inset.
+ */
+CG_INLINE UIEdgeInsets UIEdgeInsetsReverse(UIEdgeInsets insets) {
+    return (UIEdgeInsets){ .top = -insets.top, .left = -insets.left, .bottom = -insets.bottom, .right = -insets.right };
+}
