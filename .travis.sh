@@ -24,7 +24,7 @@ XC_TestWatch() {
 }
 
 if [ "$RFCI_TASK" = "POD_LINT" ]; then
-    if [ "$TRAVIS_COMMIT_MESSAGE" = *"[skip lint]"* ]; then
+    if [[ "$TRAVIS_COMMIT_MESSAGE" = *"[skip lint]"* ]]; then
         echo "Skip pod lint"
     else
         echo "TRAVIS_BRANCH = $TRAVIS_BRANCH"
