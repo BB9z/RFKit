@@ -148,12 +148,12 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
 /**
  Returns a Boolean value indicating whether the receiver appears on top of its siblings.
  */
-- (BOOL)isInFront API_AVAILABLE(ios(2.0), tvos(9.0));
+@property (readonly) BOOL isInFront API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  Returns a Boolean value indicating whether the receiver appears behind of its siblings.
  */
-- (BOOL)isAtBack API_AVAILABLE(ios(2.0), tvos(9.0));
+@property (readonly) BOOL isAtBack API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  Find a superview of the receiver which is kind of the given class in view hierarchy.
@@ -171,12 +171,12 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
  
  @return `YES` if the view is visible, `NO` otherwise.
  */
-- (BOOL)isVisible API_AVAILABLE(ios(2.0), tvos(9.0));
+@property (readonly) BOOL isVisible API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  @return The frame rectangle, which describes the view’s location and size in its screen’s coordinate system.
  */
-- (CGRect)frameOnScreen API_AVAILABLE(ios(2.0), tvos(9.0));
+@property (readonly) CGRect frameOnScreen API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  Converts the receiver’s bounds from the receiver’s coordinate system to that of the specified view.
@@ -204,7 +204,7 @@ typedef NS_ENUM(NSInteger, RFViewResizeOption) {
  
  @return A view controller, may not be the receiver´s parent.
 */
-- (nullable UIViewController *)viewController API_AVAILABLE(ios(2.0), tvos(9.0));
+@property (nullable, readonly) __kindof UIViewController *viewController API_AVAILABLE(ios(2.0), tvos(9.0));
 
 /**
  Return a newly view object unarchived from the nib file which located in the specified bundle.

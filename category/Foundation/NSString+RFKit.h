@@ -1,12 +1,12 @@
 /*!
-    NSString extension
-    RFKit
-
-    Copyright (c) 2012-2013, 2015, 2018 BB9z
-    https://github.com/bb9z/RFKit
-
-    The MIT License (MIT)
-    http://www.opensource.org/licenses/mit-license.php
+ NSString extension
+ RFKit
+ 
+ Copyright (c) 2012-2013, 2015, 2018 BB9z
+ https://github.com/BB9z/RFKit
+ 
+ The MIT License (MIT)
+ http://www.opensource.org/licenses/mit-license.php
  */
 #import "RFFoundation.h"
 
@@ -17,7 +17,7 @@
  
  @return Lowercase md5 result.
  */
-- (nonnull NSString *)rf_MD5String API_AVAILABLE(macos(10.0), ios(2.0), tvos(9.0), watchos(2.0));
+@property (nonnull, readonly) NSString *rf_MD5String API_AVAILABLE(macos(10.0), ios(2.0), tvos(9.0), watchos(2.0));
 
 /**
  Returns a new string transliterate to latin from ideographs interpreted as Mandarin Chinese.

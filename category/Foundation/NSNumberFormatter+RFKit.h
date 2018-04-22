@@ -1,12 +1,12 @@
 /*!
-    NSNumberFormatter extension
-    RFKit
-
-    Copyright (c) 2012-2015, 2018 BB9z
-    https://github.com/BB9z/RFKit
-
-    The MIT License (MIT)
-    http://www.opensource.org/licenses/mit-license.php
+ NSNumberFormatter extension
+ RFKit
+ 
+ Copyright (c) 2012-2015, 2018 BB9z
+ https://github.com/BB9z/RFKit
+ 
+ The MIT License (MIT)
+ http://www.opensource.org/licenses/mit-license.php
  */
 #import "RFFoundation.h"
 

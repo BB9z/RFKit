@@ -1,12 +1,12 @@
 /*!
-    NSDateFormatter extension
-    RFKit
-
-    Copyright (c) 2012-2015, 2018 BB9z
-    https://github.com/bb9z/RFKit
-
-    The MIT License (MIT)
-    http://www.opensource.org/licenses/mit-license.php
+ NSDateFormatter extension
+ RFKit
+ 
+ Copyright (c) 2012-2015, 2018 BB9z
+ https://github.com/BB9z/RFKit
+ 
+ The MIT License (MIT)
+ http://www.opensource.org/licenses/mit-license.php
  */
 #import "RFFoundation.h"
 
@@ -30,7 +30,7 @@
  
  @see `currentLocaleFormatterOnlyDate`
  */
-+ (nonnull NSDateFormatter *)currentLocaleFormatter API_AVAILABLE(macos(10.4), ios(2.0), tvos(9.0), watchos(2.0));
+@property (class, nonnull, readonly) NSDateFormatter *currentLocaleFormatter API_AVAILABLE(macos(10.4), ios(2.0), tvos(9.0), watchos(2.0));
 
 /**
  Returns a date formatter object which was set with current locale.
@@ -41,7 +41,7 @@
  
  @see `currentLocaleFormatter`
  */
-+ (nonnull NSDateFormatter *)currentLocaleFormatterOnlyDate API_AVAILABLE(macos(10.4), ios(2.0), tvos(9.0), watchos(2.0)) NS_SWIFT_NAME( currentLocaleOnlyDate() );
+@property (class, nonnull, readonly) NSDateFormatter *currentLocaleFormatterOnlyDate API_AVAILABLE(macos(10.4), ios(2.0), tvos(9.0), watchos(2.0)) NS_SWIFT_NAME( currentLocaleOnlyDate );
 
 /**
  Returns a date formatter object which was set with current locale.
@@ -73,6 +73,6 @@
  
  @see `dateFormatterWithDateFormat:timeZoneWithName:`
  */
-+ (nonnull NSDateFormatter *)hongKongTimeZoneDateFormatter API_AVAILABLE(macos(10.0), ios(2.0), tvos(9.0), watchos(2.0));
+@property (class, nonnull, readonly) NSDateFormatter *hongKongTimeZoneDateFormatter API_AVAILABLE(macos(10.0), ios(2.0), tvos(9.0), watchos(2.0));
 
 @end

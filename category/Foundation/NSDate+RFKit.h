@@ -1,12 +1,12 @@
 /*!
-    NSDate extension
-    RFKit
-
-    Copyright (c) 2012-2016, 2018 BB9z
-    https://github.com/bb9z/RFKit
-
-    The MIT License (MIT)
-    http://www.opensource.org/licenses/mit-license.php
+ NSDate extension
+ RFKit
+ 
+ Copyright (c) 2012-2016, 2018 BB9z
+ https://github.com/BB9z/RFKit
+ 
+ The MIT License (MIT)
+ http://www.opensource.org/licenses/mit-license.php
  */
 #import "RFFoundation.h"
 
@@ -46,10 +46,10 @@
 /**
  Returns a date object at 00:00:00 of current day.
  */
-- (nonnull NSDate *)startTimeOfDate API_AVAILABLE(macos(10.4), ios(2.0), tvos(9.0), watchos(2.0));
+@property (nonnull, readonly) NSDate *startTimeOfDate API_AVAILABLE(macos(10.4), ios(2.0), tvos(9.0), watchos(2.0)) NS_SWIFT_NAME( dayStart );
 
 /**
  Returns a date object at 24:00:00 of current day. This date is actually the start time of the next day.
  */
-- (nonnull NSDate *)endTimeOfDate API_AVAILABLE(macos(10.4), ios(2.0), tvos(9.0), watchos(2.0));
+@property (nonnull, readonly) NSDate *endTimeOfDate API_AVAILABLE(macos(10.4), ios(2.0), tvos(9.0), watchos(2.0)) NS_SWIFT_NAME( dayEnd );
 @end

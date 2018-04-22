@@ -1,12 +1,12 @@
 /*!
-    NSBundle extension
-    RFKit
-
-    Copyright (c) 2012-2015, 2018 BB9z
-    https://github.com/BB9z/RFKit
-
-    The MIT License (MIT)
-    http://www.opensource.org/licenses/mit-license.php
+ NSBundle extension
+ RFKit
+ 
+ Copyright (c) 2012-2015, 2018 BB9z
+ https://github.com/BB9z/RFKit
+ 
+ The MIT License (MIT)
+ http://www.opensource.org/licenses/mit-license.php
  */
 #import "RFFoundation.h"
 
@@ -29,5 +29,5 @@
  
  CFBundleShortVersionString + CFBundleVersion
  */
-- (nonnull NSString *)versionString API_AVAILABLE(macos(10.8), ios(6.0), tvos(9.0), watchos(2.0));
+@property (nonnull, readonly) NSString *versionString API_AVAILABLE(macos(10.8), ios(6.0), tvos(9.0), watchos(2.0));
 @end

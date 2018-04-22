@@ -19,6 +19,7 @@
 		D5297B6F208BBA030045F1BB /* RFGeometryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5297B6D208BB9F80045F1BB /* RFGeometryTests.m */; };
 		D5297B70208BBA040045F1BB /* RFGeometryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5297B6D208BB9F80045F1BB /* RFGeometryTests.m */; };
 		D5297B79208C1FFC0045F1BB /* SwiftNameTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5297B78208C1FFC0045F1BB /* SwiftNameTest.swift */; };
+		D5297B7E208C7FC20045F1BB /* RTHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D57E75D6203F0051001BB427 /* RTHelper.m */; };
 		D5722FAD203D9CE800C610E2 /* NSDictionary+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5722FAC203D9CE800C610E2 /* NSDictionary+RFKitTests.m */; };
 		D5722FAE203D9CE800C610E2 /* NSDictionary+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5722FAC203D9CE800C610E2 /* NSDictionary+RFKitTests.m */; };
 		D5722FAF203D9CE800C610E2 /* NSDictionary+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5722FAC203D9CE800C610E2 /* NSDictionary+RFKitTests.m */; };
@@ -755,6 +756,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5297B79208C1FFC0045F1BB /* SwiftNameTest.swift in Sources */,
+				D5297B7E208C7FC20045F1BB /* RTHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
