@@ -17,6 +17,8 @@ DerivedData/
 # CocoaPods & Carthage
 Pods/
 Carthage/Build
+# Ignore the lock file because we are developing a library.
+Test/Podfile.lock
 
 # fastlane
 fastlane/report.xml

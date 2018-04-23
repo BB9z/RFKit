@@ -1,7 +1,8 @@
 # RFKit
 
-[![Build Status](https://travis-ci.org/BB9z/RFKit.svg?branch=develop)](https://travis-ci.org/BB9z/RFKit)
-[![codecov](https://codecov.io/gh/BB9z/RFKit/branch/develop/graph/badge.svg)](https://codecov.io/gh/BB9z/RFKit)
+[![Build Status](https://img.shields.io/travis/BB9z/RFKit.svg?style=flat-square&colorA=333333&colorB=6600cc)](https://travis-ci.org/BB9z/RFKit)
+[![Codecov](https://img.shields.io/codecov/c/github/BB9z/RFKit.svg?style=flat-square&colorA=333333&colorB=6600cc)](https://codecov.io/gh/BB9z/RFKit)
+[![CocoaPods](https://img.shields.io/cocoapods/v/RFMessageManager.svg?style=flat-square&colorA=333333&colorB=6600cc)](https://codecov.io/gh/BB9z/RFKit)
 
 <base href="//github.com/BB9z/RFKit/blob/master/" />
 

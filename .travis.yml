@@ -15,11 +15,9 @@ matrix:
     - osx_image: xcode8.3
       env: RFCI_TASK="Xcode8"
 before_install:
-# - gem install cocoapods --no-rdoc --no-ri --no-document --quiet
-# - pod repo update master --silent
-- pod install --project-directory=Test
+  - pod repo update master --silent
 script: ./.travis.sh
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 after_failure:
- - cat -n ~/Library/Logs/DiagnosticReports/xctest*.crash
+  - cat -n ~/Library/Logs/DiagnosticReports/xctest*.crash

@@ -12,8 +12,12 @@
 #pragma mark - Macro options for Debug
 // If DEBUG is true and NDEBUG is not defined, define RFDEBUG 1, else 0.
 #ifndef RFDEBUG
-#   if DEBUG && !defined(NDEBUG)
-#       define RFDEBUG 1
+#   if defined(DEBUG) && !defined(NDEBUG)
+#       if DEBUG
+#           define RFDEBUG 1
+#       else
+#           define RFDEBUG 0
+#       endif
 #   else
 #       define RFDEBUG 0
 #   endif
