@@ -52,7 +52,7 @@
  
  @ref https://gist.github.com/robb/d55b72d62d32deaee5fa
  */
-#if DEBUG
+#if defined(DEBUG) && !defined(NDEBUG)
 #define RF_AS_NONNULL(V) \
 ({\
     __typeof__(V) __nullableV = V;\
