@@ -30,7 +30,6 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.pod_target_xcconfig = {
-    'DEFINES_MODULE' => 'YES',
     # These config should only exsists in develop branch.
     'WARNING_CFLAGS'=> [
       '-Weverything',                   # Enable all possiable as we are developing a library.
