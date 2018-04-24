@@ -6,6 +6,8 @@ set -eo pipefail
 echo $TRAVIS_COMMIT_MESSAGE
 echo "RFCI_TASK = $RFCI_TASK"
 readonly RFWorkspace="Test/RFKit.xcworkspace"
+readonly RFSTAGE="$1"
+echo "RFSTAGE = $RFSTAGE"
 
 # Run test
 # $1 scheme
@@ -80,8 +82,4 @@ STAGE_FAILURE() {
     fi
 }
 
-if [ -z "$RFSTAGE" ]; then
-    echo "RFSTAGE is undefined, do nothing."
-else
-    "STAGE_$RFSTAGE"
-fi
+"STAGE_$RFSTAGE"
