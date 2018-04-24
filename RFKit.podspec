@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'RFKit'
-  s.version      = '2.0.1'
+  s.version      = '2.1.0'
   s.summary      = 'Tool kit for daily cocoa development.'
   s.homepage     = 'https://github.com/BB9z/RFKit'
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
@@ -94,7 +94,6 @@ Pod::Spec.new do |s|
       ssp.dependency 'RFKit/Category/NSObject'
       ssp.dependency 'RFKit/Category/NSString'
 
-      ssp.ios.dependency 'RFKit/Category/UIAlertView'
       ssp.ios.dependency 'RFKit/Category/UIButton'
       ssp.ios.dependency 'RFKit/Category/UIColor'
       ssp.ios.dependency 'RFKit/Category/UIDevice'
@@ -133,6 +132,7 @@ Pod::Spec.new do |s|
       ssp.dependency 'RFKit/Category/NSNumberFormatter'
       ssp.dependency 'RFKit/Category/NSURL'
     
+      ssp.ios.dependency 'RFKit/Category/UIAlertView'
       ssp.ios .dependency 'RFKit/Category/NSLayoutConstraint'
       ssp.tvos.dependency 'RFKit/Category/NSLayoutConstraint'
       ssp.ios .dependency 'RFKit/Category/UIScrollView+RFScrolling'

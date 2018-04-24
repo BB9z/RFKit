@@ -24,7 +24,7 @@
 
 #if TARGET_OS_IOS
 //#import "NSLayoutConstraint+RFKit.h"
-#import "UIAlertView+RFKit.h"
+//#import "UIAlertView+RFKit.h"
 #import "UIButton+RFKit.h"
 #import "UIColor+RFKit.h"
 #import "UIDevice+RFKit.h"
@@ -38,6 +38,7 @@
 #import "UIView+RFAnimate.h"
 #import "UIView+RFKit.h"
 #import "UIViewController+RFKit.h"
+//#import "UIViewController+RFInterfaceOrientation.h"
 //#import "UIWebView+RFKit.h"
 
 #elif TARGET_OS_TV
@@ -52,7 +53,6 @@
 #import "UIView+RFAnimate.h"
 #import "UIView+RFKit.h"
 #import "UIViewController+RFKit.h"
-
 #elif TARGET_OS_WATCH
 #import "UIColor+RFKit.h"
 #import "UIImage+RFKit.h"
