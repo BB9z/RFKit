@@ -52,6 +52,27 @@
     TestRang(1, 0, @[ ]);
 }
 
+- (void)testMap {
+    NSArray *v = nil;
+    NSArray<NSNumber *> *a = @[ @1, @2, @3, @4, @5 ];
+    
+    v = [a rf_mapedArrayWithBlock:^id (NSNumber *_o) {
+        return nil;
+    }];
+    XCTAssertEqualObjects(v, @[]);
+
+    v = [a rf_mapedArrayWithBlock:^id (NSNumber *n) {
+        return @(n.intValue * 2);
+    }];
+    XCTAssertEqualObjects(v, (@[ @2, @4, @6, @8, @10 ]));
+    
+    v = [a rf_mapedArrayWithBlock:^id (NSNumber *n) {
+        int i = n.intValue;
+        return (i < 3)? @0 : nil;
+    }];
+    XCTAssertEqualObjects(v, (@[ @0, @0 ]));
+}
+
 - (void)testSetLaseObject {
     NSMutableArray *a = @[].mutableCopy;
     

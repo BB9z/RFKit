@@ -45,6 +45,15 @@
  */
 - (nonnull NSArray<ObjectType> *)rf_subarrayWithRangeLocation:(NSInteger)location length:(NSInteger)length API_AVAILABLE(macos(10.8), ios(6.0), tvos(9.0), watchos(2.0));
 
+/**
+ Returns an array containing the results of mapping transform over self.
+ 
+ @param block A mapping block which accepts an element of the array as its parameter and returns a transformed object or  nil.
+ 
+ @return A mutable array containing the results of mapping. It may has a diffrent count with the receiver.
+ */
+- (nonnull NSMutableArray *)rf_mapedArrayWithBlock:(NS_NOESCAPE id __nullable (^__nonnull)(ObjectType __nonnull))block;
+
 @end
 
 @interface NSMutableArray<ObjectType> (RFKit)

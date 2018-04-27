@@ -15,6 +15,9 @@ class SwiftNameTest: XCTestCase {
         let a = [1, 2, 3, 4] as NSMutableArray
         a.rf_object(at: 6)
         a.rf_subarray(withRangeLocation: 0, length: 0)
+        a.rf_mapedArray { v -> Any? in
+            return (v as? Int)! * 2
+        }
         a.rf_add(nil)
         a.rf_insert(nil, at: 99)
         a.setLast(nil)

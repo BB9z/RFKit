@@ -323,8 +323,6 @@
 				D513B0E12031917C00C62520 /* Sources */,
 				D513B0E22031917C00C62520 /* Frameworks */,
 				D513B0E32031917C00C62520 /* Resources */,
-				9437B26BBF05B8288C0182AB /* [CP] Embed Pods Frameworks */,
-				B8CC21F5EAFB0CC94160621B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -343,8 +341,6 @@
 				D5297B72208C1FFC0045F1BB /* Sources */,
 				D5297B73208C1FFC0045F1BB /* Frameworks */,
 				D5297B74208C1FFC0045F1BB /* Resources */,
-				C33A674F963A349AA9647D1D /* [CP] Embed Pods Frameworks */,
-				951D93F290E2C57222A97F8F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -363,8 +359,6 @@
 				D59468DD203281DE00A1AE3D /* Sources */,
 				D59468DE203281DE00A1AE3D /* Frameworks */,
 				D59468DF203281DE00A1AE3D /* Resources */,
-				75682AC77E904EDFF494DE58 /* [CP] Embed Pods Frameworks */,
-				43A4E1433B216FC045AE6C06 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -383,8 +377,6 @@
 				D5C6F58A20328E3900D1E8DF /* Sources */,
 				D5C6F58B20328E3900D1E8DF /* Frameworks */,
 				D5C6F58C20328E3900D1E8DF /* Resources */,
-				DCB476F290413BE276DFBEAA /* [CP] Embed Pods Frameworks */,
-				8798532DB35C2CDBC405DE46 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -403,7 +395,6 @@
 				D5C6F59620328F7000D1E8DF /* Sources */,
 				D5C6F59720328F7000D1E8DF /* Frameworks */,
 				D5C6F59820328F7000D1E8DF /* CopyFiles */,
-				B8370C5D726D65F23A276352 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -501,21 +492,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		43A4E1433B216FC045AE6C06 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Test-macOS/Pods-Test-macOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		5720CD7816CF0D84B83FC1BE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -552,21 +528,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		75682AC77E904EDFF494DE58 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Test-macOS/Pods-Test-macOS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		85740B1091ABD84F22E13118 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -583,21 +544,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8798532DB35C2CDBC405DE46 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Test-tvOS/Pods-Test-tvOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8EB8CDEDD1CC8E9CA6C865D0 /* [CP] Check Pods Manifest.lock */ = {
@@ -618,36 +564,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9437B26BBF05B8288C0182AB /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Test-iOS/Pods-Test-iOS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		951D93F290E2C57222A97F8F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Test-Swift/Pods-Test-Swift-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		9FC6C99FB5C0DBD4D36648E7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -664,66 +580,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B8370C5D726D65F23A276352 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Target-watchOS/Pods-Target-watchOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B8CC21F5EAFB0CC94160621B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Test-iOS/Pods-Test-iOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C33A674F963A349AA9647D1D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Test-Swift/Pods-Test-Swift-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DCB476F290413BE276DFBEAA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Test-tvOS/Pods-Test-tvOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
