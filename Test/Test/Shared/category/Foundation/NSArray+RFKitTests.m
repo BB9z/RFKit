@@ -56,7 +56,7 @@
     NSArray *v = nil;
     NSArray<NSNumber *> *a = @[ @1, @2, @3, @4, @5 ];
     
-    v = [a rf_mapedArrayWithBlock:^id (NSNumber *_o) {
+    v = [a rf_mapedArrayWithBlock:^id (NSNumber *_) {
         return nil;
     }];
     XCTAssertEqualObjects(v, @[]);
