@@ -1,12 +1,12 @@
 /*!
-    RFKit
-    This file define which extension category will included by default.
+ RFKit
+ This file define which extension category will included by default.
  
-    Copyright (c) 2012-2015, 2017 BB9z
-    https://github.com/bb9z/RFKit
+ Copyright (c) 2012-2015, 2017-2018 BB9z
+ https://github.com/bb9z/RFKit
  
-    The MIT License (MIT)
-    http://www.opensource.org/licenses/mit-license.php
+ The MIT License (MIT)
+ http://www.opensource.org/licenses/mit-license.php
  */
 
 #import "NSArray+RFKit.h"
@@ -24,7 +24,7 @@
 
 #if TARGET_OS_IOS
 //#import "NSLayoutConstraint+RFKit.h"
-#import "UIAlertView+RFKit.h"
+//#import "UIAlertView+RFKit.h"
 #import "UIButton+RFKit.h"
 #import "UIColor+RFKit.h"
 #import "UIDevice+RFKit.h"
@@ -38,6 +38,7 @@
 #import "UIView+RFAnimate.h"
 #import "UIView+RFKit.h"
 #import "UIViewController+RFKit.h"
+//#import "UIViewController+RFInterfaceOrientation.h"
 //#import "UIWebView+RFKit.h"
 
 #elif TARGET_OS_TV
@@ -52,7 +53,6 @@
 #import "UIView+RFAnimate.h"
 #import "UIView+RFKit.h"
 #import "UIViewController+RFKit.h"
-
 #elif TARGET_OS_WATCH
 #import "UIColor+RFKit.h"
 #import "UIImage+RFKit.h"

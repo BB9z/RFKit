@@ -1,5 +1,19 @@
 # RFKit Changelog
 
+## 2.1.0
+
+* **Breaking Changes:**
+  * Subspec RFKit/Category/UIAlertView is no longer included by default.
+* API Enhancements:
+  * NSArray+RFKit, add `rf_mapedArrayWithBlock:`.
+* Bug fixes:
+  * Version in RFKit.h not bumped.
+
+## 2.0.1
+
+* Bug fixes:
+  * Eliminate warning when 'DEBUG' is not defined.
+
 ## 2.0
 
 * Highlighted enhancements:

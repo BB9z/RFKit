@@ -1,13 +1,13 @@
 /*!
-    RFPerformance
-    RFKit
-
-    Copyright (c) 2012-2013, 2015-2016, 2018 BB9z
-    https://github.com/BB9z/RFKit
-
-    The MIT License (MIT)
-    http://www.opensource.org/licenses/mit-license.php
-*/
+ RFPerformance
+ RFKit
+ 
+ Copyright (c) 2012-2013, 2015-2016, 2018 BB9z
+ https://github.com/BB9z/RFKit
+ 
+ The MIT License (MIT)
+ http://www.opensource.org/licenses/mit-license.php
+ */
 
 #import "RFRuntime.h"
 

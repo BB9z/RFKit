@@ -36,6 +36,16 @@
     return [self subarrayWithRange:range];
 }
 
+
+- (nonnull NSMutableArray *)rf_mapedArrayWithBlock:(id _Nullable (^_Nonnull)(id _Nonnull))block {
+    NSMutableArray *map = [NSMutableArray arrayWithCapacity:self.count];
+    [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        id value = block(obj);
+        [map rf_addObject:value];
+    }];
+    return map;
+}
+
 @end
 
 @implementation NSMutableArray (RFKit)

@@ -16,8 +16,6 @@ matrix:
       env: RFCI_TASK="Xcode8"
 before_install:
   - pod repo update master --silent
-script: ./.travis.sh
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
-after_failure:
-  - cat -n ~/Library/Logs/DiagnosticReports/xctest*.crash
+script: ./.travis.sh MAIN
+after_success: ./.travis.sh SUCCESS
+after_failure: ./.travis.sh FAILURE
