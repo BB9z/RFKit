@@ -1,12 +1,12 @@
 /*!
-    RFKit
-    This file define which extension category will included by default.
+ RFKit
+ This file define which extension category will included by default.
  
-    Copyright (c) 2012-2015, 2017 BB9z
-    https://github.com/bb9z/RFKit
+ Copyright (c) 2012-2015, 2017-2018 BB9z
+ https://github.com/bb9z/RFKit
  
-    The MIT License (MIT)
-    http://www.opensource.org/licenses/mit-license.php
+ The MIT License (MIT)
+ http://www.opensource.org/licenses/mit-license.php
  */
 
 #import "NSArray+RFKit.h"

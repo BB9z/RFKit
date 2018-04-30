@@ -1,12 +1,12 @@
 /*!
-    RFFoundation
-    RFKit
-
-    Copyright (c) 2018 BB9z
-    https://github.com/BB9z/RFKit
-
-    The MIT License (MIT)
-    http://www.opensource.org/licenses/mit-license.php
+ RFFoundation
+ RFKit
+ 
+ Copyright (c) 2018 BB9z
+ https://github.com/BB9z/RFKit
+ 
+ The MIT License (MIT)
+ http://www.opensource.org/licenses/mit-license.php
  */
 #pragma once
 
