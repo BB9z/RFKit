@@ -10,7 +10,7 @@
  */
 
 #ifndef DOUT_H
-#define DOUT_H 2.10
+#define DOUT_H 2.11
 
 #import "RFRuntime.h"
 
@@ -193,8 +193,16 @@
 #define _dout_warning(...)
 #define _dout_error(...)
 
+/**
+ Debugger() for all platform.
+ 
+ This methiod simulate Debugger() behavior by throwing objective-c exception.
+ So you should set an exception breakpoint to use it.
+ */
+FOUNDATION_EXPORT void RFDebugger(NSString *_Nullable format, ...) NS_FORMAT_FUNCTION(1, 2);
+
 void DoutLogString(NSString *string);
-NSString * DoutCurrentThreadOrQueueName(void);
+NSString *DoutCurrentThreadOrQueueName(void);
 void _dout_log_config(void);
 
 #endif
