@@ -18,6 +18,7 @@
 #import <RFKit/NSNumberFormatter+RFKit.h>
 #import <RFKit/NSString+RFKit.h>
 #import <RFKit/NSURL+RFKit.h>
+#import <RFKit/UIPickerView+RFKit.h>
 #import <RFKit/UIScrollView+RFScrolling.h>
 #import <RFKit/UISearchBar+RFKit.h>
 #import <RFKit/UIStoryboard+RFKit.h>

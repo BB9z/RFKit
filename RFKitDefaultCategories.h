@@ -30,6 +30,7 @@
 #import "UIDevice+RFKit.h"
 #import "UIImage+RFKit.h"
 #import "UINavigationController+RFKit.h"
+//#import "UIPickerView+RFKit.h"
 #import "UIResponder+RFKit.h"
 //#import "UIScrollView+RFScrolling.h"
 //#import "UISearchBar+RFKit.h"

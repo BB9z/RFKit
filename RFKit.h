@@ -10,7 +10,7 @@
  */
 
 #ifndef RFKit_h
-#define RFKit_h 2.1
+#define RFKit_h 2.2
 
 #import "RFRuntime.h"
 #import "RFGeometry.h"
