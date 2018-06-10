@@ -199,10 +199,10 @@
  This methiod simulate Debugger() behavior by throwing objective-c exception.
  So you should set an exception breakpoint to use it.
  */
-FOUNDATION_EXPORT void RFDebugger(NSString *_Nullable format, ...) NS_FORMAT_FUNCTION(1, 2);
+FOUNDATION_EXPORT void RFDebugger(NSString *__nullable format, ...) NS_FORMAT_FUNCTION(1, 2);
 
-void DoutLogString(NSString *string);
-NSString *DoutCurrentThreadOrQueueName(void);
+void DoutLogString(NSString *__nullable string);
+NSString *__nonnull DoutCurrentThreadOrQueueName(void);
 void _dout_log_config(void);
 
 #endif
