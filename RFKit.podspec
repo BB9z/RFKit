@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'RFKit'
-  s.version      = '2.1.0'
+  s.version      = '2.2.0'
   s.summary      = 'Tool kit for daily cocoa development.'
   s.homepage     = 'https://github.com/BB9z/RFKit'
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
@@ -124,6 +124,7 @@ Pod::Spec.new do |s|
       ssp.ios.dependency 'RFKit/Category/UIAlertView'
       ssp.ios .dependency 'RFKit/Category/NSLayoutConstraint'
       ssp.tvos.dependency 'RFKit/Category/NSLayoutConstraint'
+      ssp.ios .dependency 'RFKit/Category/UIPickerView'
       ssp.ios .dependency 'RFKit/Category/UIScrollView+RFScrolling'
       ssp.tvos.dependency 'RFKit/Category/UIScrollView+RFScrolling'
       ssp.ios .dependency 'RFKit/Category/UISearchBar'
@@ -255,6 +256,12 @@ Pod::Spec.new do |s|
       ssp.dependency 'RFKit/Foundation'
       ssp.dependency 'RFKit/Category/NSArray'
       ssp.source_files = 'category/UIKit/UINavigationController+*'
+    end
+
+    ss.subspec 'UIPickerView' do |ssp|
+      ssp.ios.deployment_target = '6.0'
+      ssp.dependency 'RFKit/Foundation'
+      ssp.source_files = 'category/UIKit/UIPickerView+*'
     end
     
     ss.subspec 'UIResponder' do |ssp|

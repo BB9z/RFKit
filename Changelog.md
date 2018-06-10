@@ -1,5 +1,12 @@
 # RFKit Changelog
 
+## 2.2.0
+
+* API Enhancements:
+  * RFFoundation, add guard define for `NS_STRING_ENUM` and `NS_EXTENSIBLE_STRING_ENUM`.
+  * dout, add `RFDebugger()` as an alternative to Debugger().
+  * New UIPickerView+RFKit, with `rf_selectRow:inComponent:animated:`.
+
 ## 2.1.0
 
 * **Breaking Changes:**

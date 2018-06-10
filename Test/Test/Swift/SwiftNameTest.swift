@@ -161,6 +161,11 @@ class SwiftNameTest: XCTestCase {
         nav.setTopView(nil, animated: false)
     }
     
+    func testUIPickerView() {
+        let v = UIPickerView()
+        v.rf_selectRow(0, inComponent: 0, animated: false)
+    }
+    
     func testUIResponder() {
         let v = UIView()
         let _ = v.viewController

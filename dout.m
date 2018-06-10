@@ -2,6 +2,19 @@
 #import "dout.h"
 #import <sys/sysctl.h>
 
+void RFDebugger(NSString *format, ...) {
+    if (format) {
+        va_list args;
+        va_start(args, format);
+        NSLogv(format, args);
+        va_end(args);
+    }
+    @try {
+        @throw [NSException exceptionWithName:@"pause" reason:@"debug" userInfo:nil];
+    }
+    @catch (__unused NSException *exception) { }
+}
+
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wunreachable-code"
 
