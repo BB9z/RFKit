@@ -61,6 +61,6 @@
  @param topViewController   Replace the view controller at the top of the navigation stack.
  @param animated    Specify YES to animate the transition or NO if you do not want the transition to be animated. You might specify NO if you are setting up the navigation controller at launch time.
  */
-- (void)setTopViewController:(nullable UIViewController *)topViewController animated:(BOOL)animated API_AVAILABLE(ios(3.0), tvos(9.0));
+- (void)setTopViewController:(nullable UIViewController *)topViewController animated:(BOOL)animated API_AVAILABLE(ios(3.0), tvos(9.0)) NS_SWIFT_NAME( setTopViewController(_:animated:) );
 
 @end
