@@ -56,6 +56,14 @@
 - (nullable id)viewControllerWithClass:(nonnull Class)aClass beforeViewController:(nullable UIViewController *)viewController API_AVAILABLE(ios(6.0), tvos(9.0)) NS_SWIFT_NAME( viewController(ofKind:before:) );
 
 /**
+ Remove the view controller from the navigation stack.
+ 
+ @param vc The view controller to remove. Do nothing if the view controller isn't in the navigation stack.
+ @param animated Set this value to YES to animate the transition. Pass NO if you are setting up a navigation controller before its view is displayed.
+ */
+- (void)removeViewController:(nullable UIViewController *)vc animated:(BOOL)animated API_AVAILABLE(ios(3.0), tvos(9.0)) NS_SWIFT_NAME( removeViewController(_:animated:) );
+
+/**
  Replace the view controller at the top of the navigation stack.
 
  @param topViewController   Replace the view controller at the top of the navigation stack.

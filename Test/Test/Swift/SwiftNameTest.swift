@@ -158,6 +158,7 @@ class SwiftNameTest: XCTestCase {
         nav.previousViewController(for: vc)
         nav.hasViewController(ofKind: UIViewController.self, before: nil)
         nav.viewController(ofKind: UIViewController.self, before: nil)
+        nav.removeViewController(nil, animated: false)
         nav.setTopViewController(nil, animated: false)
     }
     
