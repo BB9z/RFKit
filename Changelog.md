@@ -1,5 +1,12 @@
 # RFKit Changelog
 
+## 2.2.1
+
+* API Enhancements:
+  * UINavigationController+RFKit, add `removeViewController:animated:`.
+* Bug fixes:
+  * UINavigationController+RFKit, fix name of `setTopViewController:animated:` in Swift.
+
 ## 2.2.0
 
 * API Enhancements:
