@@ -12,6 +12,7 @@
 		403705909324B9EFF0C49A0D /* libPods-Test-Swift.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78A21F7BAAE3230D785970FB /* libPods-Test-Swift.a */; };
 		718BA774486754D388F462C8 /* libPods-Test-macOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC73F8A62B6BC05536DEB3A /* libPods-Test-macOS.a */; };
 		8E58557715B8818B0EE2A797 /* libPods-Test-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C27E1F5EADE13D9C7D2740F5 /* libPods-Test-tvOS.a */; };
+		D501848320FC7B34009481D4 /* UINavigationController+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D501848220FC7B34009481D4 /* UINavigationController+RFKitTests.m */; };
 		D513B0FF2031D0BB00C62520 /* NSFileManager+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D513B0F82031D0BB00C62520 /* NSFileManager+RFKitTests.m */; };
 		D513B1002031D0BB00C62520 /* NSDate+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D513B0FB2031D0BB00C62520 /* NSDate+RFKitTests.m */; };
 		D513B1012031D0BB00C62520 /* DoutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D513B0FC2031D0BB00C62520 /* DoutTests.m */; };
@@ -90,6 +91,7 @@
 		CF925C91AA18EF5C378F7086 /* Pods-Test-Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test-Swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Test-Swift/Pods-Test-Swift.debug.xcconfig"; sourceTree = "<group>"; };
 		D1B1680F9CF811404995C7B9 /* Pods-Test-Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test-Swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-Test-Swift/Pods-Test-Swift.release.xcconfig"; sourceTree = "<group>"; };
 		D2D6C233D13124D0476A479B /* Pods-Test-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Test-iOS/Pods-Test-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		D501848220FC7B34009481D4 /* UINavigationController+RFKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+RFKitTests.m"; sourceTree = "<group>"; };
 		D513B0E52031917C00C62520 /* Test-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Test-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D513B0E92031917C00C62520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D513B0F02031BD9900C62520 /* OCBridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCBridgingHeader.h; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 		D513B0E62031917C00C62520 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				D501848220FC7B34009481D4 /* UINavigationController+RFKitTests.m */,
 				D5D662FF20B40A4200E55EEB /* UIPickerView+RFKitTests.m */,
 				D513B0E92031917C00C62520 /* Info.plist */,
 				D57E75D3203EFCB6001BB427 /* UIView+RFKitTests.m */,
@@ -613,6 +616,7 @@
 				D594688220327D8F00A1AE3D /* NSObject+RFKitTests.m in Sources */,
 				D57E75CC203E9C0A001BB427 /* NSString+RFKitTests.m in Sources */,
 				D57E75D0203EB350001BB427 /* NSURL+RFKitTests.m in Sources */,
+				D501848320FC7B34009481D4 /* UINavigationController+RFKitTests.m in Sources */,
 				D5297B6E208BB9F80045F1BB /* RFGeometryTests.m in Sources */,
 				D57E75D7203F0051001BB427 /* RTHelper.m in Sources */,
 				D57E75D4203EFCB7001BB427 /* UIView+RFKitTests.m in Sources */,
