@@ -8,9 +8,11 @@ env:
   - LANGUAGE=en_US.UTF-8
 matrix:
   include:
-    - osx_image: xcode9.3
+    - osx_image: xcode10
       env: RFCI_TASK="POD_LINT"
-    - osx_image: xcode9.3
+    - osx_image: xcode10
+      env: RFCI_TASK="Xcode10"
+    - osx_image: xcode9.4
       env: RFCI_TASK="Xcode9"
     - osx_image: xcode8.3
       env: RFCI_TASK="Xcode8"
