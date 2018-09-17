@@ -316,7 +316,7 @@
         nibBundle = [NSBundle mainBundle];
     }
     for (id obj in [nibBundle loadNibNamed:name owner:nil options:nil]) {
-        if ([obj isKindOfClass:[self class]]) {
+        if ([(id<NSObject>)obj isKindOfClass:[self class]]) {
             return obj;
         }
     }

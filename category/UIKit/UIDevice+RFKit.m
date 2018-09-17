@@ -62,7 +62,7 @@
         dout_warning(@"Can`t get file system free size, reason: %@", e);
         return -1;
     }
-    return [info[NSFileSystemFreeSize] longLongValue];
+    return [(NSNumber *)info[NSFileSystemFreeSize] longLongValue];
 }
 
 - (long long)fileSystemSize {
@@ -72,7 +72,7 @@
         dout_warning(@"Can`t get file system size, reason: %@", e);
         return -1;
     }
-    return [info[NSFileSystemSize] longLongValue];
+    return [(NSNumber *)info[NSFileSystemSize] longLongValue];
 }
 
 @end

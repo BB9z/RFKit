@@ -7,7 +7,8 @@
 @dynamic previousViewController;
 
 - (nullable Class)previousViewControllerClassForViewController:(nonnull UIViewController *)viewController {
-    return [[self previousViewControllerForViewController:viewController] class];
+    UIViewController *vc = [self previousViewControllerForViewController:viewController];
+    return vc.class;
 }
 
 - (nullable id)previousViewControllerForViewController:(nonnull UIViewController *)viewController {
@@ -34,7 +35,7 @@
         return nil;
     }
 
-    NSArray *vcs = self.viewControllers;
+    NSArray<UIViewController *> *vcs = self.viewControllers;
     for (NSInteger i = (idx - 1); i >= 0; i--) {
         if ([vcs[i] isKindOfClass:aClass]) {
             return vcs[i];

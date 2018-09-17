@@ -10,22 +10,22 @@
     
     for (NSUInteger i = 0; i < indexCount; i++) {
         id ctIndex = indexsArray[i];
-        if ([ctIndex isKindOfClass:NSNumber.class]) {
-            if (![ctObjectSet respondsToSelector:@selector(objectAtIndex:)]) {
+        if ([(id<NSObject>)ctIndex isKindOfClass:NSNumber.class]) {
+            if (![(id<NSObject>)ctObjectSet respondsToSelector:@selector(objectAtIndex:)]) {
                 @throw [NSException exceptionWithName:@"RFKit: Bad selector" reason:[NSString stringWithFormat:@"%@ can`t responds objectAtIndex: for index %@.", ctObjectSet, ctIndex] userInfo:@{@"set": self, @"indexsArray": (id)indexsArray}];
             }
             NSNumber *indexObj = ctIndex;
-            ctObjectSet = [ctObjectSet objectAtIndex:indexObj.integerValue];
+            ctObjectSet = [(NSArray *)ctObjectSet objectAtIndex:indexObj.integerValue];
         }
         else {
-            if (![ctObjectSet respondsToSelector:@selector(objectForKey:)]) {
+            if (![(id<NSObject>)ctObjectSet respondsToSelector:@selector(objectForKey:)]) {
                 @throw [NSException exceptionWithName:@"RFKit: Bad selector" reason:[NSString stringWithFormat:@"%@ can`t responds objectForKey: for index %@.", ctObjectSet, ctIndex] userInfo:@{@"set": self, @"indexsArray": (id)indexsArray}];
             }
-            ctObjectSet = [ctObjectSet objectForKey:ctIndex];
+            ctObjectSet = [(NSDictionary *)ctObjectSet objectForKey:ctIndex];
         }
     }
 
-    if (![ctObjectSet isKindOfClass:NSArray.class]) {
+    if (![(id<NSObject>)ctObjectSet isKindOfClass:NSArray.class]) {
         ctObjectSet = @[ctObjectSet];
     }
     return ctObjectSet;
@@ -33,7 +33,7 @@
 
 - (nullable NSArray *)objectsForDictKeyArray:(nullable NSArray *)keyArray {
     if (keyArray.count == 0
-        || ![keyArray.firstObject isKindOfClass:NSString.class]) {
+        || ![(id<NSObject>)keyArray.firstObject isKindOfClass:NSString.class]) {
         return nil;
     }
     NSArray *keys = keyArray;
@@ -66,7 +66,7 @@
         // Array
         NSMutableArray *r = [NSMutableArray arrayWithCapacity:20];
         
-        for (id obj in (NSArray *)self) {
+        for (NSObject *obj in (NSArray *)self) {
             id tmp = [obj objectsForDictKeyArray:keys];
             [r addObjectsFromArray:tmp];
         }
@@ -74,7 +74,7 @@
     }
     else {
         // Dict
-        id ctObjectSet = [(NSDictionary *)self objectForKey:firstIndex];
+        NSObject *ctObjectSet = [(NSDictionary *)self objectForKey:firstIndex];
         return [ctObjectSet objectsForDictKeyArray:arrayFirstRemoved];
     }
 }

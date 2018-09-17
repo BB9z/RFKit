@@ -5,16 +5,16 @@
 @implementation NSDictionary (RFKit)
 
 - (BOOL)boolForKey:(id)aKey {
-    return [self[aKey] boolValue];
+    return [(NSNumber *)self[aKey] boolValue];
 }
 - (NSInteger)integerForKey:(id)aKey {
-    return [self[aKey] integerValue];
+    return [(NSNumber *)self[aKey] integerValue];
 }
 - (float)floatForKey:(id)aKey {
-    return [self[aKey] floatValue];
+    return [(NSNumber *)self[aKey] floatValue];
 }
 - (double)doubleForKey:(id)aKey {
-    return [self[aKey] doubleValue];
+    return [(NSNumber *)self[aKey] doubleValue];
 }
 
 @end
