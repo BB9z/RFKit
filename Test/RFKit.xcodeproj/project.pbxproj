@@ -931,7 +931,6 @@
 					"-Wno-gnu-zero-variadic-macro-arguments",
 					"-Wno-sign-compare",
 					"-Wno-sign-conversion",
-					"-Wno-objc-messaging-id",
 				);
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -1016,7 +1015,6 @@
 					"-Wno-gnu-zero-variadic-macro-arguments",
 					"-Wno-sign-compare",
 					"-Wno-sign-conversion",
-					"-Wno-objc-messaging-id",
 				);
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
