@@ -43,6 +43,17 @@
     return nil;
 }
 
+- (void)removeViewController:(UIViewController *)vc animated:(BOOL)animated {
+    if (!vc || ![self.viewControllers containsObject:vc]) return;
+    if (vc == self.topViewController) {
+        [self popViewControllerAnimated:animated];
+        return;
+    }
+    NSMutableArray *vcs = self.viewControllers.mutableCopy;
+    [vcs removeObject:vc];
+    [self setViewControllers:vcs animated:animated];
+}
+
 - (void)setTopViewController:(nullable UIViewController *)topViewController animated:(BOOL)animated {
     NSMutableArray *vcs = self.viewControllers.mutableCopy;
     vcs.lastObject = topViewController;
