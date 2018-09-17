@@ -72,10 +72,10 @@ enum {
 #if !defined(UIEdgeInsets)
 #   define UIEdgeInsets NSEdgeInsets
 #endif
-#if !defined(UIEdgeInsetsInsetRect)
+#if !defined(UIEdgeInsetsMake)
 #   define UIEdgeInsetsMake NSEdgeInsetsMake
 #endif
-#if !defined(UIEdgeInsetsEqual)
+#if !defined(UIEdgeInsetsEqualToEdgeInsets)
 #   define UIEdgeInsetsEqualToEdgeInsets NSEdgeInsetsEqual
 #endif
 #if !defined(UIEdgeInsetsZero)
