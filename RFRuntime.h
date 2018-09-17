@@ -118,10 +118,10 @@ NSString *footerViewFramePath = @keypathClassInstance(UITableView, tableFooterVi
     metamacro_if_eq(2, metamacro_argcount(__VA_ARGS__))(_rf_keypathClassInstance1_(__VA_ARGS__))(_rf_keypathClassInstance2_(__VA_ARGS__))
 
 #define _rf_keypathClassInstance1_(CLASS, PATH)\
-    (({CLASS *_proxy_; ((void)(NO && ((void)_proxy_.PATH, NO)), # PATH);}))
+    keypath(CLASS.new, PATH)
 
 #define _rf_keypathClassInstance2_(CLASS, PROPERTY, PATH)\
-    (({CLASS *_proxy_; ((void)(NO && ((void)_proxy_.PROPERTY.PATH, NO)), # PATH);}))
+    keypath(CLASS.new.PROPERTY, PATH)
 
 #pragma mark - Language Addition
 

@@ -10,12 +10,16 @@
 #import <RFKit/RFRuntime.h>
 
 @interface RuntimeTests : XCTestCase
-@property RuntimeTests *selfRefrence;
+@property (nonatomic) RuntimeTests *selfRefrence;
 @end
 
 @implementation RuntimeTests
+@dynamic selfRefrence;
 
 - (void)testKeypathClassInstance {
+    NSString *__nonnull kp0 = @keypath(RuntimeTests.new, selfRefrence);
+    XCTAssertEqualObjects(kp0, @"selfRefrence");
+
     NSString *__nonnull kp = @keypathClassInstance(RuntimeTests, selfRefrence);
     XCTAssertEqualObjects(kp, @"selfRefrence");
     NSString *__nonnull kp2 = @keypathClassInstance(RuntimeTests, selfRefrence, selfRefrence.selfRefrence);
@@ -29,7 +33,5 @@
     XCTAssertEqualObjects(aaa, @"aaa");
     XCTAssertEqualObjects(bbb, @"something");
 }
-
-
 
 @end
