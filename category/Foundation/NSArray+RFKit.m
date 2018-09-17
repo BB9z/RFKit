@@ -37,7 +37,7 @@
 }
 
 
-- (nonnull NSMutableArray *)rf_mapedArrayWithBlock:(id _Nullable (^_Nonnull)(id _Nonnull))block {
+- (nonnull NSMutableArray *)rf_mapedArrayWithBlock:(NS_NOESCAPE id _Nullable (^_Nonnull)(id _Nonnull))block {
     NSMutableArray *map = [NSMutableArray arrayWithCapacity:self.count];
     [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         id value = block(obj);
@@ -82,7 +82,7 @@
     self[idx] = (id)anObject;
 }
 
-- (void)removeObjectsPassingTest:(BOOL (^__nonnull)(id __nonnull obj, NSUInteger idx, BOOL *__nonnull stop))predicate {
+- (void)removeObjectsPassingTest:(NS_NOESCAPE BOOL (^__nonnull)(id __nonnull obj, NSUInteger idx, BOOL *__nonnull stop))predicate {
     NSIndexSet *is = [self indexesOfObjectsPassingTest:predicate];
     [self removeObjectsAtIndexes:is];
 }
