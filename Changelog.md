@@ -1,5 +1,10 @@
 # RFKit Changelog
 
+## 2.3.0
+
+* Fix Xcode 10 warnings.
+* Update EXTKeyPathCoding.
+
 ## 2.2.1
 
 * API Enhancements:
