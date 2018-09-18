@@ -34,9 +34,9 @@ STAGE_MAIN() {
             echo "TRAVIS_BRANCH = $TRAVIS_BRANCH"
             gem install cocoapods --no-rdoc --no-ri --no-document --quiet
             if [ "$TRAVIS_BRANCH" = "develop" ]; then
-                pod lib lint --allow-warnings
+                pod lib lint --fail-fast --allow-warnings
             else
-                pod lib lint
+                pod lib lint --fail-fast
             fi
         fi
 
@@ -48,7 +48,7 @@ STAGE_MAIN() {
         XC_TestWatch
 
         echo "Test on lastest device and OS."
-        XC_Test "Test-iOS"   "platform=iOS Simulator,name=iPhone X,OS=12.0"
+        XC_Test "Test-iOS"   "platform=iOS Simulator,name=iPhone XS Max,OS=12.0"
         XC_Test "Test-tvOS"  "platform=tvOS Simulator,name=Apple TV 4K,OS=12.0"
 
         echo "Test on old device and OS".
@@ -56,7 +56,7 @@ STAGE_MAIN() {
         XC_Test "Test-tvOS"  "platform=tvOS Simulator,name=Apple TV,OS=9.0"
 
         echo "Test Swift"
-        XC_Test "Test-Swift" "platform=iOS Simulator,name=iPhone X,OS=11.3"
+        XC_Test "Test-Swift" "platform=iOS Simulator,name=iPhone SE,OS=12.0"
 
     elif [ "$RFCI_TASK" = "Xcode9" ]; then
         pod install --project-directory=Test

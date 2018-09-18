@@ -18,6 +18,6 @@ matrix:
       env: RFCI_TASK="Xcode8"
 before_install:
   - pod repo update master --silent
-script: travis_wait ./.travis.sh MAIN
+script: travis_wait 20 ./.travis.sh MAIN
 after_success: ./.travis.sh SUCCESS
 after_failure: ./.travis.sh FAILURE
