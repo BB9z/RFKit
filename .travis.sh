@@ -32,7 +32,9 @@ STAGE_MAIN() {
             echo "Skip pod lint"
         else
             echo "TRAVIS_BRANCH = $TRAVIS_BRANCH"
-            gem install cocoapods --no-rdoc --no-ri --no-document --quiet
+            # Use 1.6.0.beta as 1.5 has isuuses with Xcode 10
+            # todo: remove after 1.6 release
+            gem install cocoapods --no-rdoc --no-ri --no-document --quiet --pre
             if [ "$TRAVIS_BRANCH" = "develop" ]; then
                 pod lib lint --fail-fast --allow-warnings
             else
