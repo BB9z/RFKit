@@ -59,6 +59,11 @@
 		D5CE8EC6203FADC6000F1C0E /* NSBundle+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CE8EC4203FADC6000F1C0E /* NSBundle+RFKitTests.m */; };
 		D5CE8EC7203FADC6000F1C0E /* NSBundle+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CE8EC4203FADC6000F1C0E /* NSBundle+RFKitTests.m */; };
 		D5D6630020B40A4200E55EEB /* UIPickerView+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D662FF20B40A4200E55EEB /* UIPickerView+RFKitTests.m */; };
+		D5F4C6FC214FC34A00757CD5 /* RuntimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F4C6FB214FC34A00757CD5 /* RuntimeTests.m */; };
+		D5F4C6FD214FC42100757CD5 /* RuntimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F4C6FB214FC34A00757CD5 /* RuntimeTests.m */; };
+		D5F4C6FE214FC42200757CD5 /* RuntimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F4C6FB214FC34A00757CD5 /* RuntimeTests.m */; };
+		D5F4C6FF214FC42300757CD5 /* RuntimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F4C6FB214FC34A00757CD5 /* RuntimeTests.m */; };
+		D5F4C702214FE1F900757CD5 /* RuntimeMacOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F4C701214FE1F900757CD5 /* RuntimeMacOSTests.m */; };
 		D5F50AC22035E3BA0054518C /* NSDateFormatter+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F50AC12035E3BA0054518C /* NSDateFormatter+RFKitTests.m */; };
 		D5F50AC32035E3BA0054518C /* NSDateFormatter+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F50AC12035E3BA0054518C /* NSDateFormatter+RFKitTests.m */; };
 		D5F50AC42035E3BA0054518C /* NSDateFormatter+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F50AC12035E3BA0054518C /* NSDateFormatter+RFKitTests.m */; };
@@ -121,6 +126,8 @@
 		D5C6F5A72032D39500D1E8DF /* NSArray+RFKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+RFKitTests.m"; sourceTree = "<group>"; };
 		D5CE8EC4203FADC6000F1C0E /* NSBundle+RFKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+RFKitTests.m"; sourceTree = "<group>"; };
 		D5D662FF20B40A4200E55EEB /* UIPickerView+RFKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIPickerView+RFKitTests.m"; sourceTree = "<group>"; };
+		D5F4C6FB214FC34A00757CD5 /* RuntimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RuntimeTests.m; sourceTree = "<group>"; };
+		D5F4C701214FE1F900757CD5 /* RuntimeMacOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RuntimeMacOSTests.m; sourceTree = "<group>"; };
 		D5F50AC12035E3BA0054518C /* NSDateFormatter+RFKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+RFKitTests.m"; sourceTree = "<group>"; };
 		FB69B17BD7CB0E4ADC9CB6BD /* Pods-Test-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Test-tvOS/Pods-Test-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		FEAF0D436A19807484DA91EC /* libPods-Target-watchOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Target-watchOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -196,6 +203,7 @@
 				D513B0FC2031D0BB00C62520 /* DoutTests.m */,
 				D57E75D5203F0051001BB427 /* RTHelper.h */,
 				D57E75D6203F0051001BB427 /* RTHelper.m */,
+				D5F4C6FB214FC34A00757CD5 /* RuntimeTests.m */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -240,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				D59468E5203281DE00A1AE3D /* Info.plist */,
+				D5F4C701214FE1F900757CD5 /* RuntimeMacOSTests.m */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -617,6 +626,7 @@
 				D57E75CC203E9C0A001BB427 /* NSString+RFKitTests.m in Sources */,
 				D57E75D0203EB350001BB427 /* NSURL+RFKitTests.m in Sources */,
 				D501848320FC7B34009481D4 /* UINavigationController+RFKitTests.m in Sources */,
+				D5F4C6FC214FC34A00757CD5 /* RuntimeTests.m in Sources */,
 				D5297B6E208BB9F80045F1BB /* RFGeometryTests.m in Sources */,
 				D57E75D7203F0051001BB427 /* RTHelper.m in Sources */,
 				D57E75D4203EFCB7001BB427 /* UIView+RFKitTests.m in Sources */,
@@ -629,6 +639,7 @@
 			files = (
 				D5297B7E208C7FC20045F1BB /* RTHelper.m in Sources */,
 				D5297B79208C1FFC0045F1BB /* SwiftNameTest.swift in Sources */,
+				D5F4C6FF214FC42300757CD5 /* RuntimeTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,8 +652,10 @@
 				D5CE8EC6203FADC6000F1C0E /* NSBundle+RFKitTests.m in Sources */,
 				D59468EC2032868300A1AE3D /* NSDate+RFKitTests.m in Sources */,
 				D5F50AC32035E3BA0054518C /* NSDateFormatter+RFKitTests.m in Sources */,
+				D5F4C6FD214FC42100757CD5 /* RuntimeTests.m in Sources */,
 				D5722FAE203D9CE800C610E2 /* NSDictionary+RFKitTests.m in Sources */,
 				D5722FB2203DAC4800C610E2 /* NSError+RFKitTests.m in Sources */,
+				D5F4C702214FE1F900757CD5 /* RuntimeMacOSTests.m in Sources */,
 				D59468EB2032868000A1AE3D /* NSFileManager+RFKitTests.m in Sources */,
 				D57E75C7203E49CF001BB427 /* NSJSONSerialization+RFKitTests.m in Sources */,
 				D59468EA2032867D00A1AE3D /* NSObject+RFKitTests.m in Sources */,
@@ -662,6 +675,7 @@
 				D5CE8EC7203FADC6000F1C0E /* NSBundle+RFKitTests.m in Sources */,
 				D5C6F5A42032BB6700D1E8DF /* NSDate+RFKitTests.m in Sources */,
 				D5F50AC42035E3BA0054518C /* NSDateFormatter+RFKitTests.m in Sources */,
+				D5F4C6FE214FC42200757CD5 /* RuntimeTests.m in Sources */,
 				D5722FAF203D9CE800C610E2 /* NSDictionary+RFKitTests.m in Sources */,
 				D5722FB3203DAC4800C610E2 /* NSError+RFKitTests.m in Sources */,
 				D5C6F5A52032BB6A00D1E8DF /* NSFileManager+RFKitTests.m in Sources */,

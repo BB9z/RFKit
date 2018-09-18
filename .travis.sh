@@ -32,13 +32,33 @@ STAGE_MAIN() {
             echo "Skip pod lint"
         else
             echo "TRAVIS_BRANCH = $TRAVIS_BRANCH"
-            gem install cocoapods --no-rdoc --no-ri --no-document --quiet
+            # Use 1.6.0.beta as 1.5 has isuuses with Xcode 10
+            # todo: remove after 1.6 release
+            gem install cocoapods --no-rdoc --no-ri --no-document --quiet --pre
             if [ "$TRAVIS_BRANCH" = "develop" ]; then
-                pod lib lint --allow-warnings
+                pod lib lint --fail-fast --allow-warnings
             else
-                pod lib lint
+                pod lib lint --fail-fast
             fi
         fi
+
+    elif [ "$RFCI_TASK" = "Xcode10" ]; then
+        pod install --project-directory=Test
+
+        echo "Test for macOS and watchOS."
+        XC_TestMac
+        XC_TestWatch
+
+        echo "Test on lastest device and OS."
+        XC_Test "Test-iOS"   "platform=iOS Simulator,name=iPhone XS Max,OS=12.0"
+        XC_Test "Test-tvOS"  "platform=tvOS Simulator,name=Apple TV 4K,OS=12.0"
+
+        echo "Test on old device and OS".
+        XC_Test "Test-iOS"   "platform=iOS Simulator,name=iPhone 5,OS=9.0"
+        XC_Test "Test-tvOS"  "platform=tvOS Simulator,name=Apple TV,OS=9.0"
+
+        echo "Test Swift"
+        XC_Test "Test-Swift" "platform=iOS Simulator,name=iPhone SE,OS=12.0"
 
     elif [ "$RFCI_TASK" = "Xcode9" ]; then
         pod install --project-directory=Test
@@ -47,16 +67,11 @@ STAGE_MAIN() {
         XC_TestMac
         XC_TestWatch
 
-        echo "Test on lastest device and OS."
-        XC_Test "Test-iOS"   "platform=iOS Simulator,name=iPhone X,OS=11.3"
-        XC_Test "Test-tvOS"  "platform=tvOS Simulator,name=Apple TV 4K,OS=11.3"
-
-        echo "Test on old device and OS".
-        XC_Test "Test-iOS"   "platform=iOS Simulator,name=iPhone 5,OS=9.0"
-        XC_Test "Test-tvOS"  "platform=tvOS Simulator,name=Apple TV,OS=9.0"
+        XC_Test "Test-iOS"   "platform=iOS Simulator,name=iPhone X,OS=11.4"
+        XC_Test "Test-tvOS"  "platform=tvOS Simulator,name=Apple TV 4K,OS=11.4"
 
         echo "Test Swift"
-        XC_Test "Test-Swift" "platform=iOS Simulator,name=iPhone X,OS=11.3"
+        XC_Test "Test-Swift" "platform=iOS Simulator,name=iPhone X,OS=11.4"
 
     elif [ "$RFCI_TASK" = "Xcode8" ]; then
         pod install --project-directory=Test
@@ -71,7 +86,7 @@ STAGE_MAIN() {
 }
 
 STAGE_SUCCESS() {
-    if [ "$RFCI_TASK" = "Xcode9" ]; then
+    if [ "$RFCI_TASK" = "Xcode10" ]; then
         curl -s https://codecov.io/bash | bash -s
     fi
 }

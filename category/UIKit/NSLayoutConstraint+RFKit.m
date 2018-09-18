@@ -5,8 +5,8 @@
 @implementation NSLayoutConstraint (RFKit)
 
 - (void)updateLayoutIfNeeded {
-    UIView *a = [self.firstItem isKindOfClass:UIView.class]? self.firstItem : nil;
-    UIView *b = [self.secondItem isKindOfClass:UIView.class]? self.secondItem : nil;
+    UIView *a = [(id<NSObject>)self.firstItem isKindOfClass:UIView.class]? self.firstItem : nil;
+    UIView *b = [(id<NSObject>)self.secondItem isKindOfClass:UIView.class]? self.secondItem : nil;
     if (a && b) {
         [[UIView commonSuperviewWith:a anotherView:b] layoutIfNeeded];
         return;

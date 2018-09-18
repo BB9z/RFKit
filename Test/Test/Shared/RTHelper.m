@@ -10,7 +10,7 @@
 
 @implementation RTHelper
 
-+ (BOOL)catchException:(void(^)(void))tryBlock error:(NSError *__autoreleasing*)error {
++ (BOOL)catchException:(NS_NOESCAPE void(^)(void))tryBlock error:(NSError *__autoreleasing*)error {
     @try {
         tryBlock();
         return YES;
