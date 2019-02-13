@@ -94,6 +94,8 @@ Pod::Spec.new do |s|
       ssp.dependency 'RFKit/Category/NSObject'
       ssp.dependency 'RFKit/Category/NSString'
 
+      ssp.osx.dependency 'RFKit/Category/UIResponder'
+
       ssp.ios.dependency 'RFKit/Category/UIButton'
       ssp.ios.dependency 'RFKit/Category/UIColor'
       ssp.ios.dependency 'RFKit/Category/UIDevice'
@@ -276,6 +278,7 @@ Pod::Spec.new do |s|
     end
     
     ss.subspec 'UIResponder' do |ssp|
+      ssp.osx.deployment_target = '10.8'
       ssp.ios.deployment_target = '6.0'
       ssp.tvos.deployment_target = '9.0'
       ssp.dependency 'RFKit/Foundation'

@@ -46,6 +46,10 @@
 		D59468EA2032867D00A1AE3D /* NSObject+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D594688120327D8F00A1AE3D /* NSObject+RFKitTests.m */; };
 		D59468EB2032868000A1AE3D /* NSFileManager+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D513B0F82031D0BB00C62520 /* NSFileManager+RFKitTests.m */; };
 		D59468EC2032868300A1AE3D /* NSDate+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D513B0FB2031D0BB00C62520 /* NSDate+RFKitTests.m */; };
+		D59616112214049900202E58 /* UIResponder+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D59616102214049900202E58 /* UIResponder+RFKitTests.m */; };
+		D59616122214049900202E58 /* UIResponder+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D59616102214049900202E58 /* UIResponder+RFKitTests.m */; };
+		D59616132214049900202E58 /* UIResponder+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D59616102214049900202E58 /* UIResponder+RFKitTests.m */; };
+		D59616172214082100202E58 /* macos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D59616162214082100202E58 /* macos.storyboard */; };
 		D5C6F59E20328F7000D1E8DF /* Target_watchOS.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C6F59D20328F7000D1E8DF /* Target_watchOS.m */; };
 		D5C6F59F20328F7000D1E8DF /* Target_watchOS.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D5C6F59C20328F7000D1E8DF /* Target_watchOS.h */; };
 		D5C6F5A32032BB6000D1E8DF /* DoutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D513B0FC2031D0BB00C62520 /* DoutTests.m */; };
@@ -118,6 +122,8 @@
 		D594688120327D8F00A1AE3D /* NSObject+RFKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RFKitTests.m"; sourceTree = "<group>"; };
 		D59468E1203281DE00A1AE3D /* Test-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Test-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D59468E5203281DE00A1AE3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D59616102214049900202E58 /* UIResponder+RFKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+RFKitTests.m"; sourceTree = "<group>"; };
+		D59616162214082100202E58 /* macos.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = macos.storyboard; sourceTree = "<group>"; };
 		D5C6F58E20328E3900D1E8DF /* Test-tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Test-tvOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5C6F59220328E3900D1E8DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5C6F59A20328F7000D1E8DF /* libTarget-watchOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libTarget-watchOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -212,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				D513B0F32031D0BA00C62520 /* Foundation */,
+				D59616102214049900202E58 /* UIResponder+RFKitTests.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -249,6 +256,7 @@
 			children = (
 				D59468E5203281DE00A1AE3D /* Info.plist */,
 				D5F4C701214FE1F900757CD5 /* RuntimeMacOSTests.m */,
+				D59616162214082100202E58 /* macos.storyboard */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -502,6 +510,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D59616172214082100202E58 /* macos.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,6 +621,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D59616112214049900202E58 /* UIResponder+RFKitTests.m in Sources */,
 				D513B1012031D0BB00C62520 /* DoutTests.m in Sources */,
 				D5C6F5A82032D39500D1E8DF /* NSArray+RFKitTests.m in Sources */,
 				D5CE8EC5203FADC6000F1C0E /* NSBundle+RFKitTests.m in Sources */,
@@ -657,6 +667,7 @@
 				D5722FB2203DAC4800C610E2 /* NSError+RFKitTests.m in Sources */,
 				D5F4C702214FE1F900757CD5 /* RuntimeMacOSTests.m in Sources */,
 				D59468EB2032868000A1AE3D /* NSFileManager+RFKitTests.m in Sources */,
+				D59616122214049900202E58 /* UIResponder+RFKitTests.m in Sources */,
 				D57E75C7203E49CF001BB427 /* NSJSONSerialization+RFKitTests.m in Sources */,
 				D59468EA2032867D00A1AE3D /* NSObject+RFKitTests.m in Sources */,
 				D57E75CD203E9C0A001BB427 /* NSString+RFKitTests.m in Sources */,
@@ -671,6 +682,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5C6F5A32032BB6000D1E8DF /* DoutTests.m in Sources */,
+				D59616132214049900202E58 /* UIResponder+RFKitTests.m in Sources */,
 				D5C6F5AA2032D39500D1E8DF /* NSArray+RFKitTests.m in Sources */,
 				D5CE8EC7203FADC6000F1C0E /* NSBundle+RFKitTests.m in Sources */,
 				D5C6F5A42032BB6700D1E8DF /* NSDate+RFKitTests.m in Sources */,
@@ -915,7 +927,7 @@
 				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Supporting Files/OCBridgingHeader.h";
@@ -999,7 +1011,7 @@
 				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Supporting Files/OCBridgingHeader.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

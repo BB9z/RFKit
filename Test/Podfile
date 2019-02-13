@@ -6,7 +6,7 @@ target 'Test-iOS' do
 end
 
 target 'Test-macOS' do
-    platform :osx, '10.8'
+    platform :osx, '10.10'
     
     pod 'RFKit', :path => '..', :subspecs => ['ALL']
 end
