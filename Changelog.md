@@ -1,5 +1,9 @@
 # RFKit Changelog
 
+## 2.4.0
+
+* Imporve macOS supports.
+
 ## 2.3.0
 
 * Fix Xcode 10 warnings.
