@@ -28,12 +28,6 @@
     return string;
 }
 
-#if (MAC_OS_X_VERSION_MIN_REQUIRED < __MAC_10_10 && (!defined(__IPHONE_OS_VERSION_MIN_REQUIRED) || __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_8_0))
-- (BOOL)containsString:(nonnull NSString *)string {
-    return ([self rangeOfString:string].location != NSNotFound);
-}
-#endif
-
 - (BOOL)containsString:(nonnull NSString *)string options:(NSStringCompareOptions)mask {
     return ([self rangeOfString:string options:mask].location != NSNotFound);
 }
