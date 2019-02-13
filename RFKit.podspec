@@ -282,6 +282,7 @@ Pod::Spec.new do |s|
       ssp.ios.deployment_target = '6.0'
       ssp.tvos.deployment_target = '9.0'
       ssp.dependency 'RFKit/Foundation'
+      ssp.dependency 'RFKit/Runtime'
       ssp.source_files = 'category/UIKit/UIResponder+*'
     end
     
