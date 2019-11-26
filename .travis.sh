@@ -32,15 +32,32 @@ STAGE_MAIN() {
             echo "Skip pod lint"
         else
             echo "TRAVIS_BRANCH = $TRAVIS_BRANCH"
-            # Use 1.6.0.beta as 1.5 has isuuses with Xcode 10
-            # todo: remove after 1.6 release
-            gem install cocoapods --no-rdoc --no-ri --no-document --quiet --pre
+            gem install cocoapods --no-document --quiet
             if [ "$TRAVIS_BRANCH" = "develop" ]; then
                 pod lib lint --fail-fast --allow-warnings
             else
                 pod lib lint --fail-fast
             fi
         fi
+
+    elif [ "$RFCI_TASK" = "Xcode11" ]; then
+        pod install --project-directory=Test
+
+        echo "Test for macOS and watchOS."
+        XC_TestMac
+        XC_TestWatch
+
+        echo "Test on lastest device and OS."
+        XC_Test "Test-iOS"   "platform=iOS Simulator,name=iPhone 11 Pro,OS=13.0"
+        XC_Test "Test-tvOS"  "platform=tvOS Simulator,name=Apple TV 4K,OS=13.0"
+
+        # travis-ci Xcode 11 image only provides latest runtimes at this time.
+        # echo "Test on old device and OS".
+        # XC_Test "Test-iOS"   "platform=iOS Simulator,name=iPhone 5,OS=10.3"
+        # XC_Test "Test-tvOS"  "platform=tvOS Simulator,name=Apple TV,OS=10.2"
+
+        echo "Test Swift"
+        XC_Test "Test-Swift" "platform=iOS Simulator,name=iPhone 8,OS=13.0"
 
     elif [ "$RFCI_TASK" = "Xcode10" ]; then
         pod install --project-directory=Test
@@ -69,9 +86,6 @@ STAGE_MAIN() {
 
         XC_Test "Test-iOS"   "platform=iOS Simulator,name=iPhone X,OS=11.4"
         XC_Test "Test-tvOS"  "platform=tvOS Simulator,name=Apple TV 4K,OS=11.4"
-
-        echo "Test Swift"
-        XC_Test "Test-Swift" "platform=iOS Simulator,name=iPhone X,OS=11.4"
 
     elif [ "$RFCI_TASK" = "Xcode8" ]; then
         pod install --project-directory=Test

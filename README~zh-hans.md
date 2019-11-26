@@ -1,7 +1,8 @@
 # RFKit
 
 [![Build Status](https://travis-ci.org/BB9z/RFKit.svg?branch=develop)](https://travis-ci.org/BB9z/RFKit)
-[![codecov](https://codecov.io/gh/BB9z/RFKit/branch/develop/graph/badge.svg)](https://codecov.io/gh/BB9z/RFKit)
+[![Codecov](https://img.shields.io/codecov/c/github/BB9z/RFKit.svg?style=flat-square&colorA=333333&colorB=6600cc)](https://codecov.io/gh/BB9z/RFKit)
+[![CocoaPods](https://img.shields.io/cocoapods/v/RFKit.svg?style=flat-square&colorA=333333&colorB=6600cc)](https://cocoapods.org/pods/RFKit)
 
 <base href="//github.com/BB9z/RFKit/blob/master/" />
 
@@ -13,7 +14,8 @@ RFKit 包含一套对日常 Cocoa 开发很有帮助的工具。
 
 | RFKit Version | Minimum Xcode Version | Minimum iOS Target  | Minimum macOS Target | Minimum watchOS Target | Minimum tvOS Target |
 |:-------------:|:---------------------:|:-------------------:|:--------------------:|:----------------------:|:-------------------:|
-| 2.0+          | Xcode 8               | iOS 6  | macOS 10.8  | watchOS 2.0 | tvOS 9.0 |
+| 2.4             | Xcode 8               | iOS 8  | macOS 10.8  | watchOS 2.0 | tvOS 9.0 |
+| 2.0-2.3       | Xcode 8               | iOS 6  | macOS 10.8  | watchOS 2.0 | tvOS 9.0 |
 | 1.7           | Xcode 7               | iOS 6  | macOS 10.8  | watchOS 2.0 | tvOS 9.0 |
 | 1.6           | Xcode 8               | iOS 6  | N/A         | watchOS 2.0 | N/A      |
 
@@ -33,7 +35,7 @@ pod 'RFKit'
 pod 'RFKit', :git => 'https://github.com/BB9z/RFKit.git', :branch => 'develop'
 ```
 
-更复杂的列子：
+更复杂的例子：
 
 ```ruby
 pod 'RFKit',
@@ -48,7 +50,7 @@ pod 'RFKit',
 
 ## dout
 
-dout为调试打印而生，它包含了一套方便打印工具。
+dout 为调试打印而生，它包含了一套方便打印工具。
 
 特色：
 

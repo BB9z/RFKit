@@ -3,6 +3,9 @@
 ## 2.4.0
 
 * Imporve macOS supports.
+* iOS minimum deployment version upgrade to 8.0.
+* API Changes:
+  * NSString+RFKit, remove `containsString:`.
 
 ## 2.3.0
 
