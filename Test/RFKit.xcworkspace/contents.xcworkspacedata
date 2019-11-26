@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
+   <Group
+      location = "container:"
+      name = "Document">
+      <FileRef
+         location = "group:../README.md">
+      </FileRef>
+      <FileRef
+         location = "group:../README~zh-hans.md">
+      </FileRef>
+      <FileRef
+         location = "group:../Changelog.md">
+      </FileRef>
+      <FileRef
+         location = "group:../LICENSE">
+      </FileRef>
+   </Group>
    <FileRef
       location = "group:RFKit.xcodeproj">
    </FileRef>

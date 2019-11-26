@@ -1,6 +1,6 @@
 
 target 'Test-iOS' do
-    platform :ios, '6.0'
+    platform :ios, '8.0'
 
     pod 'RFKit', :path => '..', :subspecs => ['ALL']
 end
@@ -24,7 +24,7 @@ target 'Target-watchOS' do
 end
 
 target 'Test-Swift' do
-    platform :ios, '11.0'
+    platform :ios, '12.0'
 
     pod 'RFKit', :path => '..', :subspecs => ['ALL']
 end
