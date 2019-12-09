@@ -140,7 +140,7 @@
 
 #pragma mark - Tint color
 
-- (nonnull UIImage *)imageWithTintColor:(nonnull UIColor *)tintColor {
+- (nonnull UIImage *)rf_imageWithTintColor:(nonnull UIColor *)tintColor {
     CGRect contextBounds = CGRectMake(0, 0, self.size.width, self.size.height);
     UIGraphicsBeginImageContextWithOptions(self.size, NO, 0);
     

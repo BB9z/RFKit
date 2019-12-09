@@ -2,7 +2,7 @@
  UIImage extension
  RFKit
  
- Copyright (c) 2012-2016, 2018 BB9z
+ Copyright (c) 2012-2016, 2018-2019 BB9z
  https://github.com/BB9z/RFKit
  
  The MIT License (MIT)
@@ -75,7 +75,7 @@
  
  @return A tinted image.
 */
-- (nonnull UIImage *)imageWithTintColor:(nonnull UIColor *)tintColor API_AVAILABLE(ios(4.0), tvos(9.0), watchos(2.0)) NS_SWIFT_NAME( tintedImage(color:) );
+- (nonnull UIImage *)rf_imageWithTintColor:(nonnull UIColor *)tintColor API_AVAILABLE(ios(4.0), tvos(9.0), watchos(2.0)) NS_SWIFT_NAME( tintedImage(color:) );
 
 /**
  Creates and returns an tined image object that uses the specified color object.
