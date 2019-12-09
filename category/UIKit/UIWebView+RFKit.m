@@ -1,6 +1,9 @@
 
 #import "UIWebView+RFKit.h"
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
 @implementation UIWebView (RFKit)
 
 - (void)clearBackgroundImages {
@@ -13,3 +16,4 @@
 }
 
 @end
+#pragma clang diagnostic pop

@@ -4,8 +4,10 @@
 
 * Imporve macOS supports.
 * iOS minimum deployment version upgrade to 8.0.
+* Eliminate warnings when build with latest deployment target version.
 * API Changes:
   * NSString+RFKit, remove `containsString:`.
+  * UIImage+RFKit, fix duplicate name of `imageWithTintColor:` on iOS 13, rename it to `rf_imageWithTintColor:`.
 
 ## 2.3.0
 

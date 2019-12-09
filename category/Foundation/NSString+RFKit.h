@@ -2,7 +2,7 @@
  NSString extension
  RFKit
  
- Copyright (c) 2012-2013, 2015, 2018 BB9z
+ Copyright (c) 2012-2013, 2015, 2018-2019 BB9z
  https://github.com/BB9z/RFKit
  
  The MIT License (MIT)

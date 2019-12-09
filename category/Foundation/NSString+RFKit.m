@@ -9,7 +9,11 @@
 - (NSString *)rf_MD5String {
     const char *cStr = self.UTF8String;
     unsigned char digest[CC_MD5_DIGEST_LENGTH];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    // Compatibility(mac 10.15)
     CC_MD5(cStr, (CC_LONG)strlen(cStr), digest);
+#pragma clang diagnostic pop
     
     NSMutableString *output = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
     for(int i = 0; i < CC_MD5_DIGEST_LENGTH; i++) {
