@@ -8,6 +8,7 @@
 * API Changes:
   * NSString+RFKit, remove `containsString:`.
   * UIImage+RFKit, fix duplicate name of `imageWithTintColor:` on iOS 13, rename it to `rf_imageWithTintColor:`.
+  * RFFoundation, drop Xcode 7 support.
 
 ## 2.3.0
 

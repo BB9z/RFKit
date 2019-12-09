@@ -2,7 +2,7 @@
  RFFoundation
  RFKit
  
- Copyright (c) 2018 BB9z
+ Copyright (c) 2018-2019 BB9z
  https://github.com/BB9z/RFKit
  
  The MIT License (MIT)
@@ -89,32 +89,3 @@
 // SE-0064: property getter or setter in #selector
 // SE-0062: #keyPath
 // SE-0034: #sourceLocation
-
-#pragma mark Xcode 7
-
-// Xcode 7.0: 19240897
-#ifndef NS_SWIFT_NAME
-#   define NS_SWIFT_NAME(...)
-#endif
-
-// Xcode release note
-// https://developer.apple.com/library/content/releasenotes/DeveloperTools/RN-Xcode/Chapters/Introduction.html
-
-// Xcode 7.3
-// SE-0020: #if swift
-// SE-0028: #file, #line, #column, #function
-// SE-0022: #selector
-
-// Xcode 7.0
-// 19589424: __kindof
-
-#pragma mark Unknow
-// Introduction version Unknow
-
-#ifndef NS_WARN_UNUSED_RESULT
-#   if __has_attribute(warn_unused_result)
-#       define NS_WARN_UNUSED_RESULT __attribute__((warn_unused_result))
-#   else
-#       define NS_WARN_UNUSED_RESULT
-#   endif
-#endif
