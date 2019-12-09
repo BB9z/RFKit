@@ -2,7 +2,7 @@
  NSURL extension
  RFKit
  
- Copyright (c) 2012-2014, 2018 BB9z
+ Copyright (c) 2012-2014, 2018-2019 BB9z
  https://github.com/BB9z/RFKit
  
  The MIT License (MIT)
@@ -15,6 +15,6 @@
 /**
  Cover query string into NSDictionary
  */
-@property (nullable, readonly) NSDictionary *queryDictionary API_AVAILABLE(macos(10.8), ios(6.0), tvos(9.0), watchos(2.0));
+@property (nullable, readonly) NSDictionary *queryDictionary API_AVAILABLE(macos(10.8), ios(7.0), tvos(9.0), watchos(2.0));
 
 @end
