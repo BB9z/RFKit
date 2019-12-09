@@ -186,9 +186,9 @@
 		D513B0E62031917C00C62520 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				D513B0E92031917C00C62520 /* Info.plist */,
 				D501848220FC7B34009481D4 /* UINavigationController+RFKitTests.m */,
 				D5D662FF20B40A4200E55EEB /* UIPickerView+RFKitTests.m */,
-				D513B0E92031917C00C62520 /* Info.plist */,
 				D57E75D3203EFCB6001BB427 /* UIView+RFKitTests.m */,
 			);
 			path = iOS;
@@ -255,8 +255,8 @@
 			isa = PBXGroup;
 			children = (
 				D59468E5203281DE00A1AE3D /* Info.plist */,
-				D5F4C701214FE1F900757CD5 /* RuntimeMacOSTests.m */,
 				D59616162214082100202E58 /* macos.storyboard */,
+				D5F4C701214FE1F900757CD5 /* RuntimeMacOSTests.m */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -267,8 +267,6 @@
 				D5A58191176E137500401423 /* Frameworks */,
 				E1FB760BFD10AE5BCB790075 /* Pods */,
 				D5A58190176E137500401423 /* Products */,
-				D513B0EF2031BD9900C62520 /* Supporting Files */,
-				D5C6F59B20328F7000D1E8DF /* Target-watchOS */,
 				D5E19D0020934980003D076B /* Test */,
 			);
 			sourceTree = "<group>";
@@ -317,6 +315,8 @@
 		D5E19D0020934980003D076B /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				D513B0EF2031BD9900C62520 /* Supporting Files */,
+				D5C6F59B20328F7000D1E8DF /* Target-watchOS */,
 				D513B0E62031917C00C62520 /* iOS */,
 				D59468E2203281DE00A1AE3D /* macOS */,
 				D513B0F12031D0BA00C62520 /* Shared */,
@@ -621,7 +621,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D59616112214049900202E58 /* UIResponder+RFKitTests.m in Sources */,
 				D513B1012031D0BB00C62520 /* DoutTests.m in Sources */,
 				D5C6F5A82032D39500D1E8DF /* NSArray+RFKitTests.m in Sources */,
 				D5CE8EC5203FADC6000F1C0E /* NSBundle+RFKitTests.m in Sources */,
@@ -631,14 +630,15 @@
 				D5722FB1203DAC4800C610E2 /* NSError+RFKitTests.m in Sources */,
 				D513B0FF2031D0BB00C62520 /* NSFileManager+RFKitTests.m in Sources */,
 				D57E75C6203E49CF001BB427 /* NSJSONSerialization+RFKitTests.m in Sources */,
-				D5D6630020B40A4200E55EEB /* UIPickerView+RFKitTests.m in Sources */,
 				D594688220327D8F00A1AE3D /* NSObject+RFKitTests.m in Sources */,
 				D57E75CC203E9C0A001BB427 /* NSString+RFKitTests.m in Sources */,
 				D57E75D0203EB350001BB427 /* NSURL+RFKitTests.m in Sources */,
-				D501848320FC7B34009481D4 /* UINavigationController+RFKitTests.m in Sources */,
-				D5F4C6FC214FC34A00757CD5 /* RuntimeTests.m in Sources */,
 				D5297B6E208BB9F80045F1BB /* RFGeometryTests.m in Sources */,
 				D57E75D7203F0051001BB427 /* RTHelper.m in Sources */,
+				D5F4C6FC214FC34A00757CD5 /* RuntimeTests.m in Sources */,
+				D501848320FC7B34009481D4 /* UINavigationController+RFKitTests.m in Sources */,
+				D5D6630020B40A4200E55EEB /* UIPickerView+RFKitTests.m in Sources */,
+				D59616112214049900202E58 /* UIResponder+RFKitTests.m in Sources */,
 				D57E75D4203EFCB7001BB427 /* UIView+RFKitTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -648,8 +648,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5297B7E208C7FC20045F1BB /* RTHelper.m in Sources */,
-				D5297B79208C1FFC0045F1BB /* SwiftNameTest.swift in Sources */,
 				D5F4C6FF214FC42300757CD5 /* RuntimeTests.m in Sources */,
+				D5297B79208C1FFC0045F1BB /* SwiftNameTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,18 +662,18 @@
 				D5CE8EC6203FADC6000F1C0E /* NSBundle+RFKitTests.m in Sources */,
 				D59468EC2032868300A1AE3D /* NSDate+RFKitTests.m in Sources */,
 				D5F50AC32035E3BA0054518C /* NSDateFormatter+RFKitTests.m in Sources */,
-				D5F4C6FD214FC42100757CD5 /* RuntimeTests.m in Sources */,
 				D5722FAE203D9CE800C610E2 /* NSDictionary+RFKitTests.m in Sources */,
 				D5722FB2203DAC4800C610E2 /* NSError+RFKitTests.m in Sources */,
-				D5F4C702214FE1F900757CD5 /* RuntimeMacOSTests.m in Sources */,
 				D59468EB2032868000A1AE3D /* NSFileManager+RFKitTests.m in Sources */,
-				D59616122214049900202E58 /* UIResponder+RFKitTests.m in Sources */,
 				D57E75C7203E49CF001BB427 /* NSJSONSerialization+RFKitTests.m in Sources */,
 				D59468EA2032867D00A1AE3D /* NSObject+RFKitTests.m in Sources */,
 				D57E75CD203E9C0A001BB427 /* NSString+RFKitTests.m in Sources */,
 				D57E75D1203EB350001BB427 /* NSURL+RFKitTests.m in Sources */,
 				D5297B6F208BBA030045F1BB /* RFGeometryTests.m in Sources */,
 				D57E75D8203F0051001BB427 /* RTHelper.m in Sources */,
+				D5F4C702214FE1F900757CD5 /* RuntimeMacOSTests.m in Sources */,
+				D5F4C6FD214FC42100757CD5 /* RuntimeTests.m in Sources */,
+				D59616122214049900202E58 /* UIResponder+RFKitTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -682,12 +682,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5C6F5A32032BB6000D1E8DF /* DoutTests.m in Sources */,
-				D59616132214049900202E58 /* UIResponder+RFKitTests.m in Sources */,
 				D5C6F5AA2032D39500D1E8DF /* NSArray+RFKitTests.m in Sources */,
 				D5CE8EC7203FADC6000F1C0E /* NSBundle+RFKitTests.m in Sources */,
 				D5C6F5A42032BB6700D1E8DF /* NSDate+RFKitTests.m in Sources */,
 				D5F50AC42035E3BA0054518C /* NSDateFormatter+RFKitTests.m in Sources */,
-				D5F4C6FE214FC42200757CD5 /* RuntimeTests.m in Sources */,
 				D5722FAF203D9CE800C610E2 /* NSDictionary+RFKitTests.m in Sources */,
 				D5722FB3203DAC4800C610E2 /* NSError+RFKitTests.m in Sources */,
 				D5C6F5A52032BB6A00D1E8DF /* NSFileManager+RFKitTests.m in Sources */,
@@ -697,6 +695,8 @@
 				D57E75D2203EB350001BB427 /* NSURL+RFKitTests.m in Sources */,
 				D5297B70208BBA040045F1BB /* RFGeometryTests.m in Sources */,
 				D57E75D9203F0051001BB427 /* RTHelper.m in Sources */,
+				D5F4C6FE214FC42200757CD5 /* RuntimeTests.m in Sources */,
+				D59616132214049900202E58 /* UIResponder+RFKitTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -777,6 +777,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.bb9z.RFKit.Test-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "Test/Supporting Files/OCBridgingHeader.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -800,6 +801,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.bb9z.RFKit.Test-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Test/Supporting Files/OCBridgingHeader.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -928,7 +930,6 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "Supporting Files/OCBridgingHeader.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1011,7 +1012,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "Supporting Files/OCBridgingHeader.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

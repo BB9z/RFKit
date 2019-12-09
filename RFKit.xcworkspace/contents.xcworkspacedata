@@ -5,16 +5,16 @@
       location = "container:"
       name = "Document">
       <FileRef
-         location = "group:../README.md">
+         location = "group:README.md">
       </FileRef>
       <FileRef
-         location = "group:../README~zh-hans.md">
+         location = "group:README~zh-hans.md">
       </FileRef>
       <FileRef
-         location = "group:../Changelog.md">
+         location = "group:Changelog.md">
       </FileRef>
       <FileRef
-         location = "group:../LICENSE">
+         location = "group:LICENSE">
       </FileRef>
    </Group>
    <FileRef

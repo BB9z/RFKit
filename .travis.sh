@@ -5,7 +5,7 @@ set -eo pipefail
 
 echo $TRAVIS_COMMIT_MESSAGE
 echo "RFCI_TASK = $RFCI_TASK"
-readonly RFWorkspace="Test/RFKit.xcworkspace"
+readonly RFWorkspace="RFKit.xcworkspace"
 readonly RFSTAGE="$1"
 echo "RFSTAGE = $RFSTAGE"
 
@@ -93,7 +93,7 @@ STAGE_MAIN() {
         echo "Test for macOS and watchOS."
         XC_TestMac
         XC_TestWatch
-        
+
         XC_Test "Test-iOS"   "platform=iOS Simulator,name=iPhone 6,OS=10.2"
         XC_Test "Test-tvOS"  "platform=tvOS Simulator,name=Apple TV 1080p,OS=10.2"
     fi
