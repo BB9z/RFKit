@@ -15,6 +15,6 @@
 /**
  Cover query string into NSDictionary
  */
-@property (nullable, readonly) NSDictionary *queryDictionary API_AVAILABLE(macos(10.8), ios(7.0), tvos(9.0), watchos(2.0));
+@property (nullable, readonly) NSDictionary *queryDictionary API_AVAILABLE(macos(10.9), ios(7.0), tvos(9.0), watchos(2.0));
 
 @end
