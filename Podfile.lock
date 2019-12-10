@@ -128,6 +128,14 @@ PODS:
 
 DEPENDENCIES:
   - RFKit/ALL (from `.`)
+  - RFKit/Category/NSDate (from `.`)
+  - RFKit/Category/NSDateFormatter (from `.`)
+  - RFKit/Category/NSFileManager (from `.`)
+  - RFKit/Category/NSJSONSerialization (from `.`)
+  - RFKit/Category/NSLayoutConstraint (from `.`)
+  - RFKit/Category/NSNumberFormatter (from `.`)
+  - RFKit/Category/NSURL (from `.`)
+  - RFKit/Default (from `.`)
 
 EXTERNAL SOURCES:
   RFKit:
@@ -136,6 +144,6 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   RFKit: 892e15d74facdc2d95695686c636a908fc5f4f39
 
-PODFILE CHECKSUM: 88017487676caf13cc1672a7af7ee5cda5b3706a
+PODFILE CHECKSUM: 6cb4cb4b6ddb4c665b4289e0a06e7d6d826c6b3d
 
 COCOAPODS: 1.8.4

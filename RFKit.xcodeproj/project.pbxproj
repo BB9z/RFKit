@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1394BA10B3D0D283EFD8A237 /* libPods-RFKit macOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DE75AC82338251FAD4F0B5C1 /* libPods-RFKit macOS.a */; };
 		1CB5065B7F6FF6FD43A4981F /* libPods-Target-watchOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEAF0D436A19807484DA91EC /* libPods-Target-watchOS.a */; };
 		237F836B06AA1B0E8CA2857D /* libPods-Test-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9611BD56204370B021EBFC0E /* libPods-Test-iOS.a */; };
+		2C093779506712F79B10DAA5 /* libPods-RFKit iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD02D4116F9BA45F534C88D9 /* libPods-RFKit iOS.a */; };
 		403705909324B9EFF0C49A0D /* libPods-Test-Swift.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78A21F7BAAE3230D785970FB /* libPods-Test-Swift.a */; };
 		718BA774486754D388F462C8 /* libPods-Test-macOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC73F8A62B6BC05536DEB3A /* libPods-Test-macOS.a */; };
 		8E58557715B8818B0EE2A797 /* libPods-Test-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C27E1F5EADE13D9C7D2740F5 /* libPods-Test-tvOS.a */; };
@@ -50,6 +52,76 @@
 		D59616122214049900202E58 /* UIResponder+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D59616102214049900202E58 /* UIResponder+RFKitTests.m */; };
 		D59616132214049900202E58 /* UIResponder+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D59616102214049900202E58 /* UIResponder+RFKitTests.m */; };
 		D59616172214082100202E58 /* macos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D59616162214082100202E58 /* macos.storyboard */; };
+		D598D186239E8BAA004905D8 /* RFKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D185239E8BAA004905D8 /* RFKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D187239E8BAA004905D8 /* RFKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D185239E8BAA004905D8 /* RFKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D193239E8C68004905D8 /* RFFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D189239E8C68004905D8 /* RFFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D194239E8C68004905D8 /* RFFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D189239E8C68004905D8 /* RFFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D195239E8C68004905D8 /* dout.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D18A239E8C68004905D8 /* dout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D196239E8C68004905D8 /* dout.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D18A239E8C68004905D8 /* dout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D197239E8C68004905D8 /* RFARC.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D18B239E8C68004905D8 /* RFARC.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D198239E8C68004905D8 /* RFARC.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D18B239E8C68004905D8 /* RFARC.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D19B239E8C68004905D8 /* RFRuntime.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D18D239E8C68004905D8 /* RFRuntime.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D19C239E8C68004905D8 /* RFRuntime.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D18D239E8C68004905D8 /* RFRuntime.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D19D239E8C68004905D8 /* RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D18E239E8C68004905D8 /* RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D19E239E8C68004905D8 /* RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D18E239E8C68004905D8 /* RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D19F239E8C68004905D8 /* RFFeatureSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D18F239E8C68004905D8 /* RFFeatureSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D1A0239E8C68004905D8 /* RFFeatureSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D18F239E8C68004905D8 /* RFFeatureSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D1A1239E8C68004905D8 /* RFDispatch.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D190239E8C68004905D8 /* RFDispatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D1A2239E8C68004905D8 /* RFDispatch.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D190239E8C68004905D8 /* RFDispatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D1A3239E8C68004905D8 /* RFKitDefaultCategories.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D191239E8C68004905D8 /* RFKitDefaultCategories.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D1A4239E8C68004905D8 /* RFKitDefaultCategories.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D191239E8C68004905D8 /* RFKitDefaultCategories.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D1A5239E8C68004905D8 /* RFGeometry.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D192239E8C68004905D8 /* RFGeometry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D1EF239E8C7F004905D8 /* metamacros.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1A8239E8C7F004905D8 /* metamacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D1F0239E8C7F004905D8 /* metamacros.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1A8239E8C7F004905D8 /* metamacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D1F3239E8C7F004905D8 /* EXTScope.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1AA239E8C7F004905D8 /* EXTScope.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D1F4239E8C7F004905D8 /* EXTScope.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1AA239E8C7F004905D8 /* EXTScope.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D1F5239E8C7F004905D8 /* EXTKeyPathCoding.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1AB239E8C7F004905D8 /* EXTKeyPathCoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D1F6239E8C7F004905D8 /* EXTKeyPathCoding.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1AB239E8C7F004905D8 /* EXTKeyPathCoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D1F9239E8C7F004905D8 /* UIButton+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1AF239E8C7F004905D8 /* UIButton+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D1FD239E8C7F004905D8 /* UIAlertView+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1B1239E8C7F004905D8 /* UIAlertView+RFKit.h */; };
+		D598D1FF239E8C7F004905D8 /* UIViewController+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1B2239E8C7F004905D8 /* UIViewController+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D201239E8C7F004905D8 /* UIStoryboard+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1B3239E8C7F004905D8 /* UIStoryboard+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D209239E8C7F004905D8 /* UIResponder+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1B7239E8C7F004905D8 /* UIResponder+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D20A239E8C7F004905D8 /* UIResponder+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1B7239E8C7F004905D8 /* UIResponder+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D20B239E8C7F004905D8 /* UIImage+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1B8239E8C7F004905D8 /* UIImage+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D20D239E8C7F004905D8 /* UIScrollView+RFScrolling.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1B9239E8C7F004905D8 /* UIScrollView+RFScrolling.h */; };
+		D598D20F239E8C7F004905D8 /* UIPickerView+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1BA239E8C7F004905D8 /* UIPickerView+RFKit.h */; };
+		D598D213239E8C7F004905D8 /* UIViewController+RFInterfaceOrientation.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1BC239E8C7F004905D8 /* UIViewController+RFInterfaceOrientation.h */; };
+		D598D21D239E8C7F004905D8 /* NSLayoutConstraint+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1C1239E8C7F004905D8 /* NSLayoutConstraint+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D21E239E8C7F004905D8 /* NSLayoutConstraint+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1C1239E8C7F004905D8 /* NSLayoutConstraint+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D21F239E8C7F004905D8 /* UIColor+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1C2239E8C7F004905D8 /* UIColor+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D223239E8C7F004905D8 /* UITableView+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1C4239E8C7F004905D8 /* UITableView+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D229239E8C7F004905D8 /* UIDevice+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1C7239E8C7F004905D8 /* UIDevice+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D22F239E8C7F004905D8 /* UIView+RFAnimate.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1CA239E8C7F004905D8 /* UIView+RFAnimate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D233239E8C7F004905D8 /* UIWebView+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1CC239E8C7F004905D8 /* UIWebView+RFKit.h */; };
+		D598D235239E8C7F004905D8 /* UINavigationController+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1CD239E8C7F004905D8 /* UINavigationController+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D237239E8C7F004905D8 /* UISearchBar+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1CE239E8C7F004905D8 /* UISearchBar+RFKit.h */; };
+		D598D239239E8C7F004905D8 /* UIView+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1CF239E8C7F004905D8 /* UIView+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D23F239E8C7F004905D8 /* NSURL+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1D3239E8C7F004905D8 /* NSURL+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D240239E8C7F004905D8 /* NSURL+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1D3239E8C7F004905D8 /* NSURL+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D241239E8C7F004905D8 /* NSDate+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1D4239E8C7F004905D8 /* NSDate+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D242239E8C7F004905D8 /* NSDate+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1D4239E8C7F004905D8 /* NSDate+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D247239E8C7F004905D8 /* NSJSONSerialization+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1D7239E8C7F004905D8 /* NSJSONSerialization+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D248239E8C7F004905D8 /* NSJSONSerialization+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1D7239E8C7F004905D8 /* NSJSONSerialization+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D24D239E8C7F004905D8 /* NSString+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1DA239E8C7F004905D8 /* NSString+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D24E239E8C7F004905D8 /* NSString+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1DA239E8C7F004905D8 /* NSString+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D24F239E8C7F004905D8 /* NSDateFormatter+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1DB239E8C7F004905D8 /* NSDateFormatter+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D250239E8C7F004905D8 /* NSDateFormatter+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1DB239E8C7F004905D8 /* NSDateFormatter+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D253239E8C7F004905D8 /* NSDictionary+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1DD239E8C7F004905D8 /* NSDictionary+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D254239E8C7F004905D8 /* NSDictionary+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1DD239E8C7F004905D8 /* NSDictionary+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D255239E8C7F004905D8 /* NSArray+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1DE239E8C7F004905D8 /* NSArray+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D256239E8C7F004905D8 /* NSArray+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1DE239E8C7F004905D8 /* NSArray+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D257239E8C7F004905D8 /* NSFileManager+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1DF239E8C7F004905D8 /* NSFileManager+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D258239E8C7F004905D8 /* NSFileManager+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1DF239E8C7F004905D8 /* NSFileManager+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D259239E8C7F004905D8 /* NSError+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1E0239E8C7F004905D8 /* NSError+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D25A239E8C7F004905D8 /* NSError+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1E0239E8C7F004905D8 /* NSError+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D25F239E8C80004905D8 /* NSObject+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1E3239E8C7F004905D8 /* NSObject+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D260239E8C80004905D8 /* NSObject+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1E3239E8C7F004905D8 /* NSObject+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D263239E8C80004905D8 /* NSBundle+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1E5239E8C7F004905D8 /* NSBundle+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D264239E8C80004905D8 /* NSBundle+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1E5239E8C7F004905D8 /* NSBundle+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D269239E8C80004905D8 /* NSNumberFormatter+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1E8239E8C7F004905D8 /* NSNumberFormatter+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D26A239E8C80004905D8 /* NSNumberFormatter+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D1E8239E8C7F004905D8 /* NSNumberFormatter+RFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D598D275239FB24F004905D8 /* RFGeometry.h in Headers */ = {isa = PBXBuildFile; fileRef = D598D192239E8C68004905D8 /* RFGeometry.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D5C6F59E20328F7000D1E8DF /* Target_watchOS.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C6F59D20328F7000D1E8DF /* Target_watchOS.m */; };
 		D5C6F59F20328F7000D1E8DF /* Target_watchOS.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D5C6F59C20328F7000D1E8DF /* Target_watchOS.h */; };
 		D5C6F5A32032BB6000D1E8DF /* DoutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D513B0FC2031D0BB00C62520 /* DoutTests.m */; };
@@ -89,15 +161,20 @@
 /* Begin PBXFileReference section */
 		034B7550252167D9C38DFCD0 /* Pods-Test-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test-macOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Test-macOS/Pods-Test-macOS.debug.xcconfig"; sourceTree = "<group>"; };
 		2DCCC12BAB5EEF3AC4337375 /* Pods-Target-watchOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Target-watchOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Target-watchOS/Pods-Target-watchOS.debug.xcconfig"; sourceTree = "<group>"; };
+		360B3E2642B8842E8BEE82DD /* Pods-RFKit macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RFKit macOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RFKit macOS/Pods-RFKit macOS.debug.xcconfig"; sourceTree = "<group>"; };
 		435F5B53EEF5B821F6439929 /* Pods-Test-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Test-tvOS/Pods-Test-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		5CABE247916E8B1D86C5C01F /* Pods-Target-watchOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Target-watchOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Target-watchOS/Pods-Target-watchOS.release.xcconfig"; sourceTree = "<group>"; };
 		5DC73F8A62B6BC05536DEB3A /* libPods-Test-macOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Test-macOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78A21F7BAAE3230D785970FB /* libPods-Test-Swift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Test-Swift.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9611BD56204370B021EBFC0E /* libPods-Test-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Test-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F75F085B3AE132D9907C6C0 /* Pods-RFKit iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RFKit iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RFKit iOS/Pods-RFKit iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		A51D26AA65E145D7DEDE705E /* Pods-Test-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Test-iOS/Pods-Test-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		B44AA1FDABE5A9316EA7B05C /* Pods-Test-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test-macOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Test-macOS/Pods-Test-macOS.release.xcconfig"; sourceTree = "<group>"; };
+		BB948F7AC6452D1FAFEC1981 /* Pods-RFKit iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RFKit iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-RFKit iOS/Pods-RFKit iOS.release.xcconfig"; sourceTree = "<group>"; };
 		C27E1F5EADE13D9C7D2740F5 /* libPods-Test-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Test-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD02D4116F9BA45F534C88D9 /* libPods-RFKit iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RFKit iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF925C91AA18EF5C378F7086 /* Pods-Test-Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test-Swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Test-Swift/Pods-Test-Swift.debug.xcconfig"; sourceTree = "<group>"; };
+		D046E2F081CC9C841CC1946C /* Pods-RFKit macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RFKit macOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-RFKit macOS/Pods-RFKit macOS.release.xcconfig"; sourceTree = "<group>"; };
 		D1B1680F9CF811404995C7B9 /* Pods-Test-Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test-Swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-Test-Swift/Pods-Test-Swift.release.xcconfig"; sourceTree = "<group>"; };
 		D2D6C233D13124D0476A479B /* Pods-Test-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Test-iOS/Pods-Test-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		D501848220FC7B34009481D4 /* UINavigationController+RFKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+RFKitTests.m"; sourceTree = "<group>"; };
@@ -124,6 +201,55 @@
 		D59468E5203281DE00A1AE3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D59616102214049900202E58 /* UIResponder+RFKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+RFKitTests.m"; sourceTree = "<group>"; };
 		D59616162214082100202E58 /* macos.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = macos.storyboard; sourceTree = "<group>"; };
+		D598D155239E8829004905D8 /* RFKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RFKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D598D158239E8829004905D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D598D162239E8A44004905D8 /* RFKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RFKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D598D185239E8BAA004905D8 /* RFKit-umbrella.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RFKit-umbrella.h"; sourceTree = "<group>"; };
+		D598D189239E8C68004905D8 /* RFFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFFoundation.h; sourceTree = SOURCE_ROOT; };
+		D598D18A239E8C68004905D8 /* dout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dout.h; sourceTree = SOURCE_ROOT; };
+		D598D18B239E8C68004905D8 /* RFARC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFARC.h; sourceTree = SOURCE_ROOT; };
+		D598D18C239E8C68004905D8 /* RFPerformance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFPerformance.h; sourceTree = SOURCE_ROOT; };
+		D598D18D239E8C68004905D8 /* RFRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFRuntime.h; sourceTree = SOURCE_ROOT; };
+		D598D18E239E8C68004905D8 /* RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFKit.h; sourceTree = SOURCE_ROOT; };
+		D598D18F239E8C68004905D8 /* RFFeatureSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFFeatureSupport.h; sourceTree = SOURCE_ROOT; };
+		D598D190239E8C68004905D8 /* RFDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFDispatch.h; sourceTree = SOURCE_ROOT; };
+		D598D191239E8C68004905D8 /* RFKitDefaultCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFKitDefaultCategories.h; sourceTree = SOURCE_ROOT; };
+		D598D192239E8C68004905D8 /* RFGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFGeometry.h; sourceTree = SOURCE_ROOT; };
+		D598D1A8239E8C7F004905D8 /* metamacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = metamacros.h; sourceTree = "<group>"; };
+		D598D1AA239E8C7F004905D8 /* EXTScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTScope.h; sourceTree = "<group>"; };
+		D598D1AB239E8C7F004905D8 /* EXTKeyPathCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTKeyPathCoding.h; sourceTree = "<group>"; };
+		D598D1AF239E8C7F004905D8 /* UIButton+RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+RFKit.h"; sourceTree = "<group>"; };
+		D598D1B1239E8C7F004905D8 /* UIAlertView+RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+RFKit.h"; sourceTree = "<group>"; };
+		D598D1B2239E8C7F004905D8 /* UIViewController+RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RFKit.h"; sourceTree = "<group>"; };
+		D598D1B3239E8C7F004905D8 /* UIStoryboard+RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStoryboard+RFKit.h"; sourceTree = "<group>"; };
+		D598D1B7239E8C7F004905D8 /* UIResponder+RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+RFKit.h"; sourceTree = "<group>"; };
+		D598D1B8239E8C7F004905D8 /* UIImage+RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RFKit.h"; sourceTree = "<group>"; };
+		D598D1B9239E8C7F004905D8 /* UIScrollView+RFScrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+RFScrolling.h"; sourceTree = "<group>"; };
+		D598D1BA239E8C7F004905D8 /* UIPickerView+RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPickerView+RFKit.h"; sourceTree = "<group>"; };
+		D598D1BC239E8C7F004905D8 /* UIViewController+RFInterfaceOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RFInterfaceOrientation.h"; sourceTree = "<group>"; };
+		D598D1C1239E8C7F004905D8 /* NSLayoutConstraint+RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+RFKit.h"; sourceTree = "<group>"; };
+		D598D1C2239E8C7F004905D8 /* UIColor+RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RFKit.h"; sourceTree = "<group>"; };
+		D598D1C4239E8C7F004905D8 /* UITableView+RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+RFKit.h"; sourceTree = "<group>"; };
+		D598D1C7239E8C7F004905D8 /* UIDevice+RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+RFKit.h"; sourceTree = "<group>"; };
+		D598D1CA239E8C7F004905D8 /* UIView+RFAnimate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+RFAnimate.h"; sourceTree = "<group>"; };
+		D598D1CC239E8C7F004905D8 /* UIWebView+RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+RFKit.h"; sourceTree = "<group>"; };
+		D598D1CD239E8C7F004905D8 /* UINavigationController+RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+RFKit.h"; sourceTree = "<group>"; };
+		D598D1CE239E8C7F004905D8 /* UISearchBar+RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISearchBar+RFKit.h"; sourceTree = "<group>"; };
+		D598D1CF239E8C7F004905D8 /* UIView+RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+RFKit.h"; sourceTree = "<group>"; };
+		D598D1D3239E8C7F004905D8 /* NSURL+RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+RFKit.h"; sourceTree = "<group>"; };
+		D598D1D4239E8C7F004905D8 /* NSDate+RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+RFKit.h"; sourceTree = "<group>"; };
+		D598D1D7239E8C7F004905D8 /* NSJSONSerialization+RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSJSONSerialization+RFKit.h"; sourceTree = "<group>"; };
+		D598D1DA239E8C7F004905D8 /* NSString+RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+RFKit.h"; sourceTree = "<group>"; };
+		D598D1DB239E8C7F004905D8 /* NSDateFormatter+RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+RFKit.h"; sourceTree = "<group>"; };
+		D598D1DD239E8C7F004905D8 /* NSDictionary+RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+RFKit.h"; sourceTree = "<group>"; };
+		D598D1DE239E8C7F004905D8 /* NSArray+RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+RFKit.h"; sourceTree = "<group>"; };
+		D598D1DF239E8C7F004905D8 /* NSFileManager+RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+RFKit.h"; sourceTree = "<group>"; };
+		D598D1E0239E8C7F004905D8 /* NSError+RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+RFKit.h"; sourceTree = "<group>"; };
+		D598D1E3239E8C7F004905D8 /* NSObject+RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+RFKit.h"; sourceTree = "<group>"; };
+		D598D1E5239E8C7F004905D8 /* NSBundle+RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+RFKit.h"; sourceTree = "<group>"; };
+		D598D1E8239E8C7F004905D8 /* NSNumberFormatter+RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumberFormatter+RFKit.h"; sourceTree = "<group>"; };
+		D598D1EB239E8C7F004905D8 /* RFFrameChangeProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFFrameChangeProxy.h; sourceTree = "<group>"; };
+		D598D1EC239E8C7F004905D8 /* RFAlloctionProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFAlloctionProxy.h; sourceTree = "<group>"; };
 		D5C6F58E20328E3900D1E8DF /* Test-tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Test-tvOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5C6F59220328E3900D1E8DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5C6F59A20328F7000D1E8DF /* libTarget-watchOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libTarget-watchOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +261,7 @@
 		D5F4C6FB214FC34A00757CD5 /* RuntimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RuntimeTests.m; sourceTree = "<group>"; };
 		D5F4C701214FE1F900757CD5 /* RuntimeMacOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RuntimeMacOSTests.m; sourceTree = "<group>"; };
 		D5F50AC12035E3BA0054518C /* NSDateFormatter+RFKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+RFKitTests.m"; sourceTree = "<group>"; };
+		DE75AC82338251FAD4F0B5C1 /* libPods-RFKit macOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RFKit macOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB69B17BD7CB0E4ADC9CB6BD /* Pods-Test-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Test-tvOS/Pods-Test-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		FEAF0D436A19807484DA91EC /* libPods-Target-watchOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Target-watchOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -161,6 +288,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				718BA774486754D388F462C8 /* libPods-Test-macOS.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D598D152239E8829004905D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C093779506712F79B10DAA5 /* libPods-RFKit iOS.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D598D15F239E8A44004905D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1394BA10B3D0D283EFD8A237 /* libPods-RFKit macOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,12 +404,115 @@
 			path = macOS;
 			sourceTree = "<group>";
 		};
+		D598D156239E8829004905D8 /* Target */ = {
+			isa = PBXGroup;
+			children = (
+				D598D188239E8BEE004905D8 /* Headers */,
+				D598D158239E8829004905D8 /* Info.plist */,
+				D598D185239E8BAA004905D8 /* RFKit-umbrella.h */,
+			);
+			path = Target;
+			sourceTree = "<group>";
+		};
+		D598D188239E8BEE004905D8 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				D598D1AC239E8C7F004905D8 /* category */,
+				D598D1EA239E8C7F004905D8 /* doutkit */,
+				D598D1A7239E8C7F004905D8 /* extobjc */,
+				D598D18A239E8C68004905D8 /* dout.h */,
+				D598D18B239E8C68004905D8 /* RFARC.h */,
+				D598D190239E8C68004905D8 /* RFDispatch.h */,
+				D598D18F239E8C68004905D8 /* RFFeatureSupport.h */,
+				D598D189239E8C68004905D8 /* RFFoundation.h */,
+				D598D192239E8C68004905D8 /* RFGeometry.h */,
+				D598D18E239E8C68004905D8 /* RFKit.h */,
+				D598D191239E8C68004905D8 /* RFKitDefaultCategories.h */,
+				D598D18C239E8C68004905D8 /* RFPerformance.h */,
+				D598D18D239E8C68004905D8 /* RFRuntime.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		D598D1A7239E8C7F004905D8 /* extobjc */ = {
+			isa = PBXGroup;
+			children = (
+				D598D1AB239E8C7F004905D8 /* EXTKeyPathCoding.h */,
+				D598D1AA239E8C7F004905D8 /* EXTScope.h */,
+				D598D1A8239E8C7F004905D8 /* metamacros.h */,
+			);
+			path = extobjc;
+			sourceTree = SOURCE_ROOT;
+		};
+		D598D1AC239E8C7F004905D8 /* category */ = {
+			isa = PBXGroup;
+			children = (
+				D598D1D1239E8C7F004905D8 /* Foundation */,
+				D598D1AD239E8C7F004905D8 /* UIKit */,
+			);
+			path = category;
+			sourceTree = SOURCE_ROOT;
+		};
+		D598D1AD239E8C7F004905D8 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				D598D1C1239E8C7F004905D8 /* NSLayoutConstraint+RFKit.h */,
+				D598D1B1239E8C7F004905D8 /* UIAlertView+RFKit.h */,
+				D598D1AF239E8C7F004905D8 /* UIButton+RFKit.h */,
+				D598D1C2239E8C7F004905D8 /* UIColor+RFKit.h */,
+				D598D1C7239E8C7F004905D8 /* UIDevice+RFKit.h */,
+				D598D1B8239E8C7F004905D8 /* UIImage+RFKit.h */,
+				D598D1CD239E8C7F004905D8 /* UINavigationController+RFKit.h */,
+				D598D1BA239E8C7F004905D8 /* UIPickerView+RFKit.h */,
+				D598D1B7239E8C7F004905D8 /* UIResponder+RFKit.h */,
+				D598D1B9239E8C7F004905D8 /* UIScrollView+RFScrolling.h */,
+				D598D1CE239E8C7F004905D8 /* UISearchBar+RFKit.h */,
+				D598D1B3239E8C7F004905D8 /* UIStoryboard+RFKit.h */,
+				D598D1C4239E8C7F004905D8 /* UITableView+RFKit.h */,
+				D598D1CA239E8C7F004905D8 /* UIView+RFAnimate.h */,
+				D598D1CF239E8C7F004905D8 /* UIView+RFKit.h */,
+				D598D1BC239E8C7F004905D8 /* UIViewController+RFInterfaceOrientation.h */,
+				D598D1B2239E8C7F004905D8 /* UIViewController+RFKit.h */,
+				D598D1CC239E8C7F004905D8 /* UIWebView+RFKit.h */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		D598D1D1239E8C7F004905D8 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				D598D1DE239E8C7F004905D8 /* NSArray+RFKit.h */,
+				D598D1E5239E8C7F004905D8 /* NSBundle+RFKit.h */,
+				D598D1D4239E8C7F004905D8 /* NSDate+RFKit.h */,
+				D598D1DB239E8C7F004905D8 /* NSDateFormatter+RFKit.h */,
+				D598D1DD239E8C7F004905D8 /* NSDictionary+RFKit.h */,
+				D598D1E0239E8C7F004905D8 /* NSError+RFKit.h */,
+				D598D1DF239E8C7F004905D8 /* NSFileManager+RFKit.h */,
+				D598D1D7239E8C7F004905D8 /* NSJSONSerialization+RFKit.h */,
+				D598D1E8239E8C7F004905D8 /* NSNumberFormatter+RFKit.h */,
+				D598D1E3239E8C7F004905D8 /* NSObject+RFKit.h */,
+				D598D1DA239E8C7F004905D8 /* NSString+RFKit.h */,
+				D598D1D3239E8C7F004905D8 /* NSURL+RFKit.h */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		D598D1EA239E8C7F004905D8 /* doutkit */ = {
+			isa = PBXGroup;
+			children = (
+				D598D1EC239E8C7F004905D8 /* RFAlloctionProxy.h */,
+				D598D1EB239E8C7F004905D8 /* RFFrameChangeProxy.h */,
+			);
+			path = doutkit;
+			sourceTree = SOURCE_ROOT;
+		};
 		D5A58186176E137500401423 = {
 			isa = PBXGroup;
 			children = (
 				D5A58191176E137500401423 /* Frameworks */,
 				E1FB760BFD10AE5BCB790075 /* Pods */,
 				D5A58190176E137500401423 /* Products */,
+				D598D156239E8829004905D8 /* Target */,
 				D5E19D0020934980003D076B /* Test */,
 			);
 			sourceTree = "<group>";
@@ -275,6 +521,8 @@
 			isa = PBXGroup;
 			children = (
 				D5C6F59A20328F7000D1E8DF /* libTarget-watchOS.a */,
+				D598D155239E8829004905D8 /* RFKit.framework */,
+				D598D162239E8A44004905D8 /* RFKit.framework */,
 				D513B0E52031917C00C62520 /* Test-iOS.xctest */,
 				D59468E1203281DE00A1AE3D /* Test-macOS.xctest */,
 				D5297B76208C1FFC0045F1BB /* Test-Swift.xctest */,
@@ -286,6 +534,8 @@
 		D5A58191176E137500401423 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CD02D4116F9BA45F534C88D9 /* libPods-RFKit iOS.a */,
+				DE75AC82338251FAD4F0B5C1 /* libPods-RFKit macOS.a */,
 				FEAF0D436A19807484DA91EC /* libPods-Target-watchOS.a */,
 				9611BD56204370B021EBFC0E /* libPods-Test-iOS.a */,
 				5DC73F8A62B6BC05536DEB3A /* libPods-Test-macOS.a */,
@@ -315,12 +565,12 @@
 		D5E19D0020934980003D076B /* Test */ = {
 			isa = PBXGroup;
 			children = (
-				D513B0EF2031BD9900C62520 /* Supporting Files */,
-				D5C6F59B20328F7000D1E8DF /* Target-watchOS */,
 				D513B0E62031917C00C62520 /* iOS */,
 				D59468E2203281DE00A1AE3D /* macOS */,
 				D513B0F12031D0BA00C62520 /* Shared */,
+				D513B0EF2031BD9900C62520 /* Supporting Files */,
 				D5297B77208C1FFC0045F1BB /* Swift */,
+				D5C6F59B20328F7000D1E8DF /* Target-watchOS */,
 				D5C6F58F20328E3900D1E8DF /* tvOS */,
 			);
 			path = Test;
@@ -329,6 +579,10 @@
 		E1FB760BFD10AE5BCB790075 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				9F75F085B3AE132D9907C6C0 /* Pods-RFKit iOS.debug.xcconfig */,
+				BB948F7AC6452D1FAFEC1981 /* Pods-RFKit iOS.release.xcconfig */,
+				360B3E2642B8842E8BEE82DD /* Pods-RFKit macOS.debug.xcconfig */,
+				D046E2F081CC9C841CC1946C /* Pods-RFKit macOS.release.xcconfig */,
 				2DCCC12BAB5EEF3AC4337375 /* Pods-Target-watchOS.debug.xcconfig */,
 				5CABE247916E8B1D86C5C01F /* Pods-Target-watchOS.release.xcconfig */,
 				D2D6C233D13124D0476A479B /* Pods-Test-iOS.debug.xcconfig */,
@@ -344,6 +598,93 @@
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D598D150239E8829004905D8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D598D195239E8C68004905D8 /* dout.h in Headers */,
+				D598D1F5239E8C7F004905D8 /* EXTKeyPathCoding.h in Headers */,
+				D598D1F3239E8C7F004905D8 /* EXTScope.h in Headers */,
+				D598D1EF239E8C7F004905D8 /* metamacros.h in Headers */,
+				D598D255239E8C7F004905D8 /* NSArray+RFKit.h in Headers */,
+				D598D263239E8C80004905D8 /* NSBundle+RFKit.h in Headers */,
+				D598D259239E8C7F004905D8 /* NSError+RFKit.h in Headers */,
+				D598D25F239E8C80004905D8 /* NSObject+RFKit.h in Headers */,
+				D598D253239E8C7F004905D8 /* NSDictionary+RFKit.h in Headers */,
+				D598D24D239E8C7F004905D8 /* NSString+RFKit.h in Headers */,
+				D598D229239E8C7F004905D8 /* UIDevice+RFKit.h in Headers */,
+				D598D20B239E8C7F004905D8 /* UIImage+RFKit.h in Headers */,
+				D598D1F9239E8C7F004905D8 /* UIButton+RFKit.h in Headers */,
+				D598D21F239E8C7F004905D8 /* UIColor+RFKit.h in Headers */,
+				D598D21D239E8C7F004905D8 /* NSLayoutConstraint+RFKit.h in Headers */,
+				D598D235239E8C7F004905D8 /* UINavigationController+RFKit.h in Headers */,
+				D598D223239E8C7F004905D8 /* UITableView+RFKit.h in Headers */,
+				D598D241239E8C7F004905D8 /* NSDate+RFKit.h in Headers */,
+				D598D24F239E8C7F004905D8 /* NSDateFormatter+RFKit.h in Headers */,
+				D598D257239E8C7F004905D8 /* NSFileManager+RFKit.h in Headers */,
+				D598D247239E8C7F004905D8 /* NSJSONSerialization+RFKit.h in Headers */,
+				D598D269239E8C80004905D8 /* NSNumberFormatter+RFKit.h in Headers */,
+				D598D23F239E8C7F004905D8 /* NSURL+RFKit.h in Headers */,
+				D598D1FF239E8C7F004905D8 /* UIViewController+RFKit.h in Headers */,
+				D598D239239E8C7F004905D8 /* UIView+RFKit.h in Headers */,
+				D598D22F239E8C7F004905D8 /* UIView+RFAnimate.h in Headers */,
+				D598D201239E8C7F004905D8 /* UIStoryboard+RFKit.h in Headers */,
+				D598D197239E8C68004905D8 /* RFARC.h in Headers */,
+				D598D1A1239E8C68004905D8 /* RFDispatch.h in Headers */,
+				D598D209239E8C7F004905D8 /* UIResponder+RFKit.h in Headers */,
+				D598D19F239E8C68004905D8 /* RFFeatureSupport.h in Headers */,
+				D598D193239E8C68004905D8 /* RFFoundation.h in Headers */,
+				D598D1A5239E8C68004905D8 /* RFGeometry.h in Headers */,
+				D598D186239E8BAA004905D8 /* RFKit-umbrella.h in Headers */,
+				D598D19D239E8C68004905D8 /* RFKit.h in Headers */,
+				D598D1A3239E8C68004905D8 /* RFKitDefaultCategories.h in Headers */,
+				D598D19B239E8C68004905D8 /* RFRuntime.h in Headers */,
+				D598D1FD239E8C7F004905D8 /* UIAlertView+RFKit.h in Headers */,
+				D598D20F239E8C7F004905D8 /* UIPickerView+RFKit.h in Headers */,
+				D598D20D239E8C7F004905D8 /* UIScrollView+RFScrolling.h in Headers */,
+				D598D237239E8C7F004905D8 /* UISearchBar+RFKit.h in Headers */,
+				D598D213239E8C7F004905D8 /* UIViewController+RFInterfaceOrientation.h in Headers */,
+				D598D233239E8C7F004905D8 /* UIWebView+RFKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D598D15D239E8A44004905D8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D598D196239E8C68004905D8 /* dout.h in Headers */,
+				D598D1F6239E8C7F004905D8 /* EXTKeyPathCoding.h in Headers */,
+				D598D1F4239E8C7F004905D8 /* EXTScope.h in Headers */,
+				D598D1F0239E8C7F004905D8 /* metamacros.h in Headers */,
+				D598D256239E8C7F004905D8 /* NSArray+RFKit.h in Headers */,
+				D598D264239E8C80004905D8 /* NSBundle+RFKit.h in Headers */,
+				D598D242239E8C7F004905D8 /* NSDate+RFKit.h in Headers */,
+				D598D250239E8C7F004905D8 /* NSDateFormatter+RFKit.h in Headers */,
+				D598D254239E8C7F004905D8 /* NSDictionary+RFKit.h in Headers */,
+				D598D25A239E8C7F004905D8 /* NSError+RFKit.h in Headers */,
+				D598D258239E8C7F004905D8 /* NSFileManager+RFKit.h in Headers */,
+				D598D248239E8C7F004905D8 /* NSJSONSerialization+RFKit.h in Headers */,
+				D598D21E239E8C7F004905D8 /* NSLayoutConstraint+RFKit.h in Headers */,
+				D598D26A239E8C80004905D8 /* NSNumberFormatter+RFKit.h in Headers */,
+				D598D260239E8C80004905D8 /* NSObject+RFKit.h in Headers */,
+				D598D24E239E8C7F004905D8 /* NSString+RFKit.h in Headers */,
+				D598D240239E8C7F004905D8 /* NSURL+RFKit.h in Headers */,
+				D598D275239FB24F004905D8 /* RFGeometry.h in Headers */,
+				D598D198239E8C68004905D8 /* RFARC.h in Headers */,
+				D598D1A2239E8C68004905D8 /* RFDispatch.h in Headers */,
+				D598D1A0239E8C68004905D8 /* RFFeatureSupport.h in Headers */,
+				D598D194239E8C68004905D8 /* RFFoundation.h in Headers */,
+				D598D187239E8BAA004905D8 /* RFKit-umbrella.h in Headers */,
+				D598D19E239E8C68004905D8 /* RFKit.h in Headers */,
+				D598D1A4239E8C68004905D8 /* RFKitDefaultCategories.h in Headers */,
+				D598D19C239E8C68004905D8 /* RFRuntime.h in Headers */,
+				D598D20A239E8C7F004905D8 /* UIResponder+RFKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		D513B0E42031917C00C62520 /* Test-iOS */ = {
@@ -399,6 +740,44 @@
 			productName = "Test-macOS";
 			productReference = D59468E1203281DE00A1AE3D /* Test-macOS.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D598D154239E8829004905D8 /* RFKit iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D598D15C239E8829004905D8 /* Build configuration list for PBXNativeTarget "RFKit iOS" */;
+			buildPhases = (
+				F75039B6AE699584B9196F2E /* [CP] Check Pods Manifest.lock */,
+				D598D150239E8829004905D8 /* Headers */,
+				D598D151239E8829004905D8 /* Sources */,
+				D598D152239E8829004905D8 /* Frameworks */,
+				D598D153239E8829004905D8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "RFKit iOS";
+			productName = RFKit;
+			productReference = D598D155239E8829004905D8 /* RFKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D598D161239E8A44004905D8 /* RFKit macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D598D167239E8A45004905D8 /* Build configuration list for PBXNativeTarget "RFKit macOS" */;
+			buildPhases = (
+				4DBD41685FB256C73031EB93 /* [CP] Check Pods Manifest.lock */,
+				D598D15D239E8A44004905D8 /* Headers */,
+				D598D15E239E8A44004905D8 /* Sources */,
+				D598D15F239E8A44004905D8 /* Frameworks */,
+				D598D160239E8A44004905D8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "RFKit macOS";
+			productName = RFKit;
+			productReference = D598D162239E8A44004905D8 /* RFKit.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 		D5C6F58D20328E3900D1E8DF /* Test-tvOS */ = {
 			isa = PBXNativeTarget;
@@ -460,6 +839,14 @@
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
+					D598D154239E8829004905D8 = {
+						CreatedOnToolsVersion = 11.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					D598D161239E8A44004905D8 = {
+						CreatedOnToolsVersion = 11.2.1;
+						ProvisioningStyle = Automatic;
+					};
 					D5C6F58D20328E3900D1E8DF = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -487,6 +874,8 @@
 				D5C6F58D20328E3900D1E8DF /* Test-tvOS */,
 				D5C6F59920328F7000D1E8DF /* Target-watchOS */,
 				D5297B75208C1FFC0045F1BB /* Test-Swift */,
+				D598D154239E8829004905D8 /* RFKit iOS */,
+				D598D161239E8A44004905D8 /* RFKit macOS */,
 			);
 		};
 /* End PBXProject section */
@@ -514,6 +903,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D598D153239E8829004905D8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D598D160239E8A44004905D8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D5C6F58C20328E3900D1E8DF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -524,6 +927,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4DBD41685FB256C73031EB93 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RFKit macOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5720CD7816CF0D84B83FC1BE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -614,6 +1039,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F75039B6AE699584B9196F2E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RFKit iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -674,6 +1121,20 @@
 				D5F4C702214FE1F900757CD5 /* RuntimeMacOSTests.m in Sources */,
 				D5F4C6FD214FC42100757CD5 /* RuntimeTests.m in Sources */,
 				D59616122214049900202E58 /* UIResponder+RFKitTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D598D151239E8829004905D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D598D15E239E8A44004905D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -857,6 +1318,138 @@
 					"-Wno-deprecated-declarations",
 					"-Wno-nonnull",
 				);
+			};
+			name = Release;
+		};
+		D598D15A239E8829004905D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F75F085B3AE132D9907C6C0 /* Pods-RFKit iOS.debug.xcconfig */;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 20400;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INFOPLIST_FILE = Target/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 2.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.bb9z.RFKit;
+				PRODUCT_NAME = RFKit;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D598D15B239E8829004905D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB948F7AC6452D1FAFEC1981 /* Pods-RFKit iOS.release.xcconfig */;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 20400;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Target/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 2.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.bb9z.RFKit;
+				PRODUCT_NAME = RFKit;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D598D168239E8A45004905D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 360B3E2642B8842E8BEE82DD /* Pods-RFKit macOS.debug.xcconfig */;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INFOPLIST_FILE = Target/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.bb9z.RFKit;
+				PRODUCT_NAME = RFKit;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D598D169239E8A45004905D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D046E2F081CC9C841CC1946C /* Pods-RFKit macOS.release.xcconfig */;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Target/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.bb9z.RFKit;
+				PRODUCT_NAME = RFKit;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -1155,6 +1748,24 @@
 			buildConfigurations = (
 				D59468E7203281DE00A1AE3D /* Debug */,
 				D59468E8203281DE00A1AE3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D598D15C239E8829004905D8 /* Build configuration list for PBXNativeTarget "RFKit iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D598D15A239E8829004905D8 /* Debug */,
+				D598D15B239E8829004905D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D598D167239E8A45004905D8 /* Build configuration list for PBXNativeTarget "RFKit macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D598D168239E8A45004905D8 /* Debug */,
+				D598D169239E8A45004905D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

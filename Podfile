@@ -1,4 +1,31 @@
 
+target 'RFKit iOS' do
+    platform :ios, '10.0'
+
+    pod 'RFKit', :path => '.', :subspecs => ['Default',
+        'Category/NSDate',
+        'Category/NSDateFormatter',
+        'Category/NSFileManager',
+        'Category/NSJSONSerialization',
+        'Category/NSNumberFormatter',
+        'Category/NSURL',
+        'Category/NSLayoutConstraint'
+    ]
+end
+
+target 'RFKit macOS' do
+    platform :osx, '10.12'
+
+    pod 'RFKit', :path => '.', :subspecs => ['Default',
+        'Category/NSDate',
+        'Category/NSDateFormatter',
+        'Category/NSFileManager',
+        'Category/NSJSONSerialization',
+        'Category/NSNumberFormatter',
+        'Category/NSURL'
+    ]
+end
+
 target 'Test-iOS' do
     platform :ios, '8.0'
 
