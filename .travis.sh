@@ -41,7 +41,7 @@ STAGE_MAIN() {
         fi
 
     elif [ "$RFCI_TASK" = "Xcode11" ]; then
-        pod install --project-directory=Test
+        pod install
 
         echo "Test for macOS and watchOS."
         XC_TestMac
@@ -60,7 +60,7 @@ STAGE_MAIN() {
         XC_Test "Test-Swift" "platform=iOS Simulator,name=iPhone 8,OS=13.0"
 
     elif [ "$RFCI_TASK" = "Xcode10" ]; then
-        pod install --project-directory=Test
+        pod install
 
         echo "Test for macOS and watchOS."
         XC_TestMac
@@ -78,7 +78,7 @@ STAGE_MAIN() {
         XC_Test "Test-Swift" "platform=iOS Simulator,name=iPhone SE,OS=12.0"
 
     elif [ "$RFCI_TASK" = "Xcode9" ]; then
-        pod install --project-directory=Test
+        pod install
 
         echo "Test for macOS and watchOS."
         XC_TestMac
@@ -88,7 +88,7 @@ STAGE_MAIN() {
         XC_Test "Test-tvOS"  "platform=tvOS Simulator,name=Apple TV 4K,OS=11.4"
 
     elif [ "$RFCI_TASK" = "Xcode8" ]; then
-        pod install --project-directory=Test
+        pod install
 
         echo "Test for macOS and watchOS."
         XC_TestMac
