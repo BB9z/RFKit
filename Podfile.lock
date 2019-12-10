@@ -1,0 +1,141 @@
+PODS:
+  - RFKit/ALL (2.4.0):
+    - RFKit/Category/All
+    - RFKit/Default
+    - RFKit/doutkit
+    - RFKit/Performance
+  - RFKit/Category/All (2.4.0):
+    - RFKit/Category/Default
+    - RFKit/Category/NSDate
+    - RFKit/Category/NSDateFormatter
+    - RFKit/Category/NSFileManager
+    - RFKit/Category/NSJSONSerialization
+    - RFKit/Category/NSLayoutConstraint
+    - RFKit/Category/NSNumberFormatter
+    - RFKit/Category/NSURL
+    - RFKit/Category/UIAlertView
+    - RFKit/Category/UIPickerView
+    - "RFKit/Category/UIScrollView+RFScrolling"
+    - RFKit/Category/UISearchBar
+    - "RFKit/Category/UIViewController+RFInterfaceOrientation"
+    - RFKit/Category/UIWebView
+  - RFKit/Category/Default (2.4.0):
+    - RFKit/Category/NSArray
+    - RFKit/Category/NSBundle
+    - RFKit/Category/NSDictionary
+    - RFKit/Category/NSError
+    - RFKit/Category/NSObject
+    - RFKit/Category/NSString
+    - RFKit/Category/UIButton
+    - RFKit/Category/UIColor
+    - RFKit/Category/UIDevice
+    - RFKit/Category/UIImage
+    - RFKit/Category/UINavigationController
+    - RFKit/Category/UIResponder
+    - RFKit/Category/UIStoryboard
+    - RFKit/Category/UITableView
+    - RFKit/Category/UIView
+    - "RFKit/Category/UIView+RFAnimate"
+    - RFKit/Category/UIViewController
+  - RFKit/Category/NSArray (2.4.0):
+    - RFKit/Foundation
+  - RFKit/Category/NSBundle (2.4.0):
+    - RFKit/Foundation
+  - RFKit/Category/NSDate (2.4.0):
+    - RFKit/Foundation
+  - RFKit/Category/NSDateFormatter (2.4.0):
+    - RFKit/Foundation
+  - RFKit/Category/NSDictionary (2.4.0):
+    - RFKit/Category/NSObject
+    - RFKit/Foundation
+  - RFKit/Category/NSError (2.4.0):
+    - RFKit/Foundation
+  - RFKit/Category/NSFileManager (2.4.0):
+    - RFKit/Foundation
+    - RFKit/Runtime
+  - RFKit/Category/NSJSONSerialization (2.4.0):
+    - RFKit/Foundation
+    - RFKit/Runtime
+  - RFKit/Category/NSLayoutConstraint (2.4.0):
+    - RFKit/Category/UIView
+    - RFKit/Foundation
+  - RFKit/Category/NSNumberFormatter (2.4.0):
+    - RFKit/Foundation
+    - RFKit/Runtime
+  - RFKit/Category/NSObject (2.4.0):
+    - RFKit/Foundation
+    - RFKit/Runtime
+  - RFKit/Category/NSString (2.4.0):
+    - RFKit/Foundation
+    - RFKit/Runtime
+  - RFKit/Category/NSURL (2.4.0):
+    - RFKit/Foundation
+  - RFKit/Category/UIAlertView (2.4.0):
+    - RFKit/Foundation
+  - RFKit/Category/UIButton (2.4.0):
+    - RFKit/Foundation
+  - RFKit/Category/UIColor (2.4.0):
+    - RFKit/Foundation
+  - RFKit/Category/UIDevice (2.4.0):
+    - RFKit/Foundation
+    - RFKit/Runtime
+  - RFKit/Category/UIImage (2.4.0):
+    - RFKit/Foundation
+    - RFKit/RFGeometry
+  - RFKit/Category/UINavigationController (2.4.0):
+    - RFKit/Category/NSArray
+    - RFKit/Foundation
+  - RFKit/Category/UIPickerView (2.4.0):
+    - RFKit/Foundation
+  - RFKit/Category/UIResponder (2.4.0):
+    - RFKit/Foundation
+    - RFKit/Runtime
+  - "RFKit/Category/UIScrollView+RFScrolling (2.4.0)":
+    - RFKit/Foundation
+  - RFKit/Category/UISearchBar (2.4.0):
+    - RFKit/Foundation
+  - RFKit/Category/UIStoryboard (2.4.0):
+    - RFKit/Foundation
+  - RFKit/Category/UITableView (2.4.0):
+    - "RFKit/Category/UIView+RFAnimate"
+    - RFKit/Foundation
+  - RFKit/Category/UIView (2.4.0):
+    - RFKit/Category/UIResponder
+    - RFKit/Foundation
+    - RFKit/RFGeometry
+  - "RFKit/Category/UIView+RFAnimate (2.4.0)":
+    - RFKit/Foundation
+    - RFKit/Runtime
+  - RFKit/Category/UIViewController (2.4.0):
+    - RFKit/Foundation
+  - "RFKit/Category/UIViewController+RFInterfaceOrientation (2.4.0)"
+  - RFKit/Category/UIWebView (2.4.0):
+    - RFKit/Foundation
+  - RFKit/Default (2.4.0):
+    - RFKit/Category/Default
+    - RFKit/RFGeometry
+    - RFKit/Runtime
+  - RFKit/doutkit (2.4.0):
+    - RFKit/Performance
+    - RFKit/Runtime
+  - RFKit/Foundation (2.4.0)
+  - RFKit/Performance (2.4.0):
+    - RFKit/Runtime
+  - RFKit/RFGeometry (2.4.0):
+    - RFKit/Runtime
+  - RFKit/Runtime (2.4.0):
+    - RFKit/Foundation
+
+DEPENDENCIES:
+  - RFKit/ALL (from `.`)
+
+EXTERNAL SOURCES:
+  RFKit:
+    :path: "."
+
+SPEC CHECKSUMS:
+  RFKit: 892e15d74facdc2d95695686c636a908fc5f4f39
+
+PODFILE CHECKSUM: 88017487676caf13cc1672a7af7ee5cda5b3706a
+
+COCOAPODS: 1.8.4

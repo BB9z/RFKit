@@ -82,16 +82,32 @@ enum {
 #   define UIEdgeInsetsZero NSEdgeInsetsZero
 #endif
 
-#if !defined(UIView)
-#   define UIView NSView
-#endif
-#if !defined(UIButton)
-#   define UIButton NSButton
-#endif
 #if !defined(UIImage)
 #   define UIImage NSImage
 #endif
+#if !defined(UIResponder)
+#   define UIResponder NSResponder
 #endif
+#if !defined(UIView)
+#   define UIView NSView
+#endif
+#if !defined(UIViewController)
+#   define UIViewController NSViewController
+#endif
+
+#if !defined(UIButton)
+#   define UIButton NSButton
+#endif
+#if !defined(UITableView)
+#   define UITableView NSTableView
+#endif
+#if !defined(UICollectionView)
+#   define UICollectionView NSCollectionView
+#endif
+#if !defined(UIStoryboardSegue)
+#   define UIStoryboardSegue NSStoryboardSegue
+#endif
+#endif  // END: TARGET_OS_OSX
 
 #pragma mark - ObjC Ext
 #import "metamacros.h"

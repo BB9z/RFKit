@@ -1,7 +1,9 @@
 # RFKit
 
 [![Build Status](https://travis-ci.org/BB9z/RFKit.svg?branch=develop)](https://travis-ci.org/BB9z/RFKit)
-[![codecov](https://codecov.io/gh/BB9z/RFKit/branch/develop/graph/badge.svg)](https://codecov.io/gh/BB9z/RFKit)
+[![Codecov](https://img.shields.io/codecov/c/github/BB9z/RFKit.svg?style=flat-square&colorA=333333&colorB=6600cc)](https://codecov.io/gh/BB9z/RFKit)
+[![CocoaPods](https://img.shields.io/cocoapods/v/RFKit.svg?style=flat-square&colorA=333333&colorB=6600cc)](https://cocoapods.org/pods/RFKit)
+[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-6600cc.svg?style=flat-square&colorA=333333)](https://github.com/Carthage/Carthage)
 
 <base href="//github.com/BB9z/RFKit/blob/master/" />
 
@@ -13,7 +15,8 @@ RFKit 包含一套对日常 Cocoa 开发很有帮助的工具。
 
 | RFKit Version | Minimum Xcode Version | Minimum iOS Target  | Minimum macOS Target | Minimum watchOS Target | Minimum tvOS Target |
 |:-------------:|:---------------------:|:-------------------:|:--------------------:|:----------------------:|:-------------------:|
-| 2.0+          | Xcode 8               | iOS 6  | macOS 10.8  | watchOS 2.0 | tvOS 9.0 |
+| 2.4             | Xcode 8               | iOS 8  | macOS 10.8  | watchOS 2.0 | tvOS 9.0 |
+| 2.0-2.3       | Xcode 8               | iOS 6  | macOS 10.8  | watchOS 2.0 | tvOS 9.0 |
 | 1.7           | Xcode 7               | iOS 6  | macOS 10.8  | watchOS 2.0 | tvOS 9.0 |
 | 1.6           | Xcode 8               | iOS 6  | N/A         | watchOS 2.0 | N/A      |
 
@@ -33,7 +36,7 @@ pod 'RFKit'
 pod 'RFKit', :git => 'https://github.com/BB9z/RFKit.git', :branch => 'develop'
 ```
 
-更复杂的列子：
+更复杂的例子：
 
 ```ruby
 pod 'RFKit',
@@ -42,13 +45,29 @@ pod 'RFKit',
     :subspecs => ['Default', 'Category/NSDateFormatter']
 ```
 
+### Carthage
+
+尽管更推荐使用 CocoaPods，Carthage 也是支持的。
+
+在 Cartfile 添加如下内容：
+
+```text
+github "BB9z/RFKit"
+```
+
+或者用最新的版本：
+
+```
+github "BB9z/RFKit" "develop"
+```
+
 ### 手工引用
 
 你总是可以通过导入源码的方式使用 RFKit，只需拷贝相应文件到工程中即可。
 
 ## dout
 
-dout为调试打印而生，它包含了一套方便打印工具。
+dout 为调试打印而生，它包含了一套方便打印工具。
 
 特色：
 

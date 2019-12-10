@@ -3,6 +3,7 @@
 [![Build Status](https://img.shields.io/travis/BB9z/RFKit.svg?style=flat-square&colorA=333333&colorB=6600cc)](https://travis-ci.org/BB9z/RFKit)
 [![Codecov](https://img.shields.io/codecov/c/github/BB9z/RFKit.svg?style=flat-square&colorA=333333&colorB=6600cc)](https://codecov.io/gh/BB9z/RFKit)
 [![CocoaPods](https://img.shields.io/cocoapods/v/RFKit.svg?style=flat-square&colorA=333333&colorB=6600cc)](https://cocoapods.org/pods/RFKit)
+[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-6600cc.svg?style=flat-square&colorA=333333)](https://github.com/Carthage/Carthage)
 
 <base href="//github.com/BB9z/RFKit/blob/master/" />
 
@@ -14,9 +15,10 @@ RFKit is a useful toolkit for daily Cocoa development.
 
 | RFKit Version | Minimum Xcode Version | Minimum iOS Target  | Minimum macOS Target | Minimum watchOS Target | Minimum tvOS Target |
 |:-------------:|:---------------------:|:-------------------:|:--------------------:|:----------------------:|:-------------------:|
-| 2.0+          | Xcode 8               | iOS 6  | macOS 10.8  | watchOS 2.0 | tvOS 9.0 |
-| 1.7           | Xcode 7               | iOS 6  | macOS 10.8  | watchOS 2.0 | tvOS 9.0 |
-| 1.6           | Xcode 8               | iOS 6  | N/A         | watchOS 2.0 | N/A      |
+| 2.4             | Xcode 8               | iOS 8  | macOS 10.8  | watchOS 2.0 | tvOS 9.0 |
+| 2.0-2.3       | Xcode 8               | iOS 6  | macOS 10.8  | watchOS 2.0 | tvOS 9.0 |
+| 1.7             | Xcode 7               | iOS 6  | macOS 10.8  | watchOS 2.0 | tvOS 9.0 |
+| 1.6             | Xcode 8               | iOS 6  | N/A         | watchOS 2.0 | N/A      |
 
 ## Install
 
@@ -41,6 +43,22 @@ pod 'RFKit',
     :git => 'https://github.com/BB9z/RFKit.git',
     :branch => 'develop',
     :subspecs => ['Default', 'Category/NSDateFormatter']
+```
+
+### Carthage
+
+Although I recommend using CocoaPods, Carthage is still supported.
+
+Specify RFKit in your Cartfile:
+
+```text
+github "BB9z/RFKit"
+```
+
+Or use lastest version:
+
+```
+github "BB9z/RFKit" "develop"
 ```
 
 ### Manual

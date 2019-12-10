@@ -97,7 +97,6 @@ class SwiftNameTest: XCTestCase {
         let s = NSString()
         let _ = s.rf_MD5
         s.rf_pinyinString(withStripDiacritics: false)
-        s.contains("zz")
         s.contains("zz", options: .caseInsensitive)
         s.trimming(toLength: 0, withTruncationToken: nil)
         s.reverse()

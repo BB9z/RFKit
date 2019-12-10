@@ -9,7 +9,11 @@
 - (NSString *)rf_MD5String {
     const char *cStr = self.UTF8String;
     unsigned char digest[CC_MD5_DIGEST_LENGTH];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    // Compatibility(mac 10.15)
     CC_MD5(cStr, (CC_LONG)strlen(cStr), digest);
+#pragma clang diagnostic pop
     
     NSMutableString *output = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
     for(int i = 0; i < CC_MD5_DIGEST_LENGTH; i++) {
@@ -27,12 +31,6 @@
     }
     return string;
 }
-
-#if (MAC_OS_X_VERSION_MIN_REQUIRED < __MAC_10_10 && (!defined(__IPHONE_OS_VERSION_MIN_REQUIRED) || __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_8_0))
-- (BOOL)containsString:(nonnull NSString *)string {
-    return ([self rangeOfString:string].location != NSNotFound);
-}
-#endif
 
 - (BOOL)containsString:(nonnull NSString *)string options:(NSStringCompareOptions)mask {
     return ([self rangeOfString:string options:mask].location != NSNotFound);

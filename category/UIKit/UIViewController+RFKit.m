@@ -12,7 +12,11 @@
 }
 
 + (nullable UIViewController *)rootViewControllerWhichCanPresentModalViewController {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    // Compatibility(iOS 13)
     UIViewController *vc = (UIApplication.sharedApplication.keyWindow.rootViewController)? : UIApplication.sharedApplication.windows.firstObject.rootViewController;
+#pragma clang diagnostic pop
     
     while (vc.presentedViewController) {
         vc = vc.presentedViewController;

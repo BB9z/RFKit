@@ -1,14 +1,12 @@
 
 #import "NSURL+RFKit.h"
 
+
 @implementation NSURL (RFKit)
 
 static inline NSString *stringFromURLFormat(NSString *value) {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     return [[value stringByReplacingOccurrencesOfString:@"+" withString:@
-             " "] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-#pragma clang diagnostic pop
+             " "] stringByRemovingPercentEncoding];
 }
 
 - (nullable NSDictionary *)queryDictionary {
