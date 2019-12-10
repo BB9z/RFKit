@@ -3,6 +3,7 @@
 ## 2.4.0
 
 * Imporve macOS supports.
+* Add limited Carthage support.
 * iOS minimum deployment version upgrade to 8.0.
 * Eliminate warnings when build with latest deployment target version.
 * API Changes:

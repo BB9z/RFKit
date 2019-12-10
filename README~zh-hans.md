@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/BB9z/RFKit.svg?branch=develop)](https://travis-ci.org/BB9z/RFKit)
 [![Codecov](https://img.shields.io/codecov/c/github/BB9z/RFKit.svg?style=flat-square&colorA=333333&colorB=6600cc)](https://codecov.io/gh/BB9z/RFKit)
 [![CocoaPods](https://img.shields.io/cocoapods/v/RFKit.svg?style=flat-square&colorA=333333&colorB=6600cc)](https://cocoapods.org/pods/RFKit)
+[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-6600cc.svg?style=flat-square&colorA=333333)](https://github.com/Carthage/Carthage)
 
 <base href="//github.com/BB9z/RFKit/blob/master/" />
 
@@ -42,6 +43,22 @@ pod 'RFKit',
     :git => 'https://github.com/BB9z/RFKit.git',
     :branch => 'develop',
     :subspecs => ['Default', 'Category/NSDateFormatter']
+```
+
+### Carthage
+
+尽管更推荐使用 CocoaPods，Carthage 也是支持的。
+
+在 Cartfile 添加如下内容：
+
+```text
+github "BB9z/RFKit"
+```
+
+或者用最新的版本：
+
+```
+github "BB9z/RFKit" "develop"
 ```
 
 ### 手工引用
