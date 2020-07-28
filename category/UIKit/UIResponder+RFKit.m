@@ -19,9 +19,12 @@ static __weak id _RFKit_UIResponder_currentFirstResponder;
 #if !TARGET_OS_OSX
 //! REF: http://stackoverflow.com/a/14135456/945906
 + (nullable __kindof UIResponder *)firstResponder {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-repeated-use-of-weak"
     _RFKit_UIResponder_currentFirstResponder = nil;
     [UIApplication.sharedApplication sendAction:@selector(_rf_findFirstResponder:) to:nil from:nil forEvent:nil];
     return _RFKit_UIResponder_currentFirstResponder;
+#pragma clang diagnostic pop
 }
 
 - (void)_rf_findFirstResponder:(id)sender {
