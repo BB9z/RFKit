@@ -22,5 +22,6 @@
 #import <RFKit/UIScrollView+RFScrolling.h>
 #import <RFKit/UISearchBar+RFKit.h>
 #import <RFKit/UIStoryboard+RFKit.h>
+#import <RFKit/UITextField+RFKit.h>
 #import <RFKit/UIView+RFAnimate.h>
 #import <RFKit/UIWebView+RFKit.h>

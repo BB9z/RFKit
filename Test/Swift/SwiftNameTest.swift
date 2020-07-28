@@ -199,6 +199,12 @@ class SwiftNameTest: XCTestCase {
         tb.autoLayoutTableHeaderView()
         tb.autoLayoutTableFooterView()
     }
+
+    func testUITextField() {
+        let tf = UITextField()
+        tf.rf_trimedText()
+        tf.rf_selectedRange()
+    }
     
     func testUIView() {
         let v = UIView()
