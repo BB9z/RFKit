@@ -17,13 +17,11 @@
 - (void)testTrimedText {
     UITextField *tf = UITextField.new;
     tf.text = nil;
-    XCTAssertEqualObjects(tf.rf_trimedText, nil);
-    tf.text = @"";
-    XCTAssertEqualObjects(tf.rf_trimedText, @"");
+    XCTAssert(tf.rf_trimedText.length == 0);
     tf.text = @"foo";
     XCTAssertEqualObjects(tf.rf_trimedText, @"foo");
-    tf.text = @" bar/n";
-    XCTAssertEqualObjects(tf.rf_trimedText, @"bar");
+    tf.text = @" foo bar\n ";
+    XCTAssertEqualObjects(tf.rf_trimedText, @"foo bar");
 }
 
 @end
