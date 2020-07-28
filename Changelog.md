@@ -1,8 +1,9 @@
 # RFKit Changelog
 
-## 2.4.1
+## 2.5.0
 
 * API Enhancements:
+  * RFFoundation, add guard define for `TARGET_OS_MACCATALYST`.
   * New UITextField+RFKit, with `trimedText` and `selectedRange`.
 
 ## 2.4.0
