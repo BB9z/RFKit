@@ -10,8 +10,8 @@ Pod::Spec.new do |s|
     :branch => 'develop'
   }
 
-  TARGET_DEFAULT_IOS   = '8.0'
-  TARGET_DEFAULT_MAC   = '10.8'
+  TARGET_DEFAULT_IOS   = '9.0'
+  TARGET_DEFAULT_MAC   = '10.9'
   TARGET_DEFAULT_TV    = '9.0'
   TARGET_DEFAULT_WATCH = '2.0'
 

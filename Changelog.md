@@ -2,6 +2,9 @@
 
 ## 2.5.0
 
+* Drop Xcode 9 support.
+* iOS minimum deployment version upgrade to 8.0.
+* macOS minimum deployment version upgrade to 10.9.
 * API Enhancements:
   * RFFoundation, add guard define for `TARGET_OS_MACCATALYST`.
   * New UITextField+RFKit, with `trimedText` and `selectedRange`.

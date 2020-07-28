@@ -19,6 +19,10 @@
 
 #pragma mark - SDK backward compatibility
 
+#pragma mark Xcode 12
+
+// 18389814: SVG image, requires macOS 10.15+, iOS 13+
+
 #pragma mark Xcode 11
 
 // Xcode 11.4
@@ -91,62 +95,3 @@
 // SE–0161: type-safe key path literals \BaseType.propertyName
 // 7184689: @available in Objective-C
 // 21359084: #pragma pack
-
-#pragma mark Xcode 8
-
-#ifndef NS_NOESCAPE
-#   if __has_attribute(noescape)
-#       define NS_NOESCAPE __attribute__((noescape))
-#   else
-#       define NS_NOESCAPE
-#   endif
-#endif
-
-#ifndef NS_STRING_ENUM
-#   define NS_STRING_ENUM
-#endif
-
-#ifndef NS_EXTENSIBLE_STRING_ENUM
-#   define NS_EXTENSIBLE_STRING_ENUM
-#endif
-
-// API available
-#ifndef API_AVAILABLE
-#   define API_AVAILABLE(...)
-#endif
-
-#ifndef API_DEPRECATED
-#   define API_DEPRECATED(...)
-#endif
-
-#ifndef API_DEPRECATED_WITH_REPLACEMENT
-#   define API_DEPRECATED_WITH_REPLACEMENT(...)
-#endif
-
-#ifndef API_UNAVAILABLE
-#   define API_UNAVAILABLE(...)
-#endif
-
-#ifndef TARGET_OS_OSX
-#   define TARGET_OS_OSX (TARGET_OS_MAC && !TARGET_OS_IPHONE)
-#endif
-
-#ifndef TARGET_OS_TV
-#   define TARGET_OS_TV 0
-#endif
-
-// Xcode 8, with macOS 10.12 and iOS 10 SDK
-// https://developer.apple.com/library/content/releasenotes/Miscellaneous/RN-Foundation-OSX10.12/index.html
-
-// Xcode 8.3
-// SE-0141, SR-2709: @available
-
-// Xcode 8.1
-// 28694859: __weak in MRC
-// 26921435: __swift__ macro
-
-// Xcode 8.0
-// 23891898: class properties
-// SE-0064: property getter or setter in #selector
-// SE-0062: #keyPath
-// SE-0034: #sourceLocation
