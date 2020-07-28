@@ -35,7 +35,7 @@ void _dout_log_config(void) {
 }
 #pragma clang diagnostic pop
 
-bool DoutIsBeingDebugged(void) {
+static bool DoutIsBeingDebugged(void) {
     struct kinfo_proc info;
     info.kp_proc.p_flag = 0;
 

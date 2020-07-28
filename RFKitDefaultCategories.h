@@ -36,6 +36,7 @@
 //#import "UISearchBar+RFKit.h"
 #import "UIStoryboard+RFKit.h"
 #import "UITableView+RFKit.h"
+//#import "UITextField+RFKit.h"
 #import "UIView+RFAnimate.h"
 #import "UIView+RFKit.h"
 #import "UIViewController+RFKit.h"

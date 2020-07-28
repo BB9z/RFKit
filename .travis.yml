@@ -1,23 +1,25 @@
 language: objective-c
-sudo: false
+os: osx
 cache: cocoapods
 env:
   global:
   - LC_CTYPE=en_US.UTF-8
   - LANG=en_US.UTF-8
   - LANGUAGE=en_US.UTF-8
-matrix:
+  - RFCI_PRODUCT_NAME="RFKit"
+jobs:
   include:
     - osx_image: xcode11
       env: RFCI_TASK="POD_LINT"
     - osx_image: xcode11
-      env: RFCI_TASK="Xcode11"
+      env:
+      - RFCI_TASK="Xcode11"
+      - RFCI_COVERAGE=1
     - osx_image: xcode10
       env: RFCI_TASK="Xcode10"
     - osx_image: xcode9.4
       env: RFCI_TASK="Xcode9"
-    - osx_image: xcode8.3
-      env: RFCI_TASK="Xcode8"
+before_install: ./.travis.sh SETUP
 script: travis_wait 20 ./.travis.sh MAIN
 after_success: ./.travis.sh SUCCESS
 after_failure: ./.travis.sh FAILURE

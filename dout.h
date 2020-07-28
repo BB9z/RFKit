@@ -10,7 +10,7 @@
  */
 
 #ifndef DOUT_H
-#define DOUT_H 2.11
+#define DOUT_H 2.12
 
 #import "RFRuntime.h"
 
