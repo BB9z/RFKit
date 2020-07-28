@@ -1,5 +1,10 @@
 # RFKit Changelog
 
+## 2.4.1
+
+* API Enhancements:
+  * New UITextField+RFKit, with `trimedText` and `selectedRange`.
+
 ## 2.4.0
 
 * Imporve macOS supports.

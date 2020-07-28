@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'RFKit'
-  s.version      = '2.4.0'
+  s.version      = '2.4.1'
   s.summary      = 'Tool kit for daily cocoa development.'
   s.homepage     = 'https://github.com/BB9z/RFKit'
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
@@ -138,15 +138,17 @@ Pod::Spec.new do |s|
       ssp.dependency 'RFKit/Category/NSJSONSerialization'
       ssp.dependency 'RFKit/Category/NSNumberFormatter'
       ssp.dependency 'RFKit/Category/NSURL'
-
-      ssp.ios.dependency 'RFKit/Category/UIAlertView'
+      
       ssp.ios .dependency 'RFKit/Category/NSLayoutConstraint'
       ssp.tvos.dependency 'RFKit/Category/NSLayoutConstraint'
+      ssp.ios .dependency 'RFKit/Category/UIAlertView'
       ssp.ios .dependency 'RFKit/Category/UIPickerView'
       ssp.ios .dependency 'RFKit/Category/UIScrollView+RFScrolling'
       ssp.tvos.dependency 'RFKit/Category/UIScrollView+RFScrolling'
       ssp.ios .dependency 'RFKit/Category/UISearchBar'
       ssp.tvos.dependency 'RFKit/Category/UISearchBar'
+      ssp.ios .dependency 'RFKit/Category/UITextField'
+      ssp.tvos.dependency 'RFKit/Category/UITextField'
       ssp.ios .dependency 'RFKit/Category/UIViewController+RFInterfaceOrientation'
       ssp.tvos.dependency 'RFKit/Category/UIViewController+RFInterfaceOrientation'
       ssp.ios .dependency 'RFKit/Category/UIWebView'
@@ -318,6 +320,13 @@ Pod::Spec.new do |s|
       ssp.dependency 'RFKit/Foundation'
       ssp.dependency 'RFKit/Category/UIView+RFAnimate'
       ssp.source_files = 'category/UIKit/UITableView+*'
+    end
+
+    ss.subspec 'UITextField' do |ssp|
+      ssp.ios.deployment_target = TARGET_DEFAULT_IOS
+      ssp.tvos.deployment_target = TARGET_DEFAULT_TV
+      ssp.dependency 'RFKit/Foundation'
+      ssp.source_files = 'category/UIKit/UITextField+*'
     end
 
     ss.subspec 'UIView+RFAnimate' do |ssp|

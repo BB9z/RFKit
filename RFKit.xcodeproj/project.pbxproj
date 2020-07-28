@@ -174,6 +174,9 @@
 		D5CE8EC6203FADC6000F1C0E /* NSBundle+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CE8EC4203FADC6000F1C0E /* NSBundle+RFKitTests.m */; };
 		D5CE8EC7203FADC6000F1C0E /* NSBundle+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CE8EC4203FADC6000F1C0E /* NSBundle+RFKitTests.m */; };
 		D5D6630020B40A4200E55EEB /* UIPickerView+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D662FF20B40A4200E55EEB /* UIPickerView+RFKitTests.m */; };
+		D5E2DC0024CFF26300CEB26D /* UITextField+RFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E2DBFC24CFF26200CEB26D /* UITextField+RFKit.m */; };
+		D5E2DC0124CFF26300CEB26D /* UITextField+RFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D5E2DBFD24CFF26300CEB26D /* UITextField+RFKit.h */; };
+		D5E2DC0324CFF53000CEB26D /* UITextField+RFKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E2DC0224CFF53000CEB26D /* UITextField+RFKitTests.m */; };
 		D5F4C6FC214FC34A00757CD5 /* RuntimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F4C6FB214FC34A00757CD5 /* RuntimeTests.m */; };
 		D5F4C6FD214FC42100757CD5 /* RuntimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F4C6FB214FC34A00757CD5 /* RuntimeTests.m */; };
 		D5F4C6FE214FC42200757CD5 /* RuntimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F4C6FB214FC34A00757CD5 /* RuntimeTests.m */; };
@@ -329,6 +332,9 @@
 		D5C6F5A72032D39500D1E8DF /* NSArray+RFKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+RFKitTests.m"; sourceTree = "<group>"; };
 		D5CE8EC4203FADC6000F1C0E /* NSBundle+RFKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+RFKitTests.m"; sourceTree = "<group>"; };
 		D5D662FF20B40A4200E55EEB /* UIPickerView+RFKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIPickerView+RFKitTests.m"; sourceTree = "<group>"; };
+		D5E2DBFC24CFF26200CEB26D /* UITextField+RFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+RFKit.m"; sourceTree = "<group>"; };
+		D5E2DBFD24CFF26300CEB26D /* UITextField+RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+RFKit.h"; sourceTree = "<group>"; };
+		D5E2DC0224CFF53000CEB26D /* UITextField+RFKitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+RFKitTests.m"; sourceTree = "<group>"; };
 		D5F4C6FB214FC34A00757CD5 /* RuntimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RuntimeTests.m; sourceTree = "<group>"; };
 		D5F4C701214FE1F900757CD5 /* RuntimeMacOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RuntimeMacOSTests.m; sourceTree = "<group>"; };
 		D5F50AC12035E3BA0054518C /* NSDateFormatter+RFKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+RFKitTests.m"; sourceTree = "<group>"; };
@@ -400,6 +406,7 @@
 				D513B0E92031917C00C62520 /* Info.plist */,
 				D501848220FC7B34009481D4 /* UINavigationController+RFKitTests.m */,
 				D5D662FF20B40A4200E55EEB /* UIPickerView+RFKitTests.m */,
+				D5E2DC0224CFF53000CEB26D /* UITextField+RFKitTests.m */,
 				D57E75D3203EFCB6001BB427 /* UIView+RFKitTests.m */,
 			);
 			path = iOS;
@@ -530,6 +537,8 @@
 				D598D2BF239FB6FC004905D8 /* UIStoryboard+RFKit.m */,
 				D598D1C4239E8C7F004905D8 /* UITableView+RFKit.h */,
 				D598D2B0239FB6FB004905D8 /* UITableView+RFKit.m */,
+				D5E2DBFD24CFF26300CEB26D /* UITextField+RFKit.h */,
+				D5E2DBFC24CFF26200CEB26D /* UITextField+RFKit.m */,
 				D598D1CA239E8C7F004905D8 /* UIView+RFAnimate.h */,
 				D598D2B9239FB6FB004905D8 /* UIView+RFAnimate.m */,
 				D598D1CF239E8C7F004905D8 /* UIView+RFKit.h */,
@@ -737,6 +746,7 @@
 				D598D209239E8C7F004905D8 /* UIResponder+RFKit.h in Headers */,
 				D598D201239E8C7F004905D8 /* UIStoryboard+RFKit.h in Headers */,
 				D598D223239E8C7F004905D8 /* UITableView+RFKit.h in Headers */,
+				D5E2DC0124CFF26300CEB26D /* UITextField+RFKit.h in Headers */,
 				D598D22F239E8C7F004905D8 /* UIView+RFAnimate.h in Headers */,
 				D598D239239E8C7F004905D8 /* UIView+RFKit.h in Headers */,
 				D598D1FF239E8C7F004905D8 /* UIViewController+RFKit.h in Headers */,
@@ -1133,6 +1143,7 @@
 				D501848320FC7B34009481D4 /* UINavigationController+RFKitTests.m in Sources */,
 				D5D6630020B40A4200E55EEB /* UIPickerView+RFKitTests.m in Sources */,
 				D59616112214049900202E58 /* UIResponder+RFKitTests.m in Sources */,
+				D5E2DC0324CFF53000CEB26D /* UITextField+RFKitTests.m in Sources */,
 				D57E75D4203EFCB7001BB427 /* UIView+RFKitTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1201,6 +1212,7 @@
 				D598D2DA239FB6FC004905D8 /* UIResponder+RFKit.m in Sources */,
 				D598D2E0239FB6FC004905D8 /* UIStoryboard+RFKit.m in Sources */,
 				D598D2C2239FB6FC004905D8 /* UITableView+RFKit.m in Sources */,
+				D5E2DC0024CFF26300CEB26D /* UITextField+RFKit.m in Sources */,
 				D598D2D4239FB6FC004905D8 /* UIView+RFAnimate.m in Sources */,
 				D598D2D2239FB6FC004905D8 /* UIView+RFKit.m in Sources */,
 				D598D2D6239FB6FC004905D8 /* UIViewController+RFKit.m in Sources */,
