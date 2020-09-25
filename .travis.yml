@@ -9,16 +9,16 @@ env:
   - RFCI_PRODUCT_NAME="RFKit"
 jobs:
   include:
-    - osx_image: xcode11
+    - osx_image: xcode12
       env: RFCI_TASK="POD_LINT"
-    - osx_image: xcode11
+    - osx_image: xcode12
       env:
-      - RFCI_TASK="Xcode11"
+      - RFCI_TASK="Xcode12"
       - RFCI_COVERAGE=1
+    - osx_image: xcode11
+      env: RFCI_TASK="Xcode11"
     - osx_image: xcode10
       env: RFCI_TASK="Xcode10"
-    - osx_image: xcode9.4
-      env: RFCI_TASK="Xcode9"
 before_install: ./.travis.sh SETUP
 script: travis_wait 20 ./.travis.sh MAIN
 after_success: ./.travis.sh SUCCESS
