@@ -1,9 +1,14 @@
 # RFKit Changelog
 
+## 2.5.1
+
+* Upgrade project files for Xcode 12.
+* Fix Carthage framework version.
+
 ## 2.5.0
 
 * Drop Xcode 9 support.
-* iOS minimum deployment version upgrade to 8.0.
+* iOS minimum deployment version upgrade to 9.0.
 * macOS minimum deployment version upgrade to 10.9.
 * API Enhancements:
   * RFFoundation, add guard define for `TARGET_OS_MACCATALYST`.

@@ -1,0 +1,25 @@
+name: CocoaPods
+
+on: [push, pull_request]
+
+jobs:
+  lint:
+    runs-on: macos-latest
+    if: ${{ startsWith(github.ref, 'refs/heads') }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Lint the podspec
+        if: github.tag == ''
+        run: |
+          pod lib lint --fail-fast --allow-warnings
+
+  release:
+    runs-on: macos-latest
+    if: ${{ startsWith(github.ref, 'refs/tags') }}
+    env:
+      COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Release the podspec
+        run: |
+          pod trunk push "RFKit.podspec"

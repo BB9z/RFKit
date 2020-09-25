@@ -22,11 +22,33 @@
 #pragma mark Xcode 12
 
 // 18389814: SVG image, requires macOS 10.15+, iOS 13+
+// 64910707: XCFrameworks can now include .dSYM and .bcsymbolmap
+// IBDesignable improvements
+// 54356464: The linker now supports @filename response files
+// 60089627: Xcode Playgrounds can now build the active scheme’s targets and make them importable
+// 60612584: Xcode Playgrounds can now import and use Swift packages and frameworks
+// 40237402: You can now declare conditions for a Swift package’s target dependencies
+// 54361843: Swift packages can now contain resources such as images, asset catalogs, storyboards, and other files
+// 56592977: Swift packages can now vend prebuilt libraries distributed as XCFrameworks
+// 56925255: Swift packages can now contain localized content for any resource in the package
+// 28547702: New XCTIssue
+// 54721394: XCTApplicationLaunchMetric can now measure application launch to first frame
+// Many others XCTest improvements
+
+// Swift 5.3
+// SE-0269: Swift now allows the implicit use of self in @escaping closures when reference cycles are unlikely to occur
+// 59471019: A property with an attached property wrapper can now rely on type inference to infer the wrapped value type
+// Support using @main in place of @UIApplicationMain or @NSApplicationMain
+// 64229062: lazy properties may now have didSet and/or willSet observers.
+// SE-0285: #fileID identifier which produces a shorter string than #file
+// SE-0279: Multiple Trailing Closures
+// SE-0286: Forward-scan matching for trailing closures
 
 #pragma mark Xcode 11
 
 // Xcode 11.4
 // https://developer.apple.com/documentation/xcode_release_notes/xcode_11_4_release_notes
+// Swift 5.2
 // XCTSkipIf, XCTSkipUnless
 // simctl privacy
 
@@ -36,6 +58,7 @@
 
 // Xcode 11
 // https://developer.apple.com/documentation/xcode_release_notes/xcode_11_release_notes
+// Swift 5.1
 // SwiftUI
 // Working with Swift packages
 // Mac Catalyst
