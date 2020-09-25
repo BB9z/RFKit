@@ -109,7 +109,7 @@ STAGE_MAIN() {
         XC_Test "Test-tvOS"  "platform=tvOS Simulator,name=Apple TV 4K,OS=13.0"
 
         echo "Test on old device and OS".
-        XC_Test "Test-iOS"   "platform=iOS Simulator,name=iPhone 5,OS=10.3"
+        XC_Test "Test-iOS"   "platform=iOS Simulator,name=iPhone 5,OS=10.3.1"
         XC_Test "Test-tvOS"  "platform=tvOS Simulator,name=Apple TV,OS=10.2"
 
         echo "Test Swift"
