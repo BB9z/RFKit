@@ -15,7 +15,7 @@ RFKit 包含一套对日常 Cocoa 开发很有帮助的工具。
 
 | RFKit Version | Minimum Xcode Version | Minimum iOS Target  | Minimum macOS Target | Minimum watchOS Target | Minimum tvOS Target |
 |:-------------:|:---------------------:|:-------------------:|:--------------------:|:----------------------:|:-------------------:|
-| 2.5             | Xcode 9               | iOS 9  | macOS 10.9  | watchOS 2.0 | tvOS 9.0 |
+| 2.5+            | Xcode 9               | iOS 9  | macOS 10.9  | watchOS 2.0 | tvOS 9.0 |
 | 2.4             | Xcode 8               | iOS 8  | macOS 10.8  | watchOS 2.0 | tvOS 9.0 |
 | 2.0-2.3       | Xcode 8               | iOS 6  | macOS 10.8  | watchOS 2.0 | tvOS 9.0 |
 | 1.7           | Xcode 7               | iOS 6  | macOS 10.8  | watchOS 2.0 | tvOS 9.0 |
@@ -42,7 +42,6 @@ pod 'RFKit', :git => 'https://github.com/BB9z/RFKit.git', :branch => 'develop'
 ```ruby
 pod 'RFKit',
     :git => 'https://github.com/BB9z/RFKit.git',
-    :branch => 'develop',
     :subspecs => ['Default', 'Category/NSDateFormatter']
 ```
 
@@ -54,12 +53,6 @@ pod 'RFKit',
 
 ```text
 github "BB9z/RFKit"
-```
-
-或者用最新的版本：
-
-```
-github "BB9z/RFKit" "develop"
 ```
 
 ### 手工引用
