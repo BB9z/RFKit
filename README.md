@@ -1,5 +1,6 @@
 # RFKit
 
+[![CocoaPods](https://github.com/BB9z/RFKit/workflows/CocoaPods/badge.svg)](https://github.com/BB9z/RFKit/actions?query=workflow%3ACocoaPods)
 [![Build Status](https://img.shields.io/travis/BB9z/RFKit.svg?style=flat-square&colorA=333333&colorB=6600cc)](https://travis-ci.com/BB9z/RFKit)
 [![Codecov](https://img.shields.io/codecov/c/github/BB9z/RFKit.svg?style=flat-square&colorA=333333&colorB=6600cc)](https://codecov.io/gh/BB9z/RFKit)
 [![CocoaPods](https://img.shields.io/cocoapods/v/RFKit.svg?style=flat-square&colorA=333333&colorB=6600cc)](https://cocoapods.org/pods/RFKit)
